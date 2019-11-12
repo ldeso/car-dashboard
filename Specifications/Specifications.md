@@ -13,6 +13,7 @@ Signals:
   * Malfunction of the pollution control system
   * Hazard lights
   * Preheating Diesel
+  * Tire Pressure Warning Light
 
 ## Examples
 
