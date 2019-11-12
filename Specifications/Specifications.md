@@ -12,6 +12,7 @@ Signals:
   * Malfunction of anti-lock wheels
   * Malfunction of the pollution control system
   * Hazard lights
+  * Preheating Diesel
 
 ## Examples
 
