@@ -13,10 +13,18 @@ Signals:
   * Malfunction of the pollution control system
   * Hazard lights
   * Preheating Diesel
+  * Tire Pressure Warning Light
+  * Traction Control
+  * Engine Warning (yellow)
+  * Fog Lamp Indicator
+  * Security Light
+  * Washer Fluid Indicator
+  * Steering Wheel Lock
+  * Service Vehicle Soon
+  * Press Clutch Pedal
 
 ## Examples
 
-1. [Lightmatter Car Dashboard](https://upload.wikimedia.org/wikipedia/commons/1/14/Lightmatter_Dashboard.jpg) - [source](https://commons.wikimedia.org/wiki/File:Lightmatter_Dashboard.jpg) (CC BY 1.0)
     * Coolant temperature
     * Tachometer
     * Speedometer
@@ -71,6 +79,6 @@ Signals:
 * speed counter and rpm counter
 * an icon of a car. When someone forget to put on his seat belt, a red point appear on the icon where the seat belt is not put on.
 * and when a door is open, add a blue mark on the open door (on the icon).
-11. https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwjyxIPi9uTlAhXx8OAKHb_nBaAQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.shutterstock.com%2Fimage-photo%2Fblue-dashboard-car-meters-indicators-dark-750393586&psig=AOvVaw0AVsLEUIfsBQRdT7wuobug&ust=1573653017658449
 
-12. The best dashboard on earth https://images-na.ssl-images-amazon.com/images/I/51XQMvX3ADL._SX355_.jpg
+
+
