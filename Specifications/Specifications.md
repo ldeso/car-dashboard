@@ -53,3 +53,13 @@ Signals:
 6. http://www.librow.com
 
 7. [Audi A6 L e-tron Concept](https://fr.wheelsage.org/audi/a6/%D1%817/92411/pictures/jbzyh2/)
+
+
+8. [Dashboard](https://thumbs.dreamstime.com/z/ic%C3%B4nes-de-tableau-bord-voiture-r%C3%A9gl%C3%A9es-125211202.jpg)
+
+9. [Icon without watermark](https://img-4.linternaute.com/nB1hOYkhnmHrEEDAXAB_bRRVtsI=/450x/smart/d8303cc2871b48b6a05524a857fb4725/ccmcms-linternaute/10652918.jpg)
+* icons for motors problem (danger), Warning, turn signals, batteries problem 
+* type of headlight with different colors (red for the full headlight for example)
+* speed counter and rpm counter
+* an icon of a car. When someone forget to put on his seat belt, a red point appear on the icon where the seat belt is not put on.
+* and when a door is open, add a blue mark on the open door (on the icon).
