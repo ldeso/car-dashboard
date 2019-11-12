@@ -8,6 +8,7 @@ Signals:
     * Faulty bulb
     * Low battery
     * Used brake pads
+    * Failure of power steering
 
 ## Examples
 
