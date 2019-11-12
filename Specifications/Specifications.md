@@ -40,7 +40,7 @@ Signals:
     * ABS problem. (amber)
     * Unclosed door (red)
 
-    * Rear window heating ON/OFF
+    * Rear window heating
     * Hand brake ON/OFF
 
 
