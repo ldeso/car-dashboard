@@ -14,6 +14,7 @@ Signals:
   * Hazard lights
   * Preheating Diesel
   * Tire Pressure Warning Light
+  * Traction Control
 
 ## Examples
 
