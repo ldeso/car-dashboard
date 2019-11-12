@@ -4,13 +4,13 @@
 
 Signals:
 
-    * Anti-fog
-    * Faulty bulb
-    * Low battery
-    * Used brake pads
-    * Failure of power steering
-    * Malfunction of anti-lock wheels
-    * Malfunction of the pollution control system
+  * Anti-fog
+  * Faulty bulb
+  * Low battery
+  * Used brake pads
+  * Failure of power steering
+  * Malfunction of anti-lock wheels
+  * Malfunction of the pollution control system
 
 ## Examples
 
@@ -22,6 +22,7 @@ Signals:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green)
+    * Right turn signal (green)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
     * High-beam headlights are engaged. (blue)
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
