@@ -4,18 +4,28 @@
 
 Signals:
 
+### Warnings
+* Faulty bulb
+* Low battery
+* Failure of power steering
+* Malfunction of anti-lock wheels
+* Malfunction of the pollution control system
+* Engine Warning (yellow) 
+* Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+* Brake Lights Warning
+* Automatic Gearbox Warning
+* Low oil pressure (red)
+* Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+
+
+
+
   * Anti-fog
-  * Faulty bulb
-  * Low battery
   * Used brake pads
-  * Failure of power steering
-  * Malfunction of anti-lock wheels
-  * Malfunction of the pollution control system
   * Hazard lights
   * Preheating Diesel
   * Tire Pressure Warning Light
   * Traction Control
-  * Engine Warning (yellow)
   * Fog Lamp Indicator
   * Security Light
   * Washer Fluid Indicator
@@ -23,28 +33,23 @@ Signals:
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
-  * Brake Lights Warning
-  * Automatic Gearbox Warning
   * Brake Fluid
   * Airbag Deactivated
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension
-
-## Examples
-
   * Coolant temperature
   * Tachometer
   * Speedometer
   * Fuel level Idiot lights, from left to right then top to bottom:
-  * Low oil pressure (red)
+  
   * Electrical problem, typically an alternator failure. (red)
   * Left turn signal (green)
   * Right turn signal (green)
-  * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+  
   * High-beam headlights are engaged. (blue)
   * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
-  * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+ 
   * Automatic transmission modes, from top to bottom:
     * P - Park
     * R - Reverse
