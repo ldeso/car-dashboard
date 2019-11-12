@@ -6,6 +6,7 @@ Signals:
 
     * Anti-fog
     * Faulty bulb
+    * Low battery
 
 ## Examples
 
