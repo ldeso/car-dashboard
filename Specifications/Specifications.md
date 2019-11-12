@@ -73,3 +73,5 @@ Signals:
 * an icon of a car. When someone forget to put on his seat belt, a red point appear on the icon where the seat belt is not put on.
 * and when a door is open, add a blue mark on the open door (on the icon).
 11. https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwjyxIPi9uTlAhXx8OAKHb_nBaAQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.shutterstock.com%2Fimage-photo%2Fblue-dashboard-car-meters-indicators-dark-750393586&psig=AOvVaw0AVsLEUIfsBQRdT7wuobug&ust=1573653017658449
+
+12. The best dashboard on earth https://images-na.ssl-images-amazon.com/images/I/51XQMvX3ADL._SX355_.jpg
