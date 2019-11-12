@@ -31,8 +31,14 @@
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
     * ABS problem. (amber)
+    * Anti-fog
+    
 
 2. [Rimac Concept_One Car Dashboard](https://mir-s3-cdn-cf.behance.net/project_modules/1400/7cc96613838623.560575fa5c7cb.png) (CC BY-NC 4.0)
     * [Details](https://mir-s3-cdn-cf.behance.net/project_modules/1400/477e5e13838623.560575fa5b876.png)
 
+
 3. [Dashboard example](https://images.prismic.io/ornikar/1961737b42736b35a0e4318c7e2b1f33a0217a7d_differents-compteurs-tableau-bord.jpg?auto=compress,format)
+
+4. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
+
