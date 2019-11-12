@@ -17,6 +17,7 @@ Signals:
   * Traction Control
   * Engine Warning (yellow)
   * Fog Lamp Indicator
+  * Security Light
 
 ## Examples
 
