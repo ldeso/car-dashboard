@@ -20,6 +20,8 @@ Signals:
   * Security Light
   * Washer Fluid Indicator
   * Steering Wheel Lock
+  * Service Vehicle Soon
+  * Press Clutch Pedal
 
 ## Examples
 
