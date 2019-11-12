@@ -15,6 +15,7 @@ Signals:
   * Preheating Diesel
   * Tire Pressure Warning Light
   * Traction Control
+  * Engine Warning (yellow)
 
 ## Examples
 
