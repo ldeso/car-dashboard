@@ -4,13 +4,13 @@
 
 Signals:
 
-    * Anti-fog
-    * Faulty bulb
-    * Low battery
-    * Used brake pads
-    * Failure of power steering
-    * Malfunction of anti-lock wheels
-    * Malfunction of the pollution control system
+  * Anti-fog
+  * Faulty bulb
+  * Low battery
+  * Used brake pads
+  * Failure of power steering
+  * Malfunction of anti-lock wheels
+  * Malfunction of the pollution control system
 
 ## Examples
 
@@ -22,6 +22,7 @@ Signals:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green)
+    * Right turn signal (green)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
     * High-beam headlights are engaged. (blue)
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
@@ -35,7 +36,6 @@ Signals:
       * 2 - First and second gears only
       * L - Low (First gear only)
     * Fasten seatbelts (red)
-    * Right turn signal (green)
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
@@ -61,3 +61,13 @@ Signals:
 7. http://www.librow.com
 
 8. [Audi A6 L e-tron Concept](https://fr.wheelsage.org/audi/a6/%D1%817/92411/pictures/jbzyh2/)
+
+9. [Dashboard](https://thumbs.dreamstime.com/z/ic%C3%B4nes-de-tableau-bord-voiture-r%C3%A9gl%C3%A9es-125211202.jpg)
+
+10. [Icon without watermark](https://img-4.linternaute.com/nB1hOYkhnmHrEEDAXAB_bRRVtsI=/450x/smart/d8303cc2871b48b6a05524a857fb4725/ccmcms-linternaute/10652918.jpg)
+* icons for motors problem (danger), Warning, turn signals, batteries problem 
+* type of headlight with different colors (red for the full headlight for example)
+* speed counter and rpm counter
+* an icon of a car. When someone forget to put on his seat belt, a red point appear on the icon where the seat belt is not put on.
+* and when a door is open, add a blue mark on the open door (on the icon).
+11. https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwifscr79eTlAhVM8BQKHSDNDeQQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fwww.larevueautomobile.com%252FActu%252FMagnifique-rolls-royce-phantom-drophead-coupe-waterspeed-collection-7423.html%26psig%3DAOvVaw04SSby63cE923IjAsU8sNI%26ust%3D1573656610074181&psig=AOvVaw04SSby63cE923IjAsU8sNI&ust=1573656610074181
