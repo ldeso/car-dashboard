@@ -33,6 +33,10 @@
     * ABS problem. (amber)
     * Anti-fog
     * Faulty bulb
+    * Rear window heating ON/OFF
+    * Hand brake ON/OFF
+    
+    
     
     
 
