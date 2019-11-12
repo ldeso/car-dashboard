@@ -33,7 +33,7 @@
     * ABS problem. (amber)
     * Anti-fog
     * Faulty bulb
-    * __RPM__
+    
     
 
 2. [Rimac Concept_One Car Dashboard](https://mir-s3-cdn-cf.behance.net/project_modules/1400/7cc96613838623.560575fa5c7cb.png) (CC BY-NC 4.0)
