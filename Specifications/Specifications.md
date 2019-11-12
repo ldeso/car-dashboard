@@ -7,6 +7,7 @@ Signals:
     * Anti-fog
     * Faulty bulb
     * Low battery
+    * Used brake pads
 
 ## Examples
 
