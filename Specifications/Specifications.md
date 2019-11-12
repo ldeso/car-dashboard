@@ -38,6 +38,7 @@ Signals:
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
     * ABS problem. (amber)
+    * Unclosed door (red)
 
     * Rear window heating ON/OFF
     * Hand brake ON/OFF
