@@ -13,6 +13,7 @@ Signals:
   * Malfunction of the pollution control system
   * Hazard lights
   * Preheating Diesel
+  * Rear window defogging
 
 ## Examples
 
