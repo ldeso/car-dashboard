@@ -33,6 +33,5 @@
 
 2. [Rimac Concept_One Car Dashboard](https://mir-s3-cdn-cf.behance.net/project_modules/1400/7cc96613838623.560575fa5c7cb.png) (CC BY-NC 4.0)
     * [Details](https://mir-s3-cdn-cf.behance.net/project_modules/1400/477e5e13838623.560575fa5b876.png)
-    
-    
-3.https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
+
+3. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
