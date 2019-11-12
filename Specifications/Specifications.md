@@ -6,6 +6,8 @@ Signals:
 
     * Anti-fog
     * Faulty bulb
+    * Low battery
+    * Used brake pads
 
 ## Examples
 
@@ -42,13 +44,12 @@ Signals:
 
 3. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
 
-3. [Dashboard example](https://images.prismic.io/ornikar/1961737b42736b35a0e4318c7e2b1f33a0217a7d_differents-compteurs-tableau-bord.jpg?auto=compress,format)
+4. [Dashboard example](https://images.prismic.io/ornikar/1961737b42736b35a0e4318c7e2b1f33a0217a7d_differents-compteurs-tableau-bord.jpg?auto=compress,format)
 
-4. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
+5. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
 
-5. https://image.freepik.com/vecteurs-libre/tableau-bord-voiture-isole_1284-13378.jpg
+6. https://image.freepik.com/vecteurs-libre/tableau-bord-voiture-isole_1284-13378.jpg
 
+7. http://www.librow.com
 
-6. http://www.librow.com
-
-7. [Audi A6 L e-tron Concept](https://fr.wheelsage.org/audi/a6/%D1%817/92411/pictures/jbzyh2/)
+8. [Audi A6 L e-tron Concept](https://fr.wheelsage.org/audi/a6/%D1%817/92411/pictures/jbzyh2/)
