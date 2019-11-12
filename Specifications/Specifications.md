@@ -36,7 +36,6 @@ Signals:
       * 2 - First and second gears only
       * L - Low (First gear only)
     * Fasten seatbelts (red)
-    * Right turn signal (green)
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
@@ -66,3 +65,4 @@ Signals:
 * speed counter and rpm counter
 * an icon of a car. When someone forget to put on his seat belt, a red point appear on the icon where the seat belt is not put on.
 * and when a door is open, add a blue mark on the open door (on the icon).
+11. https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwifscr79eTlAhVM8BQKHSDNDeQQjRx6BAgBEAQ&url=%2Furl%3Fsa%3Di%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dimages%26cd%3D%26ved%3D%26url%3Dhttps%253A%252F%252Fwww.larevueautomobile.com%252FActu%252FMagnifique-rolls-royce-phantom-drophead-coupe-waterspeed-collection-7423.html%26psig%3DAOvVaw04SSby63cE923IjAsU8sNI%26ust%3D1573656610074181&psig=AOvVaw04SSby63cE923IjAsU8sNI&ust=1573656610074181
