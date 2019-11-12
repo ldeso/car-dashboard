@@ -19,6 +19,7 @@ Signals:
   * Fog Lamp Indicator
   * Security Light
   * Washer Fluid Indicator
+  * Steering Wheel Lock
 
 ## Examples
 
