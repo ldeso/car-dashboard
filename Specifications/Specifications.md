@@ -18,6 +18,7 @@ Signals:
   * Engine Warning (yellow)
   * Fog Lamp Indicator
   * Security Light
+  * Washer Fluid Indicator
 
 ## Examples
 
