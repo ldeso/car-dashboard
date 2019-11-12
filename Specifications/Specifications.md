@@ -14,7 +14,6 @@ Signals:
 
 ## Examples
 
-1. [Lightmatter Car Dashboard](https://upload.wikimedia.org/wikipedia/commons/1/14/Lightmatter_Dashboard.jpg) - [source](https://commons.wikimedia.org/wiki/File:Lightmatter_Dashboard.jpg) (CC BY 1.0)
     * Coolant temperature
     * Tachometer
     * Speedometer
@@ -43,24 +42,6 @@ Signals:
     * ABS problem. (amber)
     * Unclosed door (red)
 
-2. [Rimac Concept_One Car Dashboard](https://mir-s3-cdn-cf.behance.net/project_modules/1400/7cc96613838623.560575fa5c7cb.png) - [source](https://search.creativecommons.org/photos/6828daff-ba93-4a38-85c0-df465ae56986) (CC BY-NC 4.0)
-    * [Details](https://mir-s3-cdn-cf.behance.net/project_modules/1400/477e5e13838623.560575fa5b876.png)
-
-3. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
-
-4. [Dashboard example](https://images.prismic.io/ornikar/1961737b42736b35a0e4318c7e2b1f33a0217a7d_differents-compteurs-tableau-bord.jpg?auto=compress,format)
-
-5. https://i1.wp.com/autoecole-etairos.fr/wp-content/uploads/2018/03/voyants-tableau-de-bord.jpg?w=620&ssl=1
-
-6. https://image.freepik.com/vecteurs-libre/tableau-bord-voiture-isole_1284-13378.jpg
-
-7. http://www.librow.com
-
-8. [Audi A6 L e-tron Concept](https://fr.wheelsage.org/audi/a6/%D1%817/92411/pictures/jbzyh2/)
-
-9. [Dashboard](https://thumbs.dreamstime.com/z/ic%C3%B4nes-de-tableau-bord-voiture-r%C3%A9gl%C3%A9es-125211202.jpg)
-
-10. [Icon without watermark](https://img-4.linternaute.com/nB1hOYkhnmHrEEDAXAB_bRRVtsI=/450x/smart/d8303cc2871b48b6a05524a857fb4725/ccmcms-linternaute/10652918.jpg)
 * icons for motors problem (danger), Warning, turn signals, batteries problem 
 * type of headlight with different colors (red for the full headlight for example)
 * speed counter and rpm counter
