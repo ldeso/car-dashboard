@@ -4,13 +4,13 @@
 
 Signals:
 
-    * Anti-fog
-    * Faulty bulb
-    * Low battery
-    * Used brake pads
-    * Failure of power steering
-    * Malfunction of anti-lock wheels
-    * Malfunction of the pollution control system
+  * Anti-fog
+  * Faulty bulb
+  * Low battery
+  * Used brake pads
+  * Failure of power steering
+  * Malfunction of anti-lock wheels
+  * Malfunction of the pollution control system
 
 ## Examples
 
