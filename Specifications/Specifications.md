@@ -20,7 +20,7 @@ Signals:
 
 
 
-  * Anti-fog (Inna)
+  * Anti-fog Rear/Front (done by Inna)
   * Used brake pads 
   * Hazard lights --> Hugo
   * Preheating Diesel
