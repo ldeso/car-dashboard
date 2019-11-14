@@ -81,8 +81,8 @@ Signals:
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
-* Rear Parking Aid
-  * Radar
+* Rear Parking Aid -> Jonas
+  * Radar 
   * Camera
 
 
