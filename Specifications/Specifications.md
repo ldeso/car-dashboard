@@ -5,7 +5,7 @@
 Signals:
 
 ### Warnings
-* Faulty bulb (HH)
+* Faulty bulb (pris par HH)
 * Low battery
 * Failure of power steering
 * Malfunction of anti-lock wheels
@@ -27,7 +27,7 @@ Signals:
   * Tire Pressure Warning Light
   * Traction Control
   * Fog Lamp Indicator
-  * Security Light
+  * Security Light (henri)
   * Washer Fluid Indicator
   * Steering Wheel Lock
   * Service Vehicle Soon
