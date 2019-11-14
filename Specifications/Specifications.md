@@ -85,7 +85,7 @@ Signals:
       * L - Low (First gear only)
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
-    * (Below cruise control light) Low fuel level. (amber)
+    * Low fuel level. (amber) 	LEA
     * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
