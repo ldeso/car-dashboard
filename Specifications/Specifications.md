@@ -37,8 +37,11 @@ Signals:
   * Brake Fluid --> Hugo
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
-  * Air Suspension Jonas
-  
+  * Air Suspension(youcef)
+
+
+
+
     * Coolant temperature (Loto)
     * Tachometer (Loto)
     * Speedometer Florian
