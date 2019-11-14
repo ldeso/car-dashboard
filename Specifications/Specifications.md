@@ -21,7 +21,7 @@ Signals:
 
 
   * Anti-fog (Inna)
-  * Used brake pads 
+  * Used brake pads --> Hugo
   * Hazard lights --> Hugo
   * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
