@@ -28,7 +28,7 @@ Signals:
   * Traction Control
   * Fog Lamp Indicator
   * Security Light (henri)
-  * Washer Fluid Indicator
+  * Washer Fluid Indicator (henri)
   * Steering Wheel Lock
   * Service Vehicle Soon
   * Press Clutch Pedal
