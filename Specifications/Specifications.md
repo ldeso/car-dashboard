@@ -23,7 +23,7 @@ Signals:
   * Anti-fog (Inna)
   * Used brake pads 
   * Hazard lights --> Hugo
-  * Preheating Diesel
+  * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
   * Traction Control
   * Fog Lamp Indicator (Jonas)
