@@ -47,7 +47,7 @@ Signals:
     * Coolant temperature (Loto)
     * Tachometer (Loto)
     * Speedometer Florian
-    * Fuel level Idiot lights, from left to right then top to bottom:
+    * Fuel level Idiot lights : --> Hugo
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
