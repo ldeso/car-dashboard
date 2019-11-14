@@ -63,7 +63,7 @@ Signals:
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
-    * Security system enabled. (green)
+    * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
