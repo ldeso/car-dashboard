@@ -29,7 +29,7 @@ Signals:
   * Fog Lamp Indicator
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock
+  * Steering Wheel Lock (henri)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
