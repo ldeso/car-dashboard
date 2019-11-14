@@ -57,7 +57,6 @@ Signals:
 
     * High-beam headlights are engaged. (blue) (done by Inna)
 
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
     * Automatic transmission modes, from top to bottom:	LEA
