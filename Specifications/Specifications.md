@@ -79,10 +79,10 @@ Signals:
   * Radar 
   * Camera
 
-Radar/Detector:
+*Radar/Detector
     * Rain sensor
     * Light sensor
-    * Parking assitant(youcef)
+    * Parking assitant (youcef)
 
 
 
