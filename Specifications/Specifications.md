@@ -77,7 +77,7 @@ Signals:
     * Hand brake ON/OFF		LEA
     * Parking Aid System (rear/front)-> Jonas
     * Sensor 
-    * Camera
+    * Camera		LEA
 
 Radar/Detector:
     * Rain sensor
