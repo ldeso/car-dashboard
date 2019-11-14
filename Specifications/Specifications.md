@@ -33,31 +33,48 @@ Signals:
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
+
+  * Brake Fluid
+  * Airbag Deactivated  (Maroua)
+
   * Brake Fluid --> Hugo
   * Airbag Deactivated Florian (done)
+
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
 
 
     * Coolant temperature (Loto)
-<<<<<<< HEAD
+
     * Tachometer (Loto)
     * Speedometer
 
     * Tachometer
     * Speedometer Florian
-=======
+
+
+
      * Tachometer (Loto)
      * Speedometer Florian
->>>>>>> 9f19f2c4134ee9cb0090edfa065f46d3c26382f4
+
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
+
+    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+    * High-beam headlights are engaged. (blue) INNA
+
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
+    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+
+
     * High-beam headlights are engaged. (blue) (done by Inna)
+
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
+
     * Automatic transmission modes, from top to bottom:
       * P - Park
       * R - Reverse
