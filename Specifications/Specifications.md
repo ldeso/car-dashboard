@@ -43,21 +43,10 @@ Signals:
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
-
-
+  
     * Coolant temperature (Loto)
-
     * Tachometer (Loto)
-    * Speedometer
-
-    * Tachometer
     * Speedometer Florian
-
-
-
-     * Tachometer (Loto)
-     * Speedometer Florian
-
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
@@ -85,7 +74,7 @@ Signals:
       * L - Low (First gear only)
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
-    * (Below cruise control light) Low fuel level. (amber)
+    * Low fuel level. (amber) 	LEA
     * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
