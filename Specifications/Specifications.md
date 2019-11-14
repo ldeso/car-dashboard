@@ -34,7 +34,7 @@ Signals:
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
   * Brake Fluid --> Hugo
-  * Airbag Deactivated
+  * Airbag Deactivated Florian
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension
