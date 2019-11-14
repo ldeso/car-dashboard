@@ -35,10 +35,10 @@ Signals:
   * Steering Wheel Lock (HH/done)
   * Service Vehicle Soon (HH/done)
   * Press Clutch Pedal
-  * All Wheel Drive (AWD/4WD)
+  * All Wheel Drive (AWD/4WD)		LEA
   * Airbag Deactivated  (Maroua)
   * Brake Fluid --> Hugo
-  * 4 Wheel Drive (4WD) LOCK Indicator Light
+  * 4 Wheel Drive (4WD) LOCK Indicator Light (HH)
   * Adaptive Suspension Dampers
   * Air Suspension(youcef)
 
