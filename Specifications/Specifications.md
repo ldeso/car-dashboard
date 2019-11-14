@@ -10,7 +10,7 @@ Signals:
 * Power Steering System Light (HH/done)
 * Power Steering Warning Light (HH/done)
 * Malfunction of anti-lock wheels (HH)
-* Malfunction of the pollution control system
+* Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning (henri)
