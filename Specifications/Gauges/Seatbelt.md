@@ -1,5 +1,3 @@
-
-
 ###Seatbelt
 
 -**Descriptor :** Indicate if the Indicates if the belt is properly attached
