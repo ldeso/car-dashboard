@@ -6,7 +6,7 @@ Signals:
 
 ### Warnings
 * Faulty bulb (pris par HH/done)
-* Low battery (pris par HH)
+* Low battery (pris par HH/done)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
@@ -20,16 +20,16 @@ Signals:
 
 
 
-  * Anti-fog
-  * Used brake pads
-  * Hazard lights
+  * Anti-fog (Inna)
+  * Used brake pads 
+  * Hazard lights --> Hugo
   * Preheating Diesel
   * Tire Pressure Warning Light --> Hugo
   * Traction Control
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock (henri)
+  * Steering Wheel Lock ((pris par HH)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
@@ -41,20 +41,23 @@ Signals:
 
 
     * Coolant temperature (Loto)
+<<<<<<< HEAD
     * Tachometer (Loto)
     * Speedometer
 
     * Tachometer
     * Speedometer Florian
+=======
+     * Tachometer (Loto)
+     * Speedometer Florian
+>>>>>>> 9f19f2c4134ee9cb0090edfa065f46d3c26382f4
     * Fuel level Idiot lights, from left to right then top to bottom:
-    * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
-    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
-    * High-beam headlights are engaged. (blue) INNA
+    * High-beam headlights are engaged. (blue) (done by Inna)
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
-    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
     * Automatic transmission modes, from top to bottom:
       * P - Park
       * R - Reverse
@@ -66,7 +69,7 @@ Signals:
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
-    * Security system enabled. (green)
+    * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
