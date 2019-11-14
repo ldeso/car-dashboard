@@ -13,7 +13,7 @@ Signals:
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
-* Automatic Gearbox Warning (HH)
+* Automatic Gearbox Warning (Henri)
 * Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
 
@@ -33,13 +33,8 @@ Signals:
   * Service Vehicle Soon (HH/done)
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
-
-  * Brake Fluid
   * Airbag Deactivated  (Maroua)
-
   * Brake Fluid --> Hugo
-  * Airbag Deactivated Florian (done)
-
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
