@@ -13,7 +13,7 @@ Signals:
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
-* Automatic Gearbox Warning
+* Automatic Gearbox Warning (henri)
 * Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
 
