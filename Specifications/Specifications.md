@@ -60,7 +60,7 @@ Signals:
       * D3 - Drive without overdrive
       * 2 - First and second gears only
       * L - Low (First gear only)
-    * Fasten seatbelts (red)
+    * Fasten seatbelts (red) --> Hugo
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
