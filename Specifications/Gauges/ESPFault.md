@@ -1,8 +1,9 @@
-###ESPFault
+### ESPFault
 
-- **Description**: Indicator light means that there is a problem with the vehicle’s traction control. 
-- **Values:**: 0,1
-- **Calculated**: no
-- **Type**: Led
+- **Description**: Indicator light that means that there is a problem with the
+vehicle’s traction control. 
+- **Values:**: 0, 1
+- **Calculated**: No
+- **Type**: LED
 - **Priority**: 2
-- **Vocal Alert**: No
+- **Vocal alert**: No
