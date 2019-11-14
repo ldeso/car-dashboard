@@ -11,7 +11,7 @@ Signals:
 * Power Steering Warning Light (HH/done)
 * Security Alert (HH/done)
 * ESP Fault/Traction Control Malfunction (HH/done)
-* Bonnet Open Warning Light (HH)
+* Bonnet Open Warning Light (HH/done)
 * Boot Lid Warning Light (HH)
 * Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
