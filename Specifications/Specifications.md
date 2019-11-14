@@ -51,7 +51,7 @@ Signals:
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
-    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+
 
 
     * High-beam headlights are engaged. (blue) (done by Inna)
