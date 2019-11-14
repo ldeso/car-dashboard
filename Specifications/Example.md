@@ -26,3 +26,5 @@
 13. [Car Dashboard UI Modern Vector](https://www.vecteezy.com/vector-art/191136-car-dashboard-ui-modern-vector)
 
 14. [An example](https://blogmedia.dealerfire.com/wp-content/uploads/sites/266/2019/01/VDC_2019_VWJetta_Featured_o.jpg)
+
+15. [Ford Fiesta] https://cdn.autocentre.ua/ac/10/13/images/06/Fiesta_Mazda2-(11).jpg
