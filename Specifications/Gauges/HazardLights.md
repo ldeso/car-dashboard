@@ -1,8 +1,9 @@
-### HazardLight
+### HazardLights
 
--**Description** : blinking LED that is turned on by the driver to signal other drivers a sudden danger.
--**Values** : 0,1 
--**Vocal alert** : no
--**Calculator** : no
--**Type** : blinking LED
--**Priority** : 1
+- **Description:** Blinking LED that is turned on by the driver to signal a
+sudden danger to other drivers.
+- **Values:** 0, 1 
+- **Vocal alert:** No
+- **Calculator:** No
+- **Type:** Blinking LED
+- **Priority:** 1
