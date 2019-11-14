@@ -20,7 +20,7 @@ Signals:
 
 
 
-  * Anti-fog
+  * Anti-fog (Inna)
   * Used brake pads
   * Hazard lights
   * Preheating Diesel
@@ -41,8 +41,8 @@ Signals:
 
 
     * Coolant temperature (Loto)
-    * Tachometer (Inna)
-    * Speedometer Florian
+     * Tachometer (Loto)
+     * Speedometer Florian
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
