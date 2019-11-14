@@ -52,7 +52,7 @@ Signals:
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
 
-    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
