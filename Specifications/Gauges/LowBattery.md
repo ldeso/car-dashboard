@@ -1,4 +1,4 @@
-###Low Battery / Battery Warning Light / Battery Charge Warning Light
+###LowBattery
 
 - **Description**: Indicator light means that the car’s charging system is short of power or is not charging properly.
 It normally indicates a problem with the battery itself or the alternator. 

@@ -1,16 +1,14 @@
+###Seatbelt
 
+-**Descriptor :** Indicate if the Indicates if the belt is properly attached
 
-### Seatbelt
+-**Values :** 0,1
 
--**Descriptor : ** Indicate if the Indicates if the belt is properly attached
+-**Calculated:** no
 
--**Values : ** 0,1
+-**Type:** Led
 
--**Calculated: no
-
--**Type: Led
-
--**Priority: 1
+-**Priority:** 1
 
 
 
