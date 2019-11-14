@@ -6,3 +6,4 @@
 - **Calculated:** No
 - **Automatic:** Yes
 - **Type:** LED, Circular Gauge (180°)
+- **Priority:** 1

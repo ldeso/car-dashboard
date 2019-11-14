@@ -7,11 +7,11 @@ Signals:
 ### Warnings
 * Faulty bulb (HH/done)
 * Low battery (HH/done)
-* Failure of power steering (HH)
-* Malfunction of anti-lock wheels (HH)
-* Malfunction of the pollution control system
+* Power Steering System Light (HH/done)
+* Power Steering Warning Light (HH/done)
+* Security Alert (HH)
+* Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
-* Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning (henri)
 * Low oil pressure (red) Florian (done)
@@ -37,8 +37,11 @@ Signals:
   * Brake Fluid --> Hugo
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
-  * Air Suspension Jonas
-  
+  * Air Suspension(youcef)
+
+
+
+
     * Coolant temperature (Loto)
     * Tachometer (Loto)
     * Speedometer Florian
@@ -51,12 +54,12 @@ Signals:
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
-    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+
 
 
     * High-beam headlights are engaged. (blue) (done by Inna)
 
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
+
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
     * Automatic transmission modes, from top to bottom:	LEA
