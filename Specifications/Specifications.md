@@ -8,8 +8,8 @@ Signals:
 * Faulty bulb (HH/done)
 * Low battery (HH/done)
 * Power Steering System Light (HH/done)
-* Power Steering Warning Light (HH)
-* Malfunction of anti-lock wheels 
+* Power Steering Warning Light (HH/done)
+* Malfunction of anti-lock wheels (HH)
 * Malfunction of the pollution control system
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
@@ -57,6 +57,7 @@ Signals:
 
     * High-beam headlights are engaged. (blue) (done by Inna)
 
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
     * Automatic transmission modes, from top to bottom:	LEA
