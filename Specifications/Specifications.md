@@ -5,7 +5,7 @@
 Signals:
 
 ### Warnings
-* Faulty bulb
+* Faulty bulb (HH)
 * Low battery
 * Failure of power steering
 * Malfunction of anti-lock wheels
