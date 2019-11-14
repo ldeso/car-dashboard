@@ -24,7 +24,7 @@ Signals:
   * Used brake pads
   * Hazard lights
   * Preheating Diesel
-  * Tire Pressure Warning Light
+  * Tire Pressure Warning Light --> Hugo
   * Traction Control
   * Fog Lamp Indicator
   * Security Light (henri)
@@ -46,8 +46,8 @@ Signals:
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
-    * Left turn signal (green)
-    * Right turn signal (green)
+    * Left turn signal (green) (Karim)
+    * Right turn signal (green) (Karim)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
     * High-beam headlights are engaged. (blue) INNA
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
