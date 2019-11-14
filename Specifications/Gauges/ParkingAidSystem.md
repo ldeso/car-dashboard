@@ -5,4 +5,4 @@
 - **Calculated:** No
 - **Vocal alert:** Yes
 - **Type:** Sensor and/or camera
-- **Priority:** 
+- **Priority:** 1
