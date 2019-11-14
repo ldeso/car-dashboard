@@ -34,11 +34,12 @@ Signals:
   * Washer Fluid Indicator (henri)
   * Steering Wheel Lock (HH/done)
   * Service Vehicle Soon (HH/done)
-  * Press Clutch Pedal
+  * Press Clutch Pedal --> Hugo
   * All Wheel Drive (AWD/4WD)		LEA
   * Airbag Deactivated  (Maroua)
   * Brake Fluid --> Hugo
-  * 4 Wheel Drive (4WD) LOCK Indicator Light (HH)
+  * 4 Wheel Drive (4WD) LOCK Indicator Light (HH/done)
+  * All Wheel Drive (AWD/4WD) (HH)
   * Adaptive Suspension Dampers
   * Air Suspension(youcef)
 
@@ -53,7 +54,6 @@ Signals:
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
 
-    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
@@ -75,9 +75,9 @@ Signals:
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
-* Parking Aid System (rear/front)-> Jonas
-  * Sensor 
-  * Camera
+    * Parking Aid System (rear/front)-> Jonas
+    * Sensor 
+    * Camera
 
 Radar/Detector:
     * Rain sensor
