@@ -80,8 +80,9 @@ Signals:
     * Camera
 
 Radar/Detector:
+
     * Rain sensor Florian
-    * Light sensor
+    * Light sensor (MAROUA)
     * Parking assitant(youcef)
 
 
