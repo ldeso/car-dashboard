@@ -1,4 +1,4 @@
-###High beam headlight
+###HighbeamHeadlight
 
 - ** Description**: When the high beam headlight is ON the function turns on the corrsponding LED symbol.
 - ** Values**: 0,1
