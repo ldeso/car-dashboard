@@ -12,7 +12,6 @@ Signals:
 * Malfunction of anti-lock wheels (HH)
 * Malfunction of the pollution control system
 * Engine Warning --> Hugo
-* Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning (henri)
 * Low oil pressure (red) Florian (done)
@@ -52,7 +51,7 @@ Signals:
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
-    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+
 
 
     * High-beam headlights are engaged. (blue) (done by Inna)

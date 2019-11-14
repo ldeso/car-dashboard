@@ -7,3 +7,4 @@ coolant temperature is *cold*, *normal* or *overheating*.
 - **Calculated:** Yes
 - **Automatic:** Yes
 - **Type:** Gauge 60 degrees, LED
+- **Priority:** 3
