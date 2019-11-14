@@ -1,4 +1,4 @@
-###Faulty bulb / Bulb Monitoring Warning Light /Bulb Failure
+###FaultyBulb
 
 - **Description**: if any of your bulbs are faulty or blown, this light will warn you that one of the exterior bulbs has an issue.
 Most modern vehicles will tell you which bulb it is.
