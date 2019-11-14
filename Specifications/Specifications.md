@@ -7,8 +7,9 @@ Signals:
 ### Warnings
 * Faulty bulb (HH/done)
 * Low battery (HH/done)
-* Failure of power steering (HH)
-* Malfunction of anti-lock wheels (HH)
+* Power Steering System Light (HH/done)
+* Power Steering Warning Light (HH)
+* Malfunction of anti-lock wheels 
 * Malfunction of the pollution control system
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
