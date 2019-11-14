@@ -3,4 +3,4 @@
 - **Values**:   0,1
 - **Calculated**: no
 - **Type**: Led
-- **priority** 1
+- **priority**: 0
