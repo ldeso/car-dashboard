@@ -10,7 +10,7 @@ Signals:
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
-* Engine Warning (yellow) 
+* Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning
@@ -34,7 +34,7 @@ Signals:
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
   * Brake Fluid --> Hugo
-  * Airbag Deactivated
+  * Airbag Deactivated Florian
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension
