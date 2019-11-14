@@ -9,7 +9,8 @@ Signals:
 * Low battery (HH/done)
 * Power Steering System Light (HH/done)
 * Power Steering Warning Light (HH/done)
-* Malfunction of anti-lock wheels (HH)
+* Security Alert (HH/done)
+* ESP Fault/Traction Control Malfunction (HH)
 * Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
