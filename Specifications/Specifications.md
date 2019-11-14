@@ -27,7 +27,7 @@ Signals:
   * Tire Pressure Warning Light
   * Traction Control
   * Fog Lamp Indicator
-  * Security Light
+  * Security Light (henri)
   * Washer Fluid Indicator
   * Steering Wheel Lock
   * Service Vehicle Soon
