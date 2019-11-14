@@ -39,7 +39,7 @@ Signals:
   * Airbag Deactivated  (Maroua)
   * Brake Fluid --> Hugo
   * 4 Wheel Drive (4WD) LOCK Indicator Light (HH/done)
-  * All Wheel Drive (AWD/4WD) (HH)
+  
   * Adaptive Suspension Dampers
   * Air Suspension(youcef)
 
@@ -80,8 +80,7 @@ Signals:
     * Camera
 
 Radar/Detector:
-
-    * Rain sensor Florian
+    * Rain sensor
     * Light sensor (MAROUA)
     * Parking assitant(youcef)
 
