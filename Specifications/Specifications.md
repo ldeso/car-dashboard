@@ -24,7 +24,7 @@ Signals:
   * Used brake pads
   * Hazard lights
   * Preheating Diesel
-  * Tire Pressure Warning Light
+  * Tire Pressure Warning Light --> Hugo
   * Traction Control
   * Fog Lamp Indicator
   * Security Light (henri)
