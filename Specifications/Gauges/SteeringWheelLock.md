@@ -1,5 +1,4 @@
-###Steering Wheel Lock /Steering Lock Warning Light
-
+###SteeringWheelLock
 - **Description**: If this warning light appears, do not drive your vehicle.
 There may be an issue with your steering lock.
 Indicator light means your steering wheel is locked and can not be moved.

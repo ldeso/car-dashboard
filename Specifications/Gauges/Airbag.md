@@ -1,19 +1,8 @@
-### Airbag Deactivated
+### Airbag
 
-
-- **Description :**
-indicate the status of the safety airbags in cars.
-- **Values :**
-0,1
-
-- **Calculated :**
-NO
-
-- **Vocal alert :**
-NO
-
-- **Type :**
-LED 
-
-- **Priority :**
-1
+- **Description:** Indicate the status of the safety airbags in cars.
+- **Values:** 0, 1
+- **Calculated:** No
+- **Vocal alert:** No
+- **Type:** LED 
+- **Priority:** 1
