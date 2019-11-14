@@ -42,9 +42,8 @@ Signals:
 
     * Coolant temperature (Loto)
      * Tachometer (Loto)
-     * Speedometer Florian
+     * Speedometer Florian (done)
     * Fuel level Idiot lights, from left to right then top to bottom:
-    * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
@@ -63,7 +62,7 @@ Signals:
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
-    * Security system enabled. (green)
+    * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
