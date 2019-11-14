@@ -7,8 +7,8 @@ Signals:
 ### Warnings
 * Faulty bulb (HH/done)
 * Low battery (HH/done)
-* Failure of power steering
-* Malfunction of anti-lock wheels
+* Failure of power steering (HH)
+* Malfunction of anti-lock wheels (HH)
 * Malfunction of the pollution control system
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
@@ -21,7 +21,7 @@ Signals:
 
 
   * Anti-fog (Inna)
-  * Used brake pads 
+  * Used brake pads --> Hugo
   * Hazard lights --> Hugo
   * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
