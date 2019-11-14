@@ -10,7 +10,7 @@ Signals:
 * Power Steering System Light (HH/done)
 * Power Steering Warning Light (HH/done)
 * Security Alert (HH/done)
-* ESP Fault/Traction Control Malfunction (HH)
+* ESP Fault/Traction Control Malfunction (HH/done)
 * Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
@@ -26,7 +26,7 @@ Signals:
   * Hazard lights --> Hugo
   * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
-  * Traction Control
+  
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
