@@ -34,7 +34,7 @@ Signals:
   * Washer Fluid Indicator (henri)
   * Steering Wheel Lock (HH/done)
   * Service Vehicle Soon (HH/done)
-  * Press Clutch Pedal
+  * Press Clutch Pedal --> Hugo
   * All Wheel Drive (AWD/4WD)		LEA
   * Airbag Deactivated  (Maroua)
   * Brake Fluid --> Hugo
