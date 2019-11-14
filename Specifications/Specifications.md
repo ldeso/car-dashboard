@@ -13,7 +13,7 @@ Signals:
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
-* Automatic Gearbox Warning (henri)
+* Automatic Gearbox Warning
 * Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
 
@@ -30,7 +30,7 @@ Signals:
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
   * Steering Wheel Lock (HH/done)
-  * Service Vehicle Soon
+  * Service Vehicle Soon (HH)
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
 
