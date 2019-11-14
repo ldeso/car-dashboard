@@ -10,7 +10,7 @@ Signals:
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
-* Engine Warning (yellow) 
+* Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning
