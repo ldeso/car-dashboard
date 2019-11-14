@@ -54,7 +54,6 @@ Signals:
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
 
-    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
@@ -76,13 +75,13 @@ Signals:
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
-* Parking Aid System (rear/front)-> Jonas
-  * Sensor 
-  * Camera
+    * Parking Aid System (rear/front)-> Jonas
+    * Sensor 
+    * Camera
 
 Radar/Detector:
     * Rain sensor
-    * Light sensor
+    * Light sensor (MAROUA)
     * Parking assitant(youcef)
 
 
