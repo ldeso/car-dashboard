@@ -26,10 +26,10 @@ Signals:
   * Preheating Diesel
   * Tire Pressure Warning Light --> Hugo
   * Traction Control
-  * Fog Lamp Indicator
+  * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock
+  * Steering Wheel Lock (henri)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
@@ -37,7 +37,7 @@ Signals:
   * Airbag Deactivated Florian (done)
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
-  * Air Suspension
+  * Air Suspension Jonas
 
 
     * Coolant temperature (Loto)
