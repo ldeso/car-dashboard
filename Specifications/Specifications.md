@@ -66,7 +66,7 @@ Signals:
     * Security system enabled. (green)
     * ABS problem. (amber)	Florian
     * Unclosed door (red)      LEA
-    * Rear window heating
+    * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
 
 
