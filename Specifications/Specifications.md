@@ -40,7 +40,7 @@ Signals:
   * Air Suspension
 
 
-    * Coolant temperature
+    * Coolant temperature (Loto)
     * Tachometer
     * Speedometer
     * Fuel level Idiot lights, from left to right then top to bottom:
