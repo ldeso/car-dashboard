@@ -5,8 +5,8 @@
 Signals:
 
 ### Warnings
-* Faulty bulb (pris par HH)
-* Low battery
+* Faulty bulb (pris par HH/done)
+* Low battery (pris par HH)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
@@ -60,7 +60,7 @@ Signals:
       * D3 - Drive without overdrive
       * 2 - First and second gears only
       * L - Low (First gear only)
-    * Fasten seatbelts (red) -> Léo
+    * Fasten seatbelts (red)
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
