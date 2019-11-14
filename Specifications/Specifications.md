@@ -34,7 +34,7 @@ Signals:
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
   * Brake Fluid
-  * Airbag Deactivated
+  * Airbag Deactivated  Maroua
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension
@@ -50,7 +50,7 @@ Signals:
     * Right turn signal (green) (Karim)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
     * High-beam headlights are engaged. (blue) INNA
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
     * Automatic transmission modes, from top to bottom:
       * P - Park
