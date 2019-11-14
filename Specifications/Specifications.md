@@ -48,7 +48,7 @@ Signals:
     * Coolant temperature (Loto)
     * Tachometer (Loto)
     * Speedometer Florian
-    * Fuel level Idiot lights, from left to right then top to bottom:
+    * Fuel level Idiot light --> Hugo
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
@@ -75,8 +75,8 @@ Signals:
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
-* Rear Parking Aid -> Jonas
-  * Radar 
+* Parking Aid System (rear/front)-> Jonas
+  * Sensor 
   * Camera
 
 *Radar/Detector
