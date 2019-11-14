@@ -12,7 +12,7 @@ Signals:
 * Security Alert (HH/done)
 * ESP Fault/Traction Control Malfunction (HH/done)
 * Bonnet Open Warning Light (HH/done)
-* Boot Lid Warning Light (HH)
+* Boot Lid Warning Light (HH/done)
 * Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
@@ -65,14 +65,8 @@ Signals:
 
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
-    * Automatic transmission modes, from top to bottom:	LEA
-      * P - Park
-      * R - Reverse
-      * N - Neutral
-      * D4 - Drive with overdrive
-      * D3 - Drive without overdrive
-      * 2 - First and second gears only
-      * L - Low (First gear only)
+    * Automatic transmission modes	LEA
+
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)	LEA
     * Low fuel level. (amber) 	LEA
@@ -84,6 +78,11 @@ Signals:
 * Parking Aid System (rear/front)-> Jonas
   * Sensor 
   * Camera
+
+Radar/Detector:
+    * Rain sensor
+    * Light sensor
+    * Parking assitant(youcef)
 
 
 
