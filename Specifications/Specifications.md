@@ -29,20 +29,25 @@ Signals:
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock
+  * Steering Wheel Lock (henri)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
   * Brake Fluid --> Hugo
-  * Airbag Deactivated Florian
+  * Airbag Deactivated Florian (done)
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
 
 
     * Coolant temperature (Loto)
-    * Tachometer
+<<<<<<< HEAD
+    * Tachometer (Loto)
     * Speedometer
+=======
+    * Tachometer
+    * Speedometer Florian
+>>>>>>> 31eb8c3e8035926e3803f07b56466e37581dbc9e
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
@@ -51,7 +56,7 @@ Signals:
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
     * High-beam headlights are engaged. (blue) INNA
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
-    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
     * Automatic transmission modes, from top to bottom:
       * P - Park
       * R - Reverse
@@ -64,7 +69,7 @@ Signals:
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
-    * ABS problem. (amber)	Florian
+    * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
