@@ -5,8 +5,8 @@
 Signals:
 
 ### Warnings
-* Faulty bulb (pris par HH)
-* Low battery
+* Faulty bulb (pris par HH/done)
+* Low battery (pris par HH)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
@@ -28,7 +28,7 @@ Signals:
   * Traction Control
   * Fog Lamp Indicator
   * Security Light (henri)
-  * Washer Fluid Indicator
+  * Washer Fluid Indicator (henri)
   * Steering Wheel Lock
   * Service Vehicle Soon
   * Press Clutch Pedal
@@ -66,7 +66,7 @@ Signals:
     * Security system enabled. (green)
     * ABS problem. (amber)	Florian
     * Unclosed door (red)      LEA
-    * Rear window heating
+    * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
 
 
