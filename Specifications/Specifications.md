@@ -26,7 +26,7 @@ Signals:
   * Hazard lights --> Hugo
   * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
-  * Traction Control
+  
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
