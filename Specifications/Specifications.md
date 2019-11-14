@@ -65,14 +65,8 @@ Signals:
 
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
-    * Automatic transmission modes, from top to bottom:	LEA
-      * P - Park
-      * R - Reverse
-      * N - Neutral
-      * D4 - Drive with overdrive
-      * D3 - Drive without overdrive
-      * 2 - First and second gears only
-      * L - Low (First gear only)
+    * Automatic transmission modes	LEA
+
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)	LEA
     * Low fuel level. (amber) 	LEA
