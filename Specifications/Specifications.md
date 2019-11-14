@@ -6,7 +6,7 @@ Signals:
 
 ### Warnings
 * Faulty bulb (pris par HH/done)
-* Low battery (pris par HH)
+* Low battery (pris par HH/done)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
@@ -29,7 +29,7 @@ Signals:
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock
+  * Steering Wheel Lock ((pris par HH)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
@@ -48,7 +48,7 @@ Signals:
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
     * High-beam headlights are engaged. (blue) (done by Inna)
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) Florian
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
     * Automatic transmission modes, from top to bottom:
       * P - Park
