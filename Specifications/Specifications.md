@@ -33,13 +33,8 @@ Signals:
   * Service Vehicle Soon (HH)
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
-
-  * Brake Fluid
   * Airbag Deactivated  (Maroua)
-
   * Brake Fluid --> Hugo
-  * Airbag Deactivated Florian (done)
-
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
