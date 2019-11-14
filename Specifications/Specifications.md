@@ -13,7 +13,7 @@ Signals:
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
-* Automatic Gearbox Warning
+* Automatic Gearbox Warning (HH)
 * Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
 
@@ -30,7 +30,7 @@ Signals:
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
   * Steering Wheel Lock (HH/done)
-  * Service Vehicle Soon (HH)
+  * Service Vehicle Soon (HH/done)
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
 
@@ -47,7 +47,7 @@ Signals:
     * Coolant temperature (Loto)
     * Tachometer (Loto)
     * Speedometer Florian
-    * Fuel level Idiot lights : --> Hugo
+    * Fuel level Idiot lights, from left to right then top to bottom:
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
@@ -73,7 +73,7 @@ Signals:
       * 2 - First and second gears only
       * L - Low (First gear only)
     * Fasten seatbelts (red) -> Léo
-    * Cruise control is activated. (green)
+    * Cruise control is activated. (green)	LEA
     * Low fuel level. (amber) 	LEA
     * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
