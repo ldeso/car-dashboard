@@ -41,7 +41,7 @@ Signals:
 
 
     * Coolant temperature (Loto)
-    * Tachometer
+    * Tachometer (Loto)
     * Speedometer
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Low oil pressure (red)
