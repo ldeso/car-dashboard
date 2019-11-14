@@ -64,7 +64,7 @@ Signals:
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
-    * ABS problem. (amber)
+    * ABS problem. (amber)	Florian
     * Unclosed door (red)      LEA
     * Rear window heating
     * Hand brake ON/OFF		LEA
