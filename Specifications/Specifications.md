@@ -67,7 +67,7 @@ Signals:
     * ABS problem. (amber)
     * Unclosed door (red)      LEA
     * Rear window heating
-    * Hand brake ON/OFF
+    * Hand brake ON/OFF		LEA
 
 
 
