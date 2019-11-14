@@ -1,6 +1,6 @@
 ### TurnSignal
 
-- **Description:** LED turned on when the left or right signal is activated .
+- **Description:** LED turned on when the left or right signal is activated.
 - **Values:** 0 or 1
 - **Vocal alert:** No
 - **Calculator:** No
