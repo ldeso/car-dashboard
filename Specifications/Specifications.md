@@ -23,7 +23,7 @@ Signals:
   * Anti-fog (Inna)
   * Used brake pads 
   * Hazard lights --> Hugo
-  * Preheating Diesel
+  * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
   * Traction Control
   * Fog Lamp Indicator (Jonas)
@@ -43,27 +43,16 @@ Signals:
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
-
-
+  
     * Coolant temperature (Loto)
-
     * Tachometer (Loto)
-    * Speedometer
-
-    * Tachometer
     * Speedometer Florian
-
-
-
-     * Tachometer (Loto)
-     * Speedometer Florian
-
-    * Fuel level Idiot lights, from left to right then top to bottom:
+    * Fuel level Idiot lights : --> Hugo
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
 
-    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
     * High-beam headlights are engaged. (blue) INNA
 
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
