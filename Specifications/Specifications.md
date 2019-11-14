@@ -5,14 +5,14 @@
 Signals:
 
 ### Warnings
-* Faulty bulb (pris par HH)
-* Low battery
+* Faulty bulb (pris par HH/done)
+* Low battery (pris par HH)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
-* Engine Warning (yellow) 
+* Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
-* Brake Lights Warning
+* Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning
 * Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
@@ -20,38 +20,41 @@ Signals:
 
 
 
-  * Anti-fog
+  * Anti-fog (Inna)
   * Used brake pads
   * Hazard lights
   * Preheating Diesel
   * Tire Pressure Warning Light --> Hugo
   * Traction Control
-  * Fog Lamp Indicator
+  * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
-  * Washer Fluid Indicator
-  * Steering Wheel Lock
+  * Washer Fluid Indicator (henri)
+  * Steering Wheel Lock (henri)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
   * Brake Fluid --> Hugo
-  * Airbag Deactivated
+  * Airbag Deactivated Florian (done)
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
+<<<<<<< HEAD
   * Air Suspension(youcef)
+=======
+  * Air Suspension Jonas
+>>>>>>> 0010df753515939abf79b9ef471704ecb6496d6e
 
 
     * Coolant temperature (Loto)
-    * Tachometer
-    * Speedometer
+     * Tachometer (Loto)
+     * Speedometer Florian (done)
     * Fuel level Idiot lights, from left to right then top to bottom:
-    * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
-    * High-beam headlights are engaged. (blue) INNA
+    * High-beam headlights are engaged. (blue) (done by Inna)
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
-    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
     * Automatic transmission modes, from top to bottom:
       * P - Park
       * R - Reverse
@@ -60,11 +63,11 @@ Signals:
       * D3 - Drive without overdrive
       * 2 - First and second gears only
       * L - Low (First gear only)
-    * Fasten seatbelts (red)
+    * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
-    * Security system enabled. (green)
-    * ABS problem. (amber)	Florian
+    * Security system enabled. (green)		LEA
+    * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
