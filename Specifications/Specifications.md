@@ -9,8 +9,11 @@ Signals:
 * Low battery (HH/done)
 * Power Steering System Light (HH/done)
 * Power Steering Warning Light (HH/done)
-* Malfunction of anti-lock wheels (HH)
-* Malfunction of the pollution control system
+* Security Alert (HH/done)
+* ESP Fault/Traction Control Malfunction (HH/done)
+* Bonnet Open Warning Light (HH/done)
+* Boot Lid Warning Light (HH/done)
+* Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning (henri)
@@ -25,7 +28,7 @@ Signals:
   * Hazard lights --> Hugo
   * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
-  * Traction Control
+  
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
@@ -59,17 +62,11 @@ Signals:
 
     * High-beam headlights are engaged. (blue) (done by Inna)
 
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
+
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
-    * Automatic transmission modes, from top to bottom:	LEA
-      * P - Park
-      * R - Reverse
-      * N - Neutral
-      * D4 - Drive with overdrive
-      * D3 - Drive without overdrive
-      * 2 - First and second gears only
-      * L - Low (First gear only)
+    * Automatic transmission modes	LEA
+
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)	LEA
     * Low fuel level. (amber) 	LEA
@@ -78,6 +75,9 @@ Signals:
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
+* Rear Parking Aid -> Jonas
+  * Radar 
+  * Camera
 
 Radar/Detector:
     * Rain sensor
