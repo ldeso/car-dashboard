@@ -76,7 +76,7 @@ Signals:
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
     * Parking Aid System (rear/front)-> Jonas
-    * Sensor 
+    * Sensor-> Jonas
     * Camera		LEA
 
 *Radar/Detector
