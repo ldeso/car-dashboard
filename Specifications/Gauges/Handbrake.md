@@ -1,4 +1,4 @@
-###Hand brake ON/OFF
+###HandbrakeON
 
 - **Description :**An indicator light turns on when the handbrake is on. 
 - **Values :**0,1
