@@ -14,7 +14,7 @@ Signals:
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning
 * Automatic Gearbox Warning
-* Low oil pressure (red) Florian
+* Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
 
 
@@ -33,7 +33,7 @@ Signals:
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
-  * Brake Fluid
+  * Brake Fluid --> Hugo
   * Airbag Deactivated
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
