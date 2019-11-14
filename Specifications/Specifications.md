@@ -15,7 +15,7 @@ Signals:
 * Brake Lights Warning (Jonas)
 * Automatic Gearbox Warning (HH)
 * Low oil pressure (red) Florian (done)
-* Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+* Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
 
 
 
