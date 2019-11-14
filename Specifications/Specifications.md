@@ -28,7 +28,7 @@ Signals:
   * Traction Control
   * Fog Lamp Indicator
   * Security Light (henri)
-  * Washer Fluid Indicator
+  * Washer Fluid Indicator (henri)
   * Steering Wheel Lock
   * Service Vehicle Soon
   * Press Clutch Pedal
@@ -60,7 +60,7 @@ Signals:
       * D3 - Drive without overdrive
       * 2 - First and second gears only
       * L - Low (First gear only)
-    * Fasten seatbelts (red)
+    * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
