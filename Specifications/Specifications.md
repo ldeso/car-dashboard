@@ -7,13 +7,13 @@ Signals:
 ### Warnings
 * Faulty bulb (HH/done)
 * Low battery (HH/done)
-* Failure of power steering
-* Malfunction of anti-lock wheels
+* Power Steering System Light (HH)
+* Malfunction of anti-lock wheels 
 * Malfunction of the pollution control system
 * Engine Warning --> Hugo
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning (Jonas)
-* Automatic Gearbox Warning (Henri)
+* Automatic Gearbox Warning (henri)
 * Low oil pressure (red) Florian (done)
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red) (Loto)
 
@@ -21,7 +21,7 @@ Signals:
 
 
   * Anti-fog (Inna)
-  * Used brake pads 
+  * Used brake pads --> Hugo
   * Hazard lights --> Hugo
   * Preheating Diesel Florian
   * Tire Pressure Warning Light --> Hugo
@@ -59,7 +59,7 @@ Signals:
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
 
-    * Automatic transmission modes, from top to bottom:
+    * Automatic transmission modes, from top to bottom:	LEA
       * P - Park
       * R - Reverse
       * N - Neutral
