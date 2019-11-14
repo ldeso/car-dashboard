@@ -1,6 +1,6 @@
 ### ABSProblem
 
-- **Description:** Light that indicates ABS problem
+- **Description:** Light that indicates ABS problem.
 - **Values:** 0, 1
 - **Vocal Alert:** No
 - **Calculator:** No
