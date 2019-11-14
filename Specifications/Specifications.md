@@ -5,8 +5,8 @@
 Signals:
 
 ### Warnings
-* Faulty bulb (pris par HH/done)
-* Low battery (pris par HH/done)
+* Faulty bulb (HH/done)
+* Low battery (HH/done)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
@@ -29,27 +29,41 @@ Signals:
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock ((pris par HH)
+  * Steering Wheel Lock (HH/done)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
+
+  * Brake Fluid
+  * Airbag Deactivated  (Maroua)
+
   * Brake Fluid --> Hugo
   * Airbag Deactivated Florian (done)
+
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
-
-
+  
     * Coolant temperature (Loto)
     * Tachometer (Loto)
-     * Speedometer Florian
+    * Speedometer Florian
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
+
+    * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
+    * High-beam headlights are engaged. (blue) INNA
+
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) MAROUA
+    * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
+
+
     * High-beam headlights are engaged. (blue) (done by Inna)
+
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
+
     * Automatic transmission modes, from top to bottom:
       * P - Park
       * R - Reverse
