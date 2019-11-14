@@ -5,8 +5,8 @@
 Signals:
 
 ### Warnings
-* Faulty bulb (pris par HH/done)
-* Low battery (pris par HH/done)
+* Faulty bulb (HH/done)
+* Low battery (HH/done)
 * Failure of power steering
 * Malfunction of anti-lock wheels
 * Malfunction of the pollution control system
@@ -29,7 +29,7 @@ Signals:
   * Fog Lamp Indicator (Jonas)
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
-  * Steering Wheel Lock ((pris par HH)
+  * Steering Wheel Lock (HH/done)
   * Service Vehicle Soon
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
