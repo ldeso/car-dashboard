@@ -40,7 +40,7 @@ Signals:
   * Brake Fluid --> Hugo
   * 4 Wheel Drive (4WD) LOCK Indicator Light (HH/done)
   
-  * Adaptive Suspension Dampers
+  * Adaptive Suspension Dampers (HH)
   * Air Suspension(youcef)
 
 
