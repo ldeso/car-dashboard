@@ -34,7 +34,7 @@ Signals:
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
   * Brake Fluid --> Hugo
-  * Airbag Deactivated Florian
+  * Airbag Deactivated Florian (done)
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
   * Air Suspension Jonas
@@ -42,7 +42,7 @@ Signals:
 
     * Coolant temperature (Loto)
     * Tachometer
-    * Speedometer
+    * Speedometer Florian
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
@@ -64,7 +64,7 @@ Signals:
     * Cruise control is activated. (green)
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
-    * ABS problem. (amber)	Florian
+    * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
