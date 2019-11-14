@@ -30,7 +30,7 @@ Signals:
   * Security Light (henri)
   * Washer Fluid Indicator (henri)
   * Steering Wheel Lock (HH/done)
-  * Service Vehicle Soon
+  * Service Vehicle Soon (HH)
   * Press Clutch Pedal
   * All Wheel Drive (AWD/4WD)
 
@@ -74,7 +74,7 @@ Signals:
       * L - Low (First gear only)
     * Fasten seatbelts (red) -> Léo
     * Cruise control is activated. (green)
-    * (Below cruise control light) Low fuel level. (amber)
+    * Low fuel level. (amber) 	LEA
     * Security system enabled. (green)		LEA
     * ABS problem. (amber)	Florian (done)
     * Unclosed door (red)      LEA
