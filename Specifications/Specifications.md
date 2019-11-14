@@ -5,7 +5,7 @@
 Signals:
 
 ### Warnings
-* Faulty bulb
+* Faulty bulb (pris par HH)
 * Low battery
 * Failure of power steering
 * Malfunction of anti-lock wheels
@@ -14,7 +14,7 @@ Signals:
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning
 * Automatic Gearbox Warning
-* Low oil pressure (red)
+* Low oil pressure (red) Florian
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
 
 
@@ -27,7 +27,7 @@ Signals:
   * Tire Pressure Warning Light
   * Traction Control
   * Fog Lamp Indicator
-  * Security Light
+  * Security Light (henri)
   * Washer Fluid Indicator
   * Steering Wheel Lock
   * Service Vehicle Soon
@@ -49,7 +49,7 @@ Signals:
     * Left turn signal (green)
     * Right turn signal (green)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
-    * High-beam headlights are engaged. (blue)
+    * High-beam headlights are engaged. (blue) INNA
     * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
     * Automatic transmission modes, from top to bottom:
@@ -65,7 +65,7 @@ Signals:
     * (Below cruise control light) Low fuel level. (amber)
     * Security system enabled. (green)
     * ABS problem. (amber)
-    * Unclosed door (red)
+    * Unclosed door (red)      LEA
     * Rear window heating
     * Hand brake ON/OFF
 
