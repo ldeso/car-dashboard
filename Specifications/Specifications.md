@@ -81,7 +81,7 @@ Signals:
 
 Radar/Detector:
     * Rain sensor
-    * Light sensor
+    * Light sensor (MAROUA)
     * Parking assitant(youcef)
 
 
