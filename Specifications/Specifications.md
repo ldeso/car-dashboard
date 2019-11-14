@@ -76,12 +76,17 @@ Signals:
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
     * Parking Aid System (rear/front)-> Jonas
-    * Sensor 
+    * Sensor-> Jonas
     * Camera		LEA
 
-Radar/Detector:
+*Radar/Detector
     * Rain sensor
+
+    
+    * Parking assitant (youcef)
+
     * Light sensor (MAROUA)
     * Parking assitant(youcef)
+>>>>>>> c3a56ab8f4e046137d5c8858c1f084dd77ba23d0
 
 
