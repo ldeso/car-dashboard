@@ -14,7 +14,7 @@ Signals:
 * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)
 * Brake Lights Warning
 * Automatic Gearbox Warning
-* Low oil pressure (red)
+* Low oil pressure (red) Florian
 * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
 
 
