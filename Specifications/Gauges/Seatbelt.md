@@ -6,5 +6,11 @@
 
 -**Values : ** 0,1
 
+-**Calculated: no
+
+-**Type: Led
+
+-**Priority: 1
+
 
 
