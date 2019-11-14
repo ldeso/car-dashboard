@@ -41,13 +41,11 @@ Signals:
 
 
     * Coolant temperature (Loto)
-<<<<<<< HEAD
     * Tachometer (Loto)
     * Speedometer
-=======
+
     * Tachometer
     * Speedometer Florian
->>>>>>> 31eb8c3e8035926e3803f07b56466e37581dbc9e
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Low oil pressure (red)
     * Electrical problem, typically an alternator failure. (red)
