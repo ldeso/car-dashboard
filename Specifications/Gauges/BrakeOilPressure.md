@@ -5,3 +5,4 @@
 -   **Calculated:** No
 -   **Automatic:** Yes
 -   **Type:** LED on symbol.
+-   **Priority:** 3
