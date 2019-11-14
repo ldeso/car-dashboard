@@ -1,6 +1,7 @@
 ### LightSensor
 
-- **Description:** turn on or off lights  automatically depending on how light it is outside
+- **Description:** Turn lights on or off automatically depending on the
+intensity of the light outside.
 - **Values:** 0, 1
 - **Calculated:** No
 - **Vocal alert:** No
