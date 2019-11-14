@@ -50,7 +50,7 @@ Signals:
     * Right turn signal (green) (Karim)
     * Brake, indicating either a problem with the braking system (typically low brake fluid pressure), or that the handbrake is engaged. (red)
     * High-beam headlights are engaged. (blue) (done by Inna)
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red)
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) Florian
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
     * Automatic transmission modes, from top to bottom:
       * P - Park
