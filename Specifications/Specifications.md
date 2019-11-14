@@ -37,7 +37,7 @@ Signals:
   * Airbag Deactivated
   * 4 Wheel Drive (4WD) LOCK Indicator Light
   * Adaptive Suspension Dampers
-  * Air Suspension
+  * Air Suspension(youcef)
 
 
     * Coolant temperature (Loto)
