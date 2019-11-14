@@ -38,7 +38,7 @@ Signals:
   * All Wheel Drive (AWD/4WD)
   * Airbag Deactivated  (Maroua)
   * Brake Fluid --> Hugo
-  * 4 Wheel Drive (4WD) LOCK Indicator Light
+  * 4 Wheel Drive (4WD) LOCK Indicator Light (HH)
   * Adaptive Suspension Dampers
   * Air Suspension(youcef)
 
