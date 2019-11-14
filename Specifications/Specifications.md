@@ -42,13 +42,13 @@ Signals:
 
     * Coolant temperature (Loto)
      * Tachometer (Loto)
-     * Speedometer Florian
+     * Speedometer Florian (done)
     * Fuel level Idiot lights, from left to right then top to bottom:
     * Electrical problem, typically an alternator failure. (red)
     * Left turn signal (green) (Karim)
     * Right turn signal (green) (Karim)
     * High-beam headlights are engaged. (blue) (done by Inna)
-    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) Florian
+    * SRS, standing for "Supplementary Restraint System", indicating a problem with the airbag(s). (red) Florian (done)
     * Check engine light, which indicates a miscellaneous, usually non-critical problem. (amber)	LEA
     * Automatic transmission modes, from top to bottom:
       * P - Park
