@@ -11,6 +11,8 @@ Signals:
 * Power Steering Warning Light (HH/done)
 * Security Alert (HH/done)
 * ESP Fault/Traction Control Malfunction (HH/done)
+* Bonnet Open Warning Light (HH)
+* Boot Lid Warning Light (HH)
 * Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
@@ -79,6 +81,9 @@ Signals:
     * Unclosed door (red)      LEA
     * Rear window heating	LEA
     * Hand brake ON/OFF		LEA
+* Rear Parking Aid
+  * Radar
+  * Camera
 
 
 
