@@ -12,7 +12,7 @@ Signals:
 * Security Alert (HH/done)
 * ESP Fault/Traction Control Malfunction (HH/done)
 * Bonnet Open Warning Light (HH/done)
-* Boot Lid Warning Light (HH)
+* Boot Lid Warning Light (HH/done)
 * Malfunction of the pollution control system 	LEA
 * Engine Warning --> Hugo
 * Brake Lights Warning (Jonas)
