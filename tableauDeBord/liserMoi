@@ -1,4 +1,4 @@
-le fond est la classe sceneDeFond, qui dérive de QGraphicsItem.
+le fond personel dérive la classe sceneDeFond, qui dérive de QGraphicsItem.
 
 la classe cadrantVirtuel se dérive pour faire son cadrant perso, elle dérive de QGraphicsItem.
 
