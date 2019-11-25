@@ -24,38 +24,40 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+/**
+ * @brief MainWindow::connexion
+ * @details etabli la connexion avec le client
+ */
 void MainWindow::connexion()
 {
     socket = this->server->nextPendingConnection();
     qDebug() << "connexion etabli";
-    //socket->write("ok\n");
-    /*while(socket->state() != 0 ){
-        if(!socket->waitForReadyRead())
-            qDebug() << "temps d attente depasse";
-        else
-
-    }*/
     connect(socket, SIGNAL(readyRead()),this, SLOT(reception()));
 }
 
-void MainWindow::display()
-{
-
-    /*QByteArray qba = ui->lineEdit->text().toUtf8();
-    socket->write(qba);*/
-
-}
-
+/**
+ * @brief MainWindow::reception
+ * @details gere la reception des messages.
+ * todoux : ajouter les conditions pour les differents messages recu
+ */
 void MainWindow::reception()
 {
     //ui->text->setText(QString(socket->readAll()));
     QString string(socket->readAll());
-    QString message = string.section(' ',0,2);
-    if(message=="BUS CANN SPEED"){
-        int vitesse = string.section(' ', 3,3).toInt();
+    QString message = string.section(' ',0,1);
+    if(message=="CANN SPEED"){
+        int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= c->getSpeedMax()){
             c->setSpeed(vitesse);
             ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(c->getSpeedMax());
+            socket->write(text.toUtf8());
         }
     }
     else
