@@ -17,8 +17,11 @@ MainWindow::MainWindow(QWidget *parent) :
     cadrant=new cadrantHenri();
     scene->addItem(cadrant);
 
-    jauge=new jaugeEssenceHenri();
-    scene->addItem(jauge);
+    jaugeEssence=new jaugeEssenceHenri();
+    scene->addItem(jaugeEssence);
+
+    jaugeToursMin=new jaugeToursMinuteHenri();
+    scene->addItem(jaugeToursMin);
 
     connect(ui->sliderVitesse,SIGNAL(actionTriggered(int)),this,SLOT(vit()));
     connect(ui->sliderToursMinute,SIGNAL(actionTriggered(int)),this,SLOT(tou()));
@@ -40,18 +43,18 @@ void MainWindow::vit()
 
 void MainWindow::tou()
 {
-    cadrant->toursMinute=ui->sliderToursMinute->value();
+    jaugeToursMin->valeur=ui->sliderToursMinute->value();
     scene->update();
 }
 
-void MainWindow::sty(QString s)
-{
-    cadrant->styleTexte=s;
-    scene->update();
-}
+//void MainWindow::sty(QString s)
+//{
+//    cadrant->styleTexte=s;
+//    scene->update();
+//}
 
 void MainWindow::ess()
 {
-    jauge->essence=ui->sliderEssence->value();
+    jaugeEssence->valeur=ui->sliderEssence->value();
     scene->update();
 }

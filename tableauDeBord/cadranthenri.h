@@ -15,10 +15,6 @@ public:
     int epesseurTraitVitesse;
     int tailleTexteVitesse;
 
-    int toursMinute;
-    int toursMinuteMax;
-    int epesseurTraitToursMinure;
-    int tailleTextetoursMinute;
 };
 
 #endif // CADRANTHENRI_H

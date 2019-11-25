@@ -14,8 +14,6 @@ public:
     jaugeEssenceHenri(jaugeVirtuel *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-
-    int essence;//de 0 à 100
 };
 
 #endif // JAUGEESSENCEHENRI_H

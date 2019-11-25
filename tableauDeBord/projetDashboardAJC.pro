@@ -31,7 +31,8 @@ SOURCES += \
     cadranthenri.cpp \
     scenedefond.cpp \
     jaugeessencehenri.cpp \
-    scenedefondhenri.cpp
+    scenedefondhenri.cpp \
+    jaugetoursminutehenri.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     cadranthenri.h \
     scenedefond.h \
     jaugeessencehenri.h \
-    scenedefondhenri.h
+    scenedefondhenri.h \
+    jaugetoursminutehenri.h
 
 FORMS += \
         mainwindow.ui

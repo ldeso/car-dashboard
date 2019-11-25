@@ -5,6 +5,7 @@
 #include "cadranthenri.h"
 #include "jaugeessencehenri.h"
 #include "scenedefondhenri.h"
+#include "jaugetoursminutehenri.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,8 +19,9 @@ public:
     ~MainWindow();
     QGraphicsScene *scene;
     sceneDeFond *fond;
-    cadrantHenri *cadrant;
-    jaugeEssenceHenri *jauge;
+    cadrantVirtuel *cadrant;
+    jaugeVirtuel *jaugeEssence;
+    jaugeVirtuel *jaugeToursMin;
 
 private:
     Ui::MainWindow *ui;
@@ -27,7 +29,6 @@ private:
 private slots:
     void vit();//les fonctions pour actualiser les valeurs, qui sont connectées aux sliders.
     void tou();
-    void sty(QString s);
     void ess();
 };
 

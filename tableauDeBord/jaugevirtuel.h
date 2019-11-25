@@ -10,6 +10,8 @@ class jaugeVirtuel : public QGraphicsItem
 {
 public:
     jaugeVirtuel(QGraphicsItem *parent=nullptr);
+    int valeur;
+    int valeurMax;
 };
 
 #endif // JAUGEVIRTUEL_H
