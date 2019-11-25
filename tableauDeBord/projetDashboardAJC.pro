@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
+
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,7 +34,8 @@ SOURCES += \
     scenedefond.cpp \
     jaugeessencehenri.cpp \
     scenedefondhenri.cpp \
-    jaugetoursminutehenri.cpp
+    jaugetoursminutehenri.cpp \
+    sceneglobale.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +45,8 @@ HEADERS += \
     scenedefond.h \
     jaugeessencehenri.h \
     scenedefondhenri.h \
-    jaugetoursminutehenri.h
+    jaugetoursminutehenri.h \
+    sceneglobale.h
 
 FORMS += \
         mainwindow.ui

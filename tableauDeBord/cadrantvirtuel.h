@@ -11,8 +11,8 @@ class cadrantVirtuel : public QGraphicsItem
 public:
     cadrantVirtuel(QGraphicsItem *parent=nullptr);
 
-    int vitesse;//la vitesse actualisée
-    int vitesseMax;//la vitesse maximum
+    int valeur;//la vitesse actualisée
+    int valeurMax;//la vitesse maximum
 };
 
 #endif // CADRANTVIRTUEL_H

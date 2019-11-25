@@ -8,20 +8,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    scene = new QGraphicsScene(this);
+    scene = new sceneGlobale();
     ui->graphicsView->setScene(scene);
 
-    fond = new sceneDeFondHenri();
-    scene->addItem(fond);
+    scene->fond = new sceneDeFondHenri();
+    scene->addItem(scene->fond);
 
-    cadrant=new cadrantHenri();
-    scene->addItem(cadrant);
+    scene->fond = new sceneDeFondHenri();
+    scene->addItem(scene->fond);
 
-    jaugeEssence=new jaugeEssenceHenri();
-    scene->addItem(jaugeEssence);
+    scene->cadrant=new cadrantHenri();
+    scene->addItem(scene->cadrant);
 
-    jaugeToursMin=new jaugeToursMinuteHenri();
-    scene->addItem(jaugeToursMin);
+    scene->jaugeEssence=new jaugeEssenceHenri();
+    scene->addItem(scene->jaugeEssence);
+
+    scene->jaugeToursMin=new jaugeToursMinuteHenri();
+    scene->addItem(scene->jaugeToursMin);
 
     connect(ui->sliderVitesse,SIGNAL(actionTriggered(int)),this,SLOT(vit()));
     connect(ui->sliderToursMinute,SIGNAL(actionTriggered(int)),this,SLOT(tou()));
@@ -36,25 +39,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::vit()
 {
-    cadrant->vitesse=ui->sliderVitesse->value();
+    scene->cadrant->valeur=ui->sliderVitesse->value();
     scene->update();
 }
 
 
 void MainWindow::tou()
 {
-    jaugeToursMin->valeur=ui->sliderToursMinute->value();
+    scene->jaugeToursMin->valeur=ui->sliderToursMinute->value();
     scene->update();
 }
 
-//void MainWindow::sty(QString s)
-//{
-//    cadrant->styleTexte=s;
-//    scene->update();
-//}
-
 void MainWindow::ess()
 {
-    jaugeEssence->valeur=ui->sliderEssence->value();
+    scene->jaugeEssence->valeur=ui->sliderEssence->value();
     scene->update();
 }

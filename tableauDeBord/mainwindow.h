@@ -6,6 +6,7 @@
 #include "jaugeessencehenri.h"
 #include "scenedefondhenri.h"
 #include "jaugetoursminutehenri.h"
+#include "sceneglobale.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,11 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    QGraphicsScene *scene;
-    sceneDeFond *fond;
-    cadrantVirtuel *cadrant;
-    jaugeVirtuel *jaugeEssence;
-    jaugeVirtuel *jaugeToursMin;
+    sceneGlobale *scene;
 
 private:
     Ui::MainWindow *ui;
