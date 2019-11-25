@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "cadranthenri.h"
 #include "jaugeessencehenri.h"
-#include "scenedefond.h"
+#include "scenedefondhenri.h"
 
 namespace Ui {
 class MainWindow;

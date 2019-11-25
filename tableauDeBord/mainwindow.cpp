@@ -11,13 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
 
-    fond = new sceneDeFond();
+    fond = new sceneDeFondHenri();
     scene->addItem(fond);
 
     cadrant=new cadrantHenri();
     scene->addItem(cadrant);
 
-    jauge=new jaugeEssence();
+    jauge=new jaugeEssenceHenri();
     scene->addItem(jauge);
 
     connect(ui->sliderVitesse,SIGNAL(actionTriggered(int)),this,SLOT(vit()));

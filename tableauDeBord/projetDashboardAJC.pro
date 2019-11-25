@@ -30,7 +30,8 @@ SOURCES += \
     jaugevirtuel.cpp \
     cadranthenri.cpp \
     scenedefond.cpp \
-    jaugeessencehenri.cpp
+    jaugeessencehenri.cpp \
+    scenedefondhenri.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     jaugevirtuel.h \
     cadranthenri.h \
     scenedefond.h \
-    jaugeessencehenri.h
+    jaugeessencehenri.h \
+    scenedefondhenri.h
 
 FORMS += \
         mainwindow.ui
