@@ -39,19 +39,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::vit()
 {
-    scene->cadrant->valeur=ui->sliderVitesse->value();
+    scene->cadrant->setValeur(ui->sliderVitesse->value());
     scene->update();
 }
 
 
 void MainWindow::tou()
 {
-    scene->jaugeToursMin->valeur=ui->sliderToursMinute->value();
+    scene->jaugeToursMin->setValeur(ui->sliderToursMinute->value());
     scene->update();
 }
 
 void MainWindow::ess()
 {
-    scene->jaugeEssence->valeur=ui->sliderEssence->value();
+    scene->jaugeEssence->setValeur(ui->sliderEssence->value());
     scene->update();
 }
