@@ -34,11 +34,15 @@ void viderBuffer(){
  * @return EXIT_SUCCESS si le programme se termine normalement
  * sinon EXIT_FAILURE avec affichage d'une erreur dans le terminal
  * @details saisie des commandes en deux temps : d abord le nom de la commande puis après la valeur
- * todo : ajouter les commandes BUS CANN pour les differents elements du dashboard.
+ * todo : ajouter les commandes CANN pour les differents elements du dashboard.
+ * Les messages seront du format CANN TYPEDECANN VALUE
  */
 int main() {
     int fd;
     char * message;
+    char * recep;
+    char * ptr = (char*) malloc(sizeof(char)*10);
+    char * tmp = (char*) malloc(sizeof(char)*50);
     int valeur;
     int valide = 0;
     struct sockaddr_in adresse;
@@ -67,6 +71,11 @@ int main() {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
+
+    if ((recep = (char * ) malloc(sizeof(char)*50)) == NULL) {
+        perror("Erreur lors de l'allocation memoire pour le message ");
+        exit(EXIT_FAILURE);
+    }
     //boucle permettant l'envoi de message au serveur avec saisie utilisateur
     //TO DO : ajouter les differents test
     do{
@@ -81,44 +90,50 @@ int main() {
             }
             //supprimer le \n du char*
             message[strlen(message)-1] = '\0';
-
+            upperCase(message);
             //compare la commande saisie avec l'une des commandes existantes
             // TO DO ajouter les differentes commandes à la section HELP avec des printf
             if(strcasecmp(message,"HELP")== 0){
-                printf("Veuillez d abord saisir une commande, valider, puis saisir une valeur\n");
+                //printf("Veuillez d abord saisir une commande, valider, puis saisir une valeur\n");
                 printf("Liste des commandes valides : \n");
                 printf("BUS CANN SPEED X avec X compris entre 0 et 400\n");
                 valide = 1;
             }
-            else if(strcasecmp(message,"BUS CANN SPEED")== 0){
-                upperCase(message);
-                printf("Veuillez saisir une valeur pour la commande : ");
-                if(scanf("%d", &valeur)==-1){
-                    perror("erreur lors du scanf");
-                    exit(EXIT_FAILURE);
-                }
-                //verifie si la valeur est comprise entre 0 et 400
-                if(valeur >= 0 && valeur <= 400){
-                    valide = 1;
-                    char temp[5];
-                    sprintf(temp, " %d", valeur);
-                    strcat(message, temp);
-                    viderBuffer();
-                }
-                else
-                    printf("valeur invalide");
-            }
-            //else if(){} NE PAS SUPPRIMER CE COMMENTAIRE
-            //TO DO Ajouter les conditions pour les messages
             else{
-                printf("Commande invalide, Veuillez saisir une commande valide : \n");
+                strcpy(tmp,message);
+                char * cann;
+                char * typeCann;
+                char * charValue;
+                cann = strtok_r(tmp," ", &ptr);
+                tmp = ptr;
+                typeCann = strtok_r(tmp," ", &ptr);
+                tmp = ptr;
+                charValue = strtok_r(tmp," ", &ptr);
+
+                if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "SPEED") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
+                //else if(){} NE PAS SUPPRIMER CE COMMENTAIRE
+                //TO DO Ajouter les conditions pour les messages
+                else{
+                    printf("Commande invalide, Veuillez saisir une commande valide : \n");
+                }
+
+
             }
+
         }
 
-        if (send(fd, message, sizeof(char)*80, 0) < 0) {
-            perror("send()");
-            exit(EXIT_FAILURE);
-        }
 
     }while(message != "end");
 
@@ -127,6 +142,9 @@ int main() {
         perror("Erreur lors de la fermeture de la socket ");
         exit(EXIT_FAILURE);
     }
-
+    free(tmp);
+    free(ptr);
+    free(message);
+    free(recep);
     return EXIT_SUCCESS;
 }
