@@ -1,16 +1,16 @@
-#include "jaugeessence.h"
+#include "jaugeessencehenri.h"
 
 
-jaugeEssence::jaugeEssence(jaugeVirtuel *parent):jaugeVirtuel (parent)
+jaugeEssenceHenri::jaugeEssenceHenri(jaugeVirtuel *parent):jaugeVirtuel (parent)
 {
     essence=100;
 }
-QRectF jaugeEssence::boundingRect() const
+QRectF jaugeEssenceHenri::boundingRect() const
 {
     return QRect(-800,-450,1600,900);
 }
 
-void jaugeEssence::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 //début jauge à essence
     QRect carre(-280,-280,560,560);

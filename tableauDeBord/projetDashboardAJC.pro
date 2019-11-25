@@ -29,16 +29,16 @@ SOURCES += \
     cardantvirtuel.cpp \
     jaugevirtuel.cpp \
     cadranthenri.cpp \
-    jaugeessence.cpp \
-    scenedefond.cpp
+    scenedefond.cpp \
+    jaugeessencehenri.cpp
 
 HEADERS += \
         mainwindow.h \
     cadrantvirtuel.h \
     jaugevirtuel.h \
-    jaugeessence.h \
     cadranthenri.h \
-    scenedefond.h
+    scenedefond.h \
+    jaugeessencehenri.h
 
 FORMS += \
         mainwindow.ui

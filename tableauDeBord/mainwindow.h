@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "cadranthenri.h"
-#include "jaugeessence.h"
+#include "jaugeessencehenri.h"
 #include "scenedefond.h"
 
 namespace Ui {
@@ -19,7 +19,7 @@ public:
     QGraphicsScene *scene;
     sceneDeFond *fond;
     cadrantHenri *cadrant;
-    jaugeEssence *jauge;
+    jaugeEssenceHenri *jauge;
 
 private:
     Ui::MainWindow *ui;
