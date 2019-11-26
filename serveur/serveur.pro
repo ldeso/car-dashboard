@@ -6,6 +6,11 @@
 
 QT       += core gui network
 
+linux-buildroot-g++ {
+    target.path     = root
+    INSTALLS       += target
+}
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = serveur

@@ -18,9 +18,19 @@ QRectF hugo_Aiguille::boundingRect() const
 void hugo_Aiguille::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setRenderHints(QPainter::Antialiasing);
-    painter->setPen(QPen(QColor(Qt::darkGray) , 2, Qt::SolidLine,Qt::FlatCap));
+
+    painter->setPen(QPen(QColor(Qt::darkGray) , 1, Qt::SolidLine,Qt::FlatCap));
     QRect carre_aiguille(x-10,y-10,20,20);
-    painter->drawArc(carre_aiguille,0,360*16);
+    painter->drawEllipse(carre_aiguille);
+    QRect carre_aiguille2(x-8,y-8,16,16);
+    QLinearGradient linearGrad(QPointF((x+10*qCos(135*pi/180)), (y-10*qSin(135*pi/180))), QPointF(x, y));
+    linearGrad.setColorAt(0, QColor(200,200,200,80));
+    linearGrad.setColorAt(1, QColor(0,0,0,0));
+    painter->setBrush(linearGrad);
+    painter->setPen(QPen(QColor(30,30,30) , 1, Qt::SolidLine,Qt::FlatCap));
+    painter->drawEllipse(carre_aiguille2);
+   // painter->drawArc(carre_aiguille,0,360*16);
+
     //Création de l'aiguille
     QPointF points[4]={
         QPointF(x,y),
@@ -39,9 +49,9 @@ void hugo_Aiguille::parametrage(int param_x, int param_y, int param_r,int param_
     x=param_x;
     y=param_y;
     r=param_r;
-   start=param_start;
-   end=param_end;
-   value=param_value;
+    start=param_start;
+    end=param_end;
+    value=param_value;
 }
 
 int hugo_Aiguille::getValueMax()

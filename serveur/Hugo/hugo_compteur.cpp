@@ -21,10 +21,10 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 {
     painter->setRenderHints(QPainter::Antialiasing);
     QRect carre_rpm(x-r,y-r,2*r,2*r);
-    painter->setPen(QPen( couleur ,5, Qt::SolidLine,Qt::FlatCap));
+    painter->setPen(QPen( couleur ,2, Qt::SolidLine,Qt::FlatCap));
     painter->drawArc(carre_rpm,start_angle*16,(end_angle-start_angle)*16);
     if (critique!=100){
-        painter->setPen(QPen( couleur2 ,5, Qt::SolidLine,Qt::FlatCap));
+        painter->setPen(QPen( couleur2 ,2, Qt::SolidLine,Qt::FlatCap));
         painter->drawArc(carre_rpm,98*16,-39*16);
     }
     painter->setPen(QPen( couleur ,1, Qt::SolidLine,Qt::FlatCap));

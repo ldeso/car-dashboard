@@ -9,8 +9,8 @@ public:
     hugo_verre();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    virtual void parametrage(int x,int y, int r);
-    int x=0,y=0,r=100;
+    virtual void parametrage(int x,int y, int r,int a);
+    int x=0,y=0,r=100,a=1;
 };
 
 #endif // VERRE_H

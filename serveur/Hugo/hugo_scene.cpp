@@ -25,7 +25,7 @@ hugo_scene::hugo_scene()
     this->addItem(vitesse);
 
     hugo_verre * verre_vitesse=new hugo_verre;
-    verre_vitesse->parametrage(0,0,100);
+    verre_vitesse->parametrage(0,0,100,1);
     this->addItem(verre_vitesse);
 
     hugo_Compteur *compteur_rpm=new hugo_Compteur;
@@ -40,19 +40,23 @@ hugo_scene::hugo_scene()
     this->addItem(CompteTours);
 
     hugo_verre * verre_rpm=new hugo_verre;
-    verre_rpm->parametrage(-170,20,81);
+    verre_rpm->parametrage(-170,20,81,1);
     this->addItem(verre_rpm);
 
     hugo_Compteur *essence=new hugo_Compteur;
     QStringList graduations_essence;
     graduations_essence<<"E"<<"F";
-    essence->Parametrage(140,-60,40,-45,45,graduations_essence,0,64,128);
+    essence->Parametrage(155,-60,40,-45,45,graduations_essence,0,64,128);
     this->addItem(essence);
 
     hugo_Aiguille *aiguille_essence=new hugo_Aiguille;
-    aiguille_essence->parametrage(140,-60,40,45,-45,100);
+    aiguille_essence->parametrage(155,-60,40,45,-45,100);
     aiguille_essence->angle=-45;
     this->addItem(aiguille_essence);
+
+   hugo_verre *verre_essence=new hugo_verre;
+    verre_essence->parametrage(155,-60,40,-1);
+    this->addItem(verre_essence);
 
     hugo_Compteur *temperature=new hugo_Compteur;
     QStringList graduations_temperature;
@@ -64,6 +68,10 @@ hugo_scene::hugo_scene()
     aiguille_temperature->parametrage(160,30,40,45,-45,100);
     aiguille_temperature->angle=45;
     this->addItem(aiguille_temperature);
+
+    hugo_verre *verre_temp=new hugo_verre;
+     verre_temp->parametrage(160,30,40,-1);
+     this->addItem(verre_temp);
 
     VoyantBatterie=new hugo_voyant;
     VoyantBatterie->parametrage(-180,50,"/home/utilisateur/Images/voyant-batterie-.gif");

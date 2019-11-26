@@ -56,7 +56,7 @@ int main() {
     // Remplissage de la structure
     memset( & adresse, 0, sizeof(struct sockaddr_in));
     adresse.sin_family = AF_INET;
-    inet_pton(AF_INET, "127.0.0.1", & adresse.sin_addr.s_addr);
+    inet_pton(AF_INET, "10.0.8.177", & adresse.sin_addr.s_addr);
     adresse.sin_port = htons(2222);
 
     // Connexion au serveur
