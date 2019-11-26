@@ -1,9 +1,10 @@
-#include "compteur.h"
+/*#include "compteur.h"
 #include <QPainter>
 #include <QPen>
 #include <QStyleOptionGraphicsItem>
 #include <QtMath>
 #include <QDebug>
+
 Compteur::Compteur(int x, int y, int width, int height, int speedMax, QGraphicsItem * parent):QGraphicsItem(parent)
 {
     this->width = width;
@@ -49,4 +50,4 @@ float Compteur::generateAngle()
 int Compteur::getSpeedMax()
 {
     return speedMax;
-}
+}*/

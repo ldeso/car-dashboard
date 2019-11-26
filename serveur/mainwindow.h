@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTcpServer>
+#include "Hugo/hugo_scene.h"
 
 #include "compteur.h"
 namespace Ui {
@@ -21,7 +22,8 @@ private slots:
     void connexion();
     void reception();
 private:
-    Compteur * c;
+   // Compteur * c;
+    hugo_scene *dashboard;
     Ui::MainWindow *ui;
     QTcpServer * server;
     QTcpSocket * socket;

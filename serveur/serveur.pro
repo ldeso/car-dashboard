@@ -26,11 +26,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    compteur.cpp
+    compteur.cpp \
+    Hugo/hugo_aiguille.cpp \
+    Hugo/hugo_compteur.cpp \
+    Hugo/hugo_mygraphicsitem.cpp \
+    Hugo/hugo_scene.cpp \
+    Hugo/hugo_verre.cpp \
+    Hugo/hugo_voyant.cpp \
 
 HEADERS += \
         mainwindow.h \
-    compteur.h
+    compteur.h \
+    Hugo/hugo_aiguille.h \
+    Hugo/hugo_compteur.h \
+    Hugo/hugo_mygraphicsitem.h \
+    Hugo/hugo_scene.h \
+    Hugo/hugo_verre.h \
+    Hugo/hugo_voyant.h \
 
 FORMS += \
         mainwindow.ui

@@ -3,6 +3,8 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QDebug>
+#include "Hugo/hugo_scene.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,10 +14,10 @@ MainWindow::MainWindow(QWidget *parent) :
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
     //connect(ui->lineEdit,SIGNAL(returnPressed()),this, SLOT(display()));
-    c = new Compteur(50,50,200,200, 200);
-    QGraphicsScene * scene = new QGraphicsScene(this);
-    scene->addItem(c);
-    ui->graphicsView->setScene(scene);
+
+    dashboard=new hugo_scene;
+
+    ui->graphicsView->setScene(dashboard);
     //ui->graphicsView->setBackgroundBrush(QBrush(QColor(Qt::black)));
 }
 
@@ -48,15 +50,15 @@ void MainWindow::reception()
     QString message = string.section(' ',0,1);
     if(message=="CANN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
-        if(vitesse>=0 && vitesse <= c->getSpeedMax()){
-            c->setSpeed(vitesse);
+        if(vitesse>=0 && vitesse <= dashboard->vitesse->getValueMax()){
+            dashboard->vitesse->setValue(vitesse);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
         else{
             QString text;
-            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(c->getSpeedMax());
+            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->vitesse->getValueMax());
             socket->write(text.toUtf8());
         }
     }

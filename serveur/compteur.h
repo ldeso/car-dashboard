@@ -1,4 +1,4 @@
-#ifndef COMPTEUR_H
+/*#ifndef COMPTEUR_H
 #define COMPTEUR_H
 
 #include <QGraphicsItem>
@@ -21,4 +21,4 @@ private:
     int speed;
 };
 
-#endif // COMPTEUR_H
+#endif // COMPTEUR_H*/
