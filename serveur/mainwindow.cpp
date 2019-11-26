@@ -62,6 +62,20 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    if(message=="CANN RPM"){
+        int rpm = string.section(' ', 2,2).toInt();
+        if(rpm>=0 && rpm <= dashboard->rpm->getValueMax()){
+            dashboard->rpm->setValue(rpm);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->rpm->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 
