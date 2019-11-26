@@ -35,7 +35,7 @@ void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsI
 
 
 //.....Designe toursMinute....................................................
-
+    painter->setRenderHint(QPainter::Antialiasing);
     painter->setPen(QPen(QBrush("gray") , 20, Qt::SolidLine,Qt::FlatCap));
     for (int i=225;i>-46;i-=1)
         {

@@ -3,14 +3,12 @@
 cadrantHenri::cadrantHenri(cadrantVirtuel *parent):cadrantVirtuel (parent)
 {
     valeur=0;
-
+    valeurMax=350;
     styleTexte="Uroob";
-
-    valeurMax=270;
-    epesseurTraitVitesse=10;
+    epesseurTraitVitesse=7;
     tailleTexteVitesse=27;
-
 }
+
 
 QRectF cadrantHenri::boundingRect() const
 {
@@ -57,6 +55,8 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
 
 
 //.....Designe vitesse cadrant....................................................
+
+    painter->setRenderHint(QPainter::Antialiasing);
 
     painter->setPen(QPen(QBrush("darkCyan") , 40, Qt::SolidLine,Qt::FlatCap));
     for (float i=225;i>-46;i-=10.0*270/valeurMax)
