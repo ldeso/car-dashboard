@@ -96,7 +96,7 @@ int main() {
             if(strcasecmp(message,"HELP")== 0){
                 //printf("Veuillez d abord saisir une commande, valider, puis saisir une valeur\n");
                 printf("Liste des commandes valides : \n");
-                printf("BUS CANN SPEED X avec X compris entre 0 et 400\n");
+                printf("CANN SPEED X avec X compris entre 0 et 400\n");
                 valide = 1;
             }
             else{
