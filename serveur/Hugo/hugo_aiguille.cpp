@@ -49,6 +49,11 @@ int hugo_Aiguille::getValueMax()
     return value;
 }
 
+int hugo_Aiguille::getValue()
+{
+    return value*1.0*(angle+(start-360))/(start-end);
+}
+
 void hugo_Aiguille::setValue(int v)
 {
     angle=((1.0*(start-end))/(value*1.0))*v*1.0+(360-start);

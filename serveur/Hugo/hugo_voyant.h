@@ -14,6 +14,8 @@ public:
     int x,y;
     QString chemin,chemin2;
     QColor couleur;
+    void setValue(int);
 };
+
 
 #endif // VOYANT_H

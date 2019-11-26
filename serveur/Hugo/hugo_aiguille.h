@@ -15,11 +15,13 @@ public:
     int x=0,y=0,r=100;
     int angle=0;
     int getValueMax();
+    int getValue();
     void setValue(int);
 
   int start;
    int end;
    int value;
+
 
 };
 

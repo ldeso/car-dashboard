@@ -3,11 +3,12 @@
 #include "Hugo/hugo_compteur.h"
 #include "Hugo/hugo_verre.h"
 #include "Hugo/hugo_voyant.h"
+#include <QDebug>
 
 
 hugo_scene::hugo_scene()
 {
-    hugo_MyGraphicsitem *background=new hugo_MyGraphicsitem();
+    background=new hugo_MyGraphicsitem();
     this->addItem(background);
 
     hugo_Compteur *compteur_vitesse=new hugo_Compteur;
@@ -19,6 +20,8 @@ hugo_scene::hugo_scene()
     vitesse=new hugo_Aiguille;
     vitesse->parametrage(0,0,90,210,-30,220);
     vitesse->setValue(0);
+    qDebug()<<vitesse->getValue();
+    background->current_speed=vitesse->getValue();
     this->addItem(vitesse);
 
     hugo_verre * verre_vitesse=new hugo_verre;
@@ -31,10 +34,10 @@ hugo_scene::hugo_scene()
     compteur_rpm->Parametrage(-170,20,80,210,60,graduations_rpm,0,64,128,5,120,0,0);
     this->addItem(compteur_rpm);
 
-    rpm=new hugo_Aiguille;
-    rpm->parametrage(-170,20,80,210,60,8000);
-    rpm->angle=150;
-    this->addItem(rpm);
+    CompteTours=new hugo_Aiguille;
+    CompteTours->parametrage(-170,20,80,210,60,8000);
+    CompteTours->angle=150;
+    this->addItem(CompteTours);
 
     hugo_verre * verre_rpm=new hugo_verre;
     verre_rpm->parametrage(-170,20,81);
@@ -62,10 +65,9 @@ hugo_scene::hugo_scene()
     aiguille_temperature->angle=45;
     this->addItem(aiguille_temperature);
 
-    hugo_voyant *batterie=new hugo_voyant;
-    batterie->parametrage(-180,50,"/home/utilisateur/Images/voyant-batterie-.gif","a",255,0,0);
-    batterie->on=1;
-    this->addItem(batterie);
+    VoyantBatterie=new hugo_voyant;
+    VoyantBatterie->parametrage(-180,50,"/home/utilisateur/Images/voyant-batterie-.gif");
+    this->addItem(VoyantBatterie);
 
     hugo_voyant *ABS=new hugo_voyant;
     ABS->parametrage(-150,25,"/home/utilisateur/Images/voyant-abs.gif");
@@ -112,4 +114,6 @@ hugo_scene::hugo_scene()
     hugo_voyant *clign_gauche=new hugo_voyant;
     clign_gauche->parametrage(-290,0,"/home/utilisateur/Images/clign-gauche.jpg","a",0,255,0);
     this->addItem(clign_gauche);
+
 }
+

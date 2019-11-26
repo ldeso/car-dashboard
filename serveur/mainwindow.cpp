@@ -13,12 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     server = new QTcpServer(this);
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
-    //connect(ui->lineEdit,SIGNAL(returnPressed()),this, SLOT(display()));
 
+    //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
     dashboard=new hugo_scene;
 
     ui->graphicsView->setScene(dashboard);
-    //ui->graphicsView->setBackgroundBrush(QBrush(QColor(Qt::black)));
 }
 
 MainWindow::~MainWindow()
@@ -64,15 +63,29 @@ void MainWindow::reception()
     }
     if(message=="CANN RPM"){
         int rpm = string.section(' ', 2,2).toInt();
-        if(rpm>=0 && rpm <= dashboard->rpm->getValueMax()){
-            dashboard->rpm->setValue(rpm);
+        if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
+            dashboard->CompteTours->setValue(rpm);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
         else{
             QString text;
-            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->rpm->getValueMax());
+            text = QString("rpm incorrect, vitesse comprise entre 0 et %1").arg(dashboard->CompteTours->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+    if(message=="CANN BATTERY_LIGHT"){
+        int battery_on = string.section(' ', 2,2).toInt();
+        if(battery_on==0 || battery_on==1){
+            dashboard->VoyantBatterie->setValue(battery_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
             socket->write(text.toUtf8());
         }
     }

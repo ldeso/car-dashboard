@@ -44,3 +44,8 @@ void hugo_voyant::parametrage(int param_x, int param_y, QString param_chemin,QSt
     chemin2=param_chemin2;
     couleur=QColor(red,green,blue,160);
 }
+
+void hugo_voyant::setValue(int a)
+{
+    on=a;
+}
