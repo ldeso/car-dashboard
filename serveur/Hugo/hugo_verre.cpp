@@ -15,6 +15,7 @@ QRectF hugo_verre::boundingRect() const{
 
 void hugo_verre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    painter->setRenderHints(QPainter::Antialiasing);
     QRect carre(x-r,y-r,2*r,2*r);
     painter->setPen(QPen( QColor(0,0,0,0) ,1, Qt::SolidLine,Qt::FlatCap));
     if (a==1){

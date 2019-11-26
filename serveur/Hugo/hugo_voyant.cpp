@@ -16,6 +16,7 @@ QRectF hugo_voyant::boundingRect() const
 
 void hugo_voyant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    painter->setRenderHints(QPainter::Antialiasing);
     if (on==1){
         QPixmap image(chemin);
         QPixmap image2=image.scaled(30,30);

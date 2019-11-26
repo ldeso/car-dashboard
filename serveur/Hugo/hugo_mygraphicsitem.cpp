@@ -17,6 +17,8 @@ QRectF hugo_MyGraphicsitem::boundingRect() const
 
 void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    painter->setRenderHints(QPainter::Antialiasing);
+
     //Création du fond noir
     QBrush black_brush(QColor(Qt::black));
     painter->setBrush(black_brush);
@@ -77,14 +79,19 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
       float teta=-30*3.14159/180;
       int i=0;
       while (i<7){
-          if (i==1){
+          teta+=10*3.14159/180;
+          if (i==3){
+              QRadialGradient radialGrad(QPointF(110*(qCos(teta))+4,110*(qSin(teta))-3), 12);
+              radialGrad.setColorAt(0, QColor(0,255,0,80));
+              radialGrad.setColorAt(1, QColor(0,0,0,0));
+              painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
+              painter->setBrush(radialGrad);
+              painter->drawEllipse(QPointF(110*(qCos(teta))+4,110*(qSin(teta))-3),20,20);
               painter->setPen(QPen(QColor(Qt::green), 1, Qt::SolidLine,Qt::FlatCap));
           }
           else{
               painter->setPen(QPen(QColor(Qt::darkGray), 1, Qt::SolidLine,Qt::FlatCap));
           }
-
-          teta+=10*3.14159/180;
           painter->drawText(110*(qCos(teta)),110*(qSin(teta)),Regimes[i]);
       i++;
       }
