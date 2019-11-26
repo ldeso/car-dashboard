@@ -19,7 +19,6 @@ public:
 
 private slots:
     void connexion();
-    void display();
     void reception();
 private:
     Compteur * c;

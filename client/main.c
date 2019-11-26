@@ -97,6 +97,7 @@ int main() {
                 //printf("Veuillez d abord saisir une commande, valider, puis saisir une valeur\n");
                 printf("Liste des commandes valides : \n");
                 printf("CANN SPEED X avec X compris entre 0 et 400\n");
+                printf("CANN RPM X avec X compris entre 0 et 15000\n");
                 valide = 1;
             }
             else{
@@ -111,6 +112,19 @@ int main() {
                 charValue = strtok_r(tmp," ", &ptr);
 
                 if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "SPEED") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "RPM") == 0){
                     if (send(fd, message, sizeof(char)*80, 0) < 0) {
                         perror("send()");
                         exit(EXIT_FAILURE);
