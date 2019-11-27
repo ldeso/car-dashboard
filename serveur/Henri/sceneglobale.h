@@ -19,7 +19,7 @@ public:
     jaugeVirtuel *Essence;
     jaugeVirtuel *CompteTours;
     jaugeVirtuel *jaugeTemperature;
-    jaugeClignotant *jaugeCligno;
+    jaugeClignotant *Clignotant;
     jaugeVirtuel *VoyantBatterie;
 };
 

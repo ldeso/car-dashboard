@@ -110,6 +110,20 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    if(message=="CANN TURN"){
+        int cligno = string.section(' ', 2,2).toInt();
+        if(cligno>=-1 && cligno <= 1){
+            dashboard->Clignotant->setValue(cligno);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("Quantité incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 

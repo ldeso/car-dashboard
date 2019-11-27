@@ -19,6 +19,6 @@ sceneGlobale::sceneGlobale(QGraphicsScene *parent):QGraphicsScene(parent)
     jaugeTemperature=new jaugeTemperatureHenri();
     addItem(jaugeTemperature);
 
-    jaugeCligno=new jaugeClignotant();
-    addItem(jaugeCligno);
+    Clignotant=new jaugeClignotant();
+    addItem(Clignotant);
 }
