@@ -46,20 +46,20 @@ void MainWindow::ess()
 
 void MainWindow::cli_g()
 {
-    scene->jaugeCligno->cligno=-1;
+    scene->Clignotant->setValue(-1);
     cli();
 }
 
 void MainWindow::cli_d()
 {
-    scene->jaugeCligno->cligno=1;
+    scene->Clignotant->setValue(1);
     cli();
 }
 
 void MainWindow::cli_s()
 {
-    scene->jaugeCligno->cligno=0;
-    scene->jaugeCligno->setValue(0);
+    scene->Clignotant->cligno=0;
+    scene->Clignotant->setValue(0);
     scene->update();
 }
 
