@@ -24,7 +24,9 @@ private slots:
     void reception();
 private:
    // Compteur * c;
-    sceneGlobale *dashboard;
+    sceneGlobale *dashboard;//la scene d'henri
+//    hugo_scene *dashboard;//la scene d'hugo
+
     Ui::MainWindow *ui;
     QTcpServer * server;
     QTcpSocket * socket;

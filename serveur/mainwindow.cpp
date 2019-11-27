@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
-    dashboard=new sceneGlobale;
+    dashboard = new sceneGlobale();
 
     ui->graphicsView->setScene(dashboard);
 }
