@@ -10,8 +10,8 @@ sceneGlobale::sceneGlobale(QGraphicsScene *parent):QGraphicsScene(parent)
     vitesse=new cadrantHenri();
     addItem(vitesse);
 
-    jaugeEssence=new jaugeEssenceHenri();
-    addItem(jaugeEssence);
+    Essence=new jaugeEssenceHenri();
+    addItem(Essence);
 
     CompteTours=new jaugeToursMinuteHenri();
     addItem(CompteTours);

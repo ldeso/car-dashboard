@@ -99,6 +99,7 @@ int main() {
                 printf("CANN SPEED X avec X compris entre 0 et 400\n");
                 printf("CANN RPM X avec X compris entre 0 et 15000\n");
                 printf("CANN BATTERY_LIGHT X avec X = 0 ou 1\n");
+                printf("CANN GAZ x avec x compris entre 0 et 100\n");
                 valide = 1;
             }
             else{
@@ -139,6 +140,19 @@ int main() {
 
                 }
                 else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "BATTERY_LIGHT") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "GAZ") == 0){
                     if (send(fd, message, sizeof(char)*80, 0) < 0) {
                         perror("send()");
                         exit(EXIT_FAILURE);

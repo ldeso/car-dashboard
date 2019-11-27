@@ -88,6 +88,20 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    if(message=="CANN GAZ"){
+        int essence = string.section(' ', 2,2).toInt();
+        if(essence>=0 && essence <= dashboard->Essence->getValueMax()){
+            dashboard->Essence->setValue(essence);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("Quantité incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 

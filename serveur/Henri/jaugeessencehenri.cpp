@@ -4,6 +4,7 @@
 jaugeEssenceHenri::jaugeEssenceHenri(jaugeVirtuel *parent):jaugeVirtuel (parent)
 {
     valeur=100;
+    valeurMax=100;
 }
 QRectF jaugeEssenceHenri::boundingRect() const
 {

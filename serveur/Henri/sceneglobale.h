@@ -16,7 +16,7 @@ public:
 
     sceneDeFond *fond;
     cadrantVirtuel *vitesse;
-    jaugeVirtuel *jaugeEssence;
+    jaugeVirtuel *Essence;
     jaugeVirtuel *CompteTours;
     jaugeVirtuel *jaugeTemperature;
     jaugeClignotant *jaugeCligno;
