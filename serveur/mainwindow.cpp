@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
     dashboard = new sceneGlobale();
+    ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
