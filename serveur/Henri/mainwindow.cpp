@@ -40,7 +40,7 @@ void MainWindow::tou()
 
 void MainWindow::ess()
 {
-    scene->jaugeEssence->setValue(ui->sliderEssence->value());
+    scene->Essence->setValue(ui->sliderEssence->value());
     scene->update();
 }
 
@@ -65,14 +65,7 @@ void MainWindow::cli_s()
 
 void MainWindow::cli()
 {
-    scene->jaugeCligno->setValue(scene->jaugeCligno->getValue()+1);
-    if (scene->jaugeCligno->getValue()>8)
-        scene->jaugeCligno->setValue(0);
     scene->update();
-    QTest::qWait(60);
-    if (scene->jaugeCligno->cligno != 0)
-        cli();
-
 }
 
 void MainWindow::sty(QString t)

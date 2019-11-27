@@ -11,6 +11,7 @@ public:
     QRectF boundingRect() const;
 
     int cligno;
+    void MAJ();
 };
 
 
