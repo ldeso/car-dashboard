@@ -1,7 +1,0 @@
-La classe sceneGlobale,dérivée de QGraphicsScene, possède tout les élémentes voulut. (cadrant, jauges, fond ect...)
-
-le fondPrenom dérive la classe sceneDeFond, qui dérive de QGraphicsItem. C'est le fond de la scene.
-
-la classe cadrantVirtuel se dérive pour faire son cadrantPrenom, elle dérive de QGraphicsItem.
-
-la classe jaugeVirtuel se dérive pour faire une jaugePrenom, par exemple la jauge à essence de kodjo, elle dérive de QGraphicsItem.
