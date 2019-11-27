@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTcpServer>
 #include "Hugo/hugo_scene.h"
+#include "Henri/sceneglobale.h"
 
 #include "compteur.h"
 namespace Ui {
@@ -21,11 +22,12 @@ public:
 private slots:
     void connexion();
     void reception();
-    void update_time_clignotant_droit();
     void update_km();
 private:
    // Compteur * c;
-    hugo_scene *dashboard;
+    sceneGlobale *dashboard;//la scene d'henri
+//    hugo_scene *dashboard;//la scene d'hugo
+
     Ui::MainWindow *ui;
     QTcpServer * server;
     QTcpSocket * socket;

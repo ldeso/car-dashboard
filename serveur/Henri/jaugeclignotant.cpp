@@ -1,0 +1,51 @@
+#include "jaugeclignotant.h"
+#include <QDebug>
+
+
+jaugeClignotant::jaugeClignotant()
+{
+    valeur=3;
+    cligno=0;
+}
+
+QRectF jaugeClignotant::boundingRect() const
+{
+    return QRect(-800,-450,1600,900);
+}
+
+void jaugeClignotant::MAJ()
+{
+    this->setValue(this->getValue()+1);
+    if(this->getValue()==9)
+        this->setValue(0);
+    QTest::qWait(50);
+    qDebug()<<"test"<<this->getValue();
+    update();
+
+}
+
+void jaugeClignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+
+    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setPen(QPen(QBrush(QColor(250,200,0,255)) , 1, Qt::SolidLine,Qt::FlatCap));
+    painter->setBrush(QBrush(QColor(250,200,0,255)));
+    float pi=3.14159265;
+    if (cligno !=0)
+
+    {
+
+        for (int j=0;j<getValue();j+=1)
+        {
+            float i=1.65*j*pi/60;
+            QVector<QPoint> points;
+            points.append(QPoint(cos(cligno*i-pi/2)*227+2,-sin(cligno*i-pi/2)*227));
+            points.append(QPoint((cos(cligno*i+cligno*1.65*pi/60-pi/2))*(227+15)+2,-sin(cligno*i+cligno*1.65*pi/60-pi/2)*(227+15)));
+            points.append(QPoint(cos(cligno*i-pi/2)*(227+30)+2,-sin(cligno*i-pi/2)*(227+30)));
+            QPolygon poly(points);
+            painter->drawPolygon(poly);
+
+        }
+    MAJ();
+    }
+}

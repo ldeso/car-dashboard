@@ -7,6 +7,8 @@
 #include "scenedefondhenri.h"
 #include "jaugetoursminutehenri.h"
 #include "sceneglobale.h"
+#include "jaugetemperature.h"
+#include "jaugeclignotant.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,14 +21,20 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     sceneGlobale *scene;
+    void cli();
 
 private:
     Ui::MainWindow *ui;
+
 
 private slots:
     void vit();//les fonctions pour actualiser les valeurs, qui sont connectées aux sliders.
     void tou();
     void ess();
+    void cli_g();
+    void cli_d();
+    void cli_s();
+    void sty(QString t);
 };
 
 #endif // MAINWINDOW_H

@@ -5,17 +5,17 @@ cadrantVirtuel::cadrantVirtuel(QGraphicsItem *parent):QGraphicsItem(parent)
 
 }
 
-int cadrantVirtuel::getValeur() const
+int cadrantVirtuel::getValue() const
 {
 return valeur;
 }
 
-void cadrantVirtuel::setValeur(int value)
+void cadrantVirtuel::setValue(int value)
 {
 valeur = value;
 }
 
-int cadrantVirtuel::getValeurMax() const
+int cadrantVirtuel::getValueMax() const
 {
 return valeurMax;
 }

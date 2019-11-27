@@ -3,9 +3,9 @@
 cadrantHenri::cadrantHenri(cadrantVirtuel *parent):cadrantVirtuel (parent)
 {
     valeur=0;
-    valeurMax=350;
+    valeurMax=270;
     styleTexte="Uroob";
-    epesseurTraitVitesse=7;
+    epesseurTraitVitesse=10;
     tailleTexteVitesse=27;
 }
 
@@ -42,6 +42,7 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     for (int i=90;i>40;i--)
     {
         painter->setPen(QPen( QColor(0,0,0,15) , i, Qt::SolidLine,Qt::FlatCap));
+
         painter->drawArc(carre[4],0,360*16);
     }
 
@@ -107,6 +108,50 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     }
 
 //.....fin Designe text pour vitsse cadrant...............................................................
+
+
+//.....affichage vitesse en nombre
+
+    painter->setPen(QPen(QBrush("black") , 40 , Qt::SolidLine,Qt::FlatCap));
+    painter->setBrush(QColor("black"));
+    painter->drawRoundRect(QRect(-80,-170,160,60),25,25);
+
+
+    QRadialGradient gradient(0, 0, 1000);
+    gradient.setColorAt(0, QColor("darkCyan"));
+    gradient.setColorAt(1, QColor("dark"));
+    QBrush brush(gradient);
+    painter->setBrush(brush);
+    painter->setPen(QPen(brush,40));
+
+    painter->setFont(QFont("URW Gothic L",80));
+    if(getValue()<10)
+    painter->drawText(-30,-100,QString("%1").arg(getValue()));
+    if(getValue()>=10 & getValue()<100)
+    painter->drawText(-60,-100,QString("%1").arg(getValue()));
+    if(getValue()>=100)
+    painter->drawText(-90,-100,QString("%1").arg(getValue()));
+
+//.....fin affichage vitesse en nombre
+
+
+
+
+
+//.....affichage nombre de kilometres
+
+    painter->setPen(QPen(QBrush("black") , 40 , Qt::SolidLine,Qt::FlatCap));
+    painter->setBrush(QColor("black"));
+    painter->drawRoundRect(QRect(-140,-50,80,2),1,1);
+
+    painter->setBrush(brush);
+    painter->setPen(QPen(brush,20));
+
+    painter->setFont(QFont("URW Gothic L",20));
+    painter->drawText(-150,-40,QString("123456"));
+
+//.....fin affichage nombre de kilometres
+
 
 
 }

@@ -11,9 +11,11 @@ class cadrantVirtuel : public QGraphicsItem
 public:
     cadrantVirtuel(QGraphicsItem *parent=nullptr);
 
-    int getValeur() const;
-    void setValeur(int value);
-    int getValeurMax() const;
+    int getValue() const;
+    void setValue(int value);
+    int getValueMax() const;
+
+    QString styleTexte;
 
 protected:
     int valeur;//la vitesse actualisée

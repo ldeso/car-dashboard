@@ -4,7 +4,7 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QTimer>
-#include "Hugo/hugo_scene.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,18 +16,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
-    dashboard=new hugo_scene;
+    dashboard = new sceneGlobale();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(1000);
     kmTimer->start();
-
-    updateTimer=new QTimer;
-    ui->graphicsView->setScene(dashboard);
-
-
-
 
 }
 
@@ -101,26 +95,18 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    if(message=="CANN CLIGNOTANT_DROIT"){
-        int clignotant_droit_on = string.section(' ', 2,2).toInt();
-        if(clignotant_droit_on==0 || clignotant_droit_on==1){
-            connect(updateTimer, SIGNAL(timeout()), this, SLOT(update_time_clignotant_droit()));
-            if (clignotant_droit_on==1){
-                updateTimer->setInterval(500);
-                updateTimer->start();
-            }
-            else if (clignotant_droit_on==0){
-                updateTimer->stop();
-                dashboard->VoyantClignotantDroit->setValue(0);
-                ui->graphicsView->scene()->update();
-
-            }
+    if(message=="CANN GAZ"){
+        int essence = string.section(' ', 2,2).toInt();
+        if(essence>=0 && essence <= dashboard->Essence->getValueMax()){
+            dashboard->Essence->setValue(essence);
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
         else{
             QString text;
-            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            text = QString("Quantité incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+
             socket->write(text.toUtf8());
         }
     }
@@ -129,16 +115,6 @@ void MainWindow::reception()
 
 }
 
-void MainWindow::update_time_clignotant_droit()
-{
-    if (dashboard->VoyantClignotantDroit->getValue()==1){
-        dashboard->VoyantClignotantDroit->setValue(0);
-    }
-    else{
-        dashboard->VoyantClignotantDroit->setValue(1);
-    }
-    ui->graphicsView->scene()->update();
-}
 
 void MainWindow::update_km()
 {

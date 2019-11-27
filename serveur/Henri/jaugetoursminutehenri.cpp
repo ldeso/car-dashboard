@@ -65,7 +65,7 @@ void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsI
     painter->setFont(QFont(styleTexte, tailleTextetoursMinute , -1,false));
     float pi=3.14159265;
     int j=0;
-    for (float i=35*pi/28;i>-7*pi/28;i-=6*pi/(27*4)*5400/valeurMax)
+    for (float i=71*pi/56;i>-14*pi/56;i-=12*pi/(27*8)*5400/valeurMax)
     {
         painter->drawText(qCos(i)*220-16,-qSin(i)*220+5,QString("%1").arg(j));
         j+=2;
