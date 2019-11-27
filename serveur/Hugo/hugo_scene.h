@@ -11,9 +11,11 @@ class hugo_scene : public QGraphicsScene
 {
 public:
     hugo_scene();
-    hugo_MyGraphicsitem *background;
+    hugo_MyGraphicsitem *CompteurKm;
     hugo_Aiguille *vitesse, *CompteTours;
-    hugo_voyant *VoyantBatterie;
+    hugo_voyant *VoyantBatterie, *VoyantClignotantDroit;
+
+private slots:
 
 };
 

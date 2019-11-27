@@ -3,6 +3,7 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QDebug>
+#include <QTimer>
 #include "Hugo/hugo_scene.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -17,7 +18,17 @@ MainWindow::MainWindow(QWidget *parent) :
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
     dashboard=new hugo_scene;
 
+    QTimer *kmTimer=new QTimer;
+    connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
+    kmTimer->setInterval(1000);
+    kmTimer->start();
+
+    updateTimer=new QTimer;
     ui->graphicsView->setScene(dashboard);
+
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -54,6 +65,7 @@ void MainWindow::reception()
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
+            vitesse_actuelle=vitesse;
         }
         else{
             QString text;
@@ -89,9 +101,52 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    if(message=="CANN CLIGNOTANT_DROIT"){
+        int clignotant_droit_on = string.section(' ', 2,2).toInt();
+        if(clignotant_droit_on==0 || clignotant_droit_on==1){
+            connect(updateTimer, SIGNAL(timeout()), this, SLOT(update_time_clignotant_droit()));
+            if (clignotant_droit_on==1){
+                updateTimer->setInterval(500);
+                updateTimer->start();
+            }
+            else if (clignotant_droit_on==0){
+                updateTimer->stop();
+                dashboard->VoyantClignotantDroit->setValue(0);
+                ui->graphicsView->scene()->update();
+
+            }
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toUtf8());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 
 }
+
+void MainWindow::update_time_clignotant_droit()
+{
+    if (dashboard->VoyantClignotantDroit->getValue()==1){
+        dashboard->VoyantClignotantDroit->setValue(0);
+    }
+    else{
+        dashboard->VoyantClignotantDroit->setValue(1);
+    }
+    ui->graphicsView->scene()->update();
+}
+
+void MainWindow::update_km()
+{
+    km_parcourus+=1.0*(vitesse_actuelle)/3600;
+    //dashboard->CompteurKm->setValue(km_parcourus);
+    ui->graphicsView->scene()->update();
+}
+
+
 
 

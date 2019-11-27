@@ -14,6 +14,8 @@ public:
     int x=0,y=0,r=100,start_angle=0,end_angle=360,  nbre_graduations=12,critique;
     QColor couleur=QColor(100,100,100);
      QColor couleur2=QColor(100,100,100);
+     QColor couleurgrad=QColor(100,100,100,50);
+     QColor couleurgrad2=QColor(100,100,100,50);
     QStringList graduations;
 };
 

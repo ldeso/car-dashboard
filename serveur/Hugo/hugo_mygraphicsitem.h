@@ -11,8 +11,9 @@ public:
     hugo_MyGraphicsitem();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void setValue(float);
 
-    int current_speed=0;
+    int current_speed=30;
     QString station="";
     float km=0.0;
 };

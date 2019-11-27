@@ -50,3 +50,8 @@ void hugo_voyant::setValue(int a)
 {
     on=a;
 }
+
+int hugo_voyant::getValue()
+{
+    return on;
+}

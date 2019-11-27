@@ -21,12 +21,19 @@ public:
 private slots:
     void connexion();
     void reception();
+    void update_time_clignotant_droit();
+    void update_km();
 private:
    // Compteur * c;
     hugo_scene *dashboard;
     Ui::MainWindow *ui;
     QTcpServer * server;
     QTcpSocket * socket;
+    QTimer *updateTimer;
+
+
+    float km_parcourus=0;
+    int vitesse_actuelle=0;
 };
 
 #endif // MAINWINDOW_H

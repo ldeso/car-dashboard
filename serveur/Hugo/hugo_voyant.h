@@ -15,6 +15,7 @@ public:
     QString chemin,chemin2;
     QColor couleur;
     void setValue(int);
+    int getValue();
 };
 
 
