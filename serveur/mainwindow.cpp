@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(1000);
     kmTimer->start();
+        ui->graphicsView->setScene(dashboard);
 
 }
 
@@ -134,7 +135,7 @@ void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
     //dashboard->CompteurKm->setValue(km_parcourus);
-    ui->graphicsView->scene()->update();
+    //ui->graphicsView->scene()->update();
 }
 
 

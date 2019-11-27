@@ -47,16 +47,16 @@ hugo_scene::hugo_scene()
     verre_rpm->parametrage(-170,20,81,1);
     this->addItem(verre_rpm);
 
-    hugo_Compteur *essence=new hugo_Compteur;
+    hugo_Compteur *Compteur_Essence=new hugo_Compteur;
     QStringList graduations_essence;
     graduations_essence<<"  E"<<"  F";
-    essence->Parametrage(155,-60,40,-45,45,graduations_essence,0,64,128);
-    this->addItem(essence);
+    Compteur_Essence->Parametrage(155,-60,40,-45,45,graduations_essence,0,64,128);
+    this->addItem(Compteur_Essence);
 
-    hugo_Aiguille *aiguille_essence=new hugo_Aiguille;
-    aiguille_essence->parametrage(155,-60,40,45,-45,100);
-    aiguille_essence->angle=-45;
-    this->addItem(aiguille_essence);
+    Essence=new hugo_Aiguille;
+    Essence->parametrage(155,-60,40,45,-45,100);
+    Essence->angle=-45;
+    this->addItem(Essence);
 
    hugo_verre *verre_essence=new hugo_verre;
     verre_essence->parametrage(155,-60,40,-1);

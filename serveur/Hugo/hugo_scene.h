@@ -12,7 +12,7 @@ class hugo_scene : public QGraphicsScene
 public:
     hugo_scene();
     hugo_MyGraphicsitem *CompteurKm;
-    hugo_Aiguille *vitesse, *CompteTours;
+    hugo_Aiguille *vitesse, *CompteTours, *Essence;
     hugo_voyant *VoyantBatterie, *VoyantClignotantDroit;
 
 private slots:
