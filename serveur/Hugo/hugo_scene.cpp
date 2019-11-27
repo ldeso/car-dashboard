@@ -3,6 +3,7 @@
 #include "Hugo/hugo_compteur.h"
 #include "Hugo/hugo_verre.h"
 #include "Hugo/hugo_voyant.h"
+#include "Hugo/hugo_clignotants.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -54,7 +55,7 @@ hugo_scene::hugo_scene()
     this->addItem(Compteur_Essence);
 
     Essence=new hugo_Aiguille;
-    Essence->parametrage(155,-60,40,45,-45,100);
+    Essence->parametrage(155,-60,40,-45,45,100);
     Essence->angle=-45;
     this->addItem(Essence);
 
@@ -115,13 +116,8 @@ hugo_scene::hugo_scene()
     huile->parametrage(-110,75,"/home/utilisateur/Images/voyant-huile-orange.jpg","/home/utilisateur/Images/voyant-huile-rouge.jpg");
     this->addItem(huile);
 
-    hugo_voyant *clign_gauche=new hugo_voyant;
-    clign_gauche->parametrage(-112,-90,"/home/utilisateur/Images/clign-gauche.jpg","a",0,255,0);
-    this->addItem(clign_gauche);
-
-    VoyantClignotantDroit=new hugo_voyant;
-    VoyantClignotantDroit->parametrage(80,-91,"/home/utilisateur/Images/clign-droit.jpg","a",0,255,0);
-    this->addItem(VoyantClignotantDroit);
+    Clignotant=new hugo_clignotants;
+    this->addItem(Clignotant);
 
 }
 

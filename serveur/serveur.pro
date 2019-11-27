@@ -50,7 +50,8 @@ SOURCES += \
     Henri/sceneglobale.cpp \
     compteur.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    Hugo/hugo_clignotants.cpp
 
 HEADERS += \
     compteur.h \
@@ -72,7 +73,8 @@ HEADERS += \
     Henri/scenedefondhenri.h \
     Henri/sceneglobale.h \
     compteur.h \
-    mainwindow.h
+    mainwindow.h \
+    Hugo/hugo_clignotants.h
 
 FORMS += \
         mainwindow.ui

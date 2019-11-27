@@ -16,14 +16,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
-    dashboard = new sceneGlobale();
+    //dashboard = new sceneGlobale();
+    dashboard = new hugo_scene;
     ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(1000);
     kmTimer->start();
-        ui->graphicsView->setScene(dashboard);
+
+    ui->graphicsView->setScene(dashboard);
 
 }
 
@@ -107,7 +109,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("Quantité incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
 
             socket->write(text.toUtf8());
         }
