@@ -15,11 +15,12 @@ public:
     sceneGlobale(QGraphicsScene *parent=nullptr);
 
     sceneDeFond *fond;
-    cadrantVirtuel *cadrant;
+    cadrantVirtuel *vitesse;
     jaugeVirtuel *jaugeEssence;
-    jaugeVirtuel *jaugeToursMin;
+    jaugeVirtuel *CompteTours;
     jaugeVirtuel *jaugeTemperature;
     jaugeClignotant *jaugeCligno;
+    jaugeVirtuel *VoyantBatterie;
 };
 
 #endif // SCENEGLOBALE_H

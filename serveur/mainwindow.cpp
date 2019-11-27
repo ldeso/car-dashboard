@@ -3,7 +3,6 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QDebug>
-#include "Hugo/hugo_scene.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
-    dashboard=new hugo_scene;
+    dashboard=new sceneGlobale;
 
     ui->graphicsView->setScene(dashboard);
 }

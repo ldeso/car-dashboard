@@ -5,17 +5,17 @@ jaugeVirtuel::jaugeVirtuel(QGraphicsItem *parent):QGraphicsItem(parent)
 
 }
 
-int jaugeVirtuel::getValeur() const
+int jaugeVirtuel::getValue() const
 {
     return valeur;
 }
 
-void jaugeVirtuel::setValeur(int value)
+void jaugeVirtuel::setValue(int value)
 {
     valeur = value;
 }
 
-int jaugeVirtuel::getValeurMax() const
+int jaugeVirtuel::getValueMax() const
 {
     return valeurMax;
 }

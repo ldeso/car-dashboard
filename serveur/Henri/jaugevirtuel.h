@@ -10,9 +10,9 @@ class jaugeVirtuel : public QGraphicsItem
 {
 public:
     jaugeVirtuel(QGraphicsItem *parent=nullptr);
-    int getValeur() const;
-    void setValeur(int value);
-    int getValeurMax() const;
+    int getValue() const;
+    void setValue(int value);
+    int getValueMax() const;
 
 protected:
     int valeur;

@@ -6,6 +6,8 @@
 
 QT       += core gui network
 
+QT += testlib
+
 linux-buildroot-g++ {
     target.path     = root
     INSTALLS       += target
@@ -29,18 +31,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    compteur.cpp \
     Hugo/hugo_aiguille.cpp \
     Hugo/hugo_compteur.cpp \
     Hugo/hugo_mygraphicsitem.cpp \
     Hugo/hugo_scene.cpp \
     Hugo/hugo_verre.cpp \
     Hugo/hugo_voyant.cpp \
+    Henri/cadranthenri.cpp \
+    Henri/cardantvirtuel.cpp \
+    Henri/jaugeclignotant.cpp \
+    Henri/jaugeessencehenri.cpp \
+    Henri/jaugetemperature.cpp \
+    Henri/jaugetemperaturehenri.cpp \
+    Henri/jaugetoursminutehenri.cpp \
+    Henri/jaugevirtuel.cpp \
+    Henri/scenedefond.cpp \
+    Henri/scenedefondhenri.cpp \
+    Henri/sceneglobale.cpp \
+    compteur.cpp \
+    main.cpp \
+    mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
     compteur.h \
     Hugo/hugo_aiguille.h \
     Hugo/hugo_compteur.h \
@@ -48,6 +60,27 @@ HEADERS += \
     Hugo/hugo_scene.h \
     Hugo/hugo_verre.h \
     Hugo/hugo_voyant.h \
+    Henri/cadranthenri.h \
+    Henri/cadrantvirtuel.h \
+    Henri/jaugeclignotant.h \
+    Henri/jaugeessencehenri.h \
+    Henri/jaugetemperature.h \
+    Henri/jaugetemperaturehenri.h \
+    Henri/jaugetoursminutehenri.h \
+    Henri/jaugevirtuel.h \
+    Henri/scenedefond.h \
+    Henri/scenedefondhenri.h \
+    Henri/sceneglobale.h \
+    compteur.h \
+    mainwindow.h
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+    Henri/images.qrc
+
+DISTFILES += \
+    Henri/iconeEssence.png \
+    Henri/iconeSurchaufe.png \
+    Henri/liserMoi
