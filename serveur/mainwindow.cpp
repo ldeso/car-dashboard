@@ -16,9 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
-    dashboard = new sceneGlobale();
-//    dashboard = new hugo_scene;
-    ui->graphicsView->setScene(dashboard);
+    dashboard = new henri_scene();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));

@@ -1,10 +1,10 @@
 #include "jaugetoursminutehenri.h"
 
-jaugeToursMinuteHenri::jaugeToursMinuteHenri(jaugeVirtuel *parent):jaugeVirtuel (parent)
+jaugeToursMinuteHenri::jaugeToursMinuteHenri(objet_virtuel *parent):objet_virtuel (parent)
 {
     styleTexte="Uroob";
-    valeur=0;
-    valeurMax=5400;
+    value=0;
+    valueMax=5400;
     tailleTextetoursMinute=20;
 
 }
@@ -42,11 +42,11 @@ void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsI
         painter->drawArc(carre[9],i*16,10);
         }
 
-    float green=qMax(qMin(255.0,-4.0*255/valeurMax*valeur+4*255),0.0);//variation de la couleur verte
-    float blue=qMin(250.0, qMax(0.0,-4.0*255/valeurMax*valeur+3*255) );//variation de la couleur bleu
+    float green=qMax(qMin(255.0,-4.0*255/valueMax*value+4*255),0.0);//variation de la couleur verte
+    float blue=qMin(250.0, qMax(0.0,-4.0*255/valueMax*value+3*255) );//variation de la couleur bleu
     painter->setPen(QPen(QBrush(QColor(250 , green , blue , 255 )) , 20, Qt::SolidLine,Qt::FlatCap));
 
-    for (int i=225;i>224-qMin(270,(valeur/20*5400/valeurMax));i-=1)
+    for (int i=225;i>224-qMin(270,(value/20*5400/valueMax));i-=1)
         {
         painter->drawArc(carre[9],i*16,10);
         }
@@ -65,11 +65,11 @@ void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsI
     painter->setFont(QFont(styleTexte, tailleTextetoursMinute , -1,false));
     float pi=3.14159265;
     int j=0;
-    for (float i=71*pi/56;i>-14*pi/56;i-=12*pi/(27*8)*5400/valeurMax)
+    for (float i=71*pi/56;i>-14*pi/56;i-=12*pi/(27*8)*5400/valueMax)
     {
         painter->drawText(qCos(i)*220-16,-qSin(i)*220+5,QString("%1").arg(j));
         j+=2;
-        if (j>valeur/100)
+        if (j>value/100)
             painter->setPen(QPen(QBrush("gray") , 40, Qt::SolidLine,Qt::FlatCap));
     }
 

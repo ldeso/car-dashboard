@@ -1,12 +1,12 @@
 #ifndef CADRANTHENRI_H
 #define CADRANTHENRI_H
 
-#include "cadrantvirtuel.h"
+#include "objet_virtuel.h"
 
-class cadrantHenri : public cadrantVirtuel
+class cadrantHenri : public objet_virtuel
 {
 public:
-    cadrantHenri(cadrantVirtuel *parent=nullptr);
+    cadrantHenri(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 

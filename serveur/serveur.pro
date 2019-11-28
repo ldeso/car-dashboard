@@ -37,48 +37,43 @@ SOURCES += \
     Hugo/hugo_scene.cpp \
     Hugo/hugo_verre.cpp \
     Henri/cadranthenri.cpp \
-    Henri/cardantvirtuel.cpp \
     Henri/jaugeclignotant.cpp \
     Henri/jaugeessencehenri.cpp \
     Henri/jaugetemperature.cpp \
     Henri/jaugetemperaturehenri.cpp \
     Henri/jaugetoursminutehenri.cpp \
-    Henri/jaugevirtuel.cpp \
     Henri/scenedefond.cpp \
     Henri/scenedefondhenri.cpp \
-    Henri/sceneglobale.cpp \
-    compteur.cpp \
     main.cpp \
     mainwindow.cpp \
     Hugo/hugo_voyants.cpp \
     Hugo/hugo_voyants_clignotant.cpp \
     Hugo/hugo_voyants_simples.cpp \
-    scene_globale.cpp
+    scene_globale.cpp \
+    objet_virtuel.cpp \
+    Henri/henri_scene.cpp
 
 HEADERS += \
-    compteur.h \
     Hugo/hugo_aiguille.h \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
     Hugo/hugo_verre.h \
     Henri/cadranthenri.h \
-    Henri/cadrantvirtuel.h \
     Henri/jaugeclignotant.h \
     Henri/jaugeessencehenri.h \
     Henri/jaugetemperature.h \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
-    Henri/jaugevirtuel.h \
     Henri/scenedefond.h \
     Henri/scenedefondhenri.h \
-    Henri/sceneglobale.h \
-    compteur.h \
     mainwindow.h \
     Hugo/hugo_voyants.h \
     Hugo/hugo_voyants_clignotant.h \
     Hugo/hugo_voyants_simples.h \
-    scene_globale.h
+    scene_globale.h \
+    objet_virtuel.h \
+    Henri/henri_scene.h
 
 FORMS += \
         mainwindow.ui
