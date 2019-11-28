@@ -52,11 +52,6 @@ SOURCES += \
     Henri/henri_scene.cpp
 
 HEADERS += \
-<<<<<<< HEAD
-    compteur.h \
-=======
-    Hugo/hugo_aiguille.h \
->>>>>>> 8a19226711a8db73f27b945a73ec4d350fc743b2
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \

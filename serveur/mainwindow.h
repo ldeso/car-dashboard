@@ -6,7 +6,6 @@
 #include "Hugo/hugo_scene.h"
 #include "Henri/henri_scene.h"
 
-#include "compteur.h"
 namespace Ui {
 class MainWindow;
 }
