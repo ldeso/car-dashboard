@@ -17,7 +17,7 @@ QRectF hugo_MyGraphicsitem::boundingRect() const
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
-void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     painter->setRenderHints(QPainter::Antialiasing);///<Antialiasing//
 

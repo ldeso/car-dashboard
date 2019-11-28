@@ -15,7 +15,7 @@ QRectF cadrantHenri::boundingRect() const
     return QRect(-800,-450,1600,900);
 }
 
-void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
 
@@ -127,7 +127,7 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     painter->setFont(QFont("URW Gothic L",80));
     if(getValue()<10)
     painter->drawText(-30,-100,QString("%1").arg(getValue()));
-    if(getValue()>=10 & getValue()<100)
+    if( (getValue()>=10) & (getValue()<100) )
     painter->drawText(-60,-100,QString("%1").arg(getValue()));
     if(getValue()>=100)
     painter->drawText(-90,-100,QString("%1").arg(getValue()));

@@ -3,10 +3,10 @@
 
 #include "scenedefond.h"
 
-class sceneDeFondHenri : public sceneDeFond
+class sceneDeFondHenri : public QGraphicsItem
 {
 public:
-    sceneDeFondHenri(sceneDeFond *parent=nullptr);
+    sceneDeFondHenri(QGraphicsItem *parent=nullptr);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
 };

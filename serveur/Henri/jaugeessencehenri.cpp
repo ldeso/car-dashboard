@@ -11,7 +11,7 @@ QRectF jaugeEssenceHenri::boundingRect() const
     return QRect(-800,-450,1600,900);
 }
 
-void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
 //début jauge à essence

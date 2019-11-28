@@ -33,7 +33,7 @@ void hugo_voyants_clignotant::MAJ()
     update();
 }
 
-void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
     painter->setRenderHint(QPainter::Antialiasing);///<Antialiasing//
