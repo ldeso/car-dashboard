@@ -129,8 +129,14 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)),
         QPointF(x+(r/4)*qCos((angle-8)*pi/180),y+(r/4)*qSin((angle-8)*pi/180)),
     };
-    painter->setPen(QPen(QColor(Qt::white), 0.5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-    painter->setBrush(QColor(Qt::darkRed));
+    QLinearGradient linearGrad_aiguille( QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)), QPointF(x, y));
+    linearGrad_aiguille.setColorAt(0, QColor(Qt::darkRed));
+    linearGrad_aiguille.setColorAt(0.5, QColor(230, 46, 0));
+    linearGrad_aiguille.setColorAt(1, QColor(Qt::darkRed));
+
+    QBrush brushgrad(linearGrad_aiguille);
+    painter->setBrush(brushgrad);
+    painter->setPen(QPen(QColor(Qt::darkRed), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->drawPolygon(points,4);
 
     ///
