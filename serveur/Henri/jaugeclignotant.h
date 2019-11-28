@@ -1,9 +1,9 @@
 #ifndef JAUGECLIGNOTANT_H
 #define JAUGECLIGNOTANT_H
-#include "jaugevirtuel.h"
+#include "objet_virtuel.h"
 #include <QTest>
 
-class jaugeClignotant : public jaugeVirtuel
+class jaugeClignotant : public objet_virtuel
 {
 public:
     jaugeClignotant();

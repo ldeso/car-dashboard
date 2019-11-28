@@ -1,10 +1,9 @@
-#include "sceneglobale.h"
+#include "henri_scene.h"
 
 
-sceneGlobale::sceneGlobale(QGraphicsScene *parent):QGraphicsScene(parent)
+henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
 {
-
-    fond = new sceneDeFondHenri();
+    fond=new sceneDeFondHenri();
     addItem(fond);
 
     vitesse=new cadrantHenri();
@@ -21,4 +20,14 @@ sceneGlobale::sceneGlobale(QGraphicsScene *parent):QGraphicsScene(parent)
 
     Clignotant=new jaugeClignotant();
     addItem(Clignotant);
+}
+
+void henri_scene::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+}
+
+
+QRectF henri_scene::boundingRect() const
+{
+    return QRect(-800,-450,1600,900);
 }

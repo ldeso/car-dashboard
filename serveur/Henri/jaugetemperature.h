@@ -1,8 +1,8 @@
 #ifndef JAUGETEMPERATURE_H
 #define JAUGETEMPERATURE_H
-#include "jaugevirtuel.h"
+#include "objet_virtuel.h"
 
-class jaugeTemperature : public jaugeVirtuel
+class jaugeTemperature : public objet_virtuel
 {
 public:
     jaugeTemperature();

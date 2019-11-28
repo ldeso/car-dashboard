@@ -1,13 +1,13 @@
 #ifndef JAUGETOURSMINUTEHENRI_H
 #define JAUGETOURSMINUTEHENRI_H
 
-#include "jaugevirtuel.h"
+#include "objet_virtuel.h"
 
 
-class jaugeToursMinuteHenri : public jaugeVirtuel
+class jaugeToursMinuteHenri : public objet_virtuel
 {
 public:
-    jaugeToursMinuteHenri(jaugeVirtuel *parent=nullptr);
+    jaugeToursMinuteHenri(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 

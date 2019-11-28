@@ -113,7 +113,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
         QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)),
         QPointF(x+(r/4)*qCos((angle-8)*pi/180),y+(r/4)*qSin((angle-8)*pi/180)),
     };
-    painter->setPen(QPen(QColor(Qt::white), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    painter->setPen(QPen(QColor(Qt::white), 0.5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->setBrush(QColor(Qt::darkRed));
     painter->drawPolygon(points,4);
 
