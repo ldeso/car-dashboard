@@ -6,9 +6,13 @@
 ///
 /// \brief hugo_voyants_simples::hugo_voyants_simples. Constructeur avec initialisation des paramètres de la classe.
 ///
-hugo_voyants_simples::hugo_voyants_simples()
+hugo_voyants_simples::hugo_voyants_simples(int param_x, int param_y, QString param_chemin,int red,int green,int blue)
 {
     value=0;
+    x=param_x;
+    y=param_y;
+    chemin=param_chemin;
+    couleur=QColor(red,green,blue,160);
 }
 
 
@@ -44,10 +48,3 @@ void hugo_voyants_simples::paint(QPainter *painter, const QStyleOptionGraphicsIt
 /// \param green
 /// \param blue
 ///
-void hugo_voyants_simples::parametrage(int param_x, int param_y, QString param_chemin,int red,int green,int blue)
-{
-    x=param_x;
-    y=param_y;
-    chemin=param_chemin;
-    couleur=QColor(red,green,blue,160);
-}

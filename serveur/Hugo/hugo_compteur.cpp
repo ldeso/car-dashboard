@@ -6,9 +6,24 @@
 #define pi 3.14159265
 
 
-hugo_Compteur::hugo_Compteur()
+hugo_Compteur::hugo_Compteur(int param_x, int param_y, int param_r, int param_start_angle, int param_end_angle, QStringList param_graduations, int param_value, int param_r_verre, int param_direction_grad, int red, int green, int blue, int param_critique, int red2, int green2, int blue2)
 {
-    valueMax=260;
+    x=param_x;
+    y=param_y;
+    r=param_r;
+    start_angle=param_start_angle;
+    end_angle=param_end_angle;
+    nbre_graduations=param_graduations.length()-1;
+    graduations=param_graduations;
+    couleur=QColor(red,green,blue);
+    couleurgrad=QColor(red,green,blue,20),
+    critique=param_critique;
+    couleur2=QColor(red2,green2,blue2);
+    couleurgrad2=QColor(255,green2,blue2,20);
+    value2=param_value;
+    valueMax=value2;
+    direction_grad=param_direction_grad;
+    r_verre=param_r_verre;
 }
 
 
@@ -140,6 +155,25 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
     }
 }
 
+void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r, int param_start_angle, int param_end_angle, QStringList param_graduations, int param_value, int param_r_verre, int param_direction_grad, int red, int green, int blue, int param_critique, int red2, int green2, int blue2)
+{      x=param_x;
+       y=param_y;
+          r=param_r;
+             start_angle=param_start_angle;
+                end_angle=param_end_angle;
+                   nbre_graduations=param_graduations.length()-1;
+                      graduations=param_graduations;
+                         couleur=QColor(red,green,blue);
+                            couleurgrad=QColor(red,green,blue,20),
+                                    critique=param_critique;
+                               couleur2=QColor(red2,green2,blue2);
+                                  couleurgrad2=QColor(255,green2,blue2,20);
+                                     value2=param_value;
+                                        valueMax=value2;
+                                           direction_grad=param_direction_grad;
+                                              r_verre=param_r_verre;
+}
+
 ///
 /// \brief hugo_Compteur::Parametrage : fonction permettant de parmaétrer le compteur
 /// \param param_x position horizontale du centre du compteur
@@ -159,23 +193,5 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 /// \param green2
 /// \param blue2
 ///
-void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r,int param_start_angle, int param_end_angle,QStringList param_graduations,int param_value,int param_r_verre,int param_direction_grad,int red,int green,int blue,int param_critique, int red2,int green2,int blue2)
-{
-    x=param_x;
-    y=param_y;
-    r=param_r;
-    start_angle=param_start_angle;
-    end_angle=param_end_angle;
-    nbre_graduations=param_graduations.length()-1;
-    graduations=param_graduations;
-    couleur=QColor(red,green,blue);
-    couleurgrad=QColor(red,green,blue,20),
-    critique=param_critique;
-    couleur2=QColor(red2,green2,blue2);
-    couleurgrad2=QColor(255,green2,blue2,20);
-    value2=param_value;
-    valueMax=value2;
-    direction_grad=param_direction_grad;
-    r_verre=param_r_verre;
-}
+
 

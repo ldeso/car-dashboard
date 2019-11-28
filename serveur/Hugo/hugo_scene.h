@@ -12,11 +12,8 @@
 class hugo_scene : public scene_globale
 {
 public:
-    hugo_scene();
+    hugo_scene(scene_globale *parent=nullptr);
     hugo_MyGraphicsitem *CompteurKm;
-    hugo_voyants_clignotant *Clignotant;
-    hugo_voyants_simples *VoyantBatterie,*ABS,*liq_refroidissement,*liq_frein,*plaquettes,*portieres,*ceinture,*airbag,*huile;
-    hugo_Compteur *vitesse,*CompteTours,*Essence;
 
 private slots:
 

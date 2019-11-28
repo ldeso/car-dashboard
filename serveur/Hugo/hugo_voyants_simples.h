@@ -8,10 +8,10 @@
 class hugo_voyants_simples : public objet_virtuel
 {
 public:
-    hugo_voyants_simples();
+    hugo_voyants_simples(int,int, QString,int red=255,int green=0,int blue=0);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
-    virtual void parametrage(int param_x,int param_y, QString param_chemin,int red=255,int green=0,int blue=0);
+    //virtual void parametrage(int param_x,int param_y, QString param_chemin,int red=255,int green=0,int blue=0);
 
 protected:
     int x,y;
