@@ -75,6 +75,8 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
         j++;
         compteur++;
     }
+
+    ///////Affichage de l'aiguille
 }
 
 void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r,int param_start_angle, int param_end_angle,QStringList param_graduations,int red,int green,int blue,int param_critique, int red2,int green2,int blue2)

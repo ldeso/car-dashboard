@@ -1,22 +1,21 @@
-#ifndef VOYANT_H
-#define VOYANT_H
-#include <QGraphicsItem>
+#ifndef HUGO_VOYANTS_SIMPLES_H
+#define HUGO_VOYANTS_SIMPLES_H
+#include "hugo_voyants.h"
 
 
-class hugo_voyant : public QGraphicsItem
+
+class hugo_voyants_simples : public hugo_voyants
 {
 public:
-    hugo_voyant();
-    QRectF boundingRect() const;
+    hugo_voyants_simples();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    int on=0;
+    QRectF boundingRect() const;
     virtual void parametrage(int param_x,int param_y, QString param_chemin,QString param_chemin2="vide",int red=255,int green=0,int blue=0);
+
+protected:
     int x,y;
     QString chemin,chemin2;
     QColor couleur;
-    void setValue(int);
-    int getValue();
 };
 
-
-#endif // VOYANT_H
+#endif // HUGO_VOYANTS_SIMPLES_H
