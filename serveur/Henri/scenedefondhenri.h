@@ -1,7 +1,7 @@
 #ifndef SCENEDEFONDHENRI_H
 #define SCENEDEFONDHENRI_H
 
-#include "scenedefond.h"
+#include "scenedefondhenri.h".h"
 
 class sceneDeFondHenri : public QGraphicsItem
 {
