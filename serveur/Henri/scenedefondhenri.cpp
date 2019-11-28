@@ -1,4 +1,5 @@
 #include "scenedefondhenri.h"
+#include <QPainter>
 
 sceneDeFondHenri::sceneDeFondHenri(QGraphicsItem *parent):QGraphicsItem (parent)
 {
