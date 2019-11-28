@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
    // dashboard = new henri_scene();
-    dashboard=new hugo_scene();
+    dashboard=new henri_scene();
     dashboard->Vitesse->getValue();
 
     QTimer *kmTimer=new QTimer;

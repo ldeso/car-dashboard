@@ -2,7 +2,7 @@
 #define SCENEDEFONDHENRI_H
 
 #include <QGraphicsItem>
-#include "scenedefondhenri.h"
+#include "scene_globale.h"
 
 class sceneDeFondHenri : public QGraphicsItem
 {
