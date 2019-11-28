@@ -1,7 +1,12 @@
+///
+/// Classe permettant d'afficher les voyants pouvant clignoter
+///
 #include "hugo_voyants_clignotant.h"
 #include <QDebug>
 
-
+///
+/// \brief hugo_voyants_clignotant::hugo_voyants_clignotant Constructeur avec initialisation des paramètres de la classe
+///
 hugo_voyants_clignotant::hugo_voyants_clignotant()
 {
     valeur=0;
@@ -13,6 +18,9 @@ QRectF hugo_voyants_clignotant::boundingRect() const
     return QRect(-800,-450,1600,900);
 }
 
+///
+/// \brief hugo_voyants_clignotant::MAJ Fonction de mise à jour de l'affichage. La valeur cligno controle l'opacité du painter, permettant de le rendre visible ou non
+///
 void hugo_voyants_clignotant::MAJ()
 {
    if (this->cligno==1){
@@ -28,13 +36,12 @@ void hugo_voyants_clignotant::MAJ()
 void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
-    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setRenderHint(QPainter::Antialiasing);///<Antialiasing//
 
-    if (getValue() !=0)
-
+    if (getValue() !=0)///Va chercher la valeur de la variable "valeur" de la classe hugo_voyants. 1 correspond à l'affichaqge du clignotant droit, -1 à celui du clignotant gauche.
     {
         if (getValue()==-1){
-            QPixmap image("/home/utilisateur/Images/clign-gauche.jpg");
+            QPixmap image(":/Images/clign-gauche.jpg");
             QPixmap image2=image.scaled(30,30);
             QRadialGradient radialGrad(QPointF(-111+15, -90+15), 15);
             radialGrad.setColorAt(0, QColor(0,255,0));
@@ -47,7 +54,7 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             painter->drawEllipse(-111,-90,30,30);
         }
         if (getValue()==1){
-            QPixmap image("/home/utilisateur/Images/clign-droit.jpg");
+            QPixmap image(":/Images/clign-droit.jpg");
             QPixmap image2=image.scaled(30,30);
             QRadialGradient radialGrad(QPointF(81+15, -90+15), 15);
             radialGrad.setColorAt(0, QColor(0,255,0));
@@ -60,6 +67,6 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             painter->drawEllipse(81,-90,30,30);
         }
 
-    MAJ();
+    MAJ();///<La mise à jour est effectuée à l'aide d'un timer, permettant un affichage alterné
     }
 }

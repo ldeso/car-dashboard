@@ -31,11 +31,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    Hugo/hugo_aiguille.cpp \
     Hugo/hugo_compteur.cpp \
     Hugo/hugo_mygraphicsitem.cpp \
     Hugo/hugo_scene.cpp \
-    Hugo/hugo_verre.cpp \
     Henri/cadranthenri.cpp \
     Henri/cardantvirtuel.cpp \
     Henri/jaugeclignotant.cpp \
@@ -56,11 +54,9 @@ SOURCES += \
 
 HEADERS += \
     compteur.h \
-    Hugo/hugo_aiguille.h \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
-    Hugo/hugo_verre.h \
     Henri/cadranthenri.h \
     Henri/cadrantvirtuel.h \
     Henri/jaugeclignotant.h \
@@ -82,7 +78,8 @@ FORMS += \
         mainwindow.ui
 
 RESOURCES += \
-    Henri/images.qrc
+    Henri/images.qrc \
+    Hugo/Icones/icones.qrc
 
 DISTFILES += \
     Henri/iconeEssence.png \

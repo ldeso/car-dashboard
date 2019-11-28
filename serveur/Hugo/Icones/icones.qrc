@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>voyant-batterie.gif</file>
+        <file>ceinture.jpg</file>
+        <file>clign-droit.jpg</file>
+        <file>clign-gauche.jpg</file>
+        <file>portieres.jpg</file>
+        <file>voyant-abs.gif</file>
+        <file>voyant-airbag.gif</file>
+        <file>voyant-huile-orange.jpg</file>
+        <file>voyant-huile-rouge.jpg</file>
+        <file>voyant-ldr-liquide-refroidissement.gif</file>
+        <file>voyant-liquide-frein.gif</file>
+        <file>voyant-plaquettes.gif</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

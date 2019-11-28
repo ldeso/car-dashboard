@@ -10,11 +10,11 @@ public:
     hugo_voyants_simples();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
-    virtual void parametrage(int param_x,int param_y, QString param_chemin,QString param_chemin2="vide",int red=255,int green=0,int blue=0);
+    virtual void parametrage(int param_x,int param_y, QString param_chemin,int red=255,int green=0,int blue=0);
 
 protected:
     int x,y;
-    QString chemin,chemin2;
+    QString chemin;
     QColor couleur;
 };
 
