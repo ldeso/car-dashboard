@@ -44,7 +44,6 @@ SOURCES += \
     Henri/scenedefondhenri.cpp \
     main.cpp \
     mainwindow.cpp \
-    Hugo/hugo_voyants.cpp \
     Hugo/hugo_voyants_clignotant.cpp \
     Hugo/hugo_voyants_simples.cpp \
     scene_globale.cpp \
@@ -64,7 +63,6 @@ HEADERS += \
     Henri/scenedefond.h \
     Henri/scenedefondhenri.h \
     mainwindow.h \
-    Hugo/hugo_voyants.h \
     Hugo/hugo_voyants_clignotant.h \
     Hugo/hugo_voyants_simples.h \
     scene_globale.h \

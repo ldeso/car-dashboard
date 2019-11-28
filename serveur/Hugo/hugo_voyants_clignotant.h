@@ -1,10 +1,10 @@
 #ifndef HUGO_VOYANTS_CLIGNOTANT_H
 #define HUGO_VOYANTS_CLIGNOTANT_H
-#include "hugo_voyants.h"
+#include "objet_virtuel.h"
 #include <QTest>
 
 
-class hugo_voyants_clignotant : public hugo_voyants
+class hugo_voyants_clignotant : public objet_virtuel
 {
 public:
     hugo_voyants_clignotant();

@@ -8,7 +8,7 @@
 
 hugo_Compteur::hugo_Compteur()
 {
-
+    valueMax=260;
 }
 
 
@@ -107,6 +107,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
     ///
     /// \brief Création d'un polygone pour représenter l'aiguille, et affichage
     ///
+    angle=((1.0*(start_angle-end_angle))/(value2*1.0))*getValue()*1.0+(360-start_angle);
     QPointF points[4]={
         QPointF(x,y),
         QPointF(x+(r/4)*qCos((angle+8)*pi/180),y+(r/4)*qSin((angle+8)*pi/180)),
@@ -172,26 +173,9 @@ void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r,int param_
     critique=param_critique;
     couleur2=QColor(red2,green2,blue2);
     couleurgrad2=QColor(255,green2,blue2,20);
-    value=param_value;
+    value2=param_value;
+    valueMax=value2;
     direction_grad=param_direction_grad;
     r_verre=param_r_verre;
-}
-
-///
-/// \brief hugo_Compteur::setValue Setter qui permet de positionner l'aiguille en fonction de ce que l'on désire afficher
-/// \param v Paramètre d'entrée
-///
-void hugo_Compteur::setValue(int v)
-{
-    angle=((1.0*(start_angle-end_angle))/(value*1.0))*v*1.0+(360-start_angle);
-}
-
-///
-/// \brief hugo_Compteur::getValueMax Renvoie la valeur max que le compteur peut afficher
-/// \return
-///
-int hugo_Compteur::getValueMax()
-{
-    return value;
 }
 

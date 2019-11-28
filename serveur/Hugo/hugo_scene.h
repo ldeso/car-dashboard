@@ -5,10 +5,11 @@
 #include "hugo_voyants_clignotant.h"
 #include "hugo_voyants_simples.h"
 #include "hugo_compteur.h"
+#include "scene_globale.h"
 
 
 
-class hugo_scene : public QGraphicsScene
+class hugo_scene : public scene_globale
 {
 public:
     hugo_scene();

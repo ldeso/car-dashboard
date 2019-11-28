@@ -9,7 +9,7 @@
 ///
 hugo_voyants_clignotant::hugo_voyants_clignotant()
 {
-    valeur=0;
+    value=0;
     cligno=0;
 }
 

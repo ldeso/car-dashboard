@@ -1,10 +1,11 @@
 #ifndef HUGO_VOYANTS_SIMPLES_H
 #define HUGO_VOYANTS_SIMPLES_H
-#include "hugo_voyants.h"
+
+#include "objet_virtuel.h"
 
 
 
-class hugo_voyants_simples : public hugo_voyants
+class hugo_voyants_simples : public objet_virtuel
 {
 public:
     hugo_voyants_simples();

@@ -16,28 +16,29 @@ hugo_scene::hugo_scene()
     QStringList graduations_vitesse;
     graduations_vitesse<<"  0"<<" 20"<<" 40"<<" 60"<<" 80"<<"100"<<"120"<<"140"<<"160"<<"180"<<"200"<<"220";
     vitesse->Parametrage(0,0,90,210,-30,graduations_vitesse,220,100,1,0,64,128);
-    vitesse->setValue(0);
+    //vitesse->setValue(0);
+    qDebug()<<vitesse->getValueMax();
     this->addItem(vitesse);
 
     CompteTours=new hugo_Compteur;
     QStringList graduations_rpm;
     graduations_rpm<<"  0"<<"  1"<<"  2"<<"  3"<<"  4"<<"  5"<<"  6"<<"  7"<<"  8";
     CompteTours->Parametrage(-170,20,80,210,60,graduations_rpm,8000,80,1,0,64,128,5,120,0,0);
-    CompteTours->angle=150;
+    //CompteTours->angle=150;
     this->addItem(CompteTours);
 
     Essence=new hugo_Compteur;
     QStringList graduations_essence;
     graduations_essence<<"  E"<<"  F";
     Essence->Parametrage(155,-60,40,-45,45,graduations_essence,100,40,-1,0,64,128);
-    Essence->angle=-45;
+   // Essence->angle=-45;
     this->addItem(Essence);
 
     hugo_Compteur *temperature=new hugo_Compteur;
     QStringList graduations_temperature;
     graduations_temperature<<"  C"<<"  H";
     temperature->Parametrage(160,30,40,-45,45,graduations_temperature,100,40,-1,0,64,128);
-    temperature->angle=-45;
+   // temperature->angle=-45;
     this->addItem(temperature);
 
 

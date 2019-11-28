@@ -8,7 +8,7 @@
 ///
 hugo_voyants_simples::hugo_voyants_simples()
 {
-    valeur=0;
+    value=0;
 }
 
 
