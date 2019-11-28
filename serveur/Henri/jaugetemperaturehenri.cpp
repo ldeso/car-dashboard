@@ -10,7 +10,7 @@ QRectF jaugeTemperatureHenri::boundingRect() const
     return QRect(-800,-450,1600,900);
 }
 
-void jaugeTemperatureHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void jaugeTemperatureHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     QLinearGradient gradient(-200, 0, 150, 0);
     painter->setRenderHint(QPainter::Antialiasing);

@@ -22,7 +22,7 @@ QRectF hugo_voyants_simples::boundingRect() const
 }
 
 
-void hugo_voyants_simples::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void hugo_voyants_simples::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     painter->setRenderHints(QPainter::Antialiasing);
     if (getValue()==1){///< Va chercher la valeur de la variable "valeur" de la classe mère. Si ==1, le voyant doit être affiché

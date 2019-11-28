@@ -3,7 +3,7 @@
 #include <QMainWindow>
 #include "scene_globale.h"
 #include "objet_virtuel.h"
-#include "jaugeclignotant.h"
+#include "jaugeclignotanthenri.h"
 #include "jaugeessencehenri.h"
 #include "cadranthenri.h"
 #include "jaugetemperaturehenri.h"

@@ -1,11 +1,11 @@
 #include "scenedefondhenri.h"
 
-sceneDeFondHenri::sceneDeFondHenri(sceneDeFond *parent):sceneDeFond (parent)
+sceneDeFondHenri::sceneDeFondHenri(QGraphicsItem *parent):QGraphicsItem (parent)
 {
 
 }
 
-void sceneDeFondHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void sceneDeFondHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 //  Designe de l'elipse de fond
 

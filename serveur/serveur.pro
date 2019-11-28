@@ -35,12 +35,9 @@ SOURCES += \
     Hugo/hugo_mygraphicsitem.cpp \
     Hugo/hugo_scene.cpp \
     Henri/cadranthenri.cpp \
-    Henri/jaugeclignotant.cpp \
     Henri/jaugeessencehenri.cpp \
-    Henri/jaugetemperature.cpp \
     Henri/jaugetemperaturehenri.cpp \
     Henri/jaugetoursminutehenri.cpp \
-    Henri/scenedefond.cpp \
     Henri/scenedefondhenri.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -48,26 +45,25 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     scene_globale.cpp \
     objet_virtuel.cpp \
-    Henri/henri_scene.cpp
+    Henri/henri_scene.cpp \
+    Henri/jaugeclignotanthenri.cpp
 
 HEADERS += \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
     Henri/cadranthenri.h \
-    Henri/jaugeclignotant.h \
     Henri/jaugeessencehenri.h \
-    Henri/jaugetemperature.h \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
-    Henri/scenedefond.h \
     Henri/scenedefondhenri.h \
     mainwindow.h \
     Hugo/hugo_voyants_clignotant.h \
     Hugo/hugo_voyants_simples.h \
     scene_globale.h \
     objet_virtuel.h \
-    Henri/henri_scene.h
+    Henri/henri_scene.h \
+    Henri/jaugeclignotanthenri.h
 
 FORMS += \
         mainwindow.ui

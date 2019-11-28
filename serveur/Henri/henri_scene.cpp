@@ -18,11 +18,11 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     jaugeTemperature=new jaugeTemperatureHenri();
     addItem(jaugeTemperature);
 
-    Clignotant=new jaugeClignotant();
+    Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
 }
 
-void henri_scene::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
 {
 }
 
