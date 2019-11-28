@@ -2,8 +2,6 @@
 #include "Hugo/hugo_mygraphicsitem.h"
 #include "Hugo/hugo_compteur.h"
 #include "Hugo/hugo_verre.h"
-#include "Hugo/hugo_voyant.h"
-#include "Hugo/hugo_clignotants.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -78,45 +76,43 @@ hugo_scene::hugo_scene()
      verre_temp->parametrage(160,30,40,-1);
      this->addItem(verre_temp);
 
-    VoyantBatterie=new hugo_voyant;
+    VoyantBatterie=new hugo_voyants_simples;
     VoyantBatterie->parametrage(-180,50,"/home/utilisateur/Images/voyant-batterie-.gif");
     this->addItem(VoyantBatterie);
 
-    hugo_voyant *ABS=new hugo_voyant;
+    ABS=new hugo_voyants_simples;
     ABS->parametrage(-150,25,"/home/utilisateur/Images/voyant-abs.gif");
     this->addItem(ABS);
 
-    hugo_voyant *liq_refroidissement=new hugo_voyant;
+    liq_refroidissement=new hugo_voyants_simples;
     liq_refroidissement->parametrage(200,-20,"/home/utilisateur/Images/voyant-ldr-liquide-refroidissement.gif");
     this->addItem(liq_refroidissement);
 
-    hugo_voyant *liq_frein=new hugo_voyant;
+    liq_frein=new hugo_voyants_simples;
     liq_frein->parametrage(-150,50,"/home/utilisateur/Images/voyant-liquide-frein.gif");
     this->addItem(liq_frein);
 
-    hugo_voyant *plaquettes=new hugo_voyant;
+    plaquettes=new hugo_voyants_simples;
     plaquettes->parametrage(-120,50,"/home/utilisateur/Images/voyant-plaquettes.gif");
     this->addItem(plaquettes);
 
-    hugo_voyant *portieres=new hugo_voyant;
+    portieres=new hugo_voyants_simples;
     portieres->parametrage(-200,75,"/home/utilisateur/Images/portieres.jpg");
     this->addItem(portieres);
 
-
-    hugo_voyant *ceinture=new hugo_voyant;
+    ceinture=new hugo_voyants_simples;
     ceinture->parametrage(-170,75,"/home/utilisateur/Images/ceinture.jpg");
     this->addItem(ceinture);
 
-
-    hugo_voyant *airbag=new hugo_voyant;
+    airbag=new hugo_voyants_simples;
     airbag->parametrage(-140,75,"/home/utilisateur/Images/voyant-airbag.gif");
     this->addItem(airbag);
 
-    hugo_voyant *huile=new hugo_voyant;
+    huile=new hugo_voyants_simples;
     huile->parametrage(-110,75,"/home/utilisateur/Images/voyant-huile-orange.jpg","/home/utilisateur/Images/voyant-huile-rouge.jpg");
     this->addItem(huile);
 
-    Clignotant=new hugo_clignotants;
+    Clignotant = new hugo_voyants_clignotant;
     this->addItem(Clignotant);
 
 }

@@ -36,7 +36,6 @@ SOURCES += \
     Hugo/hugo_mygraphicsitem.cpp \
     Hugo/hugo_scene.cpp \
     Hugo/hugo_verre.cpp \
-    Hugo/hugo_voyant.cpp \
     Henri/cadranthenri.cpp \
     Henri/cardantvirtuel.cpp \
     Henri/jaugeclignotant.cpp \
@@ -51,7 +50,9 @@ SOURCES += \
     compteur.cpp \
     main.cpp \
     mainwindow.cpp \
-    Hugo/hugo_clignotants.cpp
+    Hugo/hugo_voyants.cpp \
+    Hugo/hugo_voyants_clignotant.cpp \
+    Hugo/hugo_voyants_simples.cpp
 
 HEADERS += \
     compteur.h \
@@ -60,7 +61,6 @@ HEADERS += \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
     Hugo/hugo_verre.h \
-    Hugo/hugo_voyant.h \
     Henri/cadranthenri.h \
     Henri/cadrantvirtuel.h \
     Henri/jaugeclignotant.h \
@@ -74,7 +74,9 @@ HEADERS += \
     Henri/sceneglobale.h \
     compteur.h \
     mainwindow.h \
-    Hugo/hugo_clignotants.h
+    Hugo/hugo_voyants.h \
+    Hugo/hugo_voyants_clignotant.h \
+    Hugo/hugo_voyants_simples.h
 
 FORMS += \
         mainwindow.ui
