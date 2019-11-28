@@ -1,7 +1,7 @@
 
 #A Faire
 
-Creer une classe prenom_scene qui herite de scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale, déclarer :
+chacun crée sa classe prenom_scene qui herite de la classe commune scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale est déclarer :
  
  * un compteur vitesse qui contient une fonction __getValueMax__ qui retourne la vitesse max,et une fonction __setValue__ qui modifie la vitesse du compteur.
  * un compteur CompteTours qui contient une fonction __getValueMax__ qui retourne la valeur max,et une fonction __setValue__ qui modifie la valeur du compteur.
