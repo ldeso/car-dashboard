@@ -25,8 +25,8 @@ private slots:
     void update_km();
 private:
    // Compteur * c;
-    //sceneGlobale *dashboard;//la scene d'henri
-    hugo_scene *dashboard;//la scene d'hugo
+    sceneGlobale *dashboard;//la scene d'henri
+//    hugo_scene *dashboard;//la scene d'hugo
 
     Ui::MainWindow *ui;
     QTcpServer * server;

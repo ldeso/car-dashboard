@@ -18,7 +18,7 @@ void jaugeClignotant::MAJ()
     this->cligno+=1;
     if(this->cligno == 9)
         this->cligno=0;
-    QTest::qWait(50);
+    QTest::qWait(10);
     update();
 }
 

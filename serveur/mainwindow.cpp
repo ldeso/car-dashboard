@@ -16,8 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     //Ajouter ici votre scène, nommée dashboard (déclarée dans le "mainwindow.h")
-    //dashboard = new sceneGlobale();
-    dashboard = new hugo_scene;
+    dashboard = new sceneGlobale();
+//    dashboard = new hugo_scene;
     ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
@@ -137,7 +137,7 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    dashboard->CompteurKm->setValue(km_parcourus);
+    //dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
 
