@@ -6,8 +6,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     fond=new sceneDeFondHenri();
     addItem(fond);
 
-    vitesse=new cadrantHenri();
-    addItem(vitesse);
+    Vitesse=new cadrantHenri();
+    addItem(Vitesse);
 
     Essence=new jaugeEssenceHenri();
     addItem(Essence);
