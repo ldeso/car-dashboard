@@ -56,8 +56,8 @@ void MainWindow::reception()
     QString message = string.section(' ',0,1);
     if(message=="CANN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
-        if(vitesse>=0 && vitesse <= dashboard->vitesse->getValueMax()){
-            dashboard->vitesse->setValue(vitesse);
+        if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
+            dashboard->Vitesse->setValue(vitesse);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
@@ -65,7 +65,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->vitesse->getValueMax());
+            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
             socket->write(text.toUtf8());
         }
     }

@@ -8,7 +8,7 @@ class scene_globale : public QGraphicsScene
 public:
     scene_globale(QGraphicsScene *parent=nullptr);
 
-    objet_virtuel *vitesse;
+    objet_virtuel *Vitesse;
     objet_virtuel *Essence;
     objet_virtuel *CompteTours;
     objet_virtuel *jaugeTemperature;
