@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/voyant">
+        <file>voyant/position.jpeg</file>
+        <file>voyant/croisement.jpg</file>
+        <file>voyant/voyants-tableau-de-bord.jpg</file>
+        <file>voyant/route.jpg</file>
+        <file>voyant/brouillardAvant.jpg</file>
+        <file>voyant/brouillardArriere.jpg</file>
+        <file>voyant/noEssence.jpg</file>
+        <file>voyant/noHuile.jpg</file>
+        <file>voyant/batterie.jpg</file>
+        <file>voyant/refroidissement.jpg</file>
+        <file>voyant/clignotantDroite.jpg</file>
+        <file>voyant/clignotantGauche.jpg</file>
+        <file>voyant/frein.jpg</file>
+        <file>voyant/warning.jpg</file>
+        <file>voyant/ceinture.jpg</file>
+        <file>voyant/noCeinture.jpg</file>
+    </qresource>
+</RCC>
