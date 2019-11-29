@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     dashboard->Vitesse->getValue();
 
+
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(1000);
