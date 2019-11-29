@@ -5,12 +5,12 @@ objet_virtuel::objet_virtuel(QGraphicsItem *parent):QGraphicsItem(parent)
 
 }
 
-int objet_virtuel::getValue() const
+float objet_virtuel::getValue() const
 {
 return value;
 }
 
-void objet_virtuel::setValue(int set_value)
+void objet_virtuel::setValue(float set_value)
 {
 value = set_value;
 }
