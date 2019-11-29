@@ -4,7 +4,7 @@
 
 jaugeClignotantHenri::jaugeClignotantHenri()
 {
-    value=0;
+    value==0;
     cligno=0;
 }
 
@@ -22,16 +22,48 @@ void jaugeClignotantHenri::MAJ()
     update();
 }
 
+void jaugeClignotantHenri::MAJ2()
+{
+    this->cligno+=1;
+    if(this->cligno == 2)
+        this->cligno=0;
+    QTest::qWait(500);
+    update();
+}
+
 void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
 {
     painter->setRenderHint(QPainter::Antialiasing);
     painter->setPen(QPen(QBrush(QColor(255,200,0,125)) , 2, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(QColor(255,200,0,255)));
     float pi=3.14159265;
-    if (getValue() !=0)
-
+    if (getValue() ==2)
     {
+        int l=241;
+        QRect carre1(-l,-l,2*l,2*l);
+        if (cligno == 0)
+        {
+            painter->setPen(QPen(QBrush("black") , 28, Qt::SolidLine,Qt::FlatCap));
+             painter->drawArc(carre1,-128*16,78*16);
+        }
 
+        if (cligno == 1)
+        {
+            for (int i=28;i>23;i--)
+            {
+            painter->setPen(QPen(QBrush(QColor(255,200,0,50)) , 28, Qt::SolidLine,Qt::FlatCap));
+            painter->drawArc(carre1,-128*16,78*16);
+            painter->setPen(QPen(QBrush(QColor(255,200,0,50)) , 24, Qt::SolidLine,Qt::FlatCap));
+            painter->drawArc(carre1,-128*16+8,78*16-16);
+            painter->setPen(QPen(QBrush(QColor(255,200,0,50)) , 20, Qt::SolidLine,Qt::FlatCap));
+            painter->drawArc(carre1,-128*16+16,78*16-32);
+            }
+        }
+        MAJ2();
+    }
+
+    if ( (getValue() == 1) | (getValue()== -1) )
+    {
         for (int j=0;j<cligno;j+=1)
         {
             float i=1.65*j*pi/60;
@@ -45,4 +77,5 @@ void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsIt
         }
     MAJ();
     }
+
 }
