@@ -1,5 +1,5 @@
-#ifndef LIBCLIENT_H
-#define LIBCLIENT_H
+#ifndef CLIENT_H
+#define CLIENT_H
 
 #include <stdlib.h> // free, malloc, size_t
 
@@ -9,4 +9,4 @@ int validate_message(const char* message);
 int send_message(int sockfd, const char *message, size_t len);
 int receive_message(int sockfd, char *message, size_t len);
 
-#endif // LIBCLIENT_H
+#endif // CLIENT_H
