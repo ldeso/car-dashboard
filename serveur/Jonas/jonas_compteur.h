@@ -34,7 +34,6 @@ private:
     bool hLine;
     QString textLabel;
     QStringList textAround;
-    float valueToAngle(int) const;
 };
 
 #endif // JONAS_COMPTEUR_H

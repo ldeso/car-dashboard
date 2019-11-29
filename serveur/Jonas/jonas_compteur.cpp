@@ -11,21 +11,30 @@ Jonas_compteur::Jonas_compteur()
     beta = 210;
     gaugeSize = 150;
     textLabel = "km/h";
-    graduations = valueMax/10;
+    graduations = 23;
     mod = 2;
     hLine = 1;
     for (int i=0; i<=valueMax/10; i++) {
-        textAround.append(QString::number(10*i));
+        textAround << (QString::number(10*i));
     }
 }
 
 Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, QString textCenter,int ngrad, bool line, int modulo, int size)
 {
+    if (beta > alpha) {
+        alpha = startAngle;
+        beta = endAngle;
+    }
+    else if (alpha > beta) {
+        alpha = endAngle;
+        beta = startAngle;
+    }
+    else
+        qDebug() << "Veuillez selectionner un angle de départ différent de celui d'arrivée";
+
     valueMax = max;
     gaugeSize = size;
     textAround = gradList;
-    alpha = startAngle;
-    beta = endAngle;
     textLabel = textCenter;
     graduations = ngrad;
     hLine = line;
@@ -43,7 +52,9 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     // Definition des constantes
     const float spanAngle = beta - alpha;
     const float needleSize = gaugeSize*120/150;
-    const float diffAngle = (spanAngle+1)*(10/((float)graduations*10));
+    //const float diffAngle = (spanAngle+1)*(10/((float)graduations*10));
+    const float diffAngle = (spanAngle+1)/(graduations-1);
+    qDebug() << "diffAngle: " << diffAngle;
 
     // Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
@@ -82,10 +93,9 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
 
     // Dessine les graduations du cadrant
-    int k = 2;
+    int k = 0;
     float delta = beta;
-
-    for (int i=0; i<=graduations; i++)
+    for (int i=0; i<graduations; i++)
     {
         if  (k%2 == 0) {
             painter->setPen(QPen(QBrush(QColor(38, 10, 178)), gaugeSize*20/150, Qt::SolidLine, Qt::FlatCap));
@@ -125,12 +135,12 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     for (int i=0; i<textAround.size(); i++)
     {
         if (j%mod == 0) {
-        painter->drawText(qCos(qDegreesToRadians((gamma)))*rect[8].height()/2-gaugeSize*9/150,
+        painter->drawText(qCos(qDegreesToRadians((gamma)))*rect[8].height()/2-gaugeSize*10/150,
                 -qSin(qDegreesToRadians(gamma))*rect[8].height()/2 +gaugeSize*5/150,
                 textAround[i]);
         }
         j++;
-        gamma -= (spanAngle+12)*(10/((((float)(textAround.size())))*10));
+        gamma -= (spanAngle)/(float)(textAround.size()-1);
     }
 
     painter->setFont(QFont("Helvetica", gaugeSize*12/150, QFont::Bold));

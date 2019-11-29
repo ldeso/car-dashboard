@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
    ///La scène par défault est
     dashboard=new hugo_scene();
 
-    dashboard->Vitesse->getValue();
-
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(1000);
@@ -131,7 +129,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    if(message=="CANN DASHBOARD"){
+    else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
         PRENOMS<<"HUGO"<<"HENRI" << "JONAS";
         QString prenom = string.section(' ', 2,2);
