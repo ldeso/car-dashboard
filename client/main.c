@@ -45,7 +45,7 @@ void entrerMessage(char *buffer, const int max_size)
 int main() {
     int fd;
     char * message;
-    int max_size = 50;
+    size_t max_size = 50;
     char * recep;
     char * ptr = (char*) malloc(sizeof(char)*10);
     char * tmp = (char*) malloc(sizeof(char)*50);
@@ -73,12 +73,12 @@ int main() {
     printf("connexion au serveur\n");
 
     //allocation du char* message
-    if ((message = malloc((size_t) max_size)) == NULL) {
+    if ((message = malloc(max_size)) == NULL) {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
 
-    if ((recep = malloc((size_t) max_size)) == NULL) {
+    if ((recep = malloc(max_size)) == NULL) {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
@@ -90,7 +90,7 @@ int main() {
         //boucle qui se termine si l'utilisateur ecrit une commande correcte.
         valide = 0;
         while(valide == 0){
-            entrerMessage(message, max_size);
+            entrerMessage(message, (int) max_size);
             upperCase(message);
             //compare la commande saisie avec l'une des commandes existantes
             // TO DO ajouter les differentes commandes à la section HELP avec des printf
