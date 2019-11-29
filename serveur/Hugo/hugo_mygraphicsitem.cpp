@@ -7,6 +7,7 @@
 
 hugo_MyGraphicsitem::hugo_MyGraphicsitem()
 {
+    value=0;
 }
 
 
@@ -69,7 +70,7 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     painter->drawText(-190,-10,"x1000rpm");
 
     ///Création d'un afficheur. Affiche le temps réel, aisi que la distance parcourue depuis le départ
-    painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
+   /*painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QColor(0,128,255,15));
     painter->drawRect(-45,25,90,40);
     QRadialGradient radialGrad(QPointF(0, 45), 50);
@@ -88,11 +89,11 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     time.currentTime();
     painter->setFont(QFont("Arial", 9, -1,false));
     painter->drawText(0,45,time.toString("hh.mm")); ///< Conversion pour avoir l'affichage sous forme heure.minutes
-    painter->drawText(0,60, QString::number(km));
+    painter->drawText(0,60, QString::number(getValue()));
 
 
     painter->setPen(QPen(QColor( 26, 13, 0), 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QColor( 26,13,0));
+    painter->setBrush(QColor( 26,13,0));*/
 
     ///Afficheur pour les stations de radios
     painter->setFont(QFont("Arial", 8, -1,false));

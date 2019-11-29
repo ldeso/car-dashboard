@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ///La scène par défault est
-    dashboard=new henri_scene();
+    dashboard=new hugo_scene();
 
     dashboard->Vitesse->getValue();
 
@@ -166,7 +166,7 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    //dashboard->CompteurKm->setValue(km_parcourus);
+    dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
 

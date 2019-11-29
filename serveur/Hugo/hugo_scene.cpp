@@ -1,6 +1,7 @@
 #include "Hugo/hugo_scene.h"
 #include "Hugo/hugo_mygraphicsitem.h"
 #include "Hugo/hugo_compteur.h"
+#include "hugo_ecran.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -8,7 +9,11 @@
 hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
 {
     ///Création de la scène de fond
-    CompteurKm=new hugo_MyGraphicsitem();
+    hugo_MyGraphicsitem *background=new hugo_MyGraphicsitem();
+    this->addItem(background);
+
+
+    CompteurKm=new hugo_ecran;
     this->addItem(CompteurKm);
 
     ///Déclaration et paramétrage de tous les compteurs
