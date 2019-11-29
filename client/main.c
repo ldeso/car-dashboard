@@ -18,15 +18,20 @@ void upperCase(char* toUp){
 }
 
 /**
- * @brief viderBuffer
- * @details vide le buffer après un fgets
+ * @brief entrerMessage
+ * @details abstraction des fonctions necessaires a la saisie d'un message
  */
-void viderBuffer(){
-    int c = 0;
-    while (c != '\n')
-    {
-        c = getchar();
+void entrerMessage(char *buffer, const int max_size)
+{
+    fgets(buffer, max_size, stdin);
+    size_t newline_span = strcspn(buffer, "\n");
+    while (buffer[newline_span] != '\n') {
+        printf("Too many characters (max = %d). Please try again : ", max_size-2);
+        while (getchar() != '\n');
+        fgets(buffer, max_size, stdin);
+        newline_span = strcspn(buffer, "\n");
     }
+    buffer[newline_span] = '\0';
 }
 
 /**
@@ -40,6 +45,7 @@ void viderBuffer(){
 int main() {
     int fd;
     char * message;
+    int max_size = 50;
     char * recep;
     char * ptr = (char*) malloc(sizeof(char)*10);
     char * tmp = (char*) malloc(sizeof(char)*50);
@@ -67,12 +73,12 @@ int main() {
     printf("connexion au serveur\n");
 
     //allocation du char* message
-    if ((message = (char * ) malloc(sizeof(char)*50)) == NULL) {
+    if ((message = malloc((size_t) max_size)) == NULL) {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
 
-    if ((recep = (char * ) malloc(sizeof(char)*50)) == NULL) {
+    if ((recep = malloc((size_t) max_size)) == NULL) {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
@@ -84,12 +90,7 @@ int main() {
         //boucle qui se termine si l'utilisateur ecrit une commande correcte.
         valide = 0;
         while(valide == 0){
-            if(fgets(message, 50, stdin)== NULL){
-                perror("erreur lors du fgets");
-                exit(EXIT_FAILURE);
-            }
-            //supprimer le \n du char*
-            message[strlen(message)-1] = '\0';
+            entrerMessage(message, max_size);
             upperCase(message);
             //compare la commande saisie avec l'une des commandes existantes
             // TO DO ajouter les differentes commandes à la section HELP avec des printf
@@ -228,7 +229,6 @@ int main() {
             }
 
         }
-        viderBuffer();
 
     }while(strncmp(message, "end", strlen("end")) != 0);
 
