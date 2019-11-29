@@ -44,6 +44,10 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     VoyantBatterie->setValue(0);
     this->addItem(VoyantBatterie);
 
+ //   objet_virtuel *VoyantEssenceFixe=new hugo_voyants_simples(150,-100,":/Images/voyant_carburant.jpg",150,150,150,17);
+   // VoyantEssenceFixe->setValue(1);
+    //this->addItem(VoyantEssenceFixe);
+
     /*ABS=new hugo_voyants_simples;
     ABS->parametrage(-150,25,":/Images/voyant-abs");
     this->addItem(ABS);

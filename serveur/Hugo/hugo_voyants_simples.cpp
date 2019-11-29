@@ -6,13 +6,14 @@
 ///
 /// \brief hugo_voyants_simples::hugo_voyants_simples. Constructeur avec initialisation des paramètres de la classe.
 ///
-hugo_voyants_simples::hugo_voyants_simples(int param_x, int param_y, QString param_chemin,int red,int green,int blue)
+hugo_voyants_simples::hugo_voyants_simples(int param_x, int param_y, QString param_chemin,int red,int green,int blue,int param_size)
 {
     value=0;
     x=param_x;
     y=param_y;
     chemin=param_chemin;
     couleur=QColor(red,green,blue,160);
+    size=param_size;
 }
 
 
@@ -27,15 +28,15 @@ void hugo_voyants_simples::paint(QPainter *painter, const QStyleOptionGraphicsIt
     painter->setRenderHints(QPainter::Antialiasing);
     if (getValue()==1){///< Va chercher la valeur de la variable "valeur" de la classe mère. Si ==1, le voyant doit être affiché
         QPixmap image(chemin);
-        QPixmap image2=image.scaled(30,30);
-        QRadialGradient radialGrad(QPointF(x+15, y+15), 15);
+        QPixmap image2=image.scaled(size,size);
+        QRadialGradient radialGrad(QPointF(x+size/2, y+size/2), size/2);
         radialGrad.setColorAt(0, couleur);
         radialGrad.setColorAt(1, QColor(0,0,0,120));
 
         QBrush brush(radialGrad);
         painter->setBrush(brush);
-        painter->drawPixmap(x,y,30,30,image2);
-        painter->drawEllipse(x,y,30,30);
+        painter->drawPixmap(x,y,size,size,image2);
+        painter->drawEllipse(x,y,size,size);
     }
 }
 

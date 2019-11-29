@@ -29,8 +29,8 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     painter->setBrush(linearGrad);
     QRect rect_fond(-450,-300,900,600);
      painter->drawRect(rect_fond);
-    QPixmap image("/home/utilisateur/Images/bois.jpg");
-    QPixmap image2=image.scaled(900,600);
+    //QPixmap image("/home/utilisateur/Images/bois.jpg");
+   // QPixmap image2=image.scaled(900,600);
    //painter->drawPixmap(-450,-300,900,600,image2); ///<A Decommenter pour avoir une image en fond
 
     ///Création des arcs de cercles gris, et d'un fond noir pour poser les objects
@@ -130,5 +130,12 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
         i++;
     }
 
+    ///Affichage d'une icone jauge d'essence
+    /// if (getValue()==1){///< Va chercher la valeur de la variable "valeur" de la classe mère. Si ==1, le voyant doit être affiché
+    QPixmap image(":/Images/voyant_carburant.jpg");
+    QPixmap image2=image.scaled(20,20);
+    painter->drawPixmap(145,-90,20,20,image2);
+    //painter->drawEllipse(144,-92,16,16);
 }
+
 
