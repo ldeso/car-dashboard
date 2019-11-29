@@ -25,8 +25,8 @@ void jaugeClignotantHenri::MAJ()
 void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
 {
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(QPen(QBrush(QColor(250,200,0,255)) , 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QBrush(QColor(250,200,0,255)));
+    painter->setPen(QPen(QBrush(QColor(255,200,0,125)) , 2, Qt::SolidLine,Qt::FlatCap));
+    painter->setBrush(QBrush(QColor(255,200,0,255)));
     float pi=3.14159265;
     if (getValue() !=0)
 
