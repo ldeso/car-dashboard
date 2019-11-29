@@ -10,7 +10,7 @@ jaugeClignotantHenri::jaugeClignotantHenri()
 
 QRectF jaugeClignotantHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
 void jaugeClignotantHenri::MAJ()
@@ -18,15 +18,15 @@ void jaugeClignotantHenri::MAJ()
     this->cligno+=1;
     if(this->cligno == 9)
         this->cligno=0;
-    QTest::qWait(10);
+    QTest::qWait(80);
     update();
 }
 
 void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
 {
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(QPen(QBrush(QColor(250,200,0,255)) , 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QBrush(QColor(250,200,0,255)));
+    painter->setPen(QPen(QBrush(QColor(255,200,0,125)) , 2, Qt::SolidLine,Qt::FlatCap));
+    painter->setBrush(QBrush(QColor(255,200,0,255)));
     float pi=3.14159265;
     if (getValue() !=0)
 

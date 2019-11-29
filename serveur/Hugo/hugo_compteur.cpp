@@ -17,7 +17,7 @@ hugo_Compteur::hugo_Compteur(int param_x, int param_y, int param_r, int param_st
     graduations=param_graduations;
     couleur=QColor(red,green,blue);
     couleurgrad=QColor(red,green,blue,20),
-    critique=param_critique;
+            critique=param_critique;
     couleur2=QColor(red2,green2,blue2);
     couleurgrad2=QColor(255,green2,blue2,20);
     value2=param_value;

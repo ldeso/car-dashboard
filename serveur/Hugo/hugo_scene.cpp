@@ -1,6 +1,8 @@
 #include "Hugo/hugo_scene.h"
 #include "Hugo/hugo_mygraphicsitem.h"
 #include "Hugo/hugo_compteur.h"
+#include "hugo_ecran.h"
+#include "hugo_voyant_warning.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -8,7 +10,28 @@
 hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
 {
     ///Création de la scène de fond
-    CompteurKm=new hugo_MyGraphicsitem();
+    hugo_MyGraphicsitem *background=new hugo_MyGraphicsitem();
+    this->addItem(background);
+
+
+    CompteurKm=new hugo_ecran;
+    this->addItem(CompteurKm);
+
+    position=new hugo_voyants_simples(15,-50,":/Images/voyant_feux_position.jpg",0,150,0);
+    position->setValue(0);
+    this->addItem(position);
+
+    croisement=new hugo_voyants_simples(15,-22,":/Images/voyant_feux_croisement.jpg",0,150,0);
+    croisement->setValue(0);
+    this->addItem(croisement);
+
+    route=new hugo_voyants_simples(15,3,":/Images/voyant_feux_croisement.jpg",0,0,150);
+    route->setValue(0);
+    this->addItem(route);
+
+
+
+    CompteurKm=new hugo_ecran;
     this->addItem(CompteurKm);
 
     ///Déclaration et paramétrage de tous les compteurs
@@ -43,6 +66,8 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     VoyantBatterie=new hugo_voyants_simples(-180,50,":/Images/voyant-batterie.gif");
     VoyantBatterie->setValue(0);
     this->addItem(VoyantBatterie);
+
+
 
  //   objet_virtuel *VoyantEssenceFixe=new hugo_voyants_simples(150,-100,":/Images/voyant_carburant.jpg",150,150,150,17);
    // VoyantEssenceFixe->setValue(1);
@@ -83,6 +108,11 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     //Déclaration des clignotants
     Clignotant = new hugo_voyants_clignotant;
     this->addItem(Clignotant);
+
+    warning=new hugo_voyant_warning;
+    warning->setValue(0);
+    this->addItem(warning);
+
 
 }
 

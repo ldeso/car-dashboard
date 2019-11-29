@@ -8,7 +8,7 @@ jaugeEssenceHenri::jaugeEssenceHenri(objet_virtuel *parent):objet_virtuel (paren
 }
 QRectF jaugeEssenceHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
 void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
@@ -28,6 +28,6 @@ void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*
     painter->drawPixmap(-15,265,30,30,*test);
 
 
-//fin jauge essece
+//fin jauge essence
 
 }

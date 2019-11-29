@@ -20,6 +20,13 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
 
     Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
+
+    CompteurKm=new afficheKmHenri();
+    addItem(CompteurKm);
+
+    VoyantBatterie=new jaugeBatterieHenri();
+    addItem(VoyantBatterie);
+
 }
 
 void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
@@ -29,5 +36,5 @@ void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
 
 QRectF henri_scene::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }

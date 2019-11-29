@@ -102,6 +102,8 @@ int main() {
                 printf("CANN BATTERY_LIGHT X avec X = 0 ou 1\n");
                 printf("CANN GAZ x avec x compris entre 0 et 100\n");
                 printf("CANN TURN x avec -1 gauche, 0 rien, 1 droite\n");
+                printf("CANN LIGHT X avec 0 eteint, 1 position, 2 croisement, 3 route\n");
+                printf("CANN WARNING x avec 0 eteint et 1 allumer\n");
                 printf("CANN DASHBOARD x avec x le prénom\n");
                 valide = 1;
             }
@@ -181,6 +183,32 @@ int main() {
                     printf("%s\n", recep);
 
                 }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "LIGHT") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "WARNING") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
                 else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "DASHBOARD") == 0){
                     if (send(fd, message, sizeof(char)*80, 0) < 0) {
                         perror("send()");
@@ -204,7 +232,7 @@ int main() {
             }
 
         }
-
+        viderBuffer();
 
     }while(message != "end");
 

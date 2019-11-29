@@ -2,5 +2,7 @@
     <qresource prefix="/new/prefix1">
         <file>iconeEssence.png</file>
         <file>iconeSurchaufe.png</file>
+        <file>iconeBatterie.png</file>
+        <file>testGIMP.png</file>
     </qresource>
 </RCC>
