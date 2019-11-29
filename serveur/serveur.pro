@@ -52,7 +52,7 @@ SOURCES += \
     Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
     Florian/voyant.cpp \
-    Florian/clignotant.cpp\
+    Florian/clignotant.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
     Henri/warninghenri.cpp \

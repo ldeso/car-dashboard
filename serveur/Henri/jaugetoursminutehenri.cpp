@@ -46,7 +46,7 @@ void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsI
     float blue=qMin(250.0, qMax(0.0,-4.0*255/valueMax*value+3*255) );//variation de la couleur bleu
     painter->setPen(QPen(QBrush(QColor(250 , green , blue , 255 )) , 20, Qt::SolidLine,Qt::FlatCap));
 
-    for (int i=225;i>224-qMin(270,(value/20*5400/valueMax));i-=1)
+    for (int i=225;i>224.0-qMin(270.0,(value/20*5400.0/valueMax));i-=1)
         {
         painter->drawArc(carre[9],i*16,10);
         }
