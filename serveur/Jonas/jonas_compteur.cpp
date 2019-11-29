@@ -30,7 +30,7 @@ Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, 
         beta = startAngle;
     }
     else
-        qDebug() << "Veuillez selectionner un angle de départ différent de celui d'arrivée";
+        qDebug() << "erreur startAngles = endAngle";
 
     valueMax = max;
     gaugeSize = size;
@@ -54,7 +54,6 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     const float needleSize = gaugeSize*120/150;
     //const float diffAngle = (spanAngle+1)*(10/((float)graduations*10));
     const float diffAngle = (spanAngle+1)/(graduations-1);
-    qDebug() << "diffAngle: " << diffAngle;
 
     // Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
