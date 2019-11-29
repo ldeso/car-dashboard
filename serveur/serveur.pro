@@ -52,7 +52,7 @@ SOURCES += \
     Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
     Florian/voyant.cpp \
-    Florian/clignotant.cpp\
+    Florian/clignotant.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
     Hugo/hugo_ecran.cpp \
@@ -76,11 +76,11 @@ HEADERS += \
     Jonas/jonas_scene.h \
     mainwindow.h \
     objet_virtuel.h \
-    scene_globale.h
+    scene_globale.h \
     Florian/cadrantflorian.h \
     Florian/sceneflorian.h \
     Florian/voyant.h \
-    Florian/clignotant.h\
+    Florian/clignotant.h \
     Henri/affichekmhenri.h \
     Henri/jaugebatteriehenri.h \
     Hugo/hugo_ecran.h \
