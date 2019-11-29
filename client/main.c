@@ -26,7 +26,7 @@ void entrerMessage(char *buffer, const int max_size)
     fgets(buffer, max_size, stdin);
     size_t newline_span = strcspn(buffer, "\n");
     while (buffer[newline_span] != '\n') {
-        printf("Too many characters (max = %d). Please try again : ", max_size-2);
+        printf("Message trop long (max = %d). Reessayer : ", max_size-2);
         while (getchar() != '\n');
         fgets(buffer, max_size, stdin);
         newline_span = strcspn(buffer, "\n");
