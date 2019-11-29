@@ -53,7 +53,8 @@ SOURCES += \
     Henri/jaugeclignotanthenri.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
-    Hugo/hugo_ecran.cpp
+    Hugo/hugo_ecran.cpp \
+    Hugo/hugo_voyant_warning.cpp
 
 HEADERS += \
     Hugo/hugo_compteur.h \
@@ -77,7 +78,8 @@ HEADERS += \
     Henri/jaugeclignotanthenri.h \
     Henri/affichekmhenri.h \
     Henri/jaugebatteriehenri.h \
-    Hugo/hugo_ecran.h
+    Hugo/hugo_ecran.h \
+    Hugo/hugo_voyant_warning.h
 
 FORMS += \
         mainwindow.ui

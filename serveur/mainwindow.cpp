@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ///La scène par défault est
-    dashboard=new hugo_scene();
+    dashboard=new henri_scene();
 
     dashboard->Vitesse->getValue();
 
@@ -199,7 +199,7 @@ void MainWindow::reception()
         int warning = string.section(' ', 2,2).toInt();
         if(warning>=0 && warning <= 1){
             dashboard->warning->setValue(warning);
-            dashboard->Clignotant->setValue(2);
+            dashboard->Clignotant->setValue(2*warning);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());

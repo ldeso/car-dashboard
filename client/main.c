@@ -103,7 +103,7 @@ int main() {
                 printf("CANN GAZ x avec x compris entre 0 et 100\n");
                 printf("CANN TURN x avec -1 gauche, 0 rien, 1 droite\n");
                 printf("CANN LIGHT X avec 0 eteint, 1 position, 2 croisement, 3 route\n");
-                printf("CANN WARNING x avec 0 eteint et 1 allumer");
+                printf("CANN WARNING x avec 0 eteint et 1 allumer\n");
                 printf("CANN DASHBOARD x avec x le prénom\n");
                 valide = 1;
             }
