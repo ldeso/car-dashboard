@@ -56,6 +56,7 @@ void MainWindow::reception()
     //ui->text->setText(QString(socket->readAll()));
     QString string(socket->readAll());
     QString message = string.section(' ',0,1);
+    qDebug() << string;
     if(message=="CANN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
@@ -130,7 +131,7 @@ void MainWindow::reception()
     }
     if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS<<"HUGO"<<"HENRI";
+        PRENOMS<<"HUGO"<<"HENRI" << "JONAS";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -141,6 +142,11 @@ void MainWindow::reception()
             if (prenom=="HENRI"){
                 delete dashboard;
                 dashboard =new henri_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="JONAS"){
+                delete dashboard;
+                dashboard =new Jonas_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
