@@ -23,13 +23,13 @@ void afficheKmHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     painter->setPen(QPen(QBrush("black") , 40 , Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QColor("black"));
-    painter->drawRoundRect(QRect(40,-50,80,2),1,1);
+    painter->drawRoundRect(QRect(80,-50,80,2),1,1);
 
     painter->setBrush(brush);
     painter->setPen(QPen(brush,20));
 
     painter->setFont(QFont("URW Gothic L",20));
-    painter->drawText(40,-40,QString("%1").arg(getValue()));
+    painter->drawText(80,-39,QString("%1").arg(getValue()));
 
 //.....fin affichage nombre de kilometres
 

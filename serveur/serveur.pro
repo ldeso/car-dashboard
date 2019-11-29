@@ -47,7 +47,8 @@ SOURCES += \
     objet_virtuel.cpp \
     Henri/henri_scene.cpp \
     Henri/jaugeclignotanthenri.cpp \
-    Henri/affichekmhenri.cpp
+    Henri/affichekmhenri.cpp \
+    Henri/jaugebatteriehenri.cpp
 
 HEADERS += \
     Hugo/hugo_compteur.h \
@@ -65,7 +66,8 @@ HEADERS += \
     objet_virtuel.h \
     Henri/henri_scene.h \
     Henri/jaugeclignotanthenri.h \
-    Henri/affichekmhenri.h
+    Henri/affichekmhenri.h \
+    Henri/jaugebatteriehenri.h
 
 FORMS += \
         mainwindow.ui

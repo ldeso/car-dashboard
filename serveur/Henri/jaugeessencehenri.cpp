@@ -28,6 +28,6 @@ void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*
     painter->drawPixmap(-15,265,30,30,*test);
 
 
-//fin jauge essece
+//fin jauge essence
 
 }

@@ -1,4 +1,5 @@
 #include "cadranthenri.h"
+#include <QDateTime>
 
 cadrantHenri::cadrantHenri(objet_virtuel *parent):objet_virtuel (parent)
 {
@@ -142,15 +143,27 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
 
     painter->setPen(QPen(QBrush("black") , 40 , Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QColor("black"));
-    painter->drawRoundRect(QRect(-140,-50,80,2),1,1);
+    painter->drawRoundRect(QRect(-160,-50,80,2),1,1);
 
     painter->setBrush(brush);
     painter->setPen(QPen(brush,20));
 
     painter->setFont(QFont("URW Gothic L",20));
-    painter->drawText(-150,-40,QString("123456"));
+    painter->drawText(-170,-39,QString("123456"));
 
 //.....fin affichage nombre de kilometres
+
+
+
+
+
+
+//.....affichage heure
+    painter->setFont(QFont("URW Gothic L",30));
+    painter->setPen(QPen(QBrush("cyan") , 40 , Qt::SolidLine,Qt::FlatCap));
+    QString heure = QDateTime::currentDateTime().toString("hh:mm");
+    painter->drawText(-52,-33,heure);
+//.....fin affichage heure
 
 
 
