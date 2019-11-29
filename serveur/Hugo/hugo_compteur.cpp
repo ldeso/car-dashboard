@@ -1,9 +1,32 @@
-
+///
+///Classe compteur, permettant la création de compteurs paramétrables. Utilisée pour le compteur vitesse, le compteur rpm, la jauge d'essence aisi que la température moteur.
+///
 #include "hugo_compteur.h"
 #include <QPainter>
 #include <QtMath>
 #include <QDebug>
 #define pi 3.14159265
+
+///
+/// \brief hugo_Compteur::hugo_Compteur Constructeur de la classe, permet d'initialiser tous les paramètres
+/// \param param_x position horizontale du centre du compteur
+/// \param param_y position verticale du centre du compteur
+/// \param param_r rayon
+/// \param param_start_angle Angle de départ pour le tracé de l'arc de cercle
+/// \param param_end_angle Angle de fin pour le tracé de l'arcle de cercle
+/// \param param_graduations QStringList des textes à afficher sur les graduations. Le nombre d'éléments correspondra au nombre de grandes graduations
+/// \param param_value valeur max de la quantité représentée par le compteur, utile pour le calcul du rapport angle de l'aiguille / valeur à afficher
+/// \param param_r_verre permet de varier la surface du disc pour l'effet de verre
+/// \param param_direction_grad permet de varier la direction du gradient : +1 = blanc-->noir, -1= noir-->blanc
+/// \param red Couleurs rgb de l'arc de cercle et des graduations
+/// \param green
+/// \param blue
+/// \param param_critique Parmètre optionnel, graduation à partir de laquelle un changement de couleur doit être effectué sur le compteur
+/// \param red2 Couleur optionnelle,
+/// \param green2
+/// \param blue2
+///
+
 
 
 hugo_Compteur::hugo_Compteur(int param_x, int param_y, int param_r, int param_start_angle, int param_end_angle, QStringList param_graduations, int param_value, int param_r_verre, int param_direction_grad, int red, int green, int blue, int param_critique, int red2, int green2, int blue2)
@@ -17,7 +40,7 @@ hugo_Compteur::hugo_Compteur(int param_x, int param_y, int param_r, int param_st
     graduations=param_graduations;
     couleur=QColor(red,green,blue);
     couleurgrad=QColor(red,green,blue,20),
-            critique=param_critique;
+    critique=param_critique;
     couleur2=QColor(red2,green2,blue2);
     couleurgrad2=QColor(255,green2,blue2,20);
     value2=param_value;
@@ -160,44 +183,4 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         painter->drawEllipse(carre);
     }
 }
-
-void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r, int param_start_angle, int param_end_angle, QStringList param_graduations, int param_value, int param_r_verre, int param_direction_grad, int red, int green, int blue, int param_critique, int red2, int green2, int blue2)
-{      x=param_x;
-       y=param_y;
-          r=param_r;
-             start_angle=param_start_angle;
-                end_angle=param_end_angle;
-                   nbre_graduations=param_graduations.length()-1;
-                      graduations=param_graduations;
-                         couleur=QColor(red,green,blue);
-                            couleurgrad=QColor(red,green,blue,20),
-                                    critique=param_critique;
-                               couleur2=QColor(red2,green2,blue2);
-                                  couleurgrad2=QColor(255,green2,blue2,20);
-                                     value2=param_value;
-                                        valueMax=value2;
-                                           direction_grad=param_direction_grad;
-                                              r_verre=param_r_verre;
-}
-
-///
-/// \brief hugo_Compteur::Parametrage : fonction permettant de parmaétrer le compteur
-/// \param param_x position horizontale du centre du compteur
-/// \param param_y position verticale du centre du compteur
-/// \param param_r rayon
-/// \param param_start_angle Angle de départ pour le tracé de l'arc de cercle
-/// \param param_end_angle Angle de fin pour le tracé de l'arcle de cercle
-/// \param param_graduations QStringList des textes à afficher sur les graduations. Le nombre d'éléments correspondra au nombre de grandes graduations
-/// \param param_value valeur max de la quantité représentée par le compteur, utile pour le calcul du rapport angle de l'aiguille / valeur à afficher
-/// \param param_r_verre permet de varier la surface du disc pour l'effet de verre
-/// \param param_direction_grad permet de varier la direction du gradient : +1 = blanc-->noir, -1= noir-->blanc
-/// \param red Couleurs rgb de l'arc de cercle et des graduations
-/// \param green
-/// \param blue
-/// \param param_critique Parmètre optionnel, graduation à partir de laquelle un changement de couleur doit être effectué sur le compteur
-/// \param red2 Couleur optionnelle,
-/// \param green2
-/// \param blue2
-///
-
 
