@@ -46,6 +46,10 @@ SOURCES += \
     scene_globale.cpp \
     objet_virtuel.cpp \
     Henri/henri_scene.cpp \
+    Florian/cadrantflorian.cpp \
+    Florian/sceneflorian.cpp \
+    Florian/voyant.cpp \
+    Florian/clignotant.cpp\
     Henri/jaugeclignotanthenri.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp
@@ -65,6 +69,10 @@ HEADERS += \
     scene_globale.h \
     objet_virtuel.h \
     Henri/henri_scene.h \
+    Florian/cadrantflorian.h \
+    Florian/sceneflorian.h \
+    Florian/voyant.h \
+    Florian/clignotant.h\
     Henri/jaugeclignotanthenri.h \
     Henri/affichekmhenri.h \
     Henri/jaugebatteriehenri.h
@@ -74,7 +82,8 @@ FORMS += \
 
 RESOURCES += \
     Henri/images.qrc \
-    Hugo/Icones/icones.qrc
+    Hugo/Icones/icones.qrc \
+    florian.qrc
 
 DISTFILES += \
     Henri/iconeEssence.png \
