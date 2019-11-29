@@ -20,6 +20,9 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
 
     Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
+
+    CompteurKm=new afficheKmHenri();
+    addItem(CompteurKm);
 }
 
 void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)

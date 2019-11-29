@@ -14,6 +14,7 @@ public:
     objet_virtuel *jaugeTemperature;
     objet_virtuel *Clignotant;
     objet_virtuel *VoyantBatterie;
+    objet_virtuel *CompteurKm;
 };
 
 #endif // SCENE_GLOBALE_H

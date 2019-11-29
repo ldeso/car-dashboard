@@ -9,6 +9,7 @@
 #include "jaugetemperaturehenri.h"
 #include "jaugetoursminutehenri.h"
 #include "scenedefondhenri.h"
+#include "affichekmhenri.h"
 
 
 class henri_scene : public scene_globale

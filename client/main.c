@@ -190,7 +190,7 @@ int main() {
             }
 
         }
-
+        viderBuffer();
 
     }while(message != "end");
 
