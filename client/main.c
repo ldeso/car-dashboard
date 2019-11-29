@@ -105,6 +105,7 @@ int main() {
                 printf("CANN LIGHT X avec 0 eteint, 1 position, 2 croisement, 3 route\n");
                 printf("CANN WARNING x avec 0 eteint et 1 allumer\n");
                 printf("CANN DASHBOARD x avec x le prénom\n");
+                printf("CANN LIMIT x avec x la limitation de vitesse en km/h\n");
                 valide = 1;
             }
             else{
@@ -207,6 +208,19 @@ int main() {
 
                 }
                 else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "DASHBOARD") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "LIMIT") == 0){
                     if (send(fd, message, sizeof(char)*80, 0) < 0) {
                         perror("send()");
                         exit(EXIT_FAILURE);
