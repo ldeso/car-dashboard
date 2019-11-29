@@ -2,7 +2,7 @@
 
 jaugeTemperatureHenri::jaugeTemperatureHenri()
 {
-    value=121;
+    value=60;
 }
 
 QRectF jaugeTemperatureHenri::boundingRect() const
