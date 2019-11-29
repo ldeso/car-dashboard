@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ///La scène par défault est
-    dashboard=new henri_scene();
+    dashboard=new hugo_scene();
 
     dashboard->Vitesse->getValue();
 
