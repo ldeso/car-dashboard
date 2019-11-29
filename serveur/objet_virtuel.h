@@ -10,14 +10,14 @@ class objet_virtuel : public QGraphicsItem
 public:
     objet_virtuel(QGraphicsItem *parent=nullptr);
 
-    int getValue() const;
-    void setValue(int value);
+    float getValue() const;
+    void setValue(float value);
     int getValueMax() const;
 
     QString styleTexte;
 
 protected:
-    int value;//la vitesse actualisée
+    float value;//la vitesse actualisée
     int valueMax;//la vitesse maximum
 };
 

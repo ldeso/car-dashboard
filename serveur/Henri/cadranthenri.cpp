@@ -73,13 +73,13 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
         }
 
     painter->setPen(QPen(QBrush("cyan") , 40, Qt::SolidLine,Qt::FlatCap));
-    for (float i=225;i>224-qMin(270,(value*270/valueMax));i-=10.0*270/valueMax)
+    for (float i=225;i>224-qMin(270.0,(value*270.0/valueMax));i-=10.0*270/valueMax)
         {
         painter->drawArc(carre[2],i*16,epesseurTraitVitesse);
         }
 
     painter->setPen(QPen(QBrush("cyan") , 30, Qt::SolidLine,Qt::FlatCap));
-    for (float i=225;i>224-qMin(270,(value*270/valueMax));i-=1.0*270/valueMax)
+    for (float i=225;i>224-qMin(270.0,(value*270.0/valueMax));i-=1.0*270.0/valueMax)
         {
         painter->drawArc(carre[4],i*16,epesseurTraitVitesse);
         }
@@ -134,25 +134,6 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
     painter->drawText(-90,-100,QString("%1").arg(getValue()));
 
 //.....fin affichage vitesse en nombre
-
-
-
-
-
-//.....affichage nombre de kilometres
-
-    painter->setPen(QPen(QBrush("black") , 40 , Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QColor("black"));
-    painter->drawRoundRect(QRect(-160,-50,80,2),1,1);
-
-    painter->setBrush(brush);
-    painter->setPen(QPen(brush,20));
-
-    painter->setFont(QFont("URW Gothic L",20));
-    painter->drawText(-170,-39,QString("123456"));
-
-//.....fin affichage nombre de kilometres
-
 
 
 

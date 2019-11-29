@@ -4,7 +4,7 @@
 
 jaugeClignotantHenri::jaugeClignotantHenri()
 {
-    value==0;
+    value=0;
     cligno=0;
 }
 
