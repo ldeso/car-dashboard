@@ -10,7 +10,7 @@
  * @details met en majuscule un char *
  */
 void upperCase(char* toUp){
-    int size = strlen(toUp);
+    int size = (int) strlen(toUp);
     for(int i = 0; i < size; i++){
         if(toUp[i] >= 'a' && toUp[i] <= 'z')
             toUp[i] -= 32;
@@ -43,7 +43,6 @@ int main() {
     char * recep;
     char * ptr = (char*) malloc(sizeof(char)*10);
     char * tmp = (char*) malloc(sizeof(char)*50);
-    int valeur;
     int valide = 0;
     struct sockaddr_in adresse;
     // creation de la socket
@@ -111,12 +110,9 @@ int main() {
                 strcpy(tmp,message);
                 char * cann;
                 char * typeCann;
-                char * charValue;
                 cann = strtok_r(tmp," ", &ptr);
                 tmp = ptr;
                 typeCann = strtok_r(tmp," ", &ptr);
-                tmp = ptr;
-                charValue = strtok_r(tmp," ", &ptr);
 
                 if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "SPEED") == 0){
                     if (send(fd, message, sizeof(char)*80, 0) < 0) {
@@ -234,7 +230,7 @@ int main() {
         }
         viderBuffer();
 
-    }while(message != "end");
+    }while(strncmp(message, "end", strlen("end")) != 0);
 
     /* Fermeture de la socket */
     if (close(fd) == -1) {
