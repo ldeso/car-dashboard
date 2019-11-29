@@ -33,7 +33,7 @@ void hugo_ecran::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidg
     time.currentTime();
     painter->setFont(QFont("Arial", 9, -1,false));
     painter->drawText(0,45,time.toString("hh.mm")); ///< Conversion pour avoir l'affichage sous forme heure.minutes
-    painter->drawText(0,60, QString::number(getValue()));
+    painter->drawText(0,60, QString::number(getValue(),'f', 1));
 
 
     painter->setPen(QPen(QColor( 26, 13, 0), 1, Qt::SolidLine,Qt::FlatCap));

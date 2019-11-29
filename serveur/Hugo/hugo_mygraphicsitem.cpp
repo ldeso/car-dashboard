@@ -1,3 +1,7 @@
+///
+///Classe utilisée pour la création de tous les objets statiques comme le fond
+///
+
 #include "hugo_mygraphicsitem.h"
 #include <QtMath>
 #include <QDebug>
@@ -68,32 +72,6 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     painter->setFont(QFont("Arial", 9, -1,false));
     painter->drawText(-12,-30,"km/h");
     painter->drawText(-190,-10,"x1000rpm");
-
-    ///Création d'un afficheur. Affiche le temps réel, aisi que la distance parcourue depuis le départ
-   /*painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QColor(0,128,255,15));
-    painter->drawRect(-45,25,90,40);
-    QRadialGradient radialGrad(QPointF(0, 45), 50);
-    radialGrad.setColorAt(0, QColor(0,204,255));
-    radialGrad.setColorAt(1, QColor(0, 128, 255));
-    painter->setPen(QPen(QColor(0,204,255) , 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(radialGrad);
-    painter->drawRect(-40,30,80,30);
-    painter->setPen(QPen(Qt::black, 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setFont(QFont("Arial", 5, -1,false));
-    painter->drawText(-38,40,"TIME");
-    painter->drawText(-38,55,"TRIP");
-
-
-    QTime time=QTime::currentTime();
-    time.currentTime();
-    painter->setFont(QFont("Arial", 9, -1,false));
-    painter->drawText(0,45,time.toString("hh.mm")); ///< Conversion pour avoir l'affichage sous forme heure.minutes
-    painter->drawText(0,60, QString::number(getValue()));
-
-
-    painter->setPen(QPen(QColor( 26, 13, 0), 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QColor( 26,13,0));*/
 
     ///Afficheur pour les stations de radios
     painter->setFont(QFont("Arial", 8, -1,false));

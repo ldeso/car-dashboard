@@ -1,11 +1,11 @@
 ///
-/// Classe permettant d'afficher les voyants pouvant clignoter
+/// Classe permettant d'afficher les voyants clignotants
 ///
 #include "hugo_voyants_clignotant.h"
 #include <QDebug>
 
 ///
-/// \brief hugo_voyants_clignotant::hugo_voyants_clignotant Constructeur avec initialisation des paramètres de la classe
+/// \brief hugo_voyants_clignotant::hugo_voyants_clignotant. La variable cligno sert à gérer l'affichage alterné
 ///
 hugo_voyants_clignotant::hugo_voyants_clignotant()
 {
