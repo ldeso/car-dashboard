@@ -4,7 +4,8 @@
 cadrantHenri::cadrantHenri(objet_virtuel *parent):objet_virtuel (parent)
 {
     value=0;
-    valueMax=270;
+    valueMax=999;
+    valeurMaxNombreCompteur=270;
     styleTexte="Uroob";
     epesseurTraitVitesse=10;
     tailleTexteVitesse=27;
@@ -61,25 +62,25 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
     painter->setRenderHint(QPainter::Antialiasing);
 
     painter->setPen(QPen(QBrush("darkCyan") , 40, Qt::SolidLine,Qt::FlatCap));
-    for (float i=225;i>-46;i-=10.0*270/valueMax)
+    for (float i=225;i>-46;i-=10.0*270/valeurMaxNombreCompteur)
         {
         painter->drawArc(carre[2],i*16,epesseurTraitVitesse);
         }
 
     painter->setPen(QPen(QBrush("darkCyan") , 30, Qt::SolidLine,Qt::FlatCap));
-    for (float i=225;i>-46;i-=1.0*270/valueMax)
+    for (float i=225;i>-46;i-=1.0*270/valeurMaxNombreCompteur)
         {
         painter->drawArc(carre[4],i*16,epesseurTraitVitesse);
         }
 
     painter->setPen(QPen(QBrush("cyan") , 40, Qt::SolidLine,Qt::FlatCap));
-    for (float i=225;i>224-qMin(270.0,(value*270.0/valueMax));i-=10.0*270/valueMax)
+    for (float i=225;i>224-qMin(270.0,(value*270.0/valeurMaxNombreCompteur));i-=10.0*270/valeurMaxNombreCompteur)
         {
         painter->drawArc(carre[2],i*16,epesseurTraitVitesse);
         }
 
     painter->setPen(QPen(QBrush("cyan") , 30, Qt::SolidLine,Qt::FlatCap));
-    for (float i=225;i>224-qMin(270.0,(value*270.0/valueMax));i-=1.0*270.0/valueMax)
+    for (float i=225;i>224-qMin(270.0,(value*270.0/valeurMaxNombreCompteur));i-=1.0*270.0/valeurMaxNombreCompteur)
         {
         painter->drawArc(carre[4],i*16,epesseurTraitVitesse);
         }
@@ -98,7 +99,7 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
     painter->setFont(QFont(styleTexte, tailleTexteVitesse, -1,false));
     float pi=3.14159265;
     int j=0;
-    for (float i=35*pi/28;i>=-7*pi/28;i-=6*pi/(27*4)*270/(valueMax+1))
+    for (float i=35*pi/28;i>=-7*pi/28;i-=6*pi/(27*4)*270/(valeurMaxNombreCompteur+1))
     {
 
 

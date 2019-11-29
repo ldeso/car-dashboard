@@ -14,6 +14,7 @@ public:
 
     int epesseurTraitVitesse;
     int tailleTexteVitesse;
+    int valeurMaxNombreCompteur;
 
 };
 

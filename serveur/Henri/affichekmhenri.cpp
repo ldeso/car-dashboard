@@ -29,8 +29,7 @@ void afficheKmHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     painter->setPen(QPen(brush,20));
 
     painter->setFont(QFont("URW Gothic L",20));
-    painter->drawText(80,-39,QString("%1").arg(getValue()));
-
+    painter->drawText(80,-39,QString::number(getValue(), 'f', 1));
 //.....fin affichage nombre de kilometres
 
 
@@ -44,7 +43,7 @@ void afficheKmHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
         painter->setPen(QPen(brush,20));
 
         painter->setFont(QFont("URW Gothic L",20));
-        painter->drawText(-170,-39,QString("%1").arg(123456+getValue()));
+        painter->drawText(-165,-39,QString("%1").arg(123456+getValue()));
 
     //.....fin affichage nombre de kilometres totaux
 
