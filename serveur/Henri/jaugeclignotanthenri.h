@@ -12,6 +12,7 @@ public:
 
     int cligno;
     void MAJ();
+    void MAJ2();
 };
 
 

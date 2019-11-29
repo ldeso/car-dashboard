@@ -27,6 +27,9 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     VoyantBatterie=new jaugeBatterieHenri();
     addItem(VoyantBatterie);
 
+    warning=new warninghenri();
+    addItem(warning);
+
 }
 
 void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
