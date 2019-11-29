@@ -10,7 +10,7 @@
  * @details met en majuscule un char *
  */
 void upperCase(char* toUp){
-    int size = strlen(toUp);
+    int size = (int) strlen(toUp);
     for(int i = 0; i < size; i++){
         if(toUp[i] >= 'a' && toUp[i] <= 'z')
             toUp[i] -= 32;
@@ -18,15 +18,20 @@ void upperCase(char* toUp){
 }
 
 /**
- * @brief viderBuffer
- * @details vide le buffer après un fgets
+ * @brief entrerMessage
+ * @details abstraction des fonctions necessaires a la saisie d'un message
  */
-void viderBuffer(){
-    int c = 0;
-    while (c != '\n')
-    {
-        c = getchar();
+void entrerMessage(char *buffer, const int max_size)
+{
+    fgets(buffer, max_size, stdin);
+    size_t newline_span = strcspn(buffer, "\n");
+    while (buffer[newline_span] != '\n') {
+        printf("Message trop long (max = %d). Reessayer : ", max_size-2);
+        while (getchar() != '\n');
+        fgets(buffer, max_size, stdin);
+        newline_span = strcspn(buffer, "\n");
     }
+    buffer[newline_span] = '\0';
 }
 
 /**
@@ -40,10 +45,10 @@ void viderBuffer(){
 int main() {
     int fd;
     char * message;
+    size_t max_size = 50;
     char * recep;
     char * ptr = (char*) malloc(sizeof(char)*10);
     char * tmp = (char*) malloc(sizeof(char)*50);
-    int valeur;
     int valide = 0;
     struct sockaddr_in adresse;
     // creation de la socket
@@ -68,12 +73,12 @@ int main() {
     printf("connexion au serveur\n");
 
     //allocation du char* message
-    if ((message = (char * ) malloc(sizeof(char)*50)) == NULL) {
+    if ((message = malloc(max_size)) == NULL) {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
 
-    if ((recep = (char * ) malloc(sizeof(char)*50)) == NULL) {
+    if ((recep = malloc(max_size)) == NULL) {
         perror("Erreur lors de l'allocation memoire pour le message ");
         exit(EXIT_FAILURE);
     }
@@ -85,12 +90,7 @@ int main() {
         //boucle qui se termine si l'utilisateur ecrit une commande correcte.
         valide = 0;
         while(valide == 0){
-            if(fgets(message, 50, stdin)== NULL){
-                perror("erreur lors du fgets");
-                exit(EXIT_FAILURE);
-            }
-            //supprimer le \n du char*
-            message[strlen(message)-1] = '\0';
+            entrerMessage(message, (int) max_size);
             upperCase(message);
             //compare la commande saisie avec l'une des commandes existantes
             // TO DO ajouter les differentes commandes à la section HELP avec des printf
@@ -105,18 +105,16 @@ int main() {
                 printf("CANN LIGHT X avec 0 eteint, 1 position, 2 croisement, 3 route\n");
                 printf("CANN WARNING x avec 0 eteint et 1 allumer\n");
                 printf("CANN DASHBOARD x avec x le prénom\n");
+                printf("CANN LIMIT x avec x la limitation de vitesse en km/h\n");
                 valide = 1;
             }
             else{
                 strcpy(tmp,message);
                 char * cann;
                 char * typeCann;
-                char * charValue;
                 cann = strtok_r(tmp," ", &ptr);
                 tmp = ptr;
                 typeCann = strtok_r(tmp," ", &ptr);
-                tmp = ptr;
-                charValue = strtok_r(tmp," ", &ptr);
 
                 if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "SPEED") == 0){
                     if (send(fd, message, sizeof(char)*80, 0) < 0) {
@@ -222,6 +220,19 @@ int main() {
                     printf("%s\n", recep);
 
                 }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "LIMIT") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
                 //else if(){} NE PAS SUPPRIMER CE COMMENTAIRE
                 //TO DO Ajouter les conditions pour les messages
                 else{
@@ -232,9 +243,8 @@ int main() {
             }
 
         }
-        viderBuffer();
 
-    }while(message != "end");
+    }while(strncmp(message, "end", strlen("end")) != 0);
 
     /* Fermeture de la socket */
     if (close(fd) == -1) {
