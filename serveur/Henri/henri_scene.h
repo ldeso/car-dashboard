@@ -11,6 +11,7 @@
 #include "scenedefondhenri.h"
 #include "affichekmhenri.h"
 #include "jaugebatteriehenri.h"
+#include "warninghenri.h"
 
 
 class henri_scene : public scene_globale

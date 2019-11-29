@@ -52,7 +52,8 @@ SOURCES += \
     Florian/clignotant.cpp\
     Henri/jaugeclignotanthenri.cpp \
     Henri/affichekmhenri.cpp \
-    Henri/jaugebatteriehenri.cpp
+    Henri/jaugebatteriehenri.cpp \
+    Henri/warninghenri.cpp
 
 HEADERS += \
     Hugo/hugo_compteur.h \
@@ -75,7 +76,8 @@ HEADERS += \
     Florian/clignotant.h\
     Henri/jaugeclignotanthenri.h \
     Henri/affichekmhenri.h \
-    Henri/jaugebatteriehenri.h
+    Henri/jaugebatteriehenri.h \
+    Henri/warninghenri.h
 
 FORMS += \
         mainwindow.ui
