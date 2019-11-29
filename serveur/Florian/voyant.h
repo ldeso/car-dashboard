@@ -2,15 +2,15 @@
 #define ICONE_H
 #include <QGraphicsItem>
 #include <QPixmap>
-class Voyant : public QGraphicsItem
+#include "../objet_virtuel.h"
+
+class Voyant : public objet_virtuel
 {
 public:
     Voyant(QPixmap map, QGraphicsItem * parent = nullptr);
     QRectF boundingRect()const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    void setValeur(int valeur);
 private:
-    int valeur;
     QPixmap voyant;
 };
 

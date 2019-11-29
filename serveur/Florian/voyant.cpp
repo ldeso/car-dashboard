@@ -1,9 +1,10 @@
 #include "voyant.h"
 #include <QPainter>
-Voyant::Voyant(QPixmap map, QGraphicsItem * parent):QGraphicsItem(parent)
+#include <QDebug>
+Voyant::Voyant(QPixmap map, QGraphicsItem * parent):objet_virtuel(parent)
 {
     this->voyant = map;
-    this->valeur = 0;
+    this->value = 0;
 }
 
 QRectF Voyant::boundingRect() const
@@ -14,12 +15,10 @@ QRectF Voyant::boundingRect() const
 
 void Voyant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    if(valeur==1){
+    if(this->value==1){
+
+        qDebug() << value;
         painter->drawPixmap(0,0,30,30,this->voyant);
     }
 }
 
-void Voyant::setValeur(int valeur)
-{
-    this->valeur = valeur;
-}

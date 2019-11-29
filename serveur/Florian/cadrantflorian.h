@@ -1,8 +1,8 @@
 #ifndef CADRANTFLORIAN_H
 #define CADRANTFLORIAN_H
 #include "cadrantvirtuel.h"
-
-class CadrantFlorian : public cadrantVirtuel
+#include "../objet_virtuel.h"
+class CadrantFlorian : public objet_virtuel
 {
 public:
     CadrantFlorian(bool hasText = true, bool hasSubTrait = true, int invertAiguille = 1, int pas = 10, int angleB = 220, int angleE= 260,int valeurMax=260, QGraphicsItem * parent = NULL);

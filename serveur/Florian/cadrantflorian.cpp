@@ -1,7 +1,7 @@
 #include "cadrantflorian.h"
 #include <QDebug>
 #include <QtMath>
-CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille, int pas, int angleB, int angleE, int valeurMax, QGraphicsItem * parent):cadrantVirtuel(parent)
+CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille, int pas, int angleB, int angleE, int valeurMax, QGraphicsItem * parent):objet_virtuel(parent)
 {
     this->invertAiguille = invertAiguille;
     this->hasText = hasText;
@@ -9,10 +9,10 @@ CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille
     this->width = 200;
     this->pas = pas;
     this->height = 200;
-    this->valeurMax = valeurMax;
+    this->valueMax = valeurMax;
     this->angleB = angleB;
     this->angleE = angleE;
-    this->valeur = 0;
+    this->value = 0;
 }
 
 QRectF CadrantFlorian::boundingRect()const
@@ -75,8 +75,8 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     painter->setFont(font);
     int pair = 0;
     //dessine les petits traits, le texte...
-    for(int i=0; i <= this->valeurMax; i+=pas){
-        float val = (float)angleE/valeurMax* i;
+    for(int i=0; i <= this->valueMax; i+=pas){
+        float val = (float)angleE/valueMax* i;
         if(pair % 2 == 1 && this->hasSubTrait == true){
             painter->drawLine(cos(qDegreesToRadians(-angleB+val))*(width/2-5)+ width/2,
                               sin(qDegreesToRadians(-angleB+val))*(height/2-5) + height/2,
@@ -99,7 +99,7 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 float CadrantFlorian::generateAngle()
 {
     float angle = 0.0f;
-    angle = (float)valeur/valeurMax * angleE;
-    qDebug() << valeur << " " << angle;
+    angle = (float)value/valueMax * angleE;
+    //qDebug() << value << " " << angle;
     return angle;
 }
