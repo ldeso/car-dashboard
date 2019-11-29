@@ -31,51 +31,56 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    Hugo/hugo_compteur.cpp \
-    Hugo/hugo_mygraphicsitem.cpp \
-    Hugo/hugo_scene.cpp \
+    Henri/henri_scene.cpp \
     Henri/cadranthenri.cpp \
+    Henri/jaugeclignotanthenri.cpp \
     Henri/jaugeessencehenri.cpp \
     Henri/jaugetemperaturehenri.cpp \
     Henri/jaugetoursminutehenri.cpp \
     Henri/scenedefondhenri.cpp \
-    main.cpp \
-    mainwindow.cpp \
+    Hugo/hugo_compteur.cpp \
+    Hugo/hugo_mygraphicsitem.cpp \
+    Hugo/hugo_scene.cpp \
     Hugo/hugo_voyants_clignotant.cpp \
     Hugo/hugo_voyants_simples.cpp \
-    scene_globale.cpp \
+    Jonas/jonas_compteur.cpp \
+    Jonas/jonas_scene.cpp \
+    main.cpp \
+    mainwindow.cpp \
     objet_virtuel.cpp \
-    Henri/henri_scene.cpp \
+    scene_globale.cpp \
     Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
     Florian/voyant.cpp \
     Florian/clignotant.cpp\
-    Henri/jaugeclignotanthenri.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp
 
 HEADERS += \
-    Hugo/hugo_compteur.h \
-    Hugo/hugo_mygraphicsitem.h \
-    Hugo/hugo_scene.h \
+    Henri/jaugeclignotanthenri.h \
     Henri/cadranthenri.h \
+    Henri/henri_scene.h \
+    Henri/jaugeclignotanthenri.h \
     Henri/jaugeessencehenri.h \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
     Henri/scenedefondhenri.h \
-    mainwindow.h \
+    Hugo/hugo_compteur.h \
+    Hugo/hugo_mygraphicsitem.h \
+    Hugo/hugo_scene.h \
     Hugo/hugo_voyants_clignotant.h \
     Hugo/hugo_voyants_simples.h \
-    scene_globale.h \
+    Jonas/jonas_compteur.h \
+    Jonas/jonas_scene.h \
+    mainwindow.h \
     objet_virtuel.h \
-    Henri/henri_scene.h \
+    scene_globale.h
     Florian/cadrantflorian.h \
     Florian/sceneflorian.h \
     Florian/voyant.h \
     Florian/clignotant.h\
-    Henri/jaugeclignotanthenri.h \
     Henri/affichekmhenri.h \
     Henri/jaugebatteriehenri.h \
     Hugo/hugo_ecran.h \
