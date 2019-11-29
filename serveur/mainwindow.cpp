@@ -15,8 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
-   ///La scène par défault es
+
+   ///La scène par défault est
     dashboard=new henri_scene();
+
     dashboard->Vitesse->getValue();
 
 
@@ -62,13 +64,14 @@ void MainWindow::reception()
             dashboard->Vitesse->setValue(vitesse);
             ui->graphicsView->scene()->update();
             QString text = "OK";
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
             vitesse_actuelle=vitesse;
         }
         else{
             QString text;
             text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
-            socket->write(text.toUtf8());
+//            socket->write(text.toLocal8Bit());
+            socket->write(text.toLocal8Bit());
         }
     }
     if(message=="CANN RPM"){
@@ -77,7 +80,7 @@ void MainWindow::reception()
             dashboard->CompteTours->setValue(rpm);
             ui->graphicsView->scene()->update();
             QString text = "OK";
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
@@ -91,12 +94,12 @@ void MainWindow::reception()
             dashboard->VoyantBatterie->setValue(battery_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
             text = QString("valeur incorrecte, doit être égale à 0 ou 1");
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
         }
     }
     if(message=="CANN GAZ"){
@@ -105,13 +108,13 @@ void MainWindow::reception()
             dashboard->Essence->setValue(essence);
             ui->graphicsView->scene()->update();
             QString text = "OK";
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
+            qDebug()<<text;
             text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
-
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
         }
     }
     if(message=="CANN TURN"){
@@ -120,12 +123,13 @@ void MainWindow::reception()
             dashboard->Clignotant->setValue(cligno);
            // ui->graphicsView->scene()->update();
             QString text = "OK";
-            socket->write(text.toUtf8());
+            socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
-            text = QString("Valeur incorrecte, doit être égale à 0,1, ou -1").arg(dashboard->Essence->getValueMax());
-            socket->write(text.toUtf8());
+
+            text = QString("Incorrect -1=>gauche 0=>null 1=>droite");
+            socket->write(text.toLocal8Bit());
         }
     }
     if(message=="CANN DASHBOARD"){
