@@ -4,7 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.c \
-    libclient.c
+    client.c
 
 HEADERS += \
-    libclient.h
+    client.h
