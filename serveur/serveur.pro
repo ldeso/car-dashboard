@@ -48,7 +48,11 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     scene_globale.cpp \
     objet_virtuel.cpp \
-    Henri/henri_scene.cpp
+    Henri/henri_scene.cpp \
+    Florian/cadrantflorian.cpp \
+    Florian/sceneflorian.cpp \
+    Florian/voyant.cpp \
+    Florian/clignotant.cpp
 
 HEADERS += \
     Hugo/hugo_compteur.h \
@@ -67,14 +71,19 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     scene_globale.h \
     objet_virtuel.h \
-    Henri/henri_scene.h
+    Henri/henri_scene.h \
+    Florian/cadrantflorian.h \
+    Florian/sceneflorian.h \
+    Florian/voyant.h \
+    Florian/clignotant.h
 
 FORMS += \
         mainwindow.ui
 
 RESOURCES += \
     Henri/images.qrc \
-    Hugo/Icones/icones.qrc
+    Hugo/Icones/icones.qrc \
+    florian.qrc
 
 DISTFILES += \
     Henri/iconeEssence.png \

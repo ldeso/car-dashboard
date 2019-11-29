@@ -5,7 +5,7 @@
 #include <QTcpServer>
 #include "Hugo/hugo_scene.h"
 #include "Henri/henri_scene.h"
-
+#include "Florian/sceneflorian.h"
 namespace Ui {
 class MainWindow;
 }

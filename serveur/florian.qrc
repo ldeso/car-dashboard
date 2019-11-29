@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Florian/voyant/clignotantDroite.jpg</file>
+        <file>Florian/voyant/batterie.jpg</file>
+        <file>Florian/voyant/brouillardArriere.jpg</file>
+        <file>Florian/voyant/brouillardAvant.jpg</file>
+        <file>Florian/voyant/ceinture.jpg</file>
+        <file>Florian/voyant/clignotantGauche.jpg</file>
+        <file>Florian/voyant/croisement.jpg</file>
+        <file>Florian/voyant/frein.jpg</file>
+        <file>Florian/voyant/noCeinture.jpg</file>
+        <file>Florian/voyant/noEssence.jpg</file>
+        <file>Florian/voyant/noHuile.jpg</file>
+        <file>Florian/voyant/position.jpeg</file>
+        <file>Florian/voyant/refroidissement.jpg</file>
+        <file>Florian/voyant/route.jpg</file>
+        <file>Florian/voyant/warning.jpg</file>
+    </qresource>
+</RCC>

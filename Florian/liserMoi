@@ -1,0 +1,5 @@
+le fond est la classe sceneDeFond, qui dérive de QGraphicsItem.
+
+la classe cadrantVirtuel se dérive pour faire son cadrant perso, elle dérive de QGraphicsItem.
+
+la classe jaugeVirtuel se dérive pour faire une jauge particulière, par exemple la jauge à essence, elle dérive de QGraphicsItem.
