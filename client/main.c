@@ -60,9 +60,9 @@ int main()
     size_t len = 50;
     int sockfd;
     if ((sent = malloc(len)) == NULL)
-        die("Erreur lors de l'allocation memoire pour le message émis.");
+        die("Erreur lors de l'allocation mémoire pour le message émis.");
     if ((received = malloc(len)) == NULL)
-        die("Erreur lors de l'allocation memoire pour le message reçu.");
+        die("Erreur lors de l'allocation mémoire pour le message reçu.");
     if ((sockfd = create_connected_socket("127.0.0.1", 2222)) == -1)
         die("Erreur lors de la connexion au serveur.");
     int end = 0;
