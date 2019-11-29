@@ -69,7 +69,6 @@ void MainWindow::reception()
         else{
             QString text;
             text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
-//            socket->write(text.toLocal8Bit());
             socket->write(text.toLocal8Bit());
         }
     }
