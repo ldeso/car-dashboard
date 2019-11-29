@@ -4,7 +4,7 @@
 
 jaugeClignotantHenri::jaugeClignotantHenri()
 {
-    value=2;
+    value==0;
     cligno=0;
 }
 
@@ -61,9 +61,8 @@ void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsIt
         }
         MAJ2();
     }
-    else{
 
-    if (getValue() !=0)
+    if ( (getValue() == 1) | (getValue()== -1) )
     {
         for (int j=0;j<cligno;j+=1)
         {
@@ -78,5 +77,5 @@ void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsIt
         }
     MAJ();
     }
-    }
+
 }

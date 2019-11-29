@@ -57,6 +57,7 @@ void MainWindow::reception()
     //ui->text->setText(QString(socket->readAll()));
     QString string(socket->readAll());
     QString message = string.section(' ',0,1);
+    qDebug() << string;
     if(message=="CANN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
@@ -132,7 +133,7 @@ void MainWindow::reception()
     }
     if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS<<"HUGO"<<"HENRI";
+        PRENOMS<<"HUGO"<<"HENRI" << "JONAS";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -143,6 +144,11 @@ void MainWindow::reception()
             if (prenom=="HENRI"){
                 delete dashboard;
                 dashboard =new henri_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="JONAS"){
+                delete dashboard;
+                dashboard =new Jonas_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
@@ -198,7 +204,7 @@ void MainWindow::reception()
         int warning = string.section(' ', 2,2).toInt();
         if(warning>=0 && warning <= 1){
             dashboard->warning->setValue(warning);
-            dashboard->Clignotant->setValue(2);
+            dashboard->Clignotant->setValue(2*warning);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
@@ -218,7 +224,7 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    //dashboard->CompteurKm->setValue(km_parcourus);
+    dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
 

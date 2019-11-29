@@ -13,7 +13,6 @@ class hugo_scene : public scene_globale
 {
 public:
     hugo_scene(scene_globale *parent=nullptr);
-    hugo_MyGraphicsitem *CompteurKm;
 
 private slots:
 

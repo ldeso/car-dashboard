@@ -4,8 +4,9 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include "objet_virtuel.h"
 
-class hugo_MyGraphicsitem : public QGraphicsItem
+class hugo_MyGraphicsitem : public objet_virtuel
 {
 public:
     hugo_MyGraphicsitem();
