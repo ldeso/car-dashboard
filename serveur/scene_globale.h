@@ -18,6 +18,7 @@ public:
     objet_virtuel *croisement;
     objet_virtuel *route;
     objet_virtuel * warning;
+    objet_virtuel *CompteurKm;
 };
 
 #endif // SCENE_GLOBALE_H

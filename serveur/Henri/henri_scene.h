@@ -3,12 +3,14 @@
 #include <QMainWindow>
 #include "scene_globale.h"
 #include "objet_virtuel.h"
-#include "jaugeclignotant.h"
+#include "jaugeclignotanthenri.h"
 #include "jaugeessencehenri.h"
 #include "cadranthenri.h"
 #include "jaugetemperaturehenri.h"
 #include "jaugetoursminutehenri.h"
 #include "scenedefondhenri.h"
+#include "affichekmhenri.h"
+#include "jaugebatteriehenri.h"
 
 
 class henri_scene : public scene_globale

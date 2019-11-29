@@ -1,7 +1,7 @@
 
 #A Faire
 
-chacun crée sa classe prenom_scene qui herite de la classe commune scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale sont déclarés tout les items ci-dessous qui doivent hériter de objet_virtuel.
+chacun crée sa classe prenom_scene qui herite de la classe commune scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale sont déclarés tout les items ci-dessous qui doivent hériter de objet_virtuel. A partir du client, possibilité de changer de Dashboard par la commande CANN DASHBOARD prenom.
  
  * un compteur Vitesse, pour value la vitesse.
  * un compteur CompteTours pour value les tours par minute.

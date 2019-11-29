@@ -12,6 +12,8 @@
         <file>voyant-ldr-liquide-refroidissement.gif</file>
         <file>voyant-liquide-frein.gif</file>
         <file>voyant-plaquettes.gif</file>
+        <file>voyant-carburant.jpg</file>
+        <file>voyant_carburant.jpg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

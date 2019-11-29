@@ -5,49 +5,50 @@
 #include <QTimer>
 
 
-hugo_scene::hugo_scene()
+hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
 {
     ///Création de la scène de fond
     CompteurKm=new hugo_MyGraphicsitem();
     this->addItem(CompteurKm);
 
     ///Déclaration et paramétrage de tous les compteurs
-    vitesse=new hugo_Compteur;
     QStringList graduations_vitesse;
     graduations_vitesse<<"  0"<<" 20"<<" 40"<<" 60"<<" 80"<<"100"<<"120"<<"140"<<"160"<<"180"<<"200"<<"220";
-    vitesse->Parametrage(0,0,90,210,-30,graduations_vitesse,220,100,1,0,64,128);
-    //vitesse->setValue(0);
-    qDebug()<<vitesse->getValueMax();
-    this->addItem(vitesse);
+    Vitesse=new hugo_Compteur(0,0,90,210,-30,graduations_vitesse,220,100,1,0,64,128);
+    Vitesse->setValue(0);
+    this->addItem(Vitesse);
 
-    CompteTours=new hugo_Compteur;
     QStringList graduations_rpm;
     graduations_rpm<<"  0"<<"  1"<<"  2"<<"  3"<<"  4"<<"  5"<<"  6"<<"  7"<<"  8";
-    CompteTours->Parametrage(-170,20,80,210,60,graduations_rpm,8000,80,1,0,64,128,5,120,0,0);
-    //CompteTours->angle=150;
+    CompteTours=new hugo_Compteur(-170,20,80,210,60,graduations_rpm,8000,80,1,0,64,128,5,120,0,0);
+    CompteTours->setValue(0);
     this->addItem(CompteTours);
 
-    Essence=new hugo_Compteur;
     QStringList graduations_essence;
     graduations_essence<<"  E"<<"  F";
-    Essence->Parametrage(155,-60,40,-45,45,graduations_essence,100,40,-1,0,64,128);
-   // Essence->angle=-45;
+    Essence=new hugo_Compteur(155,-60,40,-45,45,graduations_essence,100,40,-1,0,64,128);
+    Essence->setValue(100);
     this->addItem(Essence);
 
-    hugo_Compteur *temperature=new hugo_Compteur;
     QStringList graduations_temperature;
     graduations_temperature<<"  C"<<"  H";
-    temperature->Parametrage(160,30,40,-45,45,graduations_temperature,100,40,-1,0,64,128);
-   // temperature->angle=-45;
-    this->addItem(temperature);
+    jaugeTemperature=new hugo_Compteur(160,30,40,-45,45,graduations_temperature,100,40,-1,0,64,128);
+    jaugeTemperature->setValue(0);
+    this->addItem(jaugeTemperature);
+
 
 
     ///Déclaration et paramétrages de tous les voyants simples
-    VoyantBatterie=new hugo_voyants_simples;
-    VoyantBatterie->parametrage(-180,50,":/Images/voyant-batterie.gif");
+    ///
+    VoyantBatterie=new hugo_voyants_simples(-180,50,":/Images/voyant-batterie.gif");
+    VoyantBatterie->setValue(0);
     this->addItem(VoyantBatterie);
 
-    ABS=new hugo_voyants_simples;
+ //   objet_virtuel *VoyantEssenceFixe=new hugo_voyants_simples(150,-100,":/Images/voyant_carburant.jpg",150,150,150,17);
+   // VoyantEssenceFixe->setValue(1);
+    //this->addItem(VoyantEssenceFixe);
+
+    /*ABS=new hugo_voyants_simples;
     ABS->parametrage(-150,25,":/Images/voyant-abs");
     this->addItem(ABS);
 
@@ -77,9 +78,9 @@ hugo_scene::hugo_scene()
 
     huile=new hugo_voyants_simples;
     huile->parametrage(-110,75,":/Images/voyant-huile-orange.jpg");
-    this->addItem(huile);
+    this->addItem(huile);*/
 
-    ///Déclaration des clignotants
+    //Déclaration des clignotants
     Clignotant = new hugo_voyants_clignotant;
     this->addItem(Clignotant);
 

@@ -35,12 +35,9 @@ SOURCES += \
     Hugo/hugo_mygraphicsitem.cpp \
     Hugo/hugo_scene.cpp \
     Henri/cadranthenri.cpp \
-    Henri/jaugeclignotant.cpp \
     Henri/jaugeessencehenri.cpp \
-    Henri/jaugetemperature.cpp \
     Henri/jaugetemperaturehenri.cpp \
     Henri/jaugetoursminutehenri.cpp \
-    Henri/scenedefond.cpp \
     Henri/scenedefondhenri.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -52,19 +49,19 @@ SOURCES += \
     Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
     Florian/voyant.cpp \
-    Florian/clignotant.cpp
+    Florian/clignotant.cpp\
+    Henri/jaugeclignotanthenri.cpp \
+    Henri/affichekmhenri.cpp \
+    Henri/jaugebatteriehenri.cpp
 
 HEADERS += \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
     Henri/cadranthenri.h \
-    Henri/jaugeclignotant.h \
     Henri/jaugeessencehenri.h \
-    Henri/jaugetemperature.h \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
-    Henri/scenedefond.h \
     Henri/scenedefondhenri.h \
     mainwindow.h \
     Hugo/hugo_voyants_clignotant.h \
@@ -75,7 +72,10 @@ HEADERS += \
     Florian/cadrantflorian.h \
     Florian/sceneflorian.h \
     Florian/voyant.h \
-    Florian/clignotant.h
+    Florian/clignotant.h\
+    Henri/jaugeclignotanthenri.h \
+    Henri/affichekmhenri.h \
+    Henri/jaugebatteriehenri.h
 
 FORMS += \
         mainwindow.ui

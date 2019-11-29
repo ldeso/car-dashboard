@@ -104,6 +104,7 @@ int main() {
                 printf("CANN TURN x avec -1 gauche, 0 rien, 1 droite\n");
                 printf("CANN LIGHT X avec 0 eteint, 1 position, 2 croisement, 3 route\n");
                 printf("CANN WARNING x avec 0 eteint et 1 allumer");
+                printf("CANN DASHBOARD x avec x le prénom\n");
                 valide = 1;
             }
             else{
@@ -208,6 +209,19 @@ int main() {
                     printf("%s\n", recep);
 
                 }
+                else if(strcasecmp(cann,"CANN")== 0 && strcasecmp(typeCann, "DASHBOARD") == 0){
+                    if (send(fd, message, sizeof(char)*80, 0) < 0) {
+                        perror("send()");
+                        exit(EXIT_FAILURE);
+                    }
+                    if(recv(fd, recep, sizeof(char)*50, 0) < 0)
+                    {
+                        perror("recv()");
+                        exit(EXIT_FAILURE);
+                    }
+                    printf("%s\n", recep);
+
+                }
                 //else if(){} NE PAS SUPPRIMER CE COMMENTAIRE
                 //TO DO Ajouter les conditions pour les messages
                 else{
@@ -218,7 +232,7 @@ int main() {
             }
 
         }
-
+        viderBuffer();
 
     }while(message != "end");
 

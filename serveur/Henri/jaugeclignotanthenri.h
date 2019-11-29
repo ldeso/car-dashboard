@@ -3,10 +3,10 @@
 #include "objet_virtuel.h"
 #include <QTest>
 
-class jaugeClignotant : public objet_virtuel
+class jaugeClignotantHenri : public objet_virtuel
 {
 public:
-    jaugeClignotant();
+    jaugeClignotantHenri();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
 

@@ -1,4 +1,5 @@
 #include "cadranthenri.h"
+#include <QDateTime>
 
 cadrantHenri::cadrantHenri(objet_virtuel *parent):objet_virtuel (parent)
 {
@@ -12,10 +13,10 @@ cadrantHenri::cadrantHenri(objet_virtuel *parent):objet_virtuel (parent)
 
 QRectF cadrantHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
-void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
 
@@ -127,7 +128,7 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     painter->setFont(QFont("URW Gothic L",80));
     if(getValue()<10)
     painter->drawText(-30,-100,QString("%1").arg(getValue()));
-    if(getValue()>=10 & getValue()<100)
+    if( (getValue()>=10) & (getValue()<100) )
     painter->drawText(-60,-100,QString("%1").arg(getValue()));
     if(getValue()>=100)
     painter->drawText(-90,-100,QString("%1").arg(getValue()));
@@ -142,15 +143,27 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
 
     painter->setPen(QPen(QBrush("black") , 40 , Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QColor("black"));
-    painter->drawRoundRect(QRect(-140,-50,80,2),1,1);
+    painter->drawRoundRect(QRect(-160,-50,80,2),1,1);
 
     painter->setBrush(brush);
     painter->setPen(QPen(brush,20));
 
     painter->setFont(QFont("URW Gothic L",20));
-    painter->drawText(-150,-40,QString("123456"));
+    painter->drawText(-170,-39,QString("123456"));
 
 //.....fin affichage nombre de kilometres
+
+
+
+
+
+
+//.....affichage heure
+    painter->setFont(QFont("URW Gothic L",30));
+    painter->setPen(QPen(QBrush("cyan") , 40 , Qt::SolidLine,Qt::FlatCap));
+    QString heure = QDateTime::currentDateTime().toString("hh:mm");
+    painter->drawText(-52,-33,heure);
+//.....fin affichage heure
 
 
 

@@ -11,10 +11,10 @@ jaugeToursMinuteHenri::jaugeToursMinuteHenri(objet_virtuel *parent):objet_virtue
 
 QRectF jaugeToursMinuteHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
-void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
 //.....création des carrés de fond pour le disigne du cadrant........................

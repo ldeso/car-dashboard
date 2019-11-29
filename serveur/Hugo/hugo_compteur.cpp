@@ -6,9 +6,24 @@
 #define pi 3.14159265
 
 
-hugo_Compteur::hugo_Compteur()
+hugo_Compteur::hugo_Compteur(int param_x, int param_y, int param_r, int param_start_angle, int param_end_angle, QStringList param_graduations, int param_value, int param_r_verre, int param_direction_grad, int red, int green, int blue, int param_critique, int red2, int green2, int blue2)
 {
-    valueMax=260;
+    x=param_x;
+    y=param_y;
+    r=param_r;
+    start_angle=param_start_angle;
+    end_angle=param_end_angle;
+    nbre_graduations=param_graduations.length()-1;
+    graduations=param_graduations;
+    couleur=QColor(red,green,blue);
+    couleurgrad=QColor(red,green,blue,20),
+            critique=param_critique;
+    couleur2=QColor(red2,green2,blue2);
+    couleurgrad2=QColor(255,green2,blue2,20);
+    value2=param_value;
+    valueMax=value2;
+    direction_grad=param_direction_grad;
+    r_verre=param_r_verre;
 }
 
 
@@ -18,7 +33,7 @@ QRectF hugo_Compteur::boundingRect() const
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
-void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     painter->setRenderHints(QPainter::Antialiasing);///<Mise en place Antialiasing//
 
@@ -114,8 +129,14 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
         QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)),
         QPointF(x+(r/4)*qCos((angle-8)*pi/180),y+(r/4)*qSin((angle-8)*pi/180)),
     };
-    painter->setPen(QPen(QColor(Qt::white), 0.5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-    painter->setBrush(QColor(Qt::darkRed));
+    QLinearGradient linearGrad_aiguille( QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)), QPointF(x, y));
+    linearGrad_aiguille.setColorAt(0, QColor(Qt::darkRed));
+    linearGrad_aiguille.setColorAt(0.5, QColor(230, 46, 0));
+    linearGrad_aiguille.setColorAt(1, QColor(Qt::darkRed));
+
+    QBrush brushgrad(linearGrad_aiguille);
+    painter->setBrush(brushgrad);
+    painter->setPen(QPen(QColor(Qt::darkRed), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     painter->drawPolygon(points,4);
 
     ///
@@ -140,6 +161,25 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
     }
 }
 
+void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r, int param_start_angle, int param_end_angle, QStringList param_graduations, int param_value, int param_r_verre, int param_direction_grad, int red, int green, int blue, int param_critique, int red2, int green2, int blue2)
+{      x=param_x;
+       y=param_y;
+          r=param_r;
+             start_angle=param_start_angle;
+                end_angle=param_end_angle;
+                   nbre_graduations=param_graduations.length()-1;
+                      graduations=param_graduations;
+                         couleur=QColor(red,green,blue);
+                            couleurgrad=QColor(red,green,blue,20),
+                                    critique=param_critique;
+                               couleur2=QColor(red2,green2,blue2);
+                                  couleurgrad2=QColor(255,green2,blue2,20);
+                                     value2=param_value;
+                                        valueMax=value2;
+                                           direction_grad=param_direction_grad;
+                                              r_verre=param_r_verre;
+}
+
 ///
 /// \brief hugo_Compteur::Parametrage : fonction permettant de parmaétrer le compteur
 /// \param param_x position horizontale du centre du compteur
@@ -159,23 +199,5 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 /// \param green2
 /// \param blue2
 ///
-void hugo_Compteur::Parametrage(int param_x, int param_y, int param_r,int param_start_angle, int param_end_angle,QStringList param_graduations,int param_value,int param_r_verre,int param_direction_grad,int red,int green,int blue,int param_critique, int red2,int green2,int blue2)
-{
-    x=param_x;
-    y=param_y;
-    r=param_r;
-    start_angle=param_start_angle;
-    end_angle=param_end_angle;
-    nbre_graduations=param_graduations.length()-1;
-    graduations=param_graduations;
-    couleur=QColor(red,green,blue);
-    couleurgrad=QColor(red,green,blue,20),
-    critique=param_critique;
-    couleur2=QColor(red2,green2,blue2);
-    couleurgrad2=QColor(255,green2,blue2,20);
-    value2=param_value;
-    valueMax=value2;
-    direction_grad=param_direction_grad;
-    r_verre=param_r_verre;
-}
+
 

@@ -1,30 +1,29 @@
-#include "jaugeclignotant.h"
+#include "jaugeclignotanthenri.h"
 #include <QDebug>
 
 
-jaugeClignotant::jaugeClignotant()
+jaugeClignotantHenri::jaugeClignotantHenri()
 {
     value=0;
     cligno=0;
 }
 
-QRectF jaugeClignotant::boundingRect() const
+QRectF jaugeClignotantHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
-void jaugeClignotant::MAJ()
+void jaugeClignotantHenri::MAJ()
 {
     this->cligno+=1;
     if(this->cligno == 9)
         this->cligno=0;
-    QTest::qWait(10);
+    QTest::qWait(80);
     update();
 }
 
-void jaugeClignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
 {
-
     painter->setRenderHint(QPainter::Antialiasing);
     painter->setPen(QPen(QBrush(QColor(250,200,0,255)) , 1, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(QColor(250,200,0,255)));
