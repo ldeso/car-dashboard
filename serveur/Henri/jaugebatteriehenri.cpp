@@ -2,7 +2,7 @@
 
 jaugeBatterieHenri::jaugeBatterieHenri()
 {
-
+    value=0;
 }
 
 QRectF jaugeBatterieHenri::boundingRect() const
