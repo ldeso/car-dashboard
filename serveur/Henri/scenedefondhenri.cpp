@@ -15,7 +15,8 @@ void sceneDeFondHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*,
     gradient.setColorAt(1, QColor("dark"));
     QBrush brush(gradient);
     painter->setBrush(brush);
-    painter->drawEllipse(-800,-500,1600,1000);
+    painter->setPen(QPen(brush,1));
+    painter->drawEllipse(-700,-380,1400,780);
 
 // fin designe elipse de fond
 }
@@ -23,5 +24,5 @@ void sceneDeFondHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*,
 
 QRectF sceneDeFondHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-840,-450,1600,980);
 }

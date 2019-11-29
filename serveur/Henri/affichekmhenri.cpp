@@ -8,7 +8,7 @@ afficheKmHenri::afficheKmHenri(objet_virtuel *parent):objet_virtuel (parent)
 
 QRectF afficheKmHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
 void afficheKmHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)

@@ -7,7 +7,7 @@ jaugeTemperatureHenri::jaugeTemperatureHenri()
 
 QRectF jaugeTemperatureHenri::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-700,-380,1400,780);
 }
 
 void jaugeTemperatureHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
