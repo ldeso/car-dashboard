@@ -81,7 +81,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("rpm incorrect, vitesse comprise entre 0 et %1").arg(dashboard->CompteTours->getValueMax());
+            text = QString("rpm incorrect, rpm compris entre 0 et %1").arg(dashboard->CompteTours->getValueMax());
             socket->write(text.toUtf8());
         }
     }
@@ -118,13 +118,13 @@ void MainWindow::reception()
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 1){
             dashboard->Clignotant->setValue(cligno);
-            ui->graphicsView->scene()->update();
+           // ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
         else{
             QString text;
-            text = QString("Quantité incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            text = QString("Valeur incorrecte, doit être égale à 0,1, ou -1").arg(dashboard->Essence->getValueMax());
             socket->write(text.toUtf8());
         }
     }
@@ -149,7 +149,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("Cette scène n'existe pas");
+            text = QString("Cette scène n'existe pas.");
             socket->write(text.toUtf8());
         }
     }
