@@ -1,4 +1,5 @@
 TEMPLATE = lib
+CONFIG += unversioned_libname unversioned_soname
 CONFIG -= qt
 
 SOURCES += \
