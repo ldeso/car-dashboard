@@ -5,7 +5,7 @@ CONFIG -= qt
 
 SOURCES += main.c
 
-unix: LIBS += -L$$OUT_PWD/../clientio/ -lclientio
+LIBS += -L$$OUT_PWD/../clientio/ -lclientio
 
 INCLUDEPATH += $$PWD/../clientio
 DEPENDPATH += $$PWD/../clientio
