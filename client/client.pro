@@ -1,10 +1,7 @@
-TEMPLATE = app
-CONFIG += console
-CONFIG -= app_bundle
-CONFIG -= qt
+TEMPLATE = subdirs
 
-SOURCES += main.c \
-    client.c
+SUBDIRS += \
+    clientio \
+    src
 
-HEADERS += \
-    client.h
+src.depends = clientio

@@ -2,7 +2,7 @@
 #include <string.h> // memset, strncpy, strlen, strncmp, strtok
 #include <unistd.h> // close
 
-#include "client.h"
+#include "clientio.h"
 
 int create_connected_socket(const char *ip, const int port)
 {

@@ -2,7 +2,7 @@
 #include <stdio.h> // fgets, fprintf, getchar, printf, puts
 #include <string.h> // strncmp
 
-#include "client.h"
+#include "clientio.h"
 
 /**
  * @brief die
