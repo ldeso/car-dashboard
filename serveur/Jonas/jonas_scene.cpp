@@ -10,7 +10,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
         listRpm << QString::number(i);
     }
     this->setBackgroundBrush(Qt::black);
-    listFuel << "F" << "E";
+    listFuel << "E" << "F";
     Vitesse = new Jonas_compteur;
     Vitesse->setValue(0);
     CompteTours = new Jonas_compteur(10000, listRpm, 70 , 210, "x1000rpm", 21, 0, 1, 100);
@@ -22,4 +22,14 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     this->addItem(Vitesse);
     this->addItem(CompteTours);
     this->addItem(Essence);
+
+    // objets pas encore implémentées (= null)
+    jaugeTemperature = nullptr;
+    Clignotant = nullptr;
+    VoyantBatterie = nullptr;
+    position = nullptr;
+    croisement = nullptr;
+    route = nullptr;
+    warning = nullptr;
+    CompteurKm = nullptr;
 }

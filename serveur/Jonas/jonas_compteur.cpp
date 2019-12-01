@@ -7,8 +7,8 @@
 Jonas_compteur::Jonas_compteur()
 {
     valueMax = 220;
-    alpha = -30;
-    beta = 210;
+    alpha = -50;
+    beta = 230;
     gaugeSize = 150;
     textLabel = "km/h";
     graduations = 23;
@@ -21,16 +21,16 @@ Jonas_compteur::Jonas_compteur()
 
 Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, QString textCenter,int ngrad, bool line, int modulo, int size)
 {
-    if (beta > alpha) {
+    if (endAngle > startAngle) {
         alpha = startAngle;
         beta = endAngle;
     }
-    else if (alpha > beta) {
+    else if (endAngle < startAngle) {
         alpha = endAngle;
         beta = startAngle;
     }
     else
-        qDebug() << "erreur startAngles = endAngle";
+        qDebug() << "erreur startAngle = endAngle";
 
     valueMax = max;
     gaugeSize = size;
