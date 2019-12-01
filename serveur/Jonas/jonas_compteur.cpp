@@ -52,8 +52,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     // Definition des constantes
     const float spanAngle = beta - alpha;
     const float needleSize = gaugeSize*120/150;
-    //const float diffAngle = (spanAngle+1)*(10/((float)graduations*10));
-    const float diffAngle = (spanAngle+1)/(graduations-1);
+    const float diffAngle = (spanAngle+2)/(graduations-1);
 
     // Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
@@ -90,29 +89,27 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     painter->setPen(Qt::white);
     //////////////////////////////////////////////////////////////////////////////////////////
 
-
     // Dessine les graduations du cadrant
     int k = 0;
     float delta = beta;
     for (int i=0; i<graduations; i++)
     {
         if  (k%2 == 0) {
-            painter->setPen(QPen(QBrush(QColor(38, 10, 178)), gaugeSize*20/150, Qt::SolidLine, Qt::FlatCap));
-            painter->drawArc(rect[3],delta*16, gaugeSize*24/150);
+            painter->setPen(QPen(QBrush(QColor(38, 10, 178)), gaugeSize*24/150, Qt::SolidLine, Qt::FlatCap));
+            painter->drawArc(rect[3],delta*16, gaugeSize*28/150);
         }
         else {
-            painter->setPen(QPen(QBrush(Qt::white), gaugeSize*17/150, Qt::SolidLine,Qt::FlatCap));
-                painter->drawArc(rect[3],delta*16, gaugeSize*10/150);
+            painter->setPen(QPen(QBrush(Qt::white), gaugeSize*15/150, Qt::SolidLine,Qt::FlatCap));
+                painter->drawArc(rect[3],delta*16, gaugeSize*12/150);
             }
             delta -= diffAngle;
         k++;
     }
     //////////////////////////////////////////////////////////////////////////////////////////
 
-
     // Dessine le cadrant intérieur
     painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
-    painter->drawArc(rect[1],(alpha)*16, (spanAngle)*16);
+    painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // Dessine le cadrant extérieur
@@ -126,7 +123,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
 
     // Dessine le texte autour du cadrant
-    painter->setPen(QPen(QBrush(QColor(Qt::white)) , gaugeSize*10/150 , Qt::SolidLine,Qt::FlatCap));
+    painter->setPen(QPen(QBrush(QColor(Qt::white)) , gaugeSize*15/150 , Qt::SolidLine,Qt::FlatCap));
     painter->setFont(QFont("Ubuntu", gaugeSize*11/150, -1,false));
     float gamma = beta;
     int j = 0;
