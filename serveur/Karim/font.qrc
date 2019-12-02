@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Open 24 Display St.ttf</file>
+    </qresource>
+</RCC>
