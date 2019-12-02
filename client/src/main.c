@@ -77,9 +77,9 @@ int main()
             puts("CANN DASHBOARD x où x est le prénom");
             puts("CANN GAZ x avec x compris entre 0 et 100");
             puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
-            puts("CANN LIMIT x où x est la limitation de vitesse en km/h");
             puts("CANN RPM x avec x compris entre 0 et 15000");
             puts("CANN SPEED x avec x compris entre 0 et 400");
+            puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
             puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite");
             puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
             puts("CANN ASD x avec x = 0 eteint et 1 allumé");
