@@ -86,6 +86,10 @@ int main()
             puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
             puts("CANN FRONT_FOG x avec x = 0 eteint et 1 allumé");
             puts("CANN REAR_FOG x avec x = 0 eteint et 1 allumé");
+            puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
+            puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
+            puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
+
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;
         } else {
