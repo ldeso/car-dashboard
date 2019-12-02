@@ -7,6 +7,7 @@
 #include "Henri/henri_scene.h"
 #include "Jonas/jonas_scene.h"
 #include "Florian/sceneflorian.h"
+#include "Lea/lea_scene.h"
 
 namespace Ui {
 class MainWindow;
