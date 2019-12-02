@@ -124,9 +124,9 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
-    Lea/Lea.qrc
+    Lea/Lea.qrc \
+    Jonas/icons-dashboard/icons-dashboard.qrc
     Lea/fuel.qrc
-    #Jonas/icones/jonas-icons.qrc \
 
 DISTFILES += \
     Henri/iconeEssence.png \
