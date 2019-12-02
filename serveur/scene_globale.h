@@ -19,6 +19,10 @@ public:
     objet_virtuel *route;
     objet_virtuel * warning;
     objet_virtuel *CompteurKm;
+    objet_virtuel *AdaptiveSuspensionDampers;
+    objet_virtuel *AutomaticTransmissionMode;
+    objet_virtuel *FrontAntifog;
+    objet_virtuel *RearAntifog;
 };
 
 #endif // SCENE_GLOBALE_H

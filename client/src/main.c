@@ -82,6 +82,10 @@ int main()
             puts("CANN SPEED x avec x compris entre 0 et 400");
             puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite");
             puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
+            puts("CANN ASD x avec x = 0 eteint et 1 allumé");
+            puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
+            puts("CANN FRONT_FOG x avec x = 0 eteint et 1 allumé");
+            puts("CANN REAR_FOG x avec x = 0 eteint et 1 allumé");
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;
         } else {

@@ -213,8 +213,67 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    else if(message=="CANN ASD"){
+        int asd_on = string.section(' ', 2,2).toInt();
+        if(asd_on==0 || asd_on==1){
+            dashboard->AdaptiveSuspensionDampers->setValue(asd_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN MODE"){
+        int mode = string.section(' ', 2,2).toInt();
+
+        if(mode >=1 && mode <= 4)
+        { dashboard->AutomaticTransmissionMode->setValue(mode);
+           ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrect, valeur entre 1 et 4").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+    else if(message=="CANN FRONT_FOG"){
+        int front_fog_on = string.section(' ', 2,2).toInt();
+        if(front_fog_on==0 || front_fog_on==1){
+            dashboard->FrontAntifog->setValue(front_fog_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN REAR_FOG"){
+        int rear_fog_on = string.section(' ', 2,2).toInt();
+        if(rear_fog_on==0 || rear_fog_on==1){
+            dashboard->RearAntifog->setValue(rear_fog_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
+
+
 
 }
 

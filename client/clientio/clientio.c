@@ -38,7 +38,11 @@ int validate_message(const char* message)
         "RPM",
         "SPEED",
         "TURN",
-        "WARNING"
+        "WARNING",
+        "ASD",
+        "MODE",
+        "FRONT_FOG",
+        "REAR_FOG"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;
