@@ -4,10 +4,10 @@
 #include <QPixmap>
 #include "../objet_virtuel.h"
 
-class Voyant : public objet_virtuel
+class FlorianVoyant : public objet_virtuel
 {
 public:
-    Voyant(QPixmap map, QGraphicsItem * parent = nullptr);
+    FlorianVoyant(QPixmap map, QGraphicsItem * parent = nullptr);
     QRectF boundingRect()const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 private:

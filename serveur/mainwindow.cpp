@@ -355,22 +355,6 @@ void MainWindow::reception()
              }
     }
 
-            else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
-    {
-                int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
-                if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
-                     dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
-                     ui->graphicsView->scene()->update();
-                     QString text = "OK";
-                     socket->write(text.toLocal8Bit());
-                     }
-                 else{
-                     QString text;
-                     text = QString("valeur incorrecte, doit être égale à 0 ou 1");
-                     socket->write(text.toLocal8Bit());
-                      }
-    }
-
                 else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
                     int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
@@ -416,6 +400,7 @@ void MainWindow::update_km()
         //dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
+
 
 
 
