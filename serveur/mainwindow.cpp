@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ///La scène par défault est
-    dashboard=new henri_scene();
+    dashboard=new hugo_scene();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
@@ -26,6 +26,41 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->graphicsView->setScene(dashboard);
 
+}
+
+///
+/// \brief MainWindow::acceleration Simulation d'une accélération
+/// \details Fonction simulant une accélération linéaire avec changements de rapports de vitesse
+/// \param time Durée de la simulation
+///
+void MainWindow::acceleration(int time)
+{
+    float t=0;
+    float vitesse=0;
+    int rapport=1;
+    while (t<time){
+        vitesse_actuelle=vitesse;
+        if ((vitesse)<=dashboard->Vitesse->getValueMax())
+            dashboard->Vitesse->setValue(vitesse);
+        if (dashboard->CompteTours->getValue()>4000){
+            rapport++;
+        }
+        if(rapport==1)
+            dashboard->CompteTours->setValue(vitesse*6800/55);
+       if(rapport==2)
+            dashboard->CompteTours->setValue(vitesse*6800/75);
+        if(rapport==3)
+            dashboard->CompteTours->setValue(vitesse*6800/115);
+        if(rapport==4)
+            dashboard->CompteTours->setValue(vitesse*6800/140);
+        if(rapport>=5 && vitesse*6800/185<=dashboard->CompteTours->getValueMax())
+            dashboard->CompteTours->setValue(vitesse*6800/185);
+        ui->graphicsView->scene()->update();
+        vitesse+=0.8;
+        t+=0.1;
+        QTest::qWait(100);
+
+    }
 }
 
 MainWindow::~MainWindow()
@@ -319,6 +354,19 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+    else if(message=="CANN ACCELERATION"){
+        int time = string.section(' ', 2,2).toInt();
+        if(time>0){
+        acceleration(1.0*time);
+        QString text = "OK";
+        socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être supérieur à 0");
+            socket->write(text.toLocal8Bit());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 
@@ -331,7 +379,7 @@ void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
     if (dashboard->CompteurKm) //
-        //dashboard->CompteurKm->setValue(km_parcourus);
+       // dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
 

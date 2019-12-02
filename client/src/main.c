@@ -89,6 +89,7 @@ int main()
             puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
             puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
             puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
+            puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
 
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;

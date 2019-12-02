@@ -45,7 +45,8 @@ int validate_message(const char* message)
         "REAR_FOG",
         "SEAT_BELT",
         "RW_HEAT",
-        "CHECK_ENGINE"
+        "CHECK_ENGINE",
+        "ACCELERATION"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;
