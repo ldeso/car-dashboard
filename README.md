@@ -48,18 +48,6 @@ de lancer à partir du client des messages CANN concernant des fonctionnalités
 non inclues dans votre dashboard. Suivez ces différentes étapes pour ajouter un
 objet au programme:
 
-* Déclarez votre objet en tant que objet_virtuel dans "scene_globale.h". Il sera
-ensuite défini de la façon qu'il vous plaira dans votre prénom_scene. 
-* Dans le fichier "main.c" du client, dans la partie concernant la commande
-HELP, ajoutez votre message CANN, ainsi qu'une brève déscription de ce dernier.
-* Dans la foncion MainWindow::reception() de"mainwindow.cpp", rajoutez une
-condition correspondant à votre message CANN, ainsi que l'algorithme
-fonctionnel. Ce dernier ne doit utiliser que les fonctions getValue,setValue et
-getValueMax définies dans la classe objet_virtuel. N'hésitez pas à rajouter des
-messages d'erreur en cas de variables non compatibles en provenance du client.
-* Dans le fichier "README.md", dans la partie Liste des messages CANN, rajoutez
-une descriptif de votre fonctionnalité.
-
 ## Liste des messages CANN
 
 | Objet                     | Description                                            | Message CANN         | Valeurs                                           |
@@ -71,19 +59,18 @@ une descriptif de votre fonctionnalité.
 | position                  | Feux de position                                       | CANN LIGHT X         | 0=éteint, 1=allumé                                |
 | croisement                | Feux de croisement                                     | CANN LIGHT X         | 0=éteint, 2=allumé                                |
 | route                     | Feux de route                                          | CANN LIGHT X         | 0=éteint, 3=allumé                                |
-|Clignotant|Allume les clignotants gauche, droit ou les deux ensemble (feux d'avertissement ) |CANN TURN X|1=clignotant droit,-1=clignotant gauche, 2 clignotant les deux 0=éteint
+|Clignotant|Allume les clignotants gauche, droit ou les deux ensemble (feux d'avertissement ) |CANN TURN X|1=clignotant droit,-1=clignotant gauche, 2 clignotant les deux 0=éteint|
 | Warning                   | Allume le warning et met la valeur des clignotants à 2 | CANN WARNING X       | 0=éteint, 1=allumé                                |
 | AdaptiveSuspensionDampers | Voyant indiquant Voyant indiquant que ASD est utilisé  | CANN ASD X           | 0 éteint, 1 allumé                                |
-| AutomaticTransmissionMode | **indicate the current transmition mode in use**       | CANN MODE  X         | 1=P, 2=R, 3=N, 4=D                                |
-| FrontAntifog              | feux de brume avants                                   | CANN FRONT_FOG X     | 0=éteint, 1=allumé                                |
-| RearAntifog               | feux de brume arrières                                 | CANN REAR_FOG X      | 0=éteint, 1=allumé                                |
+| AutomaticTransmissionMode |  Indique le mode de transmission actuellement utilisé       | CANN MODE  X         | 1=P, 2=R, 3=N, 4=D                                |
+| FrontAntifog              | feux de brouillard avants                                   | CANN FRONT_FOG X     | 0=éteint, 1=allumé                                |
+| RearAntifog               | feux de brouillard arrières                                 | CANN REAR_FOG X      | 0=éteint, 1=allumé                                |
 | SeatBelt                  | Ceinture de securité                                   | CANN SEAT_BELT X     | 0=éteint, 1=allumé                                |
 | RearWindowHeating         | Chauffage de la glace arrière                          | CANN RW_HEAT X       | 0=éteint, 1=allumé                                |
 | CheckEngine               | Voyant d'anomalie du moteur                            | CANN CHECK_ENGINE X  | 0=éteint, 1=allumé                                |
 | _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
-
 
 # A Faire
 
