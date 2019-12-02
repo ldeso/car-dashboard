@@ -89,6 +89,7 @@ int main()
             puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
             puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
             puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
+            puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
             puts("CANN OPEN_DOOR_DRIVER x = 0 eteint et 1 allumé" );
             puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 eteint et 1 allumé" );
             puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 eteint et 1 allumé" );
