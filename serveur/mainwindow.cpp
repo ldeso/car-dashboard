@@ -404,6 +404,7 @@ void MainWindow::reception()
         }
     }
 
+<<<<<<< HEAD
     else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
     {
         int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
@@ -421,6 +422,9 @@ void MainWindow::reception()
     }
 
     else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+=======
+                else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+>>>>>>> b8512f4f0bbc8994a52e09239ce5f98f33607cf6
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorBackLeftPassenger_on==0 || OpenDoorBackLeftPassenger_on==1){
@@ -465,6 +469,7 @@ void MainWindow::update_km()
         // dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
 }
+
 
 
 

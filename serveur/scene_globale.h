@@ -30,7 +30,10 @@ public:
     objet_virtuel *OpenDoorFrontPassenger;
     objet_virtuel *OpenDoorBackLeftPassenger;
     objet_virtuel *OpenDoorBackRightPassenger;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b8512f4f0bbc8994a52e09239ce5f98f33607cf6
 };
 
 #endif // SCENE_GLOBALE_H

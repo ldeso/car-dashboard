@@ -2,8 +2,9 @@
 #define SCENEFLORIAN_H
 #include "scene_globale.h"
 #include "cadrantflorian.h"
-#include "voyant.h"
-#include "clignotant.h"
+#include "florianvoyant.h"
+#include "florianclignotant.h"
+#include "floriancompteurkm.h"
 
 class SceneFlorian : public scene_globale
 {
@@ -17,17 +18,17 @@ public:
     /*Voyant * position;
     Voyant * croisement;
     Voyant * route;*/
-    Voyant * brouillardAvant;
-    Voyant * brouillardArriere;
-    Voyant * noEssence;
-    Voyant * noHuile;
+    FlorianVoyant * brouillardAvant;
+    FlorianVoyant* brouillardArriere;
+    FlorianVoyant* noEssence;
+    FlorianVoyant* noHuile;
     /*Voyant * clignotantGauche;
     Voyant * clignotantDroite;*/
-    Voyant * refroidissement;
-    Voyant * batterie;
+    FlorianVoyant* refroidissement;
+    FlorianVoyant* batterie;
     //Voyant * warning;
-    Voyant * ceinture;
-    Voyant * noCeinture;
+    FlorianVoyant* ceinture;
+    FlorianVoyant* noCeinture;
 };
 
 #endif // SCENEFLORIAN_H
