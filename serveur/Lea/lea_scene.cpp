@@ -1,8 +1,10 @@
 #include "lea_scene.h"
+#include <QFontDatabase>
 
 Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 {
     this->setBackgroundBrush(QBrush(Qt::black));
+    QFontDatabase::addApplicationFont(":/lEA/Seven Segment.ttf");
 
     Vitesse = new speedometer_Lea(400.0,200.0,160.0,225,-270,270,220);
     Vitesse->setValue(0);
@@ -18,8 +20,8 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     Essence->setValue(0);
     this->addItem(Essence);
 
-    CompteTours = new TachometerGauge_Lea(140.0,240.0,130.0,230,50,180,41,6);
-    CompteTours->setValue(5000);
+    CompteTours = new TachometerGauge_Lea(140.0,240.0,130.0,230,50,180,41,6000);
+   // CompteTours->setValue(0);
     this->addItem(CompteTours);
 
     objet_virtuel *porteD_arr_ouverte = new voyant_Lea(380,400,":/Lea/PorteOuvertePassagerD.png",80,80);
