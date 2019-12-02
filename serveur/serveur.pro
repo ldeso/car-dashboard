@@ -71,7 +71,14 @@ SOURCES += \
     Lea/tachometergauge_lea.cpp \
     Lea/voyant_lea.cpp \
     Lea/lea_clignottants.cpp \
-    Florian/floriancompteurkm.cpp
+    Florian/floriancompteurkm.cpp \
+    Karim/cadranEss.cpp \
+    Karim/cadrantourparmin.cpp \
+    Karim/CadranVitesse.cpp \
+    Karim/clignot.cpp \
+    Karim/karim_scene.cpp \
+    Karim/Voyant_batterie.cpp \
+    Karim/voyants.cpp
 
 
 HEADERS += \
@@ -114,7 +121,14 @@ HEADERS += \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
     Lea/voyant_lea.h \
-    Lea/lea_clignottants.h
+    Lea/lea_clignottants.h \
+    Karim/cadranEss.h \
+    Karim/cadrantourparmin.h \
+    Karim/CadranVitesse.h \
+    Karim/clignot.h \
+    Karim/karim_scene.h \
+    Karim/Voyant_batterie.h \
+    Karim/voyants.h
     Florian/floriancompteurkm.h
 
 FORMS += \
@@ -123,9 +137,11 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    florian.qrc \
-    Lea/Lea.qrc
-    Lea/fuel.qrc
+    #florian.qrc \
+    Lea/Lea.qrc \
+    Karim/icone.qrc \
+    Karim/newfont.qrc
+    #Lea/fuel.qrc
     #Jonas/icones/jonas-icons.qrc \
 
 DISTFILES += \
@@ -409,4 +425,5 @@ DISTFILES += \
     Lea/PorteOuverte.png \
     Lea/PorteOuverteConducteur.png \
     Lea/PorteOuvertePassagerD.png \
-    Lea/PorteOuvertePassagerG.png
+    Lea/PorteOuvertePassagerG.png \
+    Karim/LCDfont.ttf
