@@ -45,6 +45,7 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
+    Leo/leo_scene.cpp \
     main.cpp \
     mainwindow.cpp \
     objet_virtuel.cpp \
@@ -84,6 +85,7 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
+    Leo/leo_scene.h \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
