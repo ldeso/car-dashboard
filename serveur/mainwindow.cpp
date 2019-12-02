@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ///La scène par défault est
-    dashboard=new hugo_scene();
+    dashboard=new henri_scene();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
@@ -326,12 +326,12 @@ void MainWindow::reception()
 
 }
 
-
+//A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
     if (dashboard->CompteurKm) //
-        dashboard->CompteurKm->setValue(km_parcourus);
+        //dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
 
