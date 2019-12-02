@@ -14,7 +14,7 @@ class karim_scene : public scene_globale
 public:
     karim_scene();
 
-    CadranTourParMin *CompteTours;
+    //CadranTourParMin *CompteTours;
     CadranEss *Essence;
     CadranEss *Temperature;
 
