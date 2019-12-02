@@ -1,5 +1,3 @@
-//#include <QPainter>
-
 #include "leo_indicator.h"
 
 Leo_indicator::Leo_indicator(objet_virtuel* parent) :
