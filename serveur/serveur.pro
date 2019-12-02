@@ -52,9 +52,9 @@ SOURCES += \
     mainwindow.cpp \
     objet_virtuel.cpp \
     scene_globale.cpp \
-    Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
     Florian/florianvoyant.cpp \
+    Florian/cadrantflorian.cpp \
     Florian/florianclignotant.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
@@ -95,8 +95,8 @@ HEADERS += \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
-    Florian/cadrantflorian.h \
     Florian/sceneflorian.h \
+    Florian/cadrantflorian.h \
     Florian/florianvoyant.h \
     Florian/florianclignotant.h \
     Henri/affichekmhenri.h \
@@ -123,7 +123,8 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
-    Lea/Lea.qrc\
+    Lea/Lea.qrc
+    #Jonas/icones/jonas-icons.qrc \
 
 DISTFILES += \
     Henri/iconeEssence.png \
