@@ -30,6 +30,9 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     warning=new warninghenri();
     addItem(warning);
 
+    route=new feuxHenri();
+    addItem(route);
+
 }
 
 void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
