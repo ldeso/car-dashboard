@@ -115,6 +115,7 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
+    Jonas/icones/icones.qrc
     Lea/fuel.qrc
 
 DISTFILES += \
