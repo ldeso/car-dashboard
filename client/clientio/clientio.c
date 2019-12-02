@@ -42,7 +42,10 @@ int validate_message(const char* message)
         "ASD",
         "MODE",
         "FRONT_FOG",
-        "REAR_FOG"
+        "REAR_FOG",
+        "SEAT_BELT",
+        "RW_HEAT",
+        "CHECK_ENGINE"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;

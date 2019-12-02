@@ -270,6 +270,48 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+    else if(message=="CANN SEAT_BELT"){
+        int seatBelt_on = string.section(' ', 2,2).toInt();
+        if(seatBelt_on==0 || seatBelt_on==1){
+            dashboard->SeatBelt->setValue(seatBelt_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN RW_HEAT"){
+        int rwHeat_on = string.section(' ', 2,2).toInt();
+        if(rwHeat_on==0 || rwHeat_on==1){
+            dashboard->RearWindowHeating->setValue(rwHeat_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CHECK_ENGINE"){
+        int checkEngine_on = string.section(' ', 2,2).toInt();
+        if(checkEngine_on==0 || checkEngine_on==1){
+            dashboard->CheckEngine->setValue(checkEngine_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 
