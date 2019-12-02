@@ -45,6 +45,8 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
+    Leo/leo_gauge.cpp \
+    Leo/leo_indicator.cpp \
     Leo/leo_scene.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -68,7 +70,11 @@ SOURCES += \
     Lea/speedometer_lea.cpp \
     Lea/tachometergauge_lea.cpp \
     Lea/voyant_lea.cpp \
+<<<<<<< HEAD
     Lea/lea_clignottants.cpp
+=======
+    jonas_voyant_clignotant.cpp
+>>>>>>> 85edf759482e3d6ecd37cb6291b790fa48a742a4
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -86,6 +92,8 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
+    Leo/leo_gauge.h \
+    Leo/leo_indicator.h \
     Leo/leo_scene.h \
     mainwindow.h \
     objet_virtuel.h \
@@ -108,7 +116,11 @@ HEADERS += \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
     Lea/voyant_lea.h \
+<<<<<<< HEAD
     Lea/lea_clignottants.h
+=======
+    jonas_voyant_clignotant.h
+>>>>>>> 85edf759482e3d6ecd37cb6291b790fa48a742a4
 
 FORMS += \
         mainwindow.ui \
@@ -117,8 +129,13 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
+<<<<<<< HEAD
     Jonas/icones/icones.qrc \
     Lea/Lea.qrc
+=======
+    Jonas/icones/jonas-icons.qrc
+    Lea/fuel.qrc
+>>>>>>> 85edf759482e3d6ecd37cb6291b790fa48a742a4
 
 DISTFILES += \
     Henri/iconeEssence.png \
