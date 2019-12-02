@@ -80,6 +80,7 @@ une descriptif de votre fonctionnalité.
 | SeatBelt                  | Ceinture de securité                                   | CANN SEAT_BELT X     | 0=éteint, 1=allumé                                |
 | RearWindowHeating         | Chauffage de la glace arrière                          | CANN RW_HEAT X       | 0=éteint, 1=allumé                                |
 | CheckEngine               | Voyant d'anomalie du moteur                            | CANN CHECK_ENGINE X  | 0=éteint, 1=allumé                                |
+| _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
 
