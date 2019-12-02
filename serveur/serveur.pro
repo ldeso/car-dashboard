@@ -58,6 +58,7 @@ SOURCES += \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
+    Henri/feuxhenri.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -87,6 +88,7 @@ HEADERS += \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
+    Henri/feuxhenri.h
 
 FORMS += \
         mainwindow.ui \
