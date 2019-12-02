@@ -21,7 +21,7 @@ QRectF CadrantFlorian::boundingRect()const
     return rect;
 }
 // paint la scène
-void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing); // ajout de l antialiasing au tableau de bord
     QPen pen2(QColor(10,10,200));

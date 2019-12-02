@@ -49,16 +49,17 @@ SOURCES += \
     mainwindow.cpp \
     objet_virtuel.cpp \
     scene_globale.cpp \
-    Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
-    Florian/voyant.cpp \
-    Florian/clignotant.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
-    Jonas/jonas_voyant_simple.cpp
+    Jonas/jonas_voyant_simple.cpp \
+    Florian/floriancompteurkm.cpp \
+    Florian/florianclignotant.cpp \
+    Florian/florianvoyant.cpp \
+    Florian/floriancadrantflorian.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -79,16 +80,17 @@ HEADERS += \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
-    Florian/cadrantflorian.h \
     Florian/sceneflorian.h \
-    Florian/voyant.h \
-    Florian/clignotant.h \
     Henri/affichekmhenri.h \
     Henri/jaugebatteriehenri.h \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
-    Jonas/jonas_voyant_simple.h
+    Jonas/jonas_voyant_simple.h \
+    Florian/floriancompteurkm.h \
+    Florian/florianclignotant.h \
+    Florian/florianvoyant.h \
+    Florian/cadrantflorian.h
 
 FORMS += \
         mainwindow.ui \
