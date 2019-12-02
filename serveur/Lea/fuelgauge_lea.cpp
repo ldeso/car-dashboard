@@ -11,6 +11,7 @@
 #include <QPointF>
 
 FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width, double param_height, double param_x2, double param_y2, double param_x3, double param_y3)
+
 {
     x=param_x;
     y=param_y;
