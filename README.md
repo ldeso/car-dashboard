@@ -75,7 +75,7 @@ objet au programme:
 | AdaptiveCruiseControl | Voyant qui s'allume quand "AdaptiveCruiseControl" est activé | CANN CRUISE_CONTROL X | 0=éteint, 1=allumé                    |
 | AirbagOn | Voyant qui s'allume quand "AirBag" est activé | CANN AIRBAG_ON X  | 0=éteint, 1=allumé                    |
 |BonnetOpen | Voyant qui s'allume quand le capot est ouvert |  CANN BONNET_OPEN X | 0=éteint, 1=allumé   |
-|BootOpen| | Voyant qui s'allume quand le coffre est ouvert |  CANN BOOT_OPEN X | 0=éteint, 1=allumé   |
+|BootOpen|  Voyant qui s'allume quand le coffre est ouvert |  CANN BOOT_OPEN X | 0=éteint, 1=allumé   |
 | _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
