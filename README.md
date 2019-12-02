@@ -32,7 +32,7 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 |position|Feux de position|CANN LIGHT X|0=éteint, 1=allumé|
 |croisement|Feux de croisement|CANN LIGHT X|0=éteint, 2=allumé|
 |route|Feux de route|CANN LIGHT X|0=éteint, 3=allumé|
-|Clignotant|Allume les clignotants gauche ou droit|CANN TURN X|1=clignotant droit,-1=clignotant gauche, 0=éteint
+|Clignotant|Allume les clignotants gauche, droit ou les deux ensemble (feux d'avertissement ) |CANN TURN X|1=clignotant droit,-1=clignotant gauche, 2 clignotant les deux 0=éteint
 |Warning| Allume le warning et met la valeur des clignotants à 2|CANN WARNING X|0=éteint, 1=allumé|
 |AdaptiveSuspensionDampers|Voyant indiquant Voyant indiquant que ASD est utilisé |CANN ASD X|0 éteint, 1 allumé|
 |AutomaticTransmissionMode| **indicate the current transmition mode in use**| CANN MODE  X|1=P, 2=R, 3=N, 4=D |
@@ -55,7 +55,7 @@ chacun crée sa classe prenom_scene qui herite de la classe commune scene_global
  * un voyant VoyantBatterie pour value 0/1 pour éteint/allumé
  * un afficheur CompteurKm, permettant d'afficher le nombre de km parcourus depuis le lancement du programme en fonction de la vitesse.
  * une jauge Essence 
- * un voyant Clignotant avec pour value 1 le clignotant droit, -1 le clignotant gauche, et 0 éteint.
+ * un voyant Clignotant avec pour value 1 le clignotant droit, -1 le clignotant gauche, 2  clignotant les deux ensemble (feux d'avertissement ) et 0 éteint.
  * trois voyants pour les phares : position, croisement, route. value client : 0 eteint, 1 position, 2 croisement, 3 route. Serveur : trois voyants différents.
  * Warning avec pour valeur 0 eteint et 1 allumer. Met la valeur des clignotants à 2 ce qui fait que les deux clignotants s'allument.
  * a completer
