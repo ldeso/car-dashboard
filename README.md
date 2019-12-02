@@ -32,8 +32,12 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 |position|Feux de position|CANN LIGHT X|0=éteint, 1=allumé|
 |croisement|Feux de croisement|CANN LIGHT X|0=éteint, 2=allumé|
 |route|Feux de route|CANN LIGHT X|0=éteint, 3=allumé|
-|Clignotant|Allume les clignotants gauche ou doit|CANN TURN X|1=clignotant droit,-1=clignotant gauche, 0=éteint
+|Clignotant|Allume les clignotants gauche ou droit|CANN TURN X|1=clignotant droit,-1=clignotant gauche, 0=éteint
 |Warning| Allume le warning et met la valeur des clignotants à 2|CANN WARNING X|0=éteint, 1=allumé|
+|AdaptiveSuspensionDampers|Voyant indiquant Voyant indiquant que ASD est utilisé |CANN ASD X|0 éteint, 1 allumé|
+|AutomaticTransmissionMode| **indicate the current transmition mode in use**| CANN MODE  X|1=P, 2=R, 3=N, 4=D |
+|FrontAntifog | feux de brume avants |CANN FRONT_FOG X|0=éteint, 1=allumé|
+|RearAntifog | feux de brume arrières |CANN REAR_FOG X|0=éteint, 1=allumé|
 
 ##Bugs répertoriés
 
