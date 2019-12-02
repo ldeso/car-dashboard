@@ -67,7 +67,8 @@ SOURCES += \
     Lea/quatre_voyants_lea.cpp \
     Lea/speedometer_lea.cpp \
     Lea/tachometergauge_lea.cpp \
-    Lea/voyant_lea.cpp
+    Lea/voyant_lea.cpp \
+    jonas_voyant_clignotant.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -106,7 +107,8 @@ HEADERS += \
     Lea/quatre_voyants_lea.h \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
-    Lea/voyant_lea.h
+    Lea/voyant_lea.h \
+    jonas_voyant_clignotant.h
 
 FORMS += \
         mainwindow.ui \
@@ -115,7 +117,7 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
-    Jonas/icones/icones.qrc
+    Jonas/icones/jonas-icons.qrc
     Lea/fuel.qrc
 
 DISTFILES += \
