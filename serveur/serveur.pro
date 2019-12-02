@@ -54,8 +54,8 @@ SOURCES += \
     scene_globale.cpp \
     Florian/cadrantflorian.cpp \
     Florian/sceneflorian.cpp \
-    Florian/voyant.cpp \
-    Florian/clignotant.cpp \
+    Florian/florianvoyant.cpp \
+    Florian/florianclignotant.cpp \
     Henri/affichekmhenri.cpp \
     Henri/jaugebatteriehenri.cpp \
     Henri/warninghenri.cpp \
@@ -70,11 +70,8 @@ SOURCES += \
     Lea/speedometer_lea.cpp \
     Lea/tachometergauge_lea.cpp \
     Lea/voyant_lea.cpp \
-<<<<<<< HEAD
-    Lea/lea_clignottants.cpp
-=======
-    jonas_voyant_clignotant.cpp
->>>>>>> 85edf759482e3d6ecd37cb6291b790fa48a742a4
+    Lea/lea_clignottants.cpp \
+    Florian/floriancompteurkm.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -100,8 +97,8 @@ HEADERS += \
     scene_globale.h \
     Florian/cadrantflorian.h \
     Florian/sceneflorian.h \
-    Florian/voyant.h \
-    Florian/clignotant.h \
+    Florian/florianvoyant.h \
+    Florian/florianclignotant.h \
     Henri/affichekmhenri.h \
     Henri/jaugebatteriehenri.h \
     Henri/warninghenri.h \
@@ -116,11 +113,8 @@ HEADERS += \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
     Lea/voyant_lea.h \
-<<<<<<< HEAD
-    Lea/lea_clignottants.h
-=======
-    jonas_voyant_clignotant.h
->>>>>>> 85edf759482e3d6ecd37cb6291b790fa48a742a4
+    Lea/lea_clignottants.h \
+    Florian/floriancompteurkm.h
 
 FORMS += \
         mainwindow.ui \
@@ -129,13 +123,7 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
-<<<<<<< HEAD
-    Jonas/icones/icones.qrc \
-    Lea/Lea.qrc
-=======
-    Jonas/icones/jonas-icons.qrc
-    Lea/fuel.qrc
->>>>>>> 85edf759482e3d6ecd37cb6291b790fa48a742a4
+    Lea/Lea.qrc\
 
 DISTFILES += \
     Henri/iconeEssence.png \
