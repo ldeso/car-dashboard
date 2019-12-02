@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
 
-   ///La scène par défault est
+    ///La scène par défault est
     dashboard=new hugo_scene();
 
     QTimer *kmTimer=new QTimer;
@@ -47,7 +47,7 @@ void MainWindow::acceleration(int time)
         }
         if(rapport==1)
             dashboard->CompteTours->setValue(vitesse*6800/55);
-       if(rapport==2)
+        if(rapport==2)
             dashboard->CompteTours->setValue(vitesse*6800/75);
         if(rapport==3)
             dashboard->CompteTours->setValue(vitesse*6800/115);
@@ -153,7 +153,7 @@ void MainWindow::reception()
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 1){
             dashboard->Clignotant->setValue(cligno);
-           // ui->graphicsView->scene()->update();
+            // ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -166,7 +166,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS<<"HUGO"<<"HENRI" << "JONAS" << "LEA";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -184,10 +184,14 @@ void MainWindow::reception()
                 dashboard =new Jonas_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-
             if (prenom=="LEA"){
                 delete dashboard;
                 dashboard =new Lea_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="LEO"){
+                delete dashboard;
+                dashboard = new Leo_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
@@ -223,7 +227,7 @@ void MainWindow::reception()
                 dashboard->route->setValue(1);
 
                 break;
-             default:
+            default:
                 dashboard->position->setValue(0);
                 dashboard->croisement->setValue(0);
                 dashboard->route->setValue(0);
@@ -274,7 +278,7 @@ void MainWindow::reception()
 
         if(mode >=1 && mode <= 4)
         { dashboard->AutomaticTransmissionMode->setValue(mode);
-           ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
@@ -357,9 +361,9 @@ void MainWindow::reception()
     else if(message=="CANN ACCELERATION"){
         int time = string.section(' ', 2,2).toInt();
         if(time>0){
-        acceleration(1.0*time);
-        QString text = "OK";
-        socket->write(text.toLocal8Bit());
+            acceleration(1.0*time);
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
@@ -367,10 +371,89 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
+
+    else if(message=="CANN OPEN_DOOR_DRIVER")
+    {
+        int OpenDoorDriver_on= string.section(' ', 2,2).toInt();
+        if(OpenDoorDriver_on==0 || OpenDoorDriver_on==1){
+            dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
+    {
+        int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
+        if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
+            dashboard->OpenDoorFrontPassenger->setValue(OpenDoorFrontPassenger_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
+    {
+        int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
+        if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
+          //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+    {
+        int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
+        if(OpenDoorBackLeftPassenger_on==0 || OpenDoorBackLeftPassenger_on==1){
+            dashboard->OpenDoorBackLeftPassenger->setValue(OpenDoorBackLeftPassenger_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN OPEN_DOOR_BACK_R_PASSENGER")
+    {
+        int OpenDoorBackRightPassenger_on= string.section(' ', 2,2).toInt();
+        if(OpenDoorBackRightPassenger_on==0 || OpenDoorBackRightPassenger_on==1){
+            dashboard->OpenDoorBackRightPassenger->setValue(OpenDoorBackRightPassenger_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else
         qDebug() << "erreur lors de la reception du message";
-
-
 
 }
 
@@ -379,8 +462,8 @@ void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
     if (dashboard->CompteurKm) //
-       // dashboard->CompteurKm->setValue(km_parcourus);
-    ui->graphicsView->scene()->update();
+        // dashboard->CompteurKm->setValue(km_parcourus);
+        ui->graphicsView->scene()->update();
 }
 
 

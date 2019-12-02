@@ -1,5 +1,6 @@
 #include "jonas_scene.h"
 #include "jonas_compteur.h"
+#include "jonas_voyant_simple.h"
 #include <QDebug>
 
 Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
@@ -24,6 +25,18 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     jaugeTemperature = new Jonas_compteur(100, listTemp, -35, 35, "", 3, 0, 1, 100);
     jaugeTemperature->setValue(0);
     jaugeTemperature->setPos(225, 80);
+    VoyantBatterie = new jonas_voyant_simple(":/icon-battery.jpg", 25, 25, 25);
+    VoyantBatterie->setPos(15,75);
+    croisement = new jonas_voyant_simple(":/dipped-beam.jpg", 25, 25, 25);
+    croisement->setPos(-20, 75);
+    route = new jonas_voyant_simple(":/main-beam.jpg", 25, 25, 25);
+    route->setPos(-55, 75);
+    position = new jonas_voyant_simple(":/position-lamp.jpg", 25, 25, 25);
+    position->setPos(-90, 75);
+    this->addItem(VoyantBatterie);
+    this->addItem(croisement);
+    this->addItem(route);
+    this->addItem(position);
     this->addItem(jaugeTemperature);
     this->addItem(Vitesse);
     this->addItem(CompteTours);
@@ -31,10 +44,6 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
 
     // objets pas encore implémentées (= null)
     Clignotant = nullptr;
-    VoyantBatterie = nullptr;
-    position = nullptr;
-    croisement = nullptr;
-    route = nullptr;
     warning = nullptr;
     CompteurKm = nullptr;
 }

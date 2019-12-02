@@ -26,6 +26,11 @@ public:
     objet_virtuel *SeatBelt;
     objet_virtuel *RearWindowHeating;
     objet_virtuel *CheckEngine;
+    objet_virtuel *OpenDoorDriver;
+    objet_virtuel *OpenDoorFrontPassenger;
+    objet_virtuel *OpenDoorBackLeftPassenger;
+    objet_virtuel *OpenDoorBackRightPassenger;
+
 };
 
 #endif // SCENE_GLOBALE_H

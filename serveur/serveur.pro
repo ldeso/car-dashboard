@@ -45,6 +45,9 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
+    Leo/leo_gauge.cpp \
+    Leo/leo_indicator.cpp \
+    Leo/leo_scene.cpp \
     main.cpp \
     mainwindow.cpp \
     objet_virtuel.cpp \
@@ -66,7 +69,7 @@ SOURCES += \
     Lea/quatre_voyants_lea.cpp \
     Lea/speedometer_lea.cpp \
     Lea/tachometergauge_lea.cpp \
-    Lea/voyant_lea.cpp
+    Lea/voyant_lea.cpp \
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -84,6 +87,9 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
+    Leo/leo_gauge.h \
+    Leo/leo_indicator.h \
+    Leo/leo_scene.h \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
@@ -104,7 +110,7 @@ HEADERS += \
     Lea/quatre_voyants_lea.h \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
-    Lea/voyant_lea.h
+    Lea/voyant_lea.h \
 
 FORMS += \
         mainwindow.ui \
@@ -113,6 +119,7 @@ RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
     florian.qrc \
+    #Jonas/icones/jonas-icons.qrc
     Lea/fuel.qrc
 
 DISTFILES += \
