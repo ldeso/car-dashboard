@@ -74,6 +74,7 @@ SOURCES += \
     Lea/lea_clignottants.cpp \
     Florian/floriancompteurkm.cpp
 
+
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
     Henri/cadranthenri.h \
@@ -115,7 +116,7 @@ HEADERS += \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
     Lea/voyant_lea.h \
-    Lea/lea_clignottants.h \
+    Lea/lea_clignottants.h
     Florian/floriancompteurkm.h
 
 FORMS += \
@@ -126,6 +127,7 @@ RESOURCES += \
     Hugo/Icones/icones.qrc \
     florian.qrc \
     Lea/Lea.qrc
+    Lea/fuel.qrc
     #Jonas/icones/jonas-icons.qrc \
 
 DISTFILES += \

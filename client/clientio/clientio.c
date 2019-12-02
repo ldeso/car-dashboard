@@ -46,10 +46,12 @@ int validate_message(const char* message)
         "SEAT_BELT",
         "RW_HEAT",
         "CHECK_ENGINE",
+        "ACCELERATION"
         "OPEN_DOOR_DRIVER",
         "OPEN_DOOR_FRONT_PASSENGER",
         "OPEN_DOOR_BACK_L_PASSENGER",
         "OPEN_DOOR_BACK_R_PASSENGER"
+
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;
