@@ -34,11 +34,18 @@ int validate_message(const char* message)
         "DASHBOARD",
         "GAZ",
         "LIGHT",
-        "LIMIT",
         "RPM",
         "SPEED",
+        "SPEED_LIMIT",
         "TURN",
-        "WARNING"
+        "WARNING",
+        "ASD",
+        "MODE",
+        "FRONT_FOG",
+        "REAR_FOG",
+        "SEAT_BELT",
+        "RW_HEAT",
+        "CHECK_ENGINE"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;
