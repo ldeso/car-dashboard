@@ -1,21 +1,21 @@
-#include "clignotant.h"
+#include "florianclignotant.h"
 
 #include <QTest>
 
-clignotant::clignotant(QGraphicsItem *parent):objet_virtuel(parent)
+FlorianClignotant::FlorianClignotant(QGraphicsItem *parent):objet_virtuel(parent)
 {
     this->value = 0;
     this->temp = this->value;
 }
 
 
-QRectF clignotant::boundingRect() const
+QRectF FlorianClignotant::boundingRect() const
 {
     QRectF rect(0,0,40,40);
     return rect;
 }
 
-void clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void FlorianClignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     if(this->value != 0){
         clignoter();
@@ -37,7 +37,7 @@ void clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
 }
 
-void clignotant::clignoter()
+void FlorianClignotant::clignoter()
 {
     if (this->temp==this->value){
         this->temp=0;

@@ -11,6 +11,7 @@
 #include "deux_voyants_lea.h"
 #include "quatre_voyants_lea.h"
 #include "fuelgauge_lea.h"
+#include "lea_clignottants.h"
 
 class Lea_scene : public scene_globale
 {

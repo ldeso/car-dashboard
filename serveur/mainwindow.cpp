@@ -323,10 +323,72 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
+        else if(message=="CANN OPEN_DOOR_DRIVER")
+    {
+            int OpenDoorDriver_on= string.section(' ', 2,2).toInt();
+            if(OpenDoorDriver_on==0 || OpenDoorDriver_on==1){
+                dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
+                ui->graphicsView->scene()->update();
+                QString text = "OK";
+                socket->write(text.toLocal8Bit());
+            }
+            else{
+                QString text;
+                text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+                socket->write(text.toLocal8Bit());
+            }
+    }
+        else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
+    {
+            int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
+            if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
+                 dashboard->OpenDoorFrontPassenger->setValue(OpenDoorFrontPassenger_on);
+                 ui->graphicsView->scene()->update();
+                 QString text = "OK";
+                 socket->write(text.toLocal8Bit());
+             }
+             else{
+                 QString text;
+                 text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+                 socket->write(text.toLocal8Bit());
+             }
+    }
+
+                else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+    {
+                    int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
+                    if(OpenDoorBackLeftPassenger_on==0 || OpenDoorBackLeftPassenger_on==1){
+                         dashboard->OpenDoorBackLeftPassenger->setValue(OpenDoorBackLeftPassenger_on);
+                         ui->graphicsView->scene()->update();
+                         QString text = "OK";
+                         socket->write(text.toLocal8Bit());
+                     }
+                     else{
+                         QString text;
+                         text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+                         socket->write(text.toLocal8Bit());
+                      }
+    }
+
+            else if(message=="CANN OPEN_DOOR_BACK_R_PASSENGER")
+    {
+                int OpenDoorBackRightPassenger_on= string.section(' ', 2,2).toInt();
+                if(OpenDoorBackRightPassenger_on==0 || OpenDoorBackRightPassenger_on==1){
+                    dashboard->OpenDoorBackRightPassenger->setValue(OpenDoorBackRightPassenger_on);
+                    ui->graphicsView->scene()->update();
+                    QString text = "OK";
+                    socket->write(text.toLocal8Bit());
+                }
+                else{
+                    QString text;
+                    text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+                    socket->write(text.toLocal8Bit());
+                }
+    }
+
     else
         qDebug() << "erreur lors de la reception du message";
-
-
 
 }
 
@@ -338,6 +400,7 @@ void MainWindow::update_km()
         //dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
+
 
 
 

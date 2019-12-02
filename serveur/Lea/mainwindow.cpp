@@ -3,7 +3,7 @@
 #include "mygraphicitem.h"
 #include "speedometer_lea.h"
 #include "tachometergauge_lea.h"
-#include "fuelgauge.h"
+#include "fuelgauge_lea.h"
 #include "voyant_lea.h"
 #include "aiguille_lea.h"
 #include "deux_voyants_lea.h"
@@ -41,7 +41,7 @@ void MainWindow::Scene()
     fuel->on=1;
     scene->addItem(fuel);
 
-    FuelGauge *GaugeEssence= new FuelGauge;
+    FuelGauge_lea *GaugeEssence= new FuelGauge_lea;
     GaugeEssence->parametrage(650,250,25,100,625,350,625,250);
     GaugeEssence->setValue(25);
     scene->addItem(GaugeEssence);

@@ -2,10 +2,10 @@
 #define CLIGNOTANT_H
 #include "objet_virtuel.h"
 
-class clignotant : public objet_virtuel
+class FlorianClignotant : public objet_virtuel
 {
 public:
-    clignotant(QGraphicsItem *parent=nullptr);
+    FlorianClignotant(QGraphicsItem *parent=nullptr);
     QRectF boundingRect()const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void clignoter();
