@@ -17,9 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
    ///La scène par défault est
-    dashboard=new hugo_scene();
-
-    dashboard->Vitesse->getValue();
+    dashboard=new henri_scene();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
@@ -131,9 +129,9 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    if(message=="CANN DASHBOARD"){
+    else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS<<"HUGO"<<"HENRI" << "JONAS";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -151,7 +149,18 @@ void MainWindow::reception()
                 dashboard =new Jonas_scene;
                 ui->graphicsView->setScene(dashboard);
             }
+            if (prenom=="LEA"){
+                delete dashboard;
+                dashboard =new Lea_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="LEO"){
+                delete dashboard;
+                dashboard = new Leo_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
             ui->graphicsView->scene()->update();
+            km_parcourus=0;
             QString text = "OK";
             socket->write(text.toUtf8());
         }
@@ -215,16 +224,118 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    else if(message=="CANN ASD"){
+        int asd_on = string.section(' ', 2,2).toInt();
+        if(asd_on==0 || asd_on==1){
+            dashboard->AdaptiveSuspensionDampers->setValue(asd_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN MODE"){
+        int mode = string.section(' ', 2,2).toInt();
+
+        if(mode >=1 && mode <= 4)
+        { dashboard->AutomaticTransmissionMode->setValue(mode);
+           ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrect, valeur entre 1 et 4").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+    else if(message=="CANN FRONT_FOG"){
+        int front_fog_on = string.section(' ', 2,2).toInt();
+        if(front_fog_on==0 || front_fog_on==1){
+            dashboard->FrontAntifog->setValue(front_fog_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN REAR_FOG"){
+        int rear_fog_on = string.section(' ', 2,2).toInt();
+        if(rear_fog_on==0 || rear_fog_on==1){
+            dashboard->RearAntifog->setValue(rear_fog_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN SEAT_BELT"){
+        int seatBelt_on = string.section(' ', 2,2).toInt();
+        if(seatBelt_on==0 || seatBelt_on==1){
+            dashboard->SeatBelt->setValue(seatBelt_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN RW_HEAT"){
+        int rwHeat_on = string.section(' ', 2,2).toInt();
+        if(rwHeat_on==0 || rwHeat_on==1){
+            dashboard->RearWindowHeating->setValue(rwHeat_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CHECK_ENGINE"){
+        int checkEngine_on = string.section(' ', 2,2).toInt();
+        if(checkEngine_on==0 || checkEngine_on==1){
+            dashboard->CheckEngine->setValue(checkEngine_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
     else
         qDebug() << "erreur lors de la reception du message";
 
+
+
 }
 
-
+//A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    dashboard->CompteurKm->setValue(km_parcourus);
+    if (dashboard->CompteurKm) //
+        //dashboard->CompteurKm->setValue(km_parcourus);
     ui->graphicsView->scene()->update();
 }
 

@@ -11,7 +11,7 @@ public:
     Jonas_compteur();
     Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, QString textCenter, int ngrad, bool line = 0, int mod = 2, int size = 150);
     QRectF boundingRect() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*) override;
+    void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
     void setTextLabel(QString newText);
     void setAlphaAngle(float newAngle);
     void setBetaAngle(float newAngle);
@@ -34,7 +34,6 @@ private:
     bool hLine;
     QString textLabel;
     QStringList textAround;
-    float valueToAngle(int) const;
 };
 
 #endif // JONAS_COMPTEUR_H
