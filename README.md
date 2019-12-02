@@ -68,6 +68,10 @@ objet au programme:
 | SeatBelt                  | Ceinture de securité                                   | CANN SEAT_BELT X     | 0=éteint, 1=allumé                                |
 | RearWindowHeating         | Chauffage de la glace arrière                          | CANN RW_HEAT X       | 0=éteint, 1=allumé                                |
 | CheckEngine               | Voyant d'anomalie du moteur                            | CANN CHECK_ENGINE X  | 0=éteint, 1=allumé                                |
+| OpenDoorDriver        | Porte avant conducteur ouverte                          | CANN OPEN_DOOR_DRIVER X       | 0=éteint, =allumé                    |
+| OpenDoorFrontPassenger        | Porte avant passager ouverte                          | CANN OPEN_DOOR_FRONT_PASSENGER X       | 0=éteint, =allumé                    |
+| OpenDoorBackRightPassenger        | Porte arrière droite ouverte                          | CANN OPEN_DOOR_BACK_R_PASSENGER X       | 0=éteint, =allumé                    |
+| OpenDoorBackLeftPassenger        | Porte arrière gauche ouverte                          | CANN OPEN_DOOR_BACK_L_PASSENGER X       | 0=éteint, =allumé                    |
 | _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
