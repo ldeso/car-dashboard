@@ -181,7 +181,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
 
     ///
     /// \brief Effet de verre
-    /// \details L'effet de verre est obtenu en superpocercle semi transparent
+    /// \details L'effet de verre est obtenu en superposant un cercle semi-transparent au compteur. L'option direction_grad permet de définir le sens du gradient.
     ///
     QRect carre(x-r_verre,y-r_verre,2*r_verre,2*r_verre);
     painter->setPen(QPen( QColor(0,0,0,0) ,1, Qt::SolidLine,Qt::FlatCap));

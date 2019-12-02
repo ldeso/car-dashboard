@@ -1,5 +1,6 @@
 ///
-///Classe permettant l'affichage de voyants simples i.e. dont l'état est allumé ou éteint
+///\file hugo_voyants_simples.cpp
+/// \brief Classe permettant l'affichage de voyants simples i.e. dont l'état est allumé ou éteint
 ///
 #include "hugo_voyants_simples.h"
 
@@ -32,8 +33,9 @@ QRectF hugo_voyants_simples::boundingRect() const
 
 void hugo_voyants_simples::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    //painter->setRenderHints(QPainter::Antialiasing);
-    if (getValue()==1){///< Va chercher la valeur de la variable "valeur" de la classe mère. Si ==1, le voyant doit être affiché
+    painter->setRenderHints(QPainter::Antialiasing);
+    ///Va chercher la valeur de la variable "valeur" de la classe mère. Si ==1, le voyant doit être affiché.
+    if (getValue()==1){
         QPixmap image(chemin);
         QPixmap image2=image.scaled(size,size);
         QRadialGradient radialGrad(QPointF(x+size/2, y+size/2), size/2);

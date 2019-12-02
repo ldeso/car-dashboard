@@ -1,11 +1,13 @@
 ///
-/// Classe permettant d'afficher les voyants clignotants
+/// \file hugo_voyants_clignotants
+/// \brief Classe permettant d'afficher les voyants clignotants
 ///
 #include "hugo_voyants_clignotant.h"
 #include <QDebug>
 
 ///
-/// \brief hugo_voyants_clignotant::hugo_voyants_clignotant. La variable cligno sert à gérer l'affichage alterné
+/// \brief hugo_voyants_clignotant::hugo_voyants_clignotant. Constructeur de la classe.
+///\details Constructeur de la classe initialisant la variable value de la classe mère, et la variable cligno qui permet de gérer l'affichage alternatif des voyants.
 ///
 hugo_voyants_clignotant::hugo_voyants_clignotant()
 {
@@ -38,7 +40,8 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
 
     painter->setRenderHint(QPainter::Antialiasing);///<Antialiasing//
 
-    if (getValue() !=0)///Va chercher la valeur de la variable "valeur" de la classe hugo_voyants. 1 correspond à l'affichaqge du clignotant droit, -1 à celui du clignotant gauche.
+    ///Va chercher la valeur de la variable "valeur" de la classe hugo_voyants. 1 correspond à l'affichaqge du clignotant droit, -1 à celui du clignotant gauche.
+    if (getValue() !=0)
     {
         if (getValue()==-1){
             QPixmap image(":/Images/clign-gauche.jpg");
@@ -92,6 +95,7 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             painter->drawEllipse(-111,-90,30,30);
         }
 
-    MAJ();///<La mise à jour est effectuée à l'aide d'un timer, permettant un affichage alterné
+    ///La mise à jour est effectuée à l'aide d'un timer, permettant un affichage alterné
+    MAJ();
     }
 }

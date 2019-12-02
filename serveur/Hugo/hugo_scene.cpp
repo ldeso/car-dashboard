@@ -1,5 +1,6 @@
 ///
-///Classe où sont ajoutés et paramétrés tous les composants du tableau de bord.
+///\file hugo_scene.cpp
+/// \brief Classe dérivée de scene_globale où sont ajoutés et paramétrés tous les composants du tableau de bord. Tous les objets doivent être définis au préalable dans scene_globale.h
 ///
 #include "Hugo/hugo_scene.h"
 #include "Hugo/hugo_mygraphicsitem.h"
@@ -12,50 +13,51 @@
 
 hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
 {
-    ///Création de la scène de fond
+    //Création de la scène de fond
     hugo_MyGraphicsitem *background=new hugo_MyGraphicsitem();
     this->addItem(background);
 
-
+    //Création de l'affichage de l'heure et du compteur km
     CompteurKm=new hugo_ecran;
     this->addItem(CompteurKm);
 
+    //Voyant feux de position
     position=new hugo_voyants_simples(15,-50,":/Images/voyant_feux_position.jpg",0,150,0);
     position->setValue(0);
     this->addItem(position);
 
+    //Voyant feux de croisement
     croisement=new hugo_voyants_simples(15,-22,":/Images/voyant_feux_croisement.jpg",0,150,0);
     croisement->setValue(0);
     this->addItem(croisement);
 
+    //Voyant feux de route
     route=new hugo_voyants_simples(15,3,":/Images/voyant_feux_croisement.jpg",0,0,150);
     route->setValue(0);
     this->addItem(route);
 
-
-
-    CompteurKm=new hugo_ecran;
-    this->addItem(CompteurKm);
-
-    ///Déclaration et paramétrage de tous les compteurs
+    //Compteur vitesse
     QStringList graduations_vitesse;
     graduations_vitesse<<"  0"<<" 20"<<" 40"<<" 60"<<" 80"<<"100"<<"120"<<"140"<<"160"<<"180"<<"200"<<"220";
     Vitesse=new hugo_Compteur(0,0,90,210,-30,graduations_vitesse,220,100,1,0,64,128);
     Vitesse->setValue(0);
     this->addItem(Vitesse);
 
+    //Compte tours
     QStringList graduations_rpm;
     graduations_rpm<<"  0"<<"  1"<<"  2"<<"  3"<<"  4"<<"  5"<<"  6"<<"  7"<<"  8";
     CompteTours=new hugo_Compteur(-170,20,80,210,60,graduations_rpm,8000,80,1,0,64,128,5,120,0,0);
     CompteTours->setValue(0);
     this->addItem(CompteTours);
 
+    //Jauge essence
     QStringList graduations_essence;
     graduations_essence<<"  E"<<"  F";
     Essence=new hugo_Compteur(155,-60,40,-45,45,graduations_essence,100,40,-1,0,64,128);
     Essence->setValue(100);
     this->addItem(Essence);
 
+    //Jauge température huile moteur
     QStringList graduations_temperature;
     graduations_temperature<<"  C"<<"  H";
     jaugeTemperature=new hugo_Compteur(160,30,40,-45,45,graduations_temperature,100,40,-1,0,64,128);
@@ -64,8 +66,7 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
 
 
 
-    ///Déclaration et paramétrages de tous les voyants simples
-    ///
+    //Voyant en cas de problème avec la batterie
     VoyantBatterie=new hugo_voyants_simples(-180,50,":/Images/voyant-batterie.gif");
     this->addItem(VoyantBatterie);
 
@@ -107,10 +108,11 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     huile->parametrage(-110,75,":/Images/voyant-huile-orange.jpg");
     this->addItem(huile);*/
 
-    //Déclaration des clignotants
+    //Clignotants
     Clignotant = new hugo_voyants_clignotant;
     this->addItem(Clignotant);
 
+    //Warnings
     warning=new hugo_voyant_warning;
     warning->setValue(0);
     this->addItem(warning);

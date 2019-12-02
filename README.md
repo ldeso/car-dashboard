@@ -27,7 +27,7 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 |:---------|	:-------------------:|	:-------------------------:|	------------:|
 |Vitesse|Compteur vitesse|CANN SPEED X|X=vitesse|
 |CompteTours| Compteur tour/min moteur|CANN RPM X|X=rpm|
-|VoyantBatterie|Voyant indiquant changement de batterie|CANN BATTERY_LIGHT|0 éteint,1 allumé|
+|VoyantBatterie|Voyant indiquant changement de batterie|CANN BATTERY_LIGHT X|0=éteint,1=allumé|
 |Essence|Jauge essence|CANN GAZ X|X=%d'essence restant|
 |position|Feux de position|CANN LIGHT X|0=éteint, 1=allumé|
 |croisement|Feux de croisement|CANN LIGHT X|0=éteint, 2=allumé|
@@ -35,24 +35,9 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 |Clignotant|Allume les clignotants gauche ou droit|CANN TURN X|1=clignotant droit,-1=clignotant gauche, 0=éteint
 |Warning| Allume le warning et met la valeur des clignotants à 2|CANN WARNING X|0=éteint, 1=allumé|
 |AdaptiveSuspensionDampers|Voyant indiquant Voyant indiquant que ASD est utilisé |CANN ASD X|0 éteint, 1 allumé|
-|AutomaticTransmissionMode| **indicate the current transmition mode in use**| CANN MODE  X|1=P, 2=R, 3=N, 4=D |
-|FrontAntifog | feux de brume avants |CANN FRONT_FOG X|0=éteint, 1=allumé|
-|RearAntifog | feux de brume arrières |CANN REAR_FOG X|0=éteint, 1=allumé|
+|AutomaticTransmissionMode| Indique le mode de transmission actuellement utilisé| CANN MODE  X|1=P, 2=R, 3=N, 4=D |
+|FrontAntifog | feux de brouillard avants |CANN FRONT_FOG X|0=éteint, 1=allumé|
+|RearAntifog | feux de brouillard arrières |CANN REAR_FOG X|0=éteint, 1=allumé|
 
 ##Bugs répertoriés
 
-#A Faire
-
-chacun crée sa classe prenom_scene qui herite de la classe commune scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale sont déclarés tout les items ci-dessous qui doivent hériter de objet_virtuel. A partir du client, possibilité de changer de Dashboard par la commande CANN DASHBOARD prenom.
-
-
- 
- * un compteur Vitesse, pour value la vitesse.
- * un compteur CompteTours pour value les tours par minute.
- * un voyant VoyantBatterie pour value 0/1 pour éteint/allumé
- * un afficheur CompteurKm, permettant d'afficher le nombre de km parcourus depuis le lancement du programme en fonction de la vitesse.
- * une jauge Essence 
- * un voyant Clignotant avec pour value 1 le clignotant droit, -1 le clignotant gauche, et 0 éteint.
- * trois voyants pour les phares : position, croisement, route. value client : 0 eteint, 1 position, 2 croisement, 3 route. Serveur : trois voyants différents.
- * Warning avec pour valeur 0 eteint et 1 allumer. Met la valeur des clignotants à 2 ce qui fait que les deux clignotants s'allument.
- * a completer

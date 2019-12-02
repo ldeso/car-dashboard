@@ -150,6 +150,7 @@ void MainWindow::reception()
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
+            km_parcourus=0;
             QString text = "OK";
             socket->write(text.toUtf8());
         }

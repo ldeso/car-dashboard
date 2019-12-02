@@ -1,6 +1,15 @@
+///
+///\file hugo_voyant_warning.cpp
+///\brief Classe dérivée de objet_virtuel permettant l'affichage d'un voyant warning clignotant
+///
+///
+
 #include <QTest>
 #include "hugo_voyant_warning.h"
 
+///
+/// \brief hugo_voyant_warning::hugo_voyant_warning
+///\details Constructeur de la classe initialisant la variable value de la classe mère, et la variable cligno qui permet de gérer l'affichage alternatif des voyants.
 hugo_voyant_warning::hugo_voyant_warning()
 {
     value=0;
@@ -14,7 +23,8 @@ QRectF hugo_voyant_warning::boundingRect() const
 }
 
 ///
-/// \brief hugo_voyants_clignotant::MAJ Fonction de mise à jour de l'affichage. La valeur cligno controle l'opacité du painter, permettant de le rendre visible ou non
+/// \brief hugo_voyants_clignotant::MAJ Fonction de mise à jour de l'affichage.
+/// \detailsLa valeur cligno controle l'opacité du painter, permettant de le rendre visible ou non
 ///
 void hugo_voyant_warning::MAJ()
 {
@@ -31,9 +41,11 @@ void hugo_voyant_warning::MAJ()
 void hugo_voyant_warning::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
-    painter->setRenderHint(QPainter::Antialiasing);///<Antialiasing//
+    painter->setRenderHint(QPainter::Antialiasing);
 
-    if (getValue() !=0)///Va chercher la valeur de la variable "valeur" de la classe hugo_voyants. 1 correspond à l'affichaqge du clignotant droit, -1 à celui du clignotant gauche.
+    ///Va chercher la valeur de la variable "valeur" de la classe hugo_voyants. 1 correspond à l'affichaqge du voyant.
+    if (getValue() !=0)
+
     {
         int x=-10;
         int y=-128;
@@ -49,6 +61,7 @@ void hugo_voyant_warning::paint(QPainter *painter, const QStyleOptionGraphicsIte
         painter->drawPixmap(x,y,20,20,image2);
         painter->drawEllipse(x,y,20,20);
 
-        MAJ();///<La mise à jour est effectuée à l'aide d'un timer, permettant un affichage alterné
+        ///La mise à jour est effectuée à l'aide d'un timer, permettant un affichage alterné.
+        MAJ();
     }
 }
