@@ -1,5 +1,8 @@
 ///
-///Classe compteur, permettant la création de compteurs paramétrables. Utilisée pour le compteur vitesse, le compteur rpm, la jauge d'essence aisi que la température moteur.
+/// \file hugo_compteur.cpp
+/// \brief Classe compteur, permettant la création de compteurs paramétrables avec aiguille et effet de verre.
+/// \details Classe héritée de objet_virtuel. Utilisée pour l'affichage du compteur de vitesse, du compteur rpm, de la jauge d'essence ainsi que que de la jauge de température. L'appel au constructeur permet d'initialiser la totalité des paramètres, et la fonction paint permet l'affichage.
+///\bug L'utilisation du paramètre critique semble être soumis à certains bugs.
 ///
 #include "hugo_compteur.h"
 #include <QPainter>
@@ -56,22 +59,31 @@ QRectF hugo_Compteur::boundingRect() const
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
+///
+/// \brief hugo_Compteur::paint Fonction permettant l'affichage du compteur
+/// \details Cette fonction construit un compteur en plusieurs étapes : création du cadran, des graduations, ajout du texte sur les graduations, ajout de l'aiguille, superposition d'un cercle avec effet de reflet.
+/// \param painter
+///
 void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    painter->setRenderHints(QPainter::Antialiasing);///<Mise en place Antialiasing//
+    painter->setRenderHints(QPainter::Antialiasing);
 
     ///
-    /// \brief La première étape est la création de l'arc de cercle servant de support au cadran.
-    /// L'option critique permet d'ajouter une autre couleur à une partie du cadran
+    /// \brief Création du cadran.
+    /// \details Le cadran est basé sur un arc de cercle déssiné à l'aide de la fonction drawArc. Cette méthode est répétée dans une boucle pour obtenir un effet de gradient. Si lors de la création de l'objet, le paamètre param_critique a été défini à une autre valeur qu'à 100, une partie du cadran serait redéssinée d'une autre couleur.
+    ///
     ///
     QRect carre_rpm(x-r,y-r,2*r,2*r);
+    //Support du cadran
     painter->setPen(QPen( couleur ,2, Qt::SolidLine,Qt::FlatCap));
     painter->drawArc(carre_rpm,start_angle*16,(end_angle-start_angle)*16);
     painter->setPen(QPen(couleurgrad ,5, Qt::SolidLine,Qt::FlatCap));
+    //Boucle pour l'effet de gradient
     for (int i=1;i<5;i++){
         QRect carre_grad(x-(r-i),y-(r-i),2*(r-i),2*(r-i));
         painter->drawArc(carre_grad,start_angle*16,(end_angle-start_angle)*16);
     }
+    //On rentre dans la boucle uniquement si l'on veut donner 2 couleurs au compteur. Se définit dans le constructeur, non par défaut.
     if (critique!=100){
         painter->setPen(QPen( QColor(0,0,0) ,5, Qt::SolidLine,Qt::FlatCap));
         for (int i=1;i<5;i++){
@@ -88,9 +100,11 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     }
 
     ///
-    ///\brief Création des graduations en deux boucles (grandes et petites graduations)
+    ///\brief Création des graduations.
+    ///\details Les graduations sont créées en utilisant la fonction drawLine. 2 boucles sont nécéssaires : l'une pour les petites graduations, l'autre pour les grandes.
     ///
     painter->setPen(QPen( couleur ,1, Qt::SolidLine,Qt::FlatCap));
+    //Boucle pour les grandes graduations
     int compteur=0;
     while (compteur<=nbre_graduations)
     {
@@ -101,6 +115,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         painter->drawLine((r-10)*qCos(i*(pi/180))+x,-(r-10)*qSin(i*(pi/180))+y,(r)*qCos(i*(pi/180))+x,-(r)*qSin(i*(pi/180))+y);
         compteur++;
     }
+    //Boucle pour les petites graduations
     compteur=0;
     painter->setPen(QPen( couleur ,1, Qt::SolidLine,Qt::FlatCap));
     while (compteur<=nbre_graduations-1)
@@ -114,7 +129,8 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     }
 
     ///
-    /// \brief Ajout du texte sur les graduations
+    /// \brief Ajout du texte sur les graduations$
+    /// \details Le texte est positionné de la même façon que les graduations i.e. sur un arc de cercle. Le cercle a ensuite été translaté de manière à correspondre le plus possible aux positions des graduations.
     ///
     int j=0;
     painter->setPen(QPen(QColor(Qt::darkGray) , 1, Qt::SolidLine,Qt::FlatCap));
@@ -129,22 +145,23 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     }
 
     ///
-    ///\brief Mise en place de l'aiguille
+    ///\brief Création de l'aiguille.
+    /// \details Dans un premier temps, affichage d'un petit cercle à la base de l'aiguille. Puis affichage de l'aiguille à l'aide de la fonction drawPolygon. Le paramètre angle, utilisant la fonction getValue() de la classe objet_virtuel, positionne l'aiguille au bon endroit.
     ///
+    ///
+    // Création du cercle à la base de l'aiguille, avec différents effets de dégradés
     painter->setPen(QPen(QColor(Qt::darkGray) , 1, Qt::SolidLine,Qt::FlatCap));
     QRect carre_aiguille(x-10,y-10,20,20);
-    painter->drawEllipse(carre_aiguille);///<Cercle au centre de l'aiguille//
+    painter->drawEllipse(carre_aiguille);
     QRect carre_aiguille2(x-8,y-8,16,16);
     QLinearGradient linearGrad(QPointF((x+10*qCos(135*pi/180)), (y-10*qSin(135*pi/180))), QPointF(x, y));
     linearGrad.setColorAt(0, QColor(200,200,200,80));
     linearGrad.setColorAt(1, QColor(0,0,0,0));
     painter->setBrush(linearGrad);
     painter->setPen(QPen(QColor(30,30,30) , 1, Qt::SolidLine,Qt::FlatCap));
-    painter->drawEllipse(carre_aiguille2);///<Dégradé à la base de l'aiguille pour donner une impression de relief//
+    painter->drawEllipse(carre_aiguille2);
 
-    ///
-    /// \brief Création d'un polygone pour représenter l'aiguille, et affichage
-    ///
+    //Calcul de la position de l'aiguille en redéfinissant le polygone a chaque nouvel update.
     angle=((1.0*(start_angle-end_angle))/(value2*1.0))*getValue()*1.0+(360-start_angle);
     QPointF points[4]={
         QPointF(x,y),
@@ -163,7 +180,8 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     painter->drawPolygon(points,4);
 
     ///
-    /// \brief Affichage d'un effet verre en superposant un cercle transparent avec gradient blanc->noir sur le cadran//
+    /// \brief Effet de verre
+    /// \details L'effet de verre est obtenu en superpocercle semi transparent
     ///
     QRect carre(x-r_verre,y-r_verre,2*r_verre,2*r_verre);
     painter->setPen(QPen( QColor(0,0,0,0) ,1, Qt::SolidLine,Qt::FlatCap));

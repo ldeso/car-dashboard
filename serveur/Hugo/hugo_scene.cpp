@@ -1,3 +1,6 @@
+///
+///Classe où sont ajoutés et paramétrés tous les composants du tableau de bord.
+///
 #include "Hugo/hugo_scene.h"
 #include "Hugo/hugo_mygraphicsitem.h"
 #include "Hugo/hugo_compteur.h"
@@ -64,7 +67,6 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     ///Déclaration et paramétrages de tous les voyants simples
     ///
     VoyantBatterie=new hugo_voyants_simples(-180,50,":/Images/voyant-batterie.gif");
-    VoyantBatterie->setValue(0);
     this->addItem(VoyantBatterie);
 
 

@@ -1,3 +1,6 @@
+///
+///Classe servant à gérer l'affichage de l'heure ainsi que de la vitesse actuelle
+///
 #include "hugo_ecran.h"
 #include <QTime>
 

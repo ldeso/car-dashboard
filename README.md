@@ -23,7 +23,7 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 
 ##Liste des messages CANN
 
-|Objet|Description|Message CANN|	Valeurs|
+|Nom de l'bjet|Description|Message CANN|	Valeurs|
 |:---------|	:-------------------:|	:-------------------------:|	------------:|
 |Vitesse|Compteur vitesse|CANN SPEED X|X=vitesse|
 |CompteTours| Compteur tour/min moteur|CANN RPM X|X=rpm|
