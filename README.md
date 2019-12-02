@@ -38,6 +38,9 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 |AutomaticTransmissionMode| **indicate the current transmition mode in use**| CANN MODE  X|1=P, 2=R, 3=N, 4=D |
 |FrontAntifog | feux de brume avants |CANN FRONT_FOG X|0=éteint, 1=allumé|
 |RearAntifog | feux de brume arrières |CANN REAR_FOG X|0=éteint, 1=allumé|
+SeatBelt| Ceinture de securité |CANN SEAT_BELT X|0=éteint, 1=allumé|
+RearWindowHeating | Chauffage de la glace arrière | CANN RW_HEAT X|0=éteint, 1=allumé|
+CheckEngine|  Voyant d'anomalie du moteur | CANN CHECK_ENGINE X|0=éteint, 1=allumé|
 
 ##Bugs répertoriés
 
