@@ -456,6 +456,70 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="CANN CRUISE_CONTROL")
+    {
+        int cruiseControl_on= string.section(' ', 2,2).toInt();
+        if(cruiseControl_on==0 || cruiseControl_on==1){
+            dashboard->AdaptiveCruiseControl->setValue(cruiseControl_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN AIRBAG_ON")
+    {
+        int airbag_on= string.section(' ', 2,2).toInt();
+        if(airbag_on==0 || airbag_on==1){
+            dashboard->AirbagOn->setValue(airbag_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN BONNET_OPEN")
+    {
+        int bonnetOpen_on= string.section(' ', 2,2).toInt();
+        if(bonnetOpen_on==0 || bonnetOpen_on==1){
+            dashboard->BonnetOpen->setValue(bonnetOpen_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN BOOT_OPEN")
+    {
+        int bootOpen_on= string.section(' ', 2,2).toInt();
+        if(bootOpen_on==0 || bootOpen_on==1){
+            dashboard->BootOpen->setValue(bootOpen_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else
         qDebug() << "erreur lors de la reception du message";
 
