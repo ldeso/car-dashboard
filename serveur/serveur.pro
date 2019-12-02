@@ -45,6 +45,7 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
+    Leo/leo_gauge.cpp \
     Leo/leo_indicator.cpp \
     Leo/leo_scene.cpp \
     main.cpp \
@@ -86,6 +87,7 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
+    Leo/leo_gauge.h \
     Leo/leo_indicator.h \
     Leo/leo_scene.h \
     mainwindow.h \
