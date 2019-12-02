@@ -96,7 +96,8 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    florian.qrc
+    florian.qrc \
+    Jonas/icones/icones.qrc
 
 DISTFILES += \
     Henri/iconeEssence.png \
