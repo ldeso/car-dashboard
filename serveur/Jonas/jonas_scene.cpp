@@ -3,6 +3,7 @@
 #include "jonas_voyant_simple.h"
 #include "jonas_voyant_clignotant.h"
 #include "jonas_voyant_warning.h"
+#include "jonas_compteurkm.h"
 #include <QDebug>
 
 Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
@@ -38,6 +39,8 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     position->setPos(-90, 75);
     Clignotant = new jonas_voyant_clignotant();
     warning = new jonas_voyant_warning();
+    CompteurKm = new jonas_compteurKm();
+    CompteurKm->setPos(-35,50);
     this->addItem(VoyantBatterie);
     this->addItem(croisement);
     this->addItem(route);
@@ -48,6 +51,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     this->addItem(Essence);
     this->addItem(Clignotant);
     this->addItem(warning);
+    this->addItem(CompteurKm);
 
     // objets pas encore implémentées (= null)
     CompteurKm = nullptr;

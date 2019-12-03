@@ -11,13 +11,15 @@ class Leo_scene : public scene_globale
 public:
     Leo_scene(scene_globale* parent = nullptr);
 private:
-    void mCreateRow(
-        QPointF position,
+    void mAddIndicators(
+        qreal ax,
+        qreal ay,
         indicators_t indicators,
         QColor colorOff = Qt::darkGreen,
         QColor colorOn = Qt::green
     );
-    qreal mRowSpacingPx = 35;
+    void mAddGauge(qreal ax, qreal ay, objet_virtuel*& gauge, int maxValue, int spacing = 20);
+    qreal mRowSpacingPx = 40;
 };
 
 #endif // LEO_SCENE_H
