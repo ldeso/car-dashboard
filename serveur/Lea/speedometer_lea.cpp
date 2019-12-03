@@ -19,7 +19,7 @@ speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r,
     angle_fin = param_end;
 
     span_angle=param_spanAngle;
-    vitesse_max=param_vitMax;
+    valueMax=param_vitMax;
 }
 
 QRectF speedometer_Lea::boundingRect() const
@@ -31,9 +31,9 @@ QRectF speedometer_Lea::boundingRect() const
 void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     int v;
-    if (value>=0 && value <=vitesse_max) {v=value;}
+    if (value>=0 && value <=valueMax) {v=value;}
     else if (value<0) {v=0;}
-    else {v=vitesse_max;}
+    else {v=valueMax;}
     QPen pen;
     QBrush brush(Qt::SolidPattern);
 //    brush.setColor(Qt::transparent);
@@ -43,7 +43,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 
 // ******************** Dessine les traits du compteur vitesse
     {   pen.setColor(Qt::white);
-        for (int i=0;i<=vitesse_max;i+=10)
+        for (int i=0;i<=valueMax;i+=10)
         {
         i%20==0 ? pen.setWidth(5) : pen.setWidth(2) ;
         pen.setColor(Qt::white);
@@ -55,7 +55,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             pen.setStyle(Qt::SolidLine);
             painter->setPen(pen);
 
-            painter->drawLine((x+r*(cos((angle_debut-(i*span_angle/vitesse_max))*pi/180))),(y-r*(sin((angle_debut-(i*span_angle/vitesse_max))*pi/180))),(x+(r-20)*(cos((angle_debut-(i*span_angle/vitesse_max))*pi/180))),(y-(r-20)*(sin((angle_debut-(i*span_angle/vitesse_max))*pi/180))));
+            painter->drawLine((x+r*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-r*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),(x+(r-20)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-(r-20)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))));
 
             pen.setColor(Qt::white);
             painter->setPen(pen);
@@ -63,7 +63,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             QFont font("Bell",12, QFont::Bold);
             painter->setFont(font);
         if (i%20==0)
-            painter->drawText((x-15+(r-40)*(cos((angle_debut-(i*span_angle/vitesse_max))*pi/180))),(y+8-(r-40)*(sin((angle_debut-(i*span_angle/vitesse_max))*pi/180))),QString("%1").arg(i));
+            painter->drawText((x-15+(r-40)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y+8-(r-40)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),QString("%1").arg(i));
 
         }
     }
@@ -92,9 +92,9 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     painter->setBrush(brush);
     QPointF points[3] =
     {
-          QPointF(x-9*cos((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180),y+9*sin((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180)),     //xc -9(taille rayon base aiguille)*cos (angle -90(angle droit aiguille))
-          QPointF(x+r*(cos((angle_debut-(span_angle*1.0f/vitesse_max)*value)*pi/180)), y-r*(sin((angle_debut-(span_angle*1.0f/vitesse_max)*value)*pi/180))),
-          QPointF(x+9*cos((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180),y-9*sin((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180))
+          QPointF(x-9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y+9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180)),     //xc -9(taille rayon base aiguille)*cos (angle -90(angle droit aiguille))
+          QPointF(x+r*(cos((angle_debut-(span_angle*1.0f/valueMax)*value)*pi/180)), y-r*(sin((angle_debut-(span_angle*1.0f/valueMax)*value)*pi/180))),
+          QPointF(x+9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y-9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180))
      };
 
     painter->drawConvexPolygon(points, 3);
@@ -148,13 +148,13 @@ void speedometer_Lea::parametrage(double param_x, double param_y, double param_r
     angle_fin = param_end;
 
     span_angle=param_spanAngle;
-    vitesse_max=param_vitMax;
+    valueMax=param_vitMax;
 
 }
 
 int speedometer_Lea::getValueMax()
 {
-    return vitesse_max;
+   // return valueMax;
 }
 
 void speedometer_Lea::setValue(int v)

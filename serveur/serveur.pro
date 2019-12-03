@@ -168,7 +168,6 @@ DISTFILES += \
     Henri/liserMoi \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
     Lea/Icones_Voyants/4WD_green.gif \
     Lea/Icones_Voyants/4WD_red.gif \
     Lea/Icones_Voyants/4WD_white.gif \
@@ -260,7 +259,6 @@ DISTFILES += \
     Lea/Seatbelt.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
     Lea/Icones_Voyants/4WD_green.gif \
     Lea/Icones_Voyants/4WD_red.gif \
     Lea/Icones_Voyants/4WD_white.gif \
@@ -353,7 +351,6 @@ DISTFILES += \
     Lea/PorteOuvertePassagerG.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
     Lea/Icones_Voyants/4WD_green.gif \
     Lea/Icones_Voyants/4WD_red.gif \
     Lea/Icones_Voyants/4WD_white.gif \

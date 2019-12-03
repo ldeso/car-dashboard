@@ -9,7 +9,7 @@
 #include <QPointF>
 
 
-TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double param_r,int param_start, int param_end, int param_spanAngle, int param_graduation, int param_vitMax )
+TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double param_r,int param_start, int param_end, int param_spanAngle, int param_graduation, int param_rpmMax )
 {
     x= param_x;
     y=param_y;
@@ -18,7 +18,7 @@ TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double p
     angle_fin = param_end;
     nb_graduation = param_graduation;
     span_angle=param_spanAngle;
-    vitesse_max=param_vitMax;
+    valueMax=param_rpmMax;
 }
 
 QRectF TachometerGauge_Lea::boundingRect() const
@@ -32,9 +32,9 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
 {
 
     int v;
-    if (value>=0 && value <=vitesse_max) {v=value;}
+    if (value>=0 && value <=valueMax) {v=value;}
     else if (value<0) {v=0;}
-    else {v=vitesse_max;}
+    else {v=valueMax;}
     QPen pen;
     QBrush brush(Qt::SolidPattern);
     QRectF rect_tours_min (x-r,y-r,r*2,r*2);
@@ -73,9 +73,9 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
        painter->setBrush(brush);
        QPointF points[3] =
        {
-             QPointF(x-9*cos((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180),y+9*sin((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180)),     //xc -9(taille rayon base aiguille)*cos (angle -90(angle droit aiguille))
-             QPointF(x+r*(cos((angle_debut-(span_angle*1.0f/vitesse_max)*value)*pi/180)), y-r*(sin((angle_debut-(span_angle*1.0f/vitesse_max)*value)*pi/180))),
-             QPointF(x+9*cos((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180),y-9*sin((angle_debut-(span_angle*1.0f/vitesse_max)*value-90)*pi/180))
+             QPointF(x-9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y+9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180)),     //xc -9(taille rayon base aiguille)*cos (angle -90(angle droit aiguille))
+             QPointF(x+r*(cos((angle_debut-(span_angle*1.0f/valueMax)*value)*pi/180)), y-r*(sin((angle_debut-(span_angle*1.0f/valueMax)*value)*pi/180))),
+             QPointF(x+9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y-9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180))
         };
 
        painter->drawConvexPolygon(points, 3);
@@ -127,7 +127,7 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
 
 int TachometerGauge_Lea::getValueMax()
 {
-    return vitesse_max;
+    return valueMax;
 }
 
 void TachometerGauge_Lea::setValue(int v)
@@ -135,14 +135,14 @@ void TachometerGauge_Lea::setValue(int v)
   //  value=v/1000;
 }
 
-void TachometerGauge_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_graduation,int param_vitMax)
+void TachometerGauge_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_graduation,int param_rpmMax)
 {
     x= param_x;
     y=param_y;
     r=param_r;
     angle_debut=param_start;
     angle_fin = param_end;
-nb_graduation = param_graduation;
+    nb_graduation = param_graduation;
     span_angle=param_spanAngle;
-vitesse_max=param_vitMax;
+    valueMax=param_rpmMax;
 }
