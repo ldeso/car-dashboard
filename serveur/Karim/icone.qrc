@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icones/antibrouillard.jpg</file>
+        <file>Icones/batterie.jpg</file>
+        <file>Icones/ceinture.jpg</file>
+        <file>Icones/clignotd.jpg</file>
+        <file>Icones/clignotg.jpg</file>
+        <file>Icones/essence.jpg</file>
+        <file>Icones/feucroisement.jpg</file>
+        <file>Icones/pleinphare.jpg</file>
+        <file>Icones/portouverte.jpg</file>
+        <file>Icones/tempmoteur.jpg</file>
+        <file>Icones/transp.jpg</file>
+        <file>Icones/warning.png</file>
+    </qresource>
+</RCC>
