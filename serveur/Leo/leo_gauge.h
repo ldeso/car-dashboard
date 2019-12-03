@@ -6,12 +6,11 @@
 class Leo_gauge : public objet_virtuel
 {
 public:
-    Leo_gauge(objet_virtuel* parent = nullptr);
-    QRectF boundingRect() const override;
-    void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
-
+    Leo_gauge(objet_virtuel* parent = nullptr) : objet_virtuel(parent) {}
+    QRectF boundingRect() const override { return mBoundingRect; }
+    void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override {}
 private:
-    QRectF mBoundingRect;
+    const QRectF mBoundingRect = QRectF(0, 0, 100, 100);
 };
 
 #endif // LEO_GAUGE_H

@@ -9,6 +9,7 @@
 #include "Florian/sceneflorian.h"
 #include "Lea/lea_scene.h"
 #include "Leo/leo_scene.h"
+#include "Karim/karim_scene.h"
 
 namespace Ui {
 class MainWindow;

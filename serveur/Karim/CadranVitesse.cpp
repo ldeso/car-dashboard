@@ -75,7 +75,6 @@ QRect carre[13];
 
     //Design de l'aiguille
      painter->rotate(getValue()+225);
-     qDebug()<<getValue();
      painter->setPen(QPen( Qt::darkRed , 8, Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin));
      painter->drawLine(0, 0, 0, -170);
      painter->setRenderHints(QPainter::Antialiasing);

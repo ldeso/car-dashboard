@@ -4,8 +4,8 @@
 
 CadranEss::CadranEss(QGraphicsItem *)
 {
-    vitesse=0;
-    value=60;
+    value=0;
+    valueMax=60;
 
 }
 
@@ -36,7 +36,7 @@ QRect carre[13];
 //Ajout de la graduations
     painter->setRenderHints(QPainter::Antialiasing,false);
     painter->setPen(QPen(QBrush("white") , 10, Qt::SolidLine,Qt::FlatCap));
-   for(float i=225;i>-46;i-=10.0*270/value)
+   for(float i=225;i>-46;i-=10.0*270/60)
     {
      painter->drawArc(carre[6],i*16,8);
     }
@@ -49,7 +49,7 @@ QRect carre[13];
 
 }
 
-int CadranEss::getValueMax()
+/*int CadranEss::getValueMax()
 {
     return value;
 }
@@ -58,3 +58,4 @@ void CadranEss::setValue(int v)
 {
     angle=v;
 }
+*/
