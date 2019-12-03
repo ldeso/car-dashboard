@@ -1,11 +1,5 @@
 #include "leo_label.h"
 
-Leo_label::Leo_label(QGraphicsItem* parent)
-    : QGraphicsSimpleTextItem(parent)
-{
-    SetFontSizePx(mFontSizePx);
-}
-
 Leo_label::Leo_label(const QString &text, QGraphicsItem* parent)
     : QGraphicsSimpleTextItem(text, parent)
 {

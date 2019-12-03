@@ -6,7 +6,6 @@
 class Leo_label : public QGraphicsSimpleTextItem
 {
 public:
-    Leo_label(QGraphicsItem* parent = nullptr);
     Leo_label(const QString &text, QGraphicsItem* parent = nullptr);
     void SetFontSizePx(const int);
 private:
