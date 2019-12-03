@@ -19,16 +19,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
 
 
-    dashboard=new Lea_scene();
+    dashboard=new hugo_scene();
     this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille dans les constucters
 
-
-//    QTimer *kmTimer=new QTimer;
-//    connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-//    kmTimer->setInterval(1000);
-//    kmTimer->start();
-
     ui->graphicsView->setScene(dashboard);
+
+    QTimer *kmTimer=new QTimer;
+    connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
+    kmTimer->setInterval(1000);
+    kmTimer->start();
+
+
 }
 
 ///
