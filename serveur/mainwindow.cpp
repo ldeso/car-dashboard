@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-    dashboard=new Jonas_scene();
+    dashboard=new hugo_scene();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
