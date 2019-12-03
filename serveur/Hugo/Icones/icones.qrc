@@ -18,6 +18,11 @@
         <file>voyant_feux_croisement.jpg</file>
         <file>voyant_feux_route.jpg</file>
         <file>voyants-_warning.jpg</file>
+        <file>asd.jpeg</file>
+        <file>brouillard_arriere.jpeg</file>
+        <file>brouillard_avant.jpeg</file>
+        <file>rear_window_heating.jpg</file>
+        <file>check_engine.jpg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

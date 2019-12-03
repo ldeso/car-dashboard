@@ -79,14 +79,17 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
+    Karim/voyants.cpp
     Karim/Voyant_batterie.cpp \
     Karim/voyants.cpp \
+    Hugo/hugo_boite_vitesse.cpp \
     Loto/fuel_guage.cpp \
     Loto/leds.cpp \
     Loto/loto_dashboard.cpp \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
     Loto/loto_scene.cpp
+
 
 
 HEADERS += \
@@ -137,9 +140,10 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
+    Karim/voyants.h
     Karim/Voyant_batterie.h \
     Karim/voyants.h \
-    Loto/buttons.h \
+    Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
     Loto/loto_dashboard.h \
@@ -154,13 +158,15 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    #florian.qrc \
     Lea/Lea.qrc \
+    Jonas/icons-dashboard/icons-dashboard.qrc \
+    #florian.qrc \
     Karim/icone.qrc \
     Karim/newfont.qrc \
-    Loto/myicons/icons.qrc
+    Loto/myicons/icons.qrc \
+    Florian/florian.qrc
     #Lea/fuel.qrc
-    #Jonas/icones/jonas-icons.qrc \
+
 
 DISTFILES += \
     Henri/iconeEssence.png \

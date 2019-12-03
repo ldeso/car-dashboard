@@ -44,7 +44,7 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
     if (getValue() !=0)
     {
         if (getValue()==-1){
-            QPixmap image(":/Lea/Icones_Voyants/turnLeft.gif");
+            QPixmap image(":/Images/clign-gauche.jpg");
             QPixmap image2=image.scaled(30,30);
             QRadialGradient radialGrad(QPointF(-111+15, -90+15), 15);
             radialGrad.setColorAt(0, QColor(0,255,0));
@@ -57,7 +57,7 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             painter->drawEllipse(-111,-90,30,30);
         }
         if (getValue()==1){
-            QPixmap image(":/Lea/Icones_Voyants/turnRight.gif");
+            QPixmap image(":/Images/clign-droit.jpg");
             QPixmap image2=image.scaled(30,30);
             QRadialGradient radialGrad(QPointF(81+15, -90+15), 15);
             radialGrad.setColorAt(0, QColor(0,255,0));
@@ -70,7 +70,7 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             painter->drawEllipse(81,-90,30,30);
         }
         if (getValue()==2){
-            QPixmap image(":/Lea/Icones_Voyants/turnRight.gif");
+            QPixmap image(":/Images/clign-droit.jpg");
             QPixmap image2=image.scaled(30,30);
             QRadialGradient radialGrad(QPointF(81+15, -90+15), 15);
             radialGrad.setColorAt(0, QColor(0,255,0));
@@ -82,7 +82,7 @@ void hugo_voyants_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             painter->drawPixmap(81,-90,30,30,image2);
             painter->drawEllipse(81,-90,30,30);
 
-            QPixmap image3(":/Lea/Icones_Voyants/turnRight.gif");
+            QPixmap image3(":/Images/clign-gauche.jpg");
             QPixmap image4=image3.scaled(30,30);
             QRadialGradient radialGrad2(QPointF(-111+15, -90+15), 15);
             radialGrad2.setColorAt(0, QColor(0,255,0));

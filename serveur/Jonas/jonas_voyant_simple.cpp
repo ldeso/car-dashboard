@@ -2,7 +2,7 @@
 
 jonas_voyant_simple::jonas_voyant_simple(QString iconPath, int xPos, int yPos, int iconSize)
 {
-    value = 1;
+    value = 0;
     path = iconPath;
     x = xPos;
     y = yPos;

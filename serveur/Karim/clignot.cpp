@@ -50,6 +50,6 @@ void clignot::MAJ()
    else{
        this->cligno=1;
    }
-    QTest::qWait(500);
+    QTest::qWait(80);
     update();
 }
