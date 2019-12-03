@@ -203,6 +203,12 @@ void MainWindow::reception()
                 delete dashboard;
                 dashboard = new karim_scene;
                 ui->graphicsView->setScene(dashboard);
+             }
+
+             if (prenom=="LOTO"){
+              delete dashboard;
+              dashboard = new loto_scene;
+              ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
             km_parcourus=0;
