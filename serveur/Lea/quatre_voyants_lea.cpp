@@ -24,7 +24,7 @@ QRectF Quatre_Voyants_Lea::boundingRect() const
     return rectf;
 }
 
-void Quatre_Voyants_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Quatre_Voyants_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
     switch (on)

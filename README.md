@@ -48,6 +48,10 @@ de lancer à partir du client des messages CANN concernant des fonctionnalités
 non inclues dans votre dashboard. Suivez ces différentes étapes pour ajouter un
 objet au programme:
 
+* Dans un premier temps, il faut créer votre message CANN de la forme "CANN votre_message " dans le client. Dans le fichier clientio.c, ajouter "votre_message" à la liste des commandes déjà disponibles de la fonction validate_message.
+Puis dans le fichier main.c du client, ajoutez votre commande "CANN votre_message" ainsi qu'une brève description de votre message dans la commande "HELP" de la fonction main.
+* Puis, dans le fichier mainwindow.cpp du serveur, ajoutez votre message sous forme de condition dans la liste déjà présente de la fonction reception. N'hésitez pas à rajouter des conditions pour vérifier si les valeurs associées à votre message sont acceptables.
+
 ## Liste des messages CANN
 
 | Objet                     | Description                                            | Message CANN         | Valeurs                                           |
@@ -76,28 +80,9 @@ objet au programme:
 | AirbagOn | Voyant qui s'allume quand "AirBag" est activé | CANN AIRBAG_ON X  | 0=éteint, 1=allumé                    |
 |BonnetOpen | Voyant qui s'allume quand le capot est ouvert |  CANN BONNET_OPEN X | 0=éteint, 1=allumé   |
 |BootOpen|  Voyant qui s'allume quand le coffre est ouvert |  CANN BOOT_OPEN X | 0=éteint, 1=allumé   |
+| CruiseControlOn | Voyant qui s'allume quand le limitateur de vitesse est activé | CANN CRUISE_CONTROL_ON X  | 0=éteint, 1=allumé                    |
 | _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
 
-# A Faire
 
-chacun crée sa classe prenom_scene qui herite de la classe commune
-scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale
-sont déclarés tout les items ci-dessous qui doivent hériter de objet_virtuel. A
-partir du client, possibilité de changer de Dashboard par la commande CANN
-DASHBOARD prenom.
- 
- * un compteur Vitesse, pour value la vitesse.
- * un compteur CompteTours pour value les tours par minute.
- * un voyant VoyantBatterie pour value 0/1 pour éteint/allumé
- * un afficheur CompteurKm, permettant d'afficher le nombre de km parcourus
- depuis le lancement du programme en fonction de la vitesse.
- * une jauge Essence 
- * un voyant Clignotant a  clignotant les deux ensemble (feux d'avertissement ) et 0 éteint.
- * trois voyants pour les phares : position, croisement, route. value client : 0
- eteint, 1 position, 2 croisement, 3 route. Serveur : trois voyants différents.
- * Warning avec pour valeur 0 eteint et 1 allumer. Met la valeur des clignotants
- à 2 ce qui fait que les deux clignotants s'allument.
-
- * a completer

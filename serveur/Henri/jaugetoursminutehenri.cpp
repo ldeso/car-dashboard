@@ -11,7 +11,7 @@ jaugeToursMinuteHenri::jaugeToursMinuteHenri(objet_virtuel *parent):objet_virtue
 
 QRectF jaugeToursMinuteHenri::boundingRect() const
 {
-    return QRect(-700,-380,1400,780);
+    return QRect(-500,-300,1000,600);
 }
 
 void jaugeToursMinuteHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)

@@ -86,5 +86,6 @@
         <file>Icones_Voyants/tyrePressure_red.gif</file>
         <file>Icones_Voyants/tyrePressure_yellow.gif</file>
         <file>Icones_Voyants/washerLiquid_yellow.gif</file>
+        <file>Icones_Voyants/Cruise_Control.gif</file>
     </qresource>
 </RCC>

@@ -28,7 +28,7 @@ QRectF TachometerGauge_Lea::boundingRect() const
     return rectf;
 }
 
-void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
     int v;
@@ -108,6 +108,20 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
    radial.setColorAt(1,Qt::transparent);
    painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
    painter->drawArc((x-r-15),(y-r-15),(r*2)+35,(r*2)+35,angle_debut*16, -span_angle*16);
+
+
+
+   // ******************** Dessine l'affichage de RPM
+
+   QFont font2("Impact",10);
+   pen.setColor(Qt::white);
+   painter->setPen(pen);
+   painter->setFont(font2);
+   painter->drawText(x-50,y+75,"RPM x 1000");
+
+
+
+
 
 }
 
