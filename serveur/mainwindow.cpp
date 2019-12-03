@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-    kmTimer->setInterval(1000);
+    kmTimer->setInterval(20);
     kmTimer->start();
 
     ui->graphicsView->setScene(dashboard);
@@ -153,7 +153,7 @@ void MainWindow::reception()
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 1){
             dashboard->Clignotant->setValue(cligno);
-            // ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -539,6 +539,7 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
+    qDebug() << "update "  << ui->graphicsView->scene()->metaObject()->className();
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
     if (dashboard->CompteurKm) //
         // dashboard->CompteurKm->setValue(km_parcourus);

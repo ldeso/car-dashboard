@@ -86,7 +86,8 @@ SOURCES += \
     Loto/loto_dashboard.cpp \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
-    Loto/loto_scene.cpp
+    Loto/loto_scene.cpp \
+    Jonas/jonas_voyant_clignotant.cpp
 
 
 HEADERS += \
@@ -145,7 +146,8 @@ HEADERS += \
     Loto/loto_dashboard.h \
     Loto/tachometre.h \
     Loto/tempgauge.h \
-    Loto/loto_scene.h
+    Loto/loto_scene.h \
+    Jonas/jonas_voyant_clignotant.h
     Florian/floriancompteurkm.h
 
 FORMS += \
