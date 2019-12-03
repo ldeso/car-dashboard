@@ -1,9 +1,13 @@
 <RCC>
     <qresource prefix="/new/prefix1">
-        <file>iconeEssence.png</file>
-        <file>iconeSurchaufe.png</file>
-        <file>iconeBatterie.png</file>
-        <file>testGIMP.png</file>
-        <file>iconeRoute.png</file>
+        <file>icones/iconeVoitureSansPortes.png</file>
+        <file>icones/porteAD.png</file>
+        <file>icones/porteAG.png</file>
+        <file>icones/porteArrD.png</file>
+        <file>icones/porteArrG.png</file>
+        <file>icones/iconeBatterie.png</file>
+        <file>icones/iconeEssence.png</file>
+        <file>icones/iconeRoute.png</file>
+        <file>icones/iconeSurchaufe.png</file>
     </qresource>
 </RCC>

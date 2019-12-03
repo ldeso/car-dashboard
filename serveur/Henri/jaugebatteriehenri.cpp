@@ -14,7 +14,7 @@ QRectF jaugeBatterieHenri::boundingRect() const
 
 void jaugeBatterieHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
 {
-    QPixmap *test=new QPixmap(":/new/prefix1/iconeBatterie.png");
+    QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeBatterie.png");
     if ( getValue()==1)
     painter->drawPixmap(-170,10,55,50,*test);
 }

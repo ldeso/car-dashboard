@@ -34,6 +34,13 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     route=new feuxHenri();
     addItem(route);
 
+    portesHenri* portes=new portesHenri();
+    OpenDoorDriver=portes->DG;
+    OpenDoorFrontPassenger=portes->DD;
+    OpenDoorBackLeftPassenger=portes->PG;
+    OpenDoorBackRightPassenger=portes->PD;
+    BootOpen=portes->C;
+
     this->setBackgroundBrush(QBrush(QColor("black")));
 }
 

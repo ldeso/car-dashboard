@@ -103,7 +103,8 @@ SOURCES += \
     Inna/arrowoiltinna.cpp \
     Inna/fuelengineinna.cpp \
     Inna/prnd_inna.cpp \
-    Henri/porteshenri.cpp
+    Henri/porteshenri.cpp \
+    Henri/onoff.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -178,7 +179,8 @@ HEADERS += \
     Inna/fuelengineinna.h \
     Inna/prnd_inna.h \
     Henri/porteshenri.h \
-    Henri/affichekmhenri.h
+    Henri/affichekmhenri.h \
+    Henri/onoff.h
     Florian/floriancompteurkm.h
 
 FORMS += \

@@ -13,6 +13,8 @@
 #include "jaugebatteriehenri.h"
 #include "warninghenri.h"
 #include "feuxhenri.h"
+#include "onoff.h"
+#include "porteshenri.h"
 
 
 class henri_scene : public scene_globale
