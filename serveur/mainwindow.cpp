@@ -558,6 +558,21 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+	else if(message=="CANN ENGINE_T"){
+        int engineT = string.section(' ', 2,2).toInt();
+
+        if(engineT >=1 && engineT <= 4)
+        { dashboard->jaugeTemperature->setValue(engineT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrect, valeur entre 1 et 4").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
 
 
 
