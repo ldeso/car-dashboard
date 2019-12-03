@@ -1,4 +1,4 @@
-#ifndef Voyant_batterie_H
+/*#ifndef Voyant_batterie_H
 #define Voyant_batterie_H
 #include "voyants.h"
 
@@ -11,9 +11,10 @@ public:
     QRectF boundingRect() const;
 
 protected:
-    int x,y;
+    //int x,y;
 
 };
 
 
 #endif // Voyant_batterie_H
+*/
