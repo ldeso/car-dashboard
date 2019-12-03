@@ -40,6 +40,38 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 //    painter->fillRect(this->boundingRect(),brush);
 
 
+    // ******************** Dessine l'arc au dessus du compteur
+
+    painter->setRenderHint(QPainter::Antialiasing);
+
+    pen.setColor(Qt::transparent);
+    pen.setCapStyle(Qt::RoundCap);
+    painter->setPen(pen);
+    QPixmap texture_fond (":/Effets/effet_verre4.png");
+        //QPixmap voyant2= texture_fond.scaled(500,500);
+//        painter->drawPixmap(x,y,voyant2);
+    brush.setTexture(texture_fond);
+    painter->setBrush(brush);
+    painter->drawChord((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
+
+
+
+            QRadialGradient radial(QPointF(x,y),180);
+            radial.setColorAt(0,Qt::transparent);
+            radial.setColorAt(0.95,Qt::blue);
+            radial.setColorAt(1,"b8faf5");
+            painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
+            painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
+            pen.setColor(Qt::transparent);
+            pen.setCapStyle(Qt::RoundCap);
+            painter->setPen(pen);
+//            QPixmap texture_fond (":/Effets/effet_verre3.png");
+//                QPixmap voyant2= texture_fond.scaled(500,500);
+//        //        painter->drawPixmap(x,y,voyant2);
+//            brush.setTexture(voyant2);
+//            painter->setBrush(brush);
+//            painter->drawChord((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
+
 
 // ******************** Dessine les traits du compteur vitesse
     {   pen.setColor(Qt::white);
@@ -68,14 +100,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
         }
     }
 
-// ******************** Dessine l'arc au dessus du compteur
 
-        QRadialGradient radial(QPointF(x,y),180);
-        radial.setColorAt(0,Qt::transparent);
-        radial.setColorAt(0.95,Qt::blue);
-        radial.setColorAt(1,"b8faf5");
-        painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
-        painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
 
 
 
