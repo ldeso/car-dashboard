@@ -55,7 +55,7 @@ int validate_message(const char* message)
         "AIRBAG_ON",
         "BONNET_OPEN",
         "BOOT_OPEN",
-	"CRUISE_CONTROL_ON"
+        "CRUISE_CONTROL_ON"
 
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);

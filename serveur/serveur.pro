@@ -78,7 +78,6 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
-    Karim/voyants.cpp
     Karim/Voyant_batterie.cpp \
     Karim/voyants.cpp \
     Hugo/hugo_boite_vitesse.cpp \
@@ -88,8 +87,6 @@ SOURCES += \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
     Loto/loto_scene.cpp
-
-
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -138,7 +135,6 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
-    Karim/voyants.h
     Karim/Voyant_batterie.h \
     Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
@@ -147,7 +143,7 @@ HEADERS += \
     Loto/loto_dashboard.h \
     Loto/tachometre.h \
     Loto/tempgauge.h \
-    Loto/loto_scene.h
+    Loto/loto_scene.h \
     Florian/floriancompteurkm.h
 
 FORMS += \

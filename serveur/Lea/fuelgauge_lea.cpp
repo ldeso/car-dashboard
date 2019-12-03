@@ -66,6 +66,17 @@ void FuelGauge_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     painter->drawText(x2,y2,"E");
     painter->drawText(x3,y3,"F");
 
+
+    // ******************** Dessine l'icone blanche de l'escence
+
+     QPixmap voyant (":/Lea/Icones_Voyants/fuelL_white.gif");
+     QPixmap voyant2= voyant.scaled(40,40);
+     painter->drawPixmap(x-70,y+70,voyant2);
+
+
+
+
+
 }
 
 void FuelGauge_lea::setValue(int v)
