@@ -1,10 +1,15 @@
 #include "leo_gauge.h"
 
-Leo_gauge::Leo_gauge(int maxValue, int spacing, objet_virtuel *parent)
+Leo_gauge::Leo_gauge(int maxValue, int spacing, const qreal sizePx, objet_virtuel *parent)
     : objet_virtuel(parent)
 {
     valueMax = maxValue;
     mSpacing = spacing;
+    mSizePx = sizePx;
+    mBoundingRect = QRectF(
+        -0.5 * mSizePx, -0.5 * mSizePx, mSizePx, mSizePx
+    );
+    mNeedleSizePx = static_cast<int>(0.35*mSizePx - mFontSizePx);
 }
 
 void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
