@@ -24,7 +24,7 @@ QRectF deux_voyants_lea::boundingRect() const
     return rectf;
 }
 
-void deux_voyants_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void deux_voyants_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
 {
     if (getValue()==1)
   {   QPixmap voyant (chemin);

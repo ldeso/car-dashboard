@@ -396,9 +396,9 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    if (dashboard->CompteurKm) //
+    if (dashboard->CompteurKm) ;//
         //dashboard->CompteurKm->setValue(km_parcourus);
-    ui->graphicsView->scene()->update();
+   // ui->graphicsView->scene()->update();
 }
 
 
