@@ -569,7 +569,6 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-    qDebug() << "update "  << ui->graphicsView->scene()->metaObject()->className();
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
 
     if (dashboard->CompteurKm) //

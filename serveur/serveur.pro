@@ -186,7 +186,7 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    Lea/Lea.qrc \
+    #Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
     Karim/icone.qrc \
