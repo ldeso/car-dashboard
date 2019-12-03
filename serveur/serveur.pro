@@ -105,7 +105,8 @@ SOURCES += \
     Inna/arrowoiltinna.cpp \
     Inna/fuelengineinna.cpp \
     Inna/prnd_inna.cpp \
-    Jonas/jonas_voyant_warning.cpp
+    Jonas/jonas_voyant_warning.cpp \
+    Jonas/jonas_compteurkm.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -182,7 +183,8 @@ HEADERS += \
     Inna/fuelengineinna.h \
     Inna/prnd_inna.h \
     Florian/floriancompteurkm.h \
-    Jonas/jonas_voyant_warning.h
+    Jonas/jonas_voyant_warning.h \
+    Jonas/jonas_compteurkm.h
 
 
 FORMS += \

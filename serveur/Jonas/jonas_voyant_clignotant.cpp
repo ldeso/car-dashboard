@@ -15,14 +15,13 @@ void jonas_voyant_clignotant::updateTurn()
     else{
         this->enabled=1;
     }
-    QTest::qWait(500);
-    this->update();
+//    QTest::qWait(500);
+//    update();
 }
 
 QRectF jonas_voyant_clignotant::boundingRect() const
 {
-    qreal penWidth = 5;
-    return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
+    return QRect(-200,-200,400,400);
 }
 
 void jonas_voyant_clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
@@ -52,4 +51,3 @@ void jonas_voyant_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
         updateTurn();
     }
 }
-
