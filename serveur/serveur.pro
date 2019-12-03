@@ -82,7 +82,6 @@ SOURCES += \
     Karim/voyants.cpp \
     Loto/fuel_guage.cpp \
     Loto/leds.cpp \
-    Loto/loto_dahsboard.cpp \
     Loto/loto_dashboard.cpp \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
@@ -141,7 +140,6 @@ HEADERS += \
     Loto/buttons.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
-    Loto/loto_dahsboard.h \
     Loto/loto_dashboard.h \
     Loto/tachometre.h \
     Loto/tempgauge.h \
