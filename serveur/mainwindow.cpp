@@ -155,7 +155,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN TURN"){
         int cligno = string.section(' ', 2,2).toInt();
-        if(cligno>=-1 && cligno <= 1){
+        if(cligno>=-1 && cligno <= 2){
             dashboard->Clignotant->setValue(cligno);
             // ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -170,7 +170,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -212,6 +212,11 @@ void MainWindow::reception()
              if (prenom=="LOTO"){
               delete dashboard;
               dashboard = new loto_scene;
+              ui->graphicsView->setScene(dashboard);
+            }
+	     if (prenom=="INNA"){
+              delete dashboard;
+              dashboard = new inna_scene;
               ui->graphicsView->setScene(dashboard);
             }
             this->resize(dashboard->width()+31,dashboard->height()+63);
