@@ -80,6 +80,7 @@ Puis dans le fichier main.c du client, ajoutez votre commande "CANN votre_messag
 | AirbagOn | Voyant qui s'allume quand "AirBag" est activé | CANN AIRBAG_ON X  | 0=éteint, 1=allumé                    |
 |BonnetOpen | Voyant qui s'allume quand le capot est ouvert |  CANN BONNET_OPEN X | 0=éteint, 1=allumé   |
 |BootOpen|  Voyant qui s'allume quand le coffre est ouvert |  CANN BOOT_OPEN X | 0=éteint, 1=allumé   |
+| CruiseControlOn | Voyant qui s'allume quand le limitateur de vitesse est activé | CANN CRUISE_CONTROL_ON X  | 0=éteint, 1=allumé                    |
 | _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
