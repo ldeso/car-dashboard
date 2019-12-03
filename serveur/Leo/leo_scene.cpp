@@ -16,17 +16,25 @@ Leo_scene::Leo_scene(scene_globale *parent) :
         {&VoyantBatterie, "Battery"},
         {&warning, "Hazard Warning Lights"},
     };
-    mCreateRow(QPointF(0, 0), green);
-    mCreateRow(QPointF(300, 0), yellow, Qt::darkYellow, Qt::yellow);
+    mAddGauge(125, 125, Vitesse, 300);
+    mAddIndicators(300, 0, green);
+    mAddIndicators(600, 0, yellow, Qt::darkYellow, Qt::yellow);
 }
 
-void Leo_scene::mCreateRow(QPointF pos, indicators_t indicators, QColor colorOff, QColor colorOn)
+void Leo_scene::mAddIndicators(qreal ax, qreal ay, indicators_t indicators, QColor colorOff, QColor colorOn)
 {
     for (auto pair : indicators) {
         *pair.first = new Leo_indicator(colorOff, colorOn);
         new Leo_label(pair.second, *pair.first);
-        (*pair.first)->setPos(pos);
-        pos += QPointF(0, mRowSpacingPx);
+        (*pair.first)->setPos(ax, ay);
+        ay += mRowSpacingPx;
         addItem(*pair.first);
     }
+}
+
+void Leo_scene::mAddGauge(qreal ax, qreal ay, objet_virtuel*& gauge, int maxValue, int spacing)
+{
+    gauge = new Leo_gauge(maxValue, spacing);
+    gauge->setPos(ax, ay);
+    addItem(gauge);
 }
