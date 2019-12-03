@@ -11,8 +11,6 @@
 #include "objet_virtuel.h"
 #include "QString"
 
-
-
 class loto_scene : public scene_globale
 {
 public:
