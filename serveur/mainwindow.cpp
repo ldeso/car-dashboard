@@ -569,7 +569,22 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("valeur incorrect, valeur doit etre inferieur a %1").arg(dashboard->jaugeTemperature->getValueMax());
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->jaugeTemperature->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+	else if(message=="CANN OIL_T"){
+        int oilT = string.section(' ', 2,2).toInt();
+
+        if(oilT <= dashboard->OilTemp->getValueMax())
+        { dashboard->OilTemp->setValue(oilT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->OilTemp->getValueMax());
             socket->write(text.toUtf8());
         }
     }
