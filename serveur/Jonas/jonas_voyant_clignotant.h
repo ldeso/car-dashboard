@@ -8,7 +8,7 @@ public:
     jonas_voyant_clignotant();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
-    void updateTurnSignal();
+    void updateTurn();
 
 private:
     int enabled;

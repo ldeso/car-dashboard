@@ -7,7 +7,7 @@ jonas_voyant_clignotant::jonas_voyant_clignotant()
     enabled = 1;
 }
 
-void jonas_voyant_clignotant::updateTurnSignal()
+void jonas_voyant_clignotant::updateTurn()
 {
     if (this->enabled==1){
      this->enabled=0;
@@ -21,7 +21,8 @@ void jonas_voyant_clignotant::updateTurnSignal()
 
 QRectF jonas_voyant_clignotant::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    qreal penWidth = 5;
+    return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
 void jonas_voyant_clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
@@ -36,12 +37,19 @@ void jonas_voyant_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
         }
 
         if (value==1) {
-            QPixmap image1(":/icons/icon-turn-right.jpg");
-            QPixmap turnRight = image1.scaled(25,25);
+            QPixmap image(":/icons/icon-turn-right.jpg");
+            QPixmap turnRight = image.scaled(25,25);
             painter->setOpacity(enabled);
             painter->drawPixmap(138, -145, turnRight);
         }
-        updateTurnSignal();
+        if (value==2) {
+            QPixmap image(":/icons/icon-turn-left.jpg");
+            QPixmap image1(":/icons/icon-turn-right.jpg");
+            painter->setOpacity(enabled);
+            painter->drawPixmap(-145, -145, 25, 25, image);
+            painter->drawPixmap(138, -145, 25, 25, image1);
+        }
+        updateTurn();
     }
 }
 

@@ -104,7 +104,8 @@ SOURCES += \
     Inna/arrowoillinna.cpp \
     Inna/arrowoiltinna.cpp \
     Inna/fuelengineinna.cpp \
-    Inna/prnd_inna.cpp
+    Inna/prnd_inna.cpp \
+    Jonas/jonas_voyant_warning.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -180,7 +181,8 @@ HEADERS += \
     Inna/arrowoiltinna.h \
     Inna/fuelengineinna.h \
     Inna/prnd_inna.h \
-    Florian/floriancompteurkm.h
+    Florian/floriancompteurkm.h \
+    Jonas/jonas_voyant_warning.h
 
 
 FORMS += \
@@ -189,16 +191,14 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    #Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
     Karim/icone.qrc \
     Karim/newfont.qrc \
     Loto/myicons/icons.qrc \
     Inna/InnaRSC/inna.qrc \
-    Lea/Lea.qrc
+    Lea/Lea.qrc \
     Florian/florian.qrc
-    #Lea/fuel.qrc
 
 
 DISTFILES += \
