@@ -19,7 +19,7 @@ hugo_voyant_warning::hugo_voyant_warning()
 
 QRectF hugo_voyant_warning::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-200,-200,400,400);
 }
 
 ///

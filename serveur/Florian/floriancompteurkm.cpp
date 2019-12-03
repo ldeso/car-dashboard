@@ -6,7 +6,7 @@ FlorianCompteurKm::FlorianCompteurKm(QGraphicsItem *parent)
 {
     this->value = 0;
     this->valueMax = 999999;
-    QFontDatabase::addApplicationFont(":/new/prefix1/Florian/voyant/digital-7.ttf");
+    QFontDatabase::addApplicationFont(":/new/prefix1/voyant/digital-7.ttf");
 }
 
 QRectF FlorianCompteurKm::boundingRect() const

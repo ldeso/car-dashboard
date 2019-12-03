@@ -10,8 +10,8 @@ public:
     Leo_indicator(QColor colorOff, QColor colorOn, objet_virtuel* parent = nullptr);
     QRectF boundingRect() const override { return mBoundingRect; }
     void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
-    QColor ColorOff = Qt::darkGreen;
-    QColor ColorOn = Qt::green;
+    QColor ColorOff;
+    QColor ColorOn;
 private:
     qreal PenWidthPx = 2;
     QRectF mBoundingRect = QRectF(0, 0, 20, 20);
