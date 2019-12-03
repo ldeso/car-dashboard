@@ -20,8 +20,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     dashboard=new hugo_scene();
-    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille dans les constucters
-
+    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
+    this->move(0,0);
     ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
@@ -215,6 +216,7 @@ void MainWindow::reception()
               ui->graphicsView->setScene(dashboard);
             }
             this->resize(dashboard->width()+31,dashboard->height()+63);
+            this->move(0,0);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";
@@ -472,11 +474,11 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN CRUISE_CONTROL")
+    else if(message=="CANN ADAPT_CRUISE_CONTROL")
     {
-        int cruiseControl_on= string.section(' ', 2,2).toInt();
-        if(cruiseControl_on==0 || cruiseControl_on==1){
-            dashboard->AdaptiveCruiseControl->setValue(cruiseControl_on);
+        int ad_cruiseControl_on= string.section(' ', 2,2).toInt();
+        if(ad_cruiseControl_on==0 || ad_cruiseControl_on==1){
+            dashboard->AdaptiveCruiseControl->setValue(ad_cruiseControl_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());

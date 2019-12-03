@@ -8,6 +8,15 @@ extern "C" {
     #include "clientio.h"
 }
 
+static void uppercase(char *message)
+{
+    char *ptr = message;
+    while (*ptr) {
+        *ptr = static_cast<char>(toupper(static_cast<unsigned char>(*ptr)));
+        ptr++;
+    }
+}
+
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -67,6 +76,7 @@ void MainWindow::OnSend()
     char* sent = new char[mLen];
     std::strncpy(sent, ui->lineEdit->text().toStdString().c_str(), mLen);
     ui->lineEdit->clear();
+    uppercase(sent);
     if (send_message(mSockfd, sent, mLen) == -1)
         ui->plainTextEdit->appendPlainText(
             "Erreur lors de l'envoi du message"
@@ -77,6 +87,7 @@ void MainWindow::OnSend()
                 "Commande invalide."
             );
         } else {
+
             char* received = new char[mLen];
             std::memset(received, '\0', mLen);
             if (receive_message(mSockfd, received, mLen) == -1)
