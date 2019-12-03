@@ -7,6 +7,7 @@
 #include "Hugo/hugo_compteur.h"
 #include "hugo_ecran.h"
 #include "hugo_voyant_warning.h"
+#include "hugo_boite_vitesse.h"
 #include <QDebug>
 #include <QTimer>
 
@@ -17,24 +18,28 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     hugo_MyGraphicsitem *background=new hugo_MyGraphicsitem();
     this->addItem(background);
 
-    //Création de l'affichage de l'heure et du compteur km
-    CompteurKm=new hugo_ecran;
-    this->addItem(CompteurKm);
 
     //Voyant feux de position
     position=new hugo_voyants_simples(15,-50,":/Images/voyant_feux_position.jpg",0,150,0);
-    position->setValue(0);
     this->addItem(position);
+
+    FrontAntifog=new hugo_voyants_simples(-43,-50,":/Images/brouillard_avant.jpeg",0,150,0);
+    this->addItem(FrontAntifog);
+
+    RearAntifog=new hugo_voyants_simples(-43,-21,":/Images/brouillard_arriere.jpeg");
+    this->addItem(RearAntifog);
 
     //Voyant feux de croisement
     croisement=new hugo_voyants_simples(15,-22,":/Images/voyant_feux_croisement.jpg",0,150,0);
-    croisement->setValue(0);
     this->addItem(croisement);
 
     //Voyant feux de route
     route=new hugo_voyants_simples(15,3,":/Images/voyant_feux_croisement.jpg",0,0,150);
-    route->setValue(0);
     this->addItem(route);
+
+    //Création de l'affichage de l'heure et du compteur km
+    CompteurKm=new hugo_ecran;
+    this->addItem(CompteurKm);
 
     //Compteur vitesse
     QStringList graduations_vitesse;
@@ -64,12 +69,43 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     jaugeTemperature->setValue(0);
     this->addItem(jaugeTemperature);
 
-
+    //Transmissions boite auto
+    AutomaticTransmissionMode=new hugo_boite_vitesse;
+    addItem(AutomaticTransmissionMode);
 
     //Voyant en cas de problème avec la batterie
     VoyantBatterie=new hugo_voyants_simples(-180,50,":/Images/voyant-batterie.gif");
     this->addItem(VoyantBatterie);
 
+    //Voyant suspensions
+    AdaptiveSuspensionDampers=new hugo_voyants_simples(210,50,":/Images/asd.jpeg");
+    this->addItem(AdaptiveSuspensionDampers);
+
+    //Voyant ceinture non attachée
+    SeatBelt=new hugo_voyants_simples(-170,75,":/Images/ceinture.jpg");
+    this->addItem(SeatBelt);
+
+    //Voyant chauffage vitre arrière
+    RearWindowHeating=new hugo_voyants_simples(210,20,":/Images/rear_window_heating.jpg",0,120,0);
+    this->addItem(RearWindowHeating);
+
+    //Voyant problème moteur
+    CheckEngine=new hugo_voyants_simples(210,-7,":/Images/check_engine.jpg");
+    this->addItem(CheckEngine);
+
+    //Voyants pour les portières --> Tous les signaux donnent le même voyant
+    OpenDoorDriver=new hugo_voyants_simples(-200,75,":/Images/portieres.jpg");
+    this->addItem(OpenDoorDriver);
+    OpenDoorFrontPassenger =new hugo_voyants_simples(-200,75,":/Images/portieres.jpg");
+    this->addItem(OpenDoorFrontPassenger);
+    OpenDoorBackLeftPassenger=new hugo_voyants_simples(-200,75,":/Images/portieres.jpg");
+    this->addItem(OpenDoorBackLeftPassenger);
+    OpenDoorBackRightPassenger=new hugo_voyants_simples(-200,75,":/Images/portieres.jpg");
+    this->addItem(OpenDoorBackRightPassenger);
+
+
+    AirbagOn=new hugo_voyants_simples(-140,75,":/Images/voyant-airbag.gif");
+    this->addItem(AirbagOn);
 
 
  //   objet_virtuel *VoyantEssenceFixe=new hugo_voyants_simples(150,-100,":/Images/voyant_carburant.jpg",150,150,150,17);
@@ -92,17 +128,7 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     plaquettes->parametrage(-120,50,":/Images/voyant-plaquettes.gif");
     this->addItem(plaquettes);
 
-    portieres=new hugo_voyants_simples;
-    portieres->parametrage(-200,75,":/Images/portieres.jpg");
-    this->addItem(portieres);
 
-    ceinture=new hugo_voyants_simples;
-    ceinture->parametrage(-170,75,":/Images/ceinture.jpg");
-    this->addItem(ceinture);
-
-    airbag=new hugo_voyants_simples;
-    airbag->parametrage(-140,75,":/Images/voyant-airbag.gif");
-    this->addItem(airbag);
 
     huile=new hugo_voyants_simples;
     huile->parametrage(-110,75,":/Images/voyant-huile-orange.jpg");

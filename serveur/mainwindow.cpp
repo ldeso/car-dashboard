@@ -166,7 +166,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -203,6 +203,12 @@ void MainWindow::reception()
                 delete dashboard;
                 dashboard = new karim_scene;
                 ui->graphicsView->setScene(dashboard);
+             }
+
+             if (prenom=="LOTO"){
+              delete dashboard;
+              dashboard = new loto_scene;
+              ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
             km_parcourus=0;
@@ -524,6 +530,24 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
+    else if(message=="CANN CRUISE_CONTROL_ON")
+    {
+        int CruiseControlOn_on= string.section(' ', 2,2).toInt();
+        if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
+            dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+
 
     else
         qDebug() << "erreur lors de la reception du message";

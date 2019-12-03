@@ -103,33 +103,6 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     painter->drawEllipse(carre_rpm2);
 
     ///
-    /// \brief Affichage régime moteur
-    ///
-    painter->setFont(QFont("Arial", 8, -1,false));
-    painter->setPen(QPen(QColor(Qt::darkGray), 1, Qt::SolidLine,Qt::FlatCap));
-    QStringList Regimes;
-    Regimes<<"P"<<"R"<<"N"<<"D"<<"3"<<"2"<<"L";
-    float teta=-30*3.14159/180;
-    int i=0;
-    while (i<7){
-        teta+=10*3.14159/180;
-        if (i==3){
-            QRadialGradient radialGrad(QPointF(110*(qCos(teta))+4,110*(qSin(teta))-3), 12);
-            radialGrad.setColorAt(0, QColor(0,255,0,80));
-            radialGrad.setColorAt(1, QColor(0,0,0,0));
-            painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
-            painter->setBrush(radialGrad);
-            painter->drawEllipse(QPointF(110*(qCos(teta))+4,110*(qSin(teta))-3),20,20);
-            painter->setPen(QPen(QColor(Qt::green), 1, Qt::SolidLine,Qt::FlatCap));
-        }
-        else{
-            painter->setPen(QPen(QColor(Qt::darkGray), 1, Qt::SolidLine,Qt::FlatCap));
-        }
-        painter->drawText(110*(qCos(teta)),110*(qSin(teta)),Regimes[i]);
-        i++;
-    }
-
-    ///
     /// \brief Affichage d'une icone jauge d'essence
     ///
     QPixmap image(":/Images/voyant_carburant.jpg");

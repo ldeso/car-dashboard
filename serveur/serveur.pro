@@ -47,6 +47,7 @@ SOURCES += \
     Jonas/jonas_scene.cpp \
     Leo/leo_gauge.cpp \
     Leo/leo_indicator.cpp \
+    Leo/leo_label.cpp \
     Leo/leo_scene.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -78,6 +79,15 @@ SOURCES += \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
     Karim/voyants.cpp
+    Karim/Voyant_batterie.cpp \
+    Karim/voyants.cpp \
+    Hugo/hugo_boite_vitesse.cpp \
+    Loto/fuel_guage.cpp \
+    Loto/leds.cpp \
+    Loto/loto_dashboard.cpp \
+    Loto/tachometre.cpp \
+    Loto/tempgauge.cpp \
+    Loto/loto_scene.cpp
 
 
 HEADERS += \
@@ -98,6 +108,7 @@ HEADERS += \
     Jonas/jonas_scene.h \
     Leo/leo_gauge.h \
     Leo/leo_indicator.h \
+    Leo/leo_label.h \
     Leo/leo_scene.h \
     mainwindow.h \
     objet_virtuel.h \
@@ -127,6 +138,15 @@ HEADERS += \
     Karim/clignot.h \
     Karim/karim_scene.h \
     Karim/voyants.h
+    Karim/Voyant_batterie.h \
+    Karim/voyants.h \
+    Hugo/hugo_boite_vitesse.h \
+    Loto/fuel_guage.h \
+    Loto/leds.h \
+    Loto/loto_dashboard.h \
+    Loto/tachometre.h \
+    Loto/tempgauge.h \
+    Loto/loto_scene.h
     Florian/floriancompteurkm.h
 
 FORMS += \
@@ -135,12 +155,14 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    #florian.qrc \
     Lea/Lea.qrc \
+    Jonas/icons-dashboard/icons-dashboard.qrc \
+    #florian.qrc \
     Karim/icone.qrc \
-    Karim/newfont.qrc
+    Karim/newfont.qrc \
+    Loto/myicons/icons.qrc \
+    Florian/florian.qrc
     #Lea/fuel.qrc
-    #Jonas/icones/jonas-icons.qrc \
 
 DISTFILES += \
     Henri/iconeEssence.png \
@@ -424,4 +446,85 @@ DISTFILES += \
     Lea/PorteOuverteConducteur.png \
     Lea/PorteOuvertePassagerD.png \
     Lea/PorteOuvertePassagerG.png \
-    Karim/LCDfont.ttf
+    Karim/LCDfont.ttf \
+    Loto/myicons/Oil_white.pix \
+    Loto/myicons/4WD_blue.gif \
+    Loto/myicons/4WD_green.gif \
+    Loto/myicons/4WD_red.gif \
+    Loto/myicons/4WD_white.gif \
+    Loto/myicons/4WD_yellow.gif \
+    Loto/myicons/ABS_ON.gif \
+    Loto/myicons/adaptiveCruiseControl_green.gif \
+    Loto/myicons/adaptiveHeadlight.gif \
+    Loto/myicons/AdaptiveSuspensionDampers_red.gif \
+    Loto/myicons/AdaptiveSuspensionDampers_yellow.gif \
+    Loto/myicons/airBag.gif \
+    Loto/myicons/airSuspention_red.gif \
+    Loto/myicons/airSuspention_yellow.gif \
+    Loto/myicons/auto_D.gif \
+    Loto/myicons/auto_N.gif \
+    Loto/myicons/auto_P.gif \
+    Loto/myicons/auto_R.gif \
+    Loto/myicons/AWD_blue.gif \
+    Loto/myicons/AWD_green.gif \
+    Loto/myicons/AWD_red.gif \
+    Loto/myicons/AWD_white.gif \
+    Loto/myicons/AWD_yellow.gif \
+    Loto/myicons/backLeftDoorOpen.gif \
+    Loto/myicons/backrightDoorOpen.gif \
+    Loto/myicons/battery.gif \
+    Loto/myicons/bonnetOpen_red.gif \
+    Loto/myicons/bootOpen_red.gif \
+    Loto/myicons/brake_warning.gif \
+    Loto/myicons/brakeBulbFailure_yelow.gif \
+    Loto/myicons/brakeLiquid_red.gif \
+    Loto/myicons/brakePads.gif \
+    Loto/myicons/BulbFailure_yelow.gif \
+    Loto/myicons/checkEngine.gif \
+    Loto/myicons/dayLight.gif \
+    Loto/myicons/driverDoorOpen.gif \
+    Loto/myicons/engineT_blue.gif \
+    Loto/myicons/engineT_red.gif \
+    Loto/myicons/engineT_white.gif \
+    Loto/myicons/engineT_yellow.gif \
+    Loto/myicons/ExclamationPoint_red.gif \
+    Loto/myicons/ExclamationPoint_yellow.gif \
+    Loto/myicons/frontFogLight.gif \
+    Loto/myicons/frontRightDoorOpen.gif \
+    Loto/myicons/fuelL_red.gif \
+    Loto/myicons/fuelL_white.gif \
+    Loto/myicons/hazardLights.gif \
+    Loto/myicons/highBeam.gif \
+    Loto/myicons/lowBattery.gif \
+    Loto/myicons/lowBeam.gif \
+    Loto/myicons/OFF.gif \
+    Loto/myicons/Oil_t_white.gif \
+    Loto/myicons/Oil_white.gif \
+    Loto/myicons/powerSteering_red.gif \
+    Loto/myicons/powerSteering_yellow.gif \
+    Loto/myicons/rearFogLight.gif \
+    Loto/myicons/rearFogLight_blue.gif \
+    Loto/myicons/rearWindowHeating_yellow.gif \
+    Loto/myicons/scoda.gif \
+    Loto/myicons/seatBeltSign_red.gif \
+    Loto/myicons/securityLight_red.gif \
+    Loto/myicons/securityLight_yellow.gif \
+    Loto/myicons/tractionControl_blue.gif \
+    Loto/myicons/tractionControl_green.gif \
+    Loto/myicons/tractionControl_red.gif \
+    Loto/myicons/tractionControl_white.gif \
+    Loto/myicons/tractionControl_yellow.gif \
+    Loto/myicons/turnLeft.gif \
+    Loto/myicons/turnRight.gif \
+    Loto/myicons/tyrePressure_red.gif \
+    Loto/myicons/tyrePressure_yellow.gif \
+    Loto/myicons/washerLiquid_yellow.gif \
+    Loto/myicons/black-leather-texture-background.jpg \
+    Loto/myicons/bonnetOpen.png \
+    Loto/myicons/brake.png \
+    Loto/myicons/engineT_red.png \
+    Loto/myicons/gearProblem.png \
+    Loto/myicons/hand_brake.png \
+    Loto/myicons/Oil_red.png \
+    Loto/myicons/Oil_white.png \
+    Loto/myicons/seatBelt.png

@@ -1,16 +1,13 @@
 <RCC>
-    <qresource prefix="/jonas-icons"/>
-    <qresource prefix="/voyants"/>
-    <qresource prefix="/">
-        <file>icones.qrc</file>
-        <file>icon-battery.jpg</file>
+    <qresource prefix="/icons">
+        <file>dipped-beam.jpg</file>
         <file>icon-airbag.jpg</file>
+        <file>icon-battery.jpg</file>
         <file>icon-fuel.jpg</file>
         <file>icon-rear-fog-lamp.jpg</file>
         <file>icon-seatbelt.jpg</file>
         <file>icon-temperature.jpg</file>
         <file>icon-warning.jpg</file>
-        <file>dipped-beam.jpg</file>
         <file>main-beam.jpg</file>
         <file>position-lamp.jpg</file>
     </qresource>
