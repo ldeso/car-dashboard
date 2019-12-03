@@ -62,6 +62,7 @@ SOURCES += \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
+    Henri/feuxhenri.cpp \
     Jonas/jonas_voyant_simple.cpp \
     Lea/deux_voyants_lea.cpp \
     Lea/fuelgauge_lea.cpp \
@@ -78,7 +79,6 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
-    Karim/Voyant_batterie.cpp \
     Karim/voyants.cpp \
     Hugo/hugo_boite_vitesse.cpp \
     Loto/fuel_guage.cpp \
@@ -86,8 +86,23 @@ SOURCES += \
     Loto/loto_dashboard.cpp \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
-    Loto/loto_scene.cpp
-
+    Loto/loto_scene.cpp \
+    Inna/arrowspeedometerinna.cpp \
+    Inna/arrowtachometerinna.cpp \
+    Inna/clignotantinna.cpp \
+    Inna/enginetinna.cpp \
+    Inna/fuellevelinna.cpp \
+    Inna/iconinna.cpp \
+    Inna/infowindowinna.cpp \
+    Inna/inna_scene.cpp \
+    Inna/oilgaugeinna.cpp \
+    Inna/speedometerinna.cpp \
+    Inna/tachometerinna.cpp \
+    Inna/icononoffinna.cpp \
+    Inna/arrowoillinna.cpp \
+    Inna/arrowoiltinna.cpp \
+    Inna/fuelengineinna.cpp \
+    Inna/prnd_inna.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -121,6 +136,7 @@ HEADERS += \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
+    Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
     Lea/deux_voyants_lea.h \
     Lea/fuelgauge_lea.h \
@@ -136,7 +152,6 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
-    Karim/Voyant_batterie.h \
     Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
@@ -144,7 +159,23 @@ HEADERS += \
     Loto/loto_dashboard.h \
     Loto/tachometre.h \
     Loto/tempgauge.h \
-    Loto/loto_scene.h
+    Loto/loto_scene.h \
+    Inna/tachometerinna.h \
+    Inna/speedometerinna.h \
+    Inna/oilgaugeinna.h \
+    Inna/inna_scene.h \
+    Inna/infowindowinna.h \
+    Inna/iconinna.h \
+    Inna/fuellevelinna.h \
+    Inna/enginetinna.h \
+    Inna/clignotantinna.h \
+    Inna/arrowtachometerinna.h \
+    Inna/arrowspeedometerinna.h \
+    Inna/icononoffinna.h \
+    Inna/arrowoillinna.h \
+    Inna/arrowoiltinna.h \
+    Inna/fuelengineinna.h \
+    Inna/prnd_inna.h
     Florian/floriancompteurkm.h
 
 FORMS += \
@@ -159,8 +190,10 @@ RESOURCES += \
     Karim/icone.qrc \
     Karim/newfont.qrc \
     Loto/myicons/icons.qrc \
+    Inna/InnaRSC/inna.qrc
     Florian/florian.qrc
     #Lea/fuel.qrc
+
 
 DISTFILES += \
     Henri/iconeEssence.png \
@@ -168,7 +201,6 @@ DISTFILES += \
     Henri/liserMoi \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
     Lea/Icones_Voyants/4WD_green.gif \
     Lea/Icones_Voyants/4WD_red.gif \
     Lea/Icones_Voyants/4WD_white.gif \
@@ -260,7 +292,6 @@ DISTFILES += \
     Lea/Seatbelt.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
     Lea/Icones_Voyants/4WD_green.gif \
     Lea/Icones_Voyants/4WD_red.gif \
     Lea/Icones_Voyants/4WD_white.gif \
@@ -353,7 +384,6 @@ DISTFILES += \
     Lea/PorteOuvertePassagerG.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
     Lea/Icones_Voyants/4WD_green.gif \
     Lea/Icones_Voyants/4WD_red.gif \
     Lea/Icones_Voyants/4WD_white.gif \

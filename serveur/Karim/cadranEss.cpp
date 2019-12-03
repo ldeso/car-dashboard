@@ -48,14 +48,3 @@ QRect carre[13];
    painter->setRenderHints(QPainter::Antialiasing);
 
 }
-
-/*int CadranEss::getValueMax()
-{
-    return value;
-}
-
-void CadranEss::setValue(int v)
-{
-    angle=v;
-}
-*/

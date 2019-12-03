@@ -17,14 +17,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
+
+
     dashboard=new hugo_scene();
+    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
+    this->move(0,0);
+    ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(1000);
     kmTimer->start();
 
-    ui->graphicsView->setScene(dashboard);
 
 }
 
@@ -151,7 +156,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN TURN"){
         int cligno = string.section(' ', 2,2).toInt();
-        if(cligno>=-1 && cligno <= 1){
+        if(cligno>=-1 && cligno <= 2){
             dashboard->Clignotant->setValue(cligno);
             // ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -166,7 +171,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -197,7 +202,7 @@ void MainWindow::reception()
             if (prenom=="FLORIAN"){
                 delete dashboard;
                 dashboard = new SceneFlorian;
-                ui->graphicsView->setScene(dashboard);               
+                ui->graphicsView->setScene(dashboard);
             }
             if (prenom=="KARIM"){
                 delete dashboard;
@@ -210,6 +215,13 @@ void MainWindow::reception()
               dashboard = new loto_scene;
               ui->graphicsView->setScene(dashboard);
             }
+	     if (prenom=="INNA"){
+              delete dashboard;
+              dashboard = new inna_scene;
+              ui->graphicsView->setScene(dashboard);
+            }
+            this->resize(dashboard->width()+31,dashboard->height()+63);
+            this->move(0,0);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";
@@ -467,11 +479,11 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN CRUISE_CONTROL")
+    else if(message=="CANN ADAPT_CRUISE_CONTROL")
     {
-        int cruiseControl_on= string.section(' ', 2,2).toInt();
-        if(cruiseControl_on==0 || cruiseControl_on==1){
-            dashboard->AdaptiveCruiseControl->setValue(cruiseControl_on);
+        int ad_cruiseControl_on= string.section(' ', 2,2).toInt();
+        if(ad_cruiseControl_on==0 || ad_cruiseControl_on==1){
+            dashboard->AdaptiveCruiseControl->setValue(ad_cruiseControl_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -531,6 +543,24 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="CANN CRUISE_CONTROL_ON")
+    {
+        int CruiseControlOn_on= string.section(' ', 2,2).toInt();
+        if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
+            dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+
+
     else
         qDebug() << "erreur lors de la reception du message";
 
@@ -540,9 +570,11 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
+
     if (dashboard->CompteurKm) //
         // dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
+
 }
 
 
