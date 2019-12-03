@@ -1,6 +1,8 @@
 #ifndef LEO_SCENE_H
 #define LEO_SCENE_H
 
+#include "leo_indicator.h"
+#include "leo_label.h"
 #include "scene_globale.h"
 
 class Leo_scene : public scene_globale

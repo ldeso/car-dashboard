@@ -9,6 +9,8 @@
 #include "Florian/sceneflorian.h"
 #include "Lea/lea_scene.h"
 #include "Leo/leo_scene.h"
+#include "Karim/karim_scene.h"
+#include "Loto/loto_scene.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +22,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void acceleration(int);
     ~MainWindow();
 
 private slots:

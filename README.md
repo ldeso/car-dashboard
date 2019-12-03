@@ -48,6 +48,10 @@ de lancer à partir du client des messages CANN concernant des fonctionnalités
 non inclues dans votre dashboard. Suivez ces différentes étapes pour ajouter un
 objet au programme:
 
+* Dans un premier temps, il faut créer votre message CANN de la forme "CANN votre_message " dans le client. Dans le fichier clientio.c, ajouter "votre_message" à la liste des commandes déjà disponibles de la fonction validate_message.
+Puis dans le fichier main.c du client, ajoutez votre commande "CANN votre_message" ainsi qu'une brève description de votre message dans la commande "HELP" de la fonction main.
+* Puis, dans le fichier mainwindow.cpp du serveur, ajoutez votre message sous forme de condition dans la liste déjà présente de la fonction reception. N'hésitez pas à rajouter des conditions pour vérifier si les valeurs associées à votre message sont acceptables.
+
 ## Liste des messages CANN
 
 | Objet                     | Description                                            | Message CANN         | Valeurs                                           |
@@ -61,39 +65,24 @@ objet au programme:
 | route                     | Feux de route                                          | CANN LIGHT X         | 0=éteint, 3=allumé                                |
 |Clignotant|Allume les clignotants gauche, droit ou les deux ensemble (feux d'avertissement ) |CANN TURN X|1=clignotant droit,-1=clignotant gauche, 2 clignotant les deux 0=éteint|
 | Warning                   | Allume le warning et met la valeur des clignotants à 2 | CANN WARNING X       | 0=éteint, 1=allumé                                |
-| AdaptiveSuspensionDampers | Voyant indiquant Voyant indiquant que ASD est utilisé  | CANN ASD X           | 0 éteint, 1 allumé                                |
+| AdaptiveSuspensionDampers |Voyant indiquant que ASD est utilisé  | CANN ASD X           | 0 éteint, 1 allumé                                |
 | AutomaticTransmissionMode |  Indique le mode de transmission actuellement utilisé       | CANN MODE  X         | 1=P, 2=R, 3=N, 4=D                                |
 | FrontAntifog              | feux de brouillard avants                                   | CANN FRONT_FOG X     | 0=éteint, 1=allumé                                |
 | RearAntifog               | feux de brouillard arrières                                 | CANN REAR_FOG X      | 0=éteint, 1=allumé                                |
 | SeatBelt                  | Ceinture de securité                                   | CANN SEAT_BELT X     | 0=éteint, 1=allumé                                |
 | RearWindowHeating         | Chauffage de la glace arrière                          | CANN RW_HEAT X       | 0=éteint, 1=allumé                                |
 | CheckEngine               | Voyant d'anomalie du moteur                            | CANN CHECK_ENGINE X  | 0=éteint, 1=allumé                                |
-| OpenDoorDriver        | Porte avant conducteur ouverte                          | CANN OPEN_DOOR_DRIVER X       | 0=éteint, =allumé                    |
-| OpenDoorFrontPassenger        | Porte avant passager ouverte                          | CANN OPEN_DOOR_FRONT_PASSENGER X       | 0=éteint, =allumé                    |
-| OpenDoorBackRightPassenger        | Porte arrière droite ouverte                          | CANN OPEN_DOOR_BACK_R_PASSENGER X       | 0=éteint, =allumé                    |
-| OpenDoorBackLeftPassenger        | Porte arrière gauche ouverte                          | CANN OPEN_DOOR_BACK_L_PASSENGER X       | 0=éteint, =allumé                    |
+| OpenDoorDriver        | Porte avant conducteur ouverte                          | CANN OPEN_DOOR_DRIVER X       | 0=éteint, 1=allumé                    |
+| OpenDoorFrontPassenger        | Porte avant passager ouverte                          | CANN OPEN_DOOR_FRONT_PASSENGER X       | 0=éteint, 1=allumé                    |
+| OpenDoorBackRightPassenger        | Porte arrière droite ouverte                          | CANN OPEN_DOOR_BACK_R_PASSENGER X       | 0=éteint, 1=allumé                    |
+| OpenDoorBackLeftPassenger        | Porte arrière gauche ouverte                          | CANN OPEN_DOOR_BACK_L_PASSENGER X       | 0=éteint, 1=allumé                    |
+| AdaptiveCruiseControl | Voyant qui s'allume quand "AdaptiveCruiseControl" est activé | CANN CRUISE_CONTROL X | 0=éteint, 1=allumé                    |
+| AirbagOn | Voyant qui s'allume quand "AirBag" est activé | CANN AIRBAG_ON X  | 0=éteint, 1=allumé                    |
+|BonnetOpen | Voyant qui s'allume quand le capot est ouvert |  CANN BONNET_OPEN X | 0=éteint, 1=allumé   |
+|BootOpen|  Voyant qui s'allume quand le coffre est ouvert |  CANN BOOT_OPEN X | 0=éteint, 1=allumé   |
+| CruiseControlOn | Voyant qui s'allume quand le limitateur de vitesse est activé | CANN CRUISE_CONTROL_ON X  | 0=éteint, 1=allumé                    |
 | _à faire_                 | Affichage de la limite de vitesse                      | CANN SPEED_LIMIT X   | X=Limite de vitesse                               |
 
 ## Bugs répertoriés
 
-# A Faire
 
-chacun crée sa classe prenom_scene qui herite de la classe commune
-scene_globale, qui elle même dérive de QGraphicsScene. Dans la scene_globale
-sont déclarés tout les items ci-dessous qui doivent hériter de objet_virtuel. A
-partir du client, possibilité de changer de Dashboard par la commande CANN
-DASHBOARD prenom.
- 
- * un compteur Vitesse, pour value la vitesse.
- * un compteur CompteTours pour value les tours par minute.
- * un voyant VoyantBatterie pour value 0/1 pour éteint/allumé
- * un afficheur CompteurKm, permettant d'afficher le nombre de km parcourus
- depuis le lancement du programme en fonction de la vitesse.
- * une jauge Essence 
- * un voyant Clignotant a  clignotant les deux ensemble (feux d'avertissement ) et 0 éteint.
- * trois voyants pour les phares : position, croisement, route. value client : 0
- eteint, 1 position, 2 croisement, 3 route. Serveur : trois voyants différents.
- * Warning avec pour valeur 0 eteint et 1 allumer. Met la valeur des clignotants
- à 2 ce qui fait que les deux clignotants s'allument.
-
- * a completer

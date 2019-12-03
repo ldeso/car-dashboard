@@ -30,6 +30,12 @@ public:
     objet_virtuel *OpenDoorFrontPassenger;
     objet_virtuel *OpenDoorBackLeftPassenger;
     objet_virtuel *OpenDoorBackRightPassenger;
+    objet_virtuel *AdaptiveCruiseControl;
+    objet_virtuel *AirbagOn;
+    objet_virtuel *BonnetOpen;
+    objet_virtuel *BootOpen;
+    objet_virtuel *CruiseControlOn;
+
 };
 
 #endif // SCENE_GLOBALE_H

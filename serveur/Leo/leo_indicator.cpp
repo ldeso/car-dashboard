@@ -1,15 +1,25 @@
 #include "leo_indicator.h"
 
-Leo_indicator::Leo_indicator(objet_virtuel* parent) :
-    objet_virtuel(parent)
-{}
-
-QRectF Leo_indicator::boundingRect() const
+Leo_indicator::Leo_indicator(QColor colorOff, QColor colorOn, objet_virtuel* parent)
+    : objet_virtuel(parent)
 {
-    return QRectF(0, 0, 100, 100);
+    ColorOff = colorOff;
+    ColorOn = colorOn;
 }
 
-void Leo_indicator::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Leo_indicator::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    painter->drawRect(0, 0, 100, 100);
+    painter->setRenderHint(QPainter::Antialiasing);
+    QPainterPath path;
+    path.addEllipse(
+        mBoundingRect.center(),
+        (mBoundingRect.width()+PenWidthPx) / 2,
+        (mBoundingRect.height()+PenWidthPx) / 2
+    );
+    if (value < 0.5f)
+        painter->fillPath(path, ColorOff);
+    else
+        painter->fillPath(path, ColorOn);
+    painter->setPen(QPen(Qt::black, PenWidthPx));
+    painter->drawPath(path);
 }

@@ -2,32 +2,35 @@
 #include <QResource>
 SceneFlorian::SceneFlorian(QGraphicsScene *parent):scene_globale(parent)
 {
-    this->position = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/position.jpeg")));
+    this->position = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/position.jpg")));
     this->addItem(this->position);
     this->position->setPos(40, 70);
-    this->croisement = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/croisement.jpg")));
+    this->croisement = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/croisement.jpg")));
     this->addItem(this->croisement);
     this->croisement->setPos(60, 40);
-    this->route = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/route.jpg")));
+    this->route = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/route.jpg")));
     this->addItem(this->route);
     this->route->setPos(110, 40);
-    this->brouillardAvant = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/brouillardAvant.jpg")));
+    this->brouillardAvant = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/brouillardAvant.jpg")));
     this->addItem(this->brouillardAvant);
     this->brouillardAvant->setPos(130, 70);
-    this->brouillardArriere = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/brouillardArriere.jpg")));
+    this->brouillardArriere = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/brouillardArriere.jpg")));
     this->addItem(this->brouillardArriere);
     this->brouillardArriere->setPos(130, 100);
-    this->noEssence = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/noEssence.jpg")));
+    this->noEssence = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/noEssence.jpg")));
     this->addItem(this->noEssence);
     this->noEssence->setPos(-60, 75);
     this->noEssence->setScale(0.8);
-    this->noHuile = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/noHuile.jpg")));
+    this->noHuile = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/noHuile.jpg")));
     this->addItem(this->noHuile);
     this->noHuile->setPos(-60, 155);
     this->noHuile->setScale(0.8);
     this->noEssence->setScale(0.8);
-    this->Clignotant = new clignotant();
+    this->Clignotant = new FlorianClignotant();
     this->addItem(this->Clignotant);
+    this->CompteurKm = new FlorianCompteurKm();
+    this->addItem(CompteurKm);
+    this->CompteurKm->setPos(60 ,150);
     /*this->clignotantGauche = new Voyant(QPixmap(QString(":/voyant/voyant/clignotantGauche.jpg")));
     this->addItem(this->clignotantGauche);
     this->clignotantGauche->setPos(-300, -20);
@@ -36,20 +39,20 @@ SceneFlorian::SceneFlorian(QGraphicsScene *parent):scene_globale(parent)
     this->addItem(this->clignotantDroite);
     this->clignotantDroite->setPos(180, -20);
     this->clignotantDroite->setScale(0.9);*/
-    this->refroidissement = new Voyant(QPixmap(QString("::/new/prefix1/Florian/voyant/refroidissement.jpg")));
+    this->refroidissement = new FlorianVoyant(QPixmap(QString(":::/new/prefix1/voyant/refroidissement.jpg")));
     this->addItem(this->refroidissement);
     this->refroidissement->setPos(-260, 100);
-    this->batterie = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/batterie.jpg")));
+    this->batterie = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/batterie.jpg")));
     this->addItem(this->batterie);
     this->batterie->setPos(-260, 70);
-    this->warning = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/warning.jpg")));
+    this->warning = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/warning.jpg")));
     this->addItem(this->warning);
     this->warning->setPos(-70, -30);
     this->warning->setScale(1.4);
-    this->ceinture = new Voyant(QPixmap(QString(":/new/prefix1/Florian/voyant/ceinture.jpg")));
+    this->ceinture = new FlorianVoyant(QPixmap(QString("::/new/prefix1/voyant/ceinture.jpg")));
     this->addItem(this->ceinture);
     this->ceinture->setPos(-230, 40);
-    this->noCeinture = new Voyant(QPixmap(QString("::/new/prefix1/Florian/voyant/noCeinture.jpg")));
+    this->noCeinture = new FlorianVoyant(QPixmap(QString(":::/new/prefix1/voyant/noCeinture.jpg")));
     this->addItem(this->noCeinture);
     this->noCeinture->setPos(-190, 40);
 
