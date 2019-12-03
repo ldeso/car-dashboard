@@ -561,7 +561,7 @@ void MainWindow::reception()
 	else if(message=="CANN ENGINE_T"){
         int engineT = string.section(' ', 2,2).toInt();
 
-        if(engineT >=1 && engineT <= 4)
+        if(engineT <= dashboard->jaugeTemperature->getValueMax())
         { dashboard->jaugeTemperature->setValue(engineT);
             ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -569,7 +569,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("valeur incorrect, valeur entre 1 et 4").arg(dashboard->Essence->getValueMax());
+            text = QString("valeur incorrect, valeur doit etre inferieur a %1").arg(dashboard->jaugeTemperature->getValueMax());
             socket->write(text.toUtf8());
         }
     }
