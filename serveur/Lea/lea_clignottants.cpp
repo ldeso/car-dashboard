@@ -4,7 +4,7 @@
 
 lea_clignottants::lea_clignottants()
 {
-    //value=0;
+    value=0;
     cligno=0;
 }
 
@@ -52,7 +52,7 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
             painter->drawPixmap(180,50,70,50,image4);
         }
          MAJ();
-        update();
+//        update();
     }
 }
 
