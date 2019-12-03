@@ -15,7 +15,7 @@ Se placer dans le dossier `client` et exécuter :
 
 ## Bibliothèque
 
-### Installation
+### Installation de la bibliothèque
 
 Se placer dans le dossier `client` et exécuter :
 
@@ -27,7 +27,7 @@ Le client peut alors se lancer avec la simple commande :
 
 Attention, penser à réinstaller la bibliothèque en cas de mise à jour.
 
-## Désinstallation
+### Désinstallation de la bibliothèque
 
 Se placer dans le dossier `client` et exécuter :
 
