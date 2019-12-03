@@ -75,6 +75,9 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
         addItem(BonnetOpen);
     BootOpen =  new iconOnOffInna(QPoint(940,230),QSize(60,60),":/I_bootOpen_red.gif", 5.0 );
         addItem(BootOpen);
+    OilTemp = new ArrowOilTInna ();
+        OilTemp->setZValue(8.0);
+        addItem(OilTemp);
 }
 
 QRectF inna_scene::boundingRect() const

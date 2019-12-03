@@ -56,7 +56,8 @@ int validate_message(const char* message)
         "BONNET_OPEN",
         "BOOT_OPEN",
         "CRUISE_CONTROL_ON",
-        "ENGINE_T"
+        "ENGINE_T",
+        "OIL_T"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;
