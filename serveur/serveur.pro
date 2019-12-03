@@ -87,7 +87,24 @@ SOURCES += \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
     Loto/loto_scene.cpp \
-    Lea/lea_scenedefond.cpp
+    Lea/lea_scenedefond.cpp \
+    Jonas/jonas_voyant_clignotant.cpp \
+    Inna/arrowspeedometerinna.cpp \
+    Inna/arrowtachometerinna.cpp \
+    Inna/clignotantinna.cpp \
+    Inna/enginetinna.cpp \
+    Inna/fuellevelinna.cpp \
+    Inna/iconinna.cpp \
+    Inna/infowindowinna.cpp \
+    Inna/inna_scene.cpp \
+    Inna/oilgaugeinna.cpp \
+    Inna/speedometerinna.cpp \
+    Inna/tachometerinna.cpp \
+    Inna/icononoffinna.cpp \
+    Inna/arrowoillinna.cpp \
+    Inna/arrowoiltinna.cpp \
+    Inna/fuelengineinna.cpp \
+    Inna/prnd_inna.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -145,8 +162,26 @@ HEADERS += \
     Loto/tachometre.h \
     Loto/tempgauge.h \
     Loto/loto_scene.h \
-    Florian/floriancompteurkm.h \
-    Lea/lea_scenedefond.h
+    Lea/lea_scenedefond.h \
+    Jonas/jonas_voyant_clignotant.h \
+    Inna/tachometerinna.h \
+    Inna/speedometerinna.h \
+    Inna/oilgaugeinna.h \
+    Inna/inna_scene.h \
+    Inna/infowindowinna.h \
+    Inna/iconinna.h \
+    Inna/fuellevelinna.h \
+    Inna/enginetinna.h \
+    Inna/clignotantinna.h \
+    Inna/arrowtachometerinna.h \
+    Inna/arrowspeedometerinna.h \
+    Inna/icononoffinna.h \
+    Inna/arrowoillinna.h \
+    Inna/arrowoiltinna.h \
+    Inna/fuelengineinna.h \
+    Inna/prnd_inna.h \
+    Florian/floriancompteurkm.h
+
 
 FORMS += \
         mainwindow.ui \
@@ -154,12 +189,13 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    Lea/Lea.qrc \
+    #Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
     Karim/icone.qrc \
     Karim/newfont.qrc \
     Loto/myicons/icons.qrc \
+    Inna/InnaRSC/inna.qrc
     Florian/florian.qrc
     #Lea/fuel.qrc
 

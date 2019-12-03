@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-    kmTimer->setInterval(1000);
+    kmTimer->setInterval(20);
     kmTimer->start();
 
 
@@ -156,9 +156,9 @@ void MainWindow::reception()
     }
     else if(message=="CANN TURN"){
         int cligno = string.section(' ', 2,2).toInt();
-        if(cligno>=-1 && cligno <= 1){
+        if(cligno>=-1 && cligno <= 2){
             dashboard->Clignotant->setValue(cligno);
-            // ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -171,7 +171,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -213,6 +213,11 @@ void MainWindow::reception()
              if (prenom=="LOTO"){
               delete dashboard;
               dashboard = new loto_scene;
+              ui->graphicsView->setScene(dashboard);
+            }
+	     if (prenom=="INNA"){
+              delete dashboard;
+              dashboard = new inna_scene;
               ui->graphicsView->setScene(dashboard);
             }
             this->resize(dashboard->width()+31,dashboard->height()+63);
@@ -551,6 +556,21 @@ void MainWindow::reception()
             QString text;
             text = QString("valeur incorrecte, doit être égale à 0 ou 1");
             socket->write(text.toLocal8Bit());
+        }
+    }
+	else if(message=="CANN ENGINE_T"){
+        int engineT = string.section(' ', 2,2).toInt();
+
+        if(engineT >=1 && engineT <= 4)
+        { dashboard->jaugeTemperature->setValue(engineT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrect, valeur entre 1 et 4").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toUtf8());
         }
     }
 
