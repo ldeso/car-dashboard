@@ -27,7 +27,7 @@ hugo_voyants_simples::hugo_voyants_simples(int param_x, int param_y, QString par
 
 QRectF hugo_voyants_simples::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-200,-200,400,400);
 }
 
 

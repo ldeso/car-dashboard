@@ -34,6 +34,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     route->setPos(-55, 75);
     position = new jonas_voyant_simple(":/icons/position-lamp.jpg", 25, 25, 25);
     position->setPos(-90, 75);
+    qDebug() << "batterie: " << VoyantBatterie->getValue();
     this->addItem(VoyantBatterie);
     this->addItem(croisement);
     this->addItem(route);

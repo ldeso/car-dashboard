@@ -62,6 +62,7 @@ SOURCES += \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
+    Henri/feuxhenri.cpp \
     Jonas/jonas_voyant_simple.cpp \
     Lea/deux_voyants_lea.cpp \
     Lea/fuelgauge_lea.cpp \
@@ -78,15 +79,14 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
-    Karim/Voyant_batterie.cpp \
     Karim/voyants.cpp \
+    Hugo/hugo_boite_vitesse.cpp \
     Loto/fuel_guage.cpp \
     Loto/leds.cpp \
     Loto/loto_dashboard.cpp \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
-    Loto/loto_scene.cpp
-
+    Loto/loto_scene.cpp \
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -120,6 +120,7 @@ HEADERS += \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
+    Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
     Lea/deux_voyants_lea.h \
     Lea/fuelgauge_lea.h \
@@ -135,15 +136,14 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
-    Karim/Voyant_batterie.h \
     Karim/voyants.h \
-    Loto/buttons.h \
+    Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
     Loto/loto_dashboard.h \
     Loto/tachometre.h \
     Loto/tempgauge.h \
-    Loto/loto_scene.h
+    Loto/loto_scene.h \
     Florian/floriancompteurkm.h
 
 FORMS += \
@@ -152,7 +152,6 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    #florian.qrc \
     Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
@@ -161,6 +160,7 @@ RESOURCES += \
     Loto/myicons/icons.qrc \
     Florian/florian.qrc
     #Lea/fuel.qrc
+
 
 DISTFILES += \
     Henri/iconeEssence.png \

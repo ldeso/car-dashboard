@@ -11,12 +11,7 @@ public:
     CadranEss(QGraphicsItem *parent =0);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-   /* int value=0;
-    int angle=225;
-    int vitesse;
-    int getValueMax();
-    void setValue(int v);*/
- };
+};
 
 
 

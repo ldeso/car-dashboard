@@ -10,7 +10,7 @@ jaugeClignotantHenri::jaugeClignotantHenri()
 
 QRectF jaugeClignotantHenri::boundingRect() const
 {
-    return QRect(-700,-380,1400,780);
+    return QRect(-500,-300,1000,600);
 }
 
 void jaugeClignotantHenri::MAJ()
