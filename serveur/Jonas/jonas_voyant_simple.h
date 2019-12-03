@@ -13,7 +13,6 @@ public:
 
 private:
     QString path;
-    int value = 0;
     int size = 30;
     int x = 30, y = 30;
 };

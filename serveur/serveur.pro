@@ -139,7 +139,6 @@ HEADERS += \
     Karim/Voyant_batterie.h \
     Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
-    Loto/buttons.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
     Loto/loto_dashboard.h \
@@ -154,7 +153,6 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    #florian.qrc \
     Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
