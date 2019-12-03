@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
+
     dashboard=new henri_scene();
     this->resize(dashboard->width()+31,dashboard->height()+63);
 

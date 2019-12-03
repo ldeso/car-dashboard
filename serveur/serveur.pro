@@ -143,6 +143,7 @@ HEADERS += \
     Karim/cadrantourparmin.h \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
+    Karim/karim_scene.h \
     Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
@@ -151,12 +152,6 @@ HEADERS += \
     Loto/tachometre.h \
     Loto/tempgauge.h \
     Loto/loto_scene.h \
-    Karim/cadranEss.h \
-    Karim/cadrantourparmin.h \
-    Karim/CadranVitesse.h \
-    Karim/clignot.h \
-    Karim/karim_scene.h \
-    Karim/voyants.h
     Florian/floriancompteurkm.h
 
 FORMS += \
