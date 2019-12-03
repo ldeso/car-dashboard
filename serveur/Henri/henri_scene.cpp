@@ -7,6 +7,7 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     addItem(fond);
 
     Vitesse=new cadrantHenri();
+    Vitesse->resetTransform();
     addItem(Vitesse);
 
     Essence=new jaugeEssenceHenri();
@@ -42,5 +43,5 @@ void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
 
 QRectF henri_scene::boundingRect() const
 {
-    return QRect(-700,-380,1400,780);
+    return QRect(-700,-350,1400,700);
 }

@@ -2,12 +2,12 @@
 
 feuxHenri::feuxHenri(objet_virtuel *parent):objet_virtuel (parent)
 {
-    value=1;
+    value=0;
 }
 
 QRectF feuxHenri::boundingRect() const
 {
-    return QRect(-700,-380,1400,780);
+    return QRect(-500,-300,1000,600);
 }
 
 void feuxHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)

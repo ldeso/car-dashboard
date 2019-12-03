@@ -18,14 +18,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
     dashboard=new henri_scene();
+    this->resize(dashboard->width()+31,dashboard->height()+63);
 
-    QTimer *kmTimer=new QTimer;
-    connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-    kmTimer->setInterval(1000);
-    kmTimer->start();
+//    QTimer *kmTimer=new QTimer;
+//    connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
+//    kmTimer->setInterval(1000);
+//    kmTimer->start();
 
     ui->graphicsView->setScene(dashboard);
-
 }
 
 ///
@@ -197,7 +197,7 @@ void MainWindow::reception()
             if (prenom=="FLORIAN"){
                 delete dashboard;
                 dashboard = new SceneFlorian;
-                ui->graphicsView->setScene(dashboard);               
+                ui->graphicsView->setScene(dashboard);
             }
             if (prenom=="KARIM"){
                 delete dashboard;
@@ -210,6 +210,7 @@ void MainWindow::reception()
               dashboard = new loto_scene;
               ui->graphicsView->setScene(dashboard);
             }
+            this->resize(dashboard->width()+31,dashboard->height()+63);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";

@@ -14,7 +14,7 @@ cadrantHenri::cadrantHenri(objet_virtuel *parent):objet_virtuel (parent)
 
 QRectF cadrantHenri::boundingRect() const
 {
-    return QRect(-700,-380,1400,780);
+    return QRect(-500,-300,1000,600);
 }
 
 void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
