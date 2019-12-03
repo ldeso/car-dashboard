@@ -26,7 +26,7 @@ void lea_SceneDeFond::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     painter->setBrush(brush);
     painter->setPen(pen);
 
-    painter->drawEllipse(-100,0,700,450);
+    painter->drawEllipse(-100,0,1000,600);
 
 }
 

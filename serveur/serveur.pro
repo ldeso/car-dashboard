@@ -195,7 +195,8 @@ RESOURCES += \
     Karim/icone.qrc \
     Karim/newfont.qrc \
     Loto/myicons/icons.qrc \
-    Inna/InnaRSC/inna.qrc
+    Inna/InnaRSC/inna.qrc \
+    Lea/Lea.qrc
     Florian/florian.qrc
     #Lea/fuel.qrc
 
@@ -206,7 +207,6 @@ DISTFILES += \
     Henri/liserMoi \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/ABS_ON.gif \
     Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
     Lea/Icones_Voyants/adaptiveHeadlight.gif \
     Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
@@ -275,7 +275,6 @@ DISTFILES += \
     Lea/Seatbelt.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/ABS_ON.gif \
     Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
     Lea/Icones_Voyants/adaptiveHeadlight.gif \
     Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
@@ -324,7 +323,6 @@ DISTFILES += \
     Lea/Icones_Voyants/tyrePressure_red.gif \
     Lea/Icones_Voyants/tyrePressure_yellow.gif \
     Lea/Icones_Voyants/black-leather-texture-background.jpg \
-    Lea/Icones_Voyants/ABS.png \
     Lea/Icones_Voyants/bonnetOpen.png \
     Lea/Icones_Voyants/brake.png \
     Lea/Icones_Voyants/ClignottantDroit.png \
@@ -345,7 +343,6 @@ DISTFILES += \
     Lea/PorteOuvertePassagerG.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/ABS_ON.gif \
     Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
     Lea/Icones_Voyants/adaptiveHeadlight.gif \
     Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
@@ -394,7 +391,6 @@ DISTFILES += \
     Lea/Icones_Voyants/tyrePressure_red.gif \
     Lea/Icones_Voyants/tyrePressure_yellow.gif \
     Lea/Icones_Voyants/black-leather-texture-background.jpg \
-    Lea/Icones_Voyants/ABS.png \
     Lea/Icones_Voyants/bonnetOpen.png \
     Lea/Icones_Voyants/brake.png \
     Lea/Icones_Voyants/ClignottantDroit.png \
