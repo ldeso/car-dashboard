@@ -127,12 +127,13 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
     painter->setPen(QPen(brush,40));
 
     painter->setFont(QFont("URW Gothic L",80));
+    int v=static_cast<int>(getValue());
     if(getValue()<10)
-    painter->drawText(-30,-100,QString("%1").arg(getValue()));
+    painter->drawText(-30,-100,QString("%1").arg(v));
     if( (getValue()>=10) & (getValue()<100) )
-    painter->drawText(-60,-100,QString("%1").arg(getValue()));
+    painter->drawText(-60,-100,QString("%1").arg(v));
     if(getValue()>=100)
-    painter->drawText(-90,-100,QString("%1").arg(getValue()));
+    painter->drawText(-90,-100,QString("%1").arg(v));
 
 //.....fin affichage vitesse en nombre
 
