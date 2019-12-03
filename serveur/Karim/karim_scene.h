@@ -13,13 +13,6 @@ class karim_scene : public scene_globale
 {
 public:
     karim_scene();
-
-    //CadranTourParMin *CompteTours;
-    CadranEss *Essence;
-    CadranEss *Temperature;
-
-    clignot * Clignotant;
-    Voyants *VoyantBatterie;
 };
 
 #endif // KARIM_SCENE_H

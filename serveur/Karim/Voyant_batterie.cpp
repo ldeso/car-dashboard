@@ -1,8 +1,7 @@
-#include "Karim/Voyant_batterie.h"
+//#include "Karim/Voyant_batterie.h"
 
-Voyant_batterie::Voyant_batterie()
+/*Voyant_batterie::Voyant_batterie()
 {
-    valeur=0;
 
 }
 
@@ -16,7 +15,7 @@ QRectF Voyant_batterie::boundingRect() const
 void Voyant_batterie::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
 
-   QPixmap p3(":/Icones/batterie.jpg");
+   /*QPixmap p3(":/Icones/batterie.jpg");
    QPixmap p4(":/Icones/essence.jpg");
    QPixmap p5(":/Icones/tempmoteur.jpg");
 //    QPixmap p6(":/Icones/ceinture.jpg");
@@ -44,3 +43,5 @@ void Voyant_batterie::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,
     }
 }
 
+}
+*/
