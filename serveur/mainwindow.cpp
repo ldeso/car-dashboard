@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-    kmTimer->setInterval(1000);
+    kmTimer->setInterval(20);
     kmTimer->start();
 
 
@@ -158,7 +158,7 @@ void MainWindow::reception()
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 2){
             dashboard->Clignotant->setValue(cligno);
-            // ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }

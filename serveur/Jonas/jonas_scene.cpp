@@ -1,6 +1,7 @@
 #include "jonas_scene.h"
 #include "jonas_compteur.h"
 #include "jonas_voyant_simple.h"
+#include "jonas_voyant_clignotant.h"
 #include <QDebug>
 
 Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
@@ -12,7 +13,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
         listRpm << QString::number(i);
     }
     this->setBackgroundBrush(Qt::black);
-    this->setSceneRect(-800,-600,1600,1200);
+    //this->setSceneRect(-800,-600,1600,1200);
     listFuel << "E" << "F";
     listTemp << "C" << "H";
     Vitesse = new Jonas_compteur;
@@ -34,7 +35,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     route->setPos(-55, 75);
     position = new jonas_voyant_simple(":/icons/position-lamp.jpg", 25, 25, 25);
     position->setPos(-90, 75);
-    qDebug() << "batterie: " << VoyantBatterie->getValue();
+    Clignotant = new jonas_voyant_clignotant();
     this->addItem(VoyantBatterie);
     this->addItem(croisement);
     this->addItem(route);
@@ -43,9 +44,9 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     this->addItem(Vitesse);
     this->addItem(CompteTours);
     this->addItem(Essence);
+    this->addItem(Clignotant);
 
     // objets pas encore implémentées (= null)
-    Clignotant = nullptr;
     warning = nullptr;
     CompteurKm = nullptr;
 }

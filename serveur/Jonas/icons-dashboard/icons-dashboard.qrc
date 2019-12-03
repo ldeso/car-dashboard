@@ -10,5 +10,7 @@
         <file>icon-warning.jpg</file>
         <file>main-beam.jpg</file>
         <file>position-lamp.jpg</file>
+        <file>icon-turn-left.jpg</file>
+        <file>icon-turn-right.jpg</file>
     </qresource>
 </RCC>

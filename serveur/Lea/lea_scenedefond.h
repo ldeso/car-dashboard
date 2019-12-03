@@ -1,14 +1,14 @@
 #ifndef LEA_SCENEDEFOND_H
 #define LEA_SCENEDEFOND_H
 #include <QGraphicsItem>
-#include <QRectF>
+#include "scene_globale.h"
 
-class lea_sceneDeFond : public QGraphicsItem
+class lea_SceneDeFond: public QGraphicsItem
 {
 public:
-    lea_sceneDeFond(QGraphicsItem *parent = nullptr);
-    QRectF boundingRect() const;
+    lea_SceneDeFond(QGraphicsItem *parent=nullptr);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    QRectF boundingRect() const;
 };
 
 #endif // LEA_SCENEDEFOND_H
