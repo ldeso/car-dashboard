@@ -80,7 +80,7 @@ int main()
             puts("CANN RPM x avec x compris entre 0 et 15000");
             puts("CANN SPEED x avec x compris entre 0 et 400");
             puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
-            puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite");
+            puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
             puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
             puts("CANN ASD x avec x = 0 eteint et 1 allumé");
             puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
