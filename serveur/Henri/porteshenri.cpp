@@ -8,7 +8,6 @@ portesHenri::portesHenri(objet_virtuel *parent):objet_virtuel (parent)
     PG=new onoff();
     PD=new onoff();
     C=new onoff();
-    PD->setValue(1);
 }
 
 QRectF portesHenri::boundingRect() const
