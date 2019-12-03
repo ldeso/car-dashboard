@@ -104,6 +104,8 @@ int main()
 
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;
+        } else if (strncmp(sent, "\033A", len) == 0) {
+            puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
         } else {
             if (validate_message(sent) == -1) {
                 puts("Commande invalide.");
