@@ -207,8 +207,6 @@ DISTFILES += \
     Henri/liserMoi \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
-    Lea/Icones_Voyants/adaptiveHeadlight.gif \
     Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
     Lea/Icones_Voyants/airBag.gif \
     Lea/Icones_Voyants/backLeftDoorOpen.gif \
@@ -275,8 +273,6 @@ DISTFILES += \
     Lea/Seatbelt.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
-    Lea/Icones_Voyants/adaptiveHeadlight.gif \
     Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
     Lea/Icones_Voyants/airBag.gif \
     Lea/Icones_Voyants/backLeftDoorOpen.gif \
@@ -343,8 +339,6 @@ DISTFILES += \
     Lea/PorteOuvertePassagerG.png \
     Lea/Icones_Voyants/Oil_white.pix \
     Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
-    Lea/Icones_Voyants/adaptiveHeadlight.gif \
     Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
     Lea/Icones_Voyants/airBag.gif \
     Lea/Icones_Voyants/backLeftDoorOpen.gif \
