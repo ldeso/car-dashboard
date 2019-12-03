@@ -35,6 +35,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     addItem(route);
 
     portesHenri* portes=new portesHenri();
+    addItem(portes);
+    portes->moveBy(400,-100);
     OpenDoorDriver=portes->DG;
     OpenDoorFrontPassenger=portes->DD;
     OpenDoorBackLeftPassenger=portes->PG;
