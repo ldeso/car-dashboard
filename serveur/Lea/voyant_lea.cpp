@@ -28,7 +28,7 @@ QRectF voyant_Lea::boundingRect() const
     return rectf;
 }
 
-void voyant_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void voyant_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (getValue()==1)
   {   QPixmap voyant (chemin);

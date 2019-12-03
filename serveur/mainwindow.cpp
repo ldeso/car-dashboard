@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-    dashboard=new hugo_scene();
+    dashboard=new karim_scene();
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
@@ -166,7 +166,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -531,6 +531,24 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="CANN CRUISE_CONTROL_ON")
+    {
+        int CruiseControlOn_on= string.section(' ', 2,2).toInt();
+        if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
+            dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+
+
     else
         qDebug() << "erreur lors de la reception du message";
 
@@ -540,9 +558,11 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
+
     if (dashboard->CompteurKm) //
         // dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
+
 }
 
 

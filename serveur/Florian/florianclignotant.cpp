@@ -21,16 +21,16 @@ void FlorianClignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem 
         clignoter();
         //temp = value;
         if(this->temp==1){
-            painter->drawPixmap(180, -20,30,30,QPixmap(":/new/prefix1/Florian/voyant/clignotantDroite.jpg"));
+            painter->drawPixmap(180, -20,30,30,QPixmap("::/new/prefix1/voyant/clignotantDroite.jpg"));
 
         }
         else if(this->temp == -1){
-            painter->drawPixmap(-300, -20,30, 30,QPixmap(":/new/prefix1/Florian/voyant/clignotantGauche.jpg"));
+            painter->drawPixmap(-300, -20,30, 30,QPixmap("::/new/prefix1/voyant/clignotantGauche.jpg"));
 
         }
         else if(this->temp == 2){
-            painter->drawPixmap(-300, -20,30, 30,QPixmap(":/new/prefix1/Florian/voyant/clignotantGauche.jpg"));
-            painter->drawPixmap(180, -20,30,30,QPixmap(":/new/prefix1/Florian/voyant/clignotantDroite.jpg"));
+            painter->drawPixmap(-300, -20,30, 30,QPixmap("::/new/prefix1/voyant/clignotantGauche.jpg"));
+            painter->drawPixmap(180, -20,30,30,QPixmap("::/new/prefix1/voyant/clignotantDroite.jpg"));
         }
 
     }

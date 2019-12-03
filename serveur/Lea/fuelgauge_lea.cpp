@@ -11,7 +11,6 @@
 #include <QPointF>
 
 FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width, double param_height, double param_x2, double param_y2, double param_x3, double param_y3)
-
 {
     x=param_x;
     y=param_y;
@@ -30,7 +29,7 @@ QRectF FuelGauge_lea::boundingRect() const
     return rectf;
 }
 
-void FuelGauge_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void FuelGauge_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     QPen pen;
     QBrush brush(Qt::SolidPattern);

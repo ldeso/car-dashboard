@@ -27,11 +27,8 @@ QRect carre[13];
     }
 
    //Design du cercle de l'aiguille
-   QRadialGradient radialGrad(QPointF(-50, 100), 400);
-          radialGrad.setColorAt(0, Qt::black);
-          radialGrad.setColorAt(1, Qt::gray);
-    painter->setBrush(radialGrad);
-    painter->setPen(QPen(QBrush("darkGray"),4,Qt::SolidLine));
+    painter->setBrush(Qt::darkRed);
+    painter->setPen(QPen(QBrush("darkRed"),7,Qt::SolidLine));
     painter->setRenderHints(QPainter::Antialiasing);
     painter->drawEllipse(-20,-20,40,40);
 

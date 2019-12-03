@@ -28,7 +28,7 @@ QRectF speedometer_Lea::boundingRect() const
     return rectf;
 }
 
-void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     int v;
     if (value>=0 && value <=vitesse_max) {v=value;}
@@ -134,13 +134,6 @@ QFont font2("Times",20);
 painter->setFont(font2);
 painter->drawText(x+10,y+115,"km/h");
 
-
-
-
-
-
-
-
 }
 
 
@@ -156,7 +149,6 @@ void speedometer_Lea::parametrage(double param_x, double param_y, double param_r
 
     span_angle=param_spanAngle;
     vitesse_max=param_vitMax;
-
 
 }
 

@@ -28,7 +28,7 @@ QRectF TachometerGauge_Lea::boundingRect() const
     return rectf;
 }
 
-void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
     int v;

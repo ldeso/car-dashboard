@@ -34,6 +34,7 @@ public:
     objet_virtuel *AirbagOn;
     objet_virtuel *BonnetOpen;
     objet_virtuel *BootOpen;
+    objet_virtuel *CruiseControlOn;
 
 };
 
