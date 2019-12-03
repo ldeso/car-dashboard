@@ -18,7 +18,6 @@ hugo_scene::hugo_scene(scene_globale *parent):scene_globale(parent)
     hugo_MyGraphicsitem *background=new hugo_MyGraphicsitem();
     this->addItem(background);
 
-
     //Voyant feux de position
     position=new hugo_voyants_simples(15,-50,":/Images/voyant_feux_position.jpg",0,150,0);
     this->addItem(position);

@@ -51,12 +51,13 @@ int validate_message(const char* message)
         "OPEN_DOOR_FRONT_PASSENGER",
         "OPEN_DOOR_BACK_L_PASSENGER",
         "OPEN_DOOR_BACK_R_PASSENGER",
-        "CRUISE_CONTROL",
+        "ADAPT_CRUISE_CONTROL",
         "AIRBAG_ON",
         "BONNET_OPEN",
         "BOOT_OPEN",
-        "CRUISE_CONTROL_ON"
-
+        "CRUISE_CONTROL_ON",
+        "ENGINE_T",
+        "OIL_T"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;

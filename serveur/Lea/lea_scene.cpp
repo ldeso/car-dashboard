@@ -6,6 +6,9 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     this->setBackgroundBrush(QBrush(Qt::black));
     QFontDatabase::addApplicationFont(":/Lea/Seven Segment.ttf");
 
+    fond = new lea_SceneDeFond;
+    this->addItem(fond);
+
     Vitesse = new speedometer_Lea(400.0,200.0,160.0,225,-270,270,220);
     Vitesse->setValue(0);
     this->addItem(Vitesse);
@@ -39,7 +42,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     Clignotant = new lea_clignottants;
     this->addItem(Clignotant);
 
-    voyant_Lea *handbrakeOn = new voyant_Lea(320,430,":/Lea/Icones_Voyants/hand_brake.png",50,50);
+    voyant_Lea *handbrakeOn = new voyant_Lea(320,430,":/Lea/Icones_Voyants/brake_warning.gif",50,50);
     this->addItem(handbrakeOn);
 
     VoyantBatterie = new voyant_Lea(260,430,":/Lea/Icones_Voyants/battery.gif",50,50);
@@ -60,18 +63,14 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     route =new voyant_Lea(460,430,":/Lea/Icones_Voyants/highBeam.gif",50,50);
     this->addItem(route);
 
-    CruiseControlOn = new voyant_Lea (400,300,":/Lea/Icones_Voyants/Cruise_Control.gif",30,30);
+    CruiseControlOn = new voyant_Lea (400,245,":/Lea/Icones_Voyants/Cruise_Control.gif",30,30);
     this->addItem(CruiseControlOn);
 
-    objet_virtuel *phares_brouillard_avant = new voyant_Lea(520,430,":/Lea/Icones_Voyants/frontFogLight.gif",50,50);
-    this->addItem(phares_brouillard_avant);
+    FrontAntifog = new voyant_Lea (520,430,":/Lea/Icones_Voyants/frontFogLight.gif",50,50);
+    this->addItem(FrontAntifog);
 
-    objet_virtuel *phares_brouillard_arriere = new voyant_Lea(570,430,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
-    this->addItem(phares_brouillard_arriere);
-
-
-
-
+    RearAntifog = new voyant_Lea (570,430,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
+    this->addItem(RearAntifog);
 
 
 
