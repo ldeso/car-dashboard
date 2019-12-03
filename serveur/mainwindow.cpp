@@ -472,11 +472,11 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN CRUISE_CONTROL")
+    else if(message=="CANN ADAPT_CRUISE_CONTROL")
     {
-        int cruiseControl_on= string.section(' ', 2,2).toInt();
-        if(cruiseControl_on==0 || cruiseControl_on==1){
-            dashboard->AdaptiveCruiseControl->setValue(cruiseControl_on);
+        int ad_cruiseControl_on= string.section(' ', 2,2).toInt();
+        if(ad_cruiseControl_on==0 || ad_cruiseControl_on==1){
+            dashboard->AdaptiveCruiseControl->setValue(ad_cruiseControl_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
