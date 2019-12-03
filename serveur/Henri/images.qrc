@@ -4,5 +4,6 @@
         <file>iconeSurchaufe.png</file>
         <file>iconeBatterie.png</file>
         <file>testGIMP.png</file>
+        <file>iconeRoute.png</file>
     </qresource>
 </RCC>

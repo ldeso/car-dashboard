@@ -109,6 +109,20 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
    painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
    painter->drawArc((x-r-15),(y-r-15),(r*2)+35,(r*2)+35,angle_debut*16, -span_angle*16);
 
+
+
+   // ******************** Dessine l'affichage de RPM
+
+   QFont font2("Impact",10);
+   pen.setColor(Qt::white);
+   painter->setPen(pen);
+   painter->setFont(font2);
+   painter->drawText(x-50,y+75,"RPM x 1000");
+
+
+
+
+
 }
 
 int TachometerGauge_Lea::getValueMax()
