@@ -1,8 +1,7 @@
 #ifndef LOTO_SCENE_H
 #define LOTO_SCENE_H
-<<<<<<< HEAD
+
 #include "scene_globale.h"
-=======
 #include <QGraphicsScene>"
 #include "scene_globale.h"
 #include "QGraphicsItem"
@@ -13,7 +12,6 @@
 #include "leds.h"
 #include "objet_virtuel.h"
 #include "QString"
->>>>>>> 6d44921b910126db78089ce8ed0f936314e21533
 
 class loto_scene : public scene_globale
 {
