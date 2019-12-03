@@ -87,12 +87,6 @@ SOURCES += \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
     Loto/loto_scene.cpp \
-    Karim/cadranEss.cpp \
-    Karim/cadrantourparmin.cpp \
-    Karim/CadranVitesse.cpp \
-    Karim/clignot.cpp \
-    Karim/karim_scene.cpp \
-    Karim/voyants.cpp
 
 
 

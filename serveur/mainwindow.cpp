@@ -19,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
 
 
-    dashboard=new henri_scene();
-    this->resize(dashboard->width()+31,dashboard->height()+63);
+    dashboard=new Lea_scene();
+    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille dans les constucters
 
 
 //    QTimer *kmTimer=new QTimer;
