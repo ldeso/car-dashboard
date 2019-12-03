@@ -98,6 +98,7 @@ int main()
             puts("CANN AIRBAG_ON x = 0 eteint et 1 allumé" );
             puts("CANN CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
+	    puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
 
 
         } else if (strncmp(sent, "END", len) == 0) {
