@@ -1,5 +1,7 @@
 # client
 
+Client en ligne de commande pour le projet car-dashboard.
+
 ## Compilation
 
 Se placer dans le dossier `client` et exécuter :
