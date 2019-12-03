@@ -142,7 +142,8 @@ RESOURCES += \
     #florian.qrc \
     Lea/Lea.qrc \
     Karim/icone.qrc \
-    Karim/newfont.qrc
+    Karim/newfont.qrc \
+    florian.qrc
     #Lea/fuel.qrc
     #Jonas/icones/jonas-icons.qrc \
 
