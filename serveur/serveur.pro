@@ -62,6 +62,7 @@ SOURCES += \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
+    Henri/feuxhenri.cpp \
     Jonas/jonas_voyant_simple.cpp \
     Lea/deux_voyants_lea.cpp \
     Lea/fuelgauge_lea.cpp \
@@ -78,7 +79,6 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
-    Karim/Voyant_batterie.cpp \
     Karim/voyants.cpp \
     Hugo/hugo_boite_vitesse.cpp \
     Loto/fuel_guage.cpp \
@@ -86,7 +86,7 @@ SOURCES += \
     Loto/loto_dashboard.cpp \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
-    Loto/loto_scene.cpp
+    Loto/loto_scene.cpp \
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -120,6 +120,7 @@ HEADERS += \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
+    Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
     Lea/deux_voyants_lea.h \
     Lea/fuelgauge_lea.h \
@@ -135,7 +136,6 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
-    Karim/Voyant_batterie.h \
     Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
