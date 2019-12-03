@@ -17,5 +17,6 @@
         <file>voyant/route.jpg</file>
         <file>voyant/voyants-tableau-de-bord.jpg</file>
         <file>voyant/warning.jpg</file>
+        <file>voyant/temperature.png</file>
     </qresource>
 </RCC>

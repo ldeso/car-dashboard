@@ -18,6 +18,8 @@ public:
     /*Voyant * position;
     Voyant * croisement;
     Voyant * route;*/
+    FlorianVoyant * tempHuile;
+    FlorianVoyant * essenceIcon;
     FlorianVoyant * brouillardAvant;
     FlorianVoyant* brouillardArriere;
     FlorianVoyant* noEssence;
