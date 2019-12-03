@@ -60,18 +60,14 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     route =new voyant_Lea(460,430,":/Lea/Icones_Voyants/highBeam.gif",50,50);
     this->addItem(route);
 
-    CruiseControlOn = new voyant_Lea (400,300,":/Lea/Icones_Voyants/Cruise_Control.gif",30,30);
+    CruiseControlOn = new voyant_Lea (400,245,":/Lea/Icones_Voyants/Cruise_Control.gif",30,30);
     this->addItem(CruiseControlOn);
 
-    objet_virtuel *phares_brouillard_avant = new voyant_Lea(520,430,":/Lea/Icones_Voyants/frontFogLight.gif",50,50);
-    this->addItem(phares_brouillard_avant);
+    FrontAntifog = new voyant_Lea (520,430,":/Lea/Icones_Voyants/frontFogLight.gif",50,50);
+    this->addItem(FrontAntifog);
 
-    objet_virtuel *phares_brouillard_arriere = new voyant_Lea(570,430,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
-    this->addItem(phares_brouillard_arriere);
-
-
-
-
+    RearAntifog = new voyant_Lea (570,430,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
+    this->addItem(RearAntifog);
 
 
 

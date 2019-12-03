@@ -107,10 +107,12 @@ int main()
             if (validate_message(sent) == -1) {
                 puts("Commande invalide.");
             } else {
-                if ((send_message(sockfd, sent, len)) == -1)
+                int taille = 0;
+                if ((taille = send_message(sockfd, sent, len)) == -1)
                     die("Erreur lors de l'envoi du message.");
-                if ((receive_message(sockfd, received, len)) == -1)
+                if ((taille = receive_message(sockfd, received, len)) == -1)
                     die("Erreur lors de la réception du message.");
+                received[taille] = '\0';
                 puts(received);
             }
         }

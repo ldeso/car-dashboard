@@ -13,7 +13,7 @@ QRectF FlorianVoyant::boundingRect() const
     return rect;
 }
 
-void FlorianVoyant::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void FlorianVoyant::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     if(this->value==1){
 
