@@ -34,6 +34,16 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     route=new feuxHenri();
     addItem(route);
 
+    portesHenri* portes=new portesHenri();
+    addItem(portes);
+    portes->moveBy(400,-100);
+    OpenDoorDriver=portes->DG;
+    OpenDoorFrontPassenger=portes->DD;
+    OpenDoorBackLeftPassenger=portes->PG;
+    OpenDoorBackRightPassenger=portes->PD;
+    BootOpen=portes->C;
+
+    this->setBackgroundBrush(QBrush(QColor("black")));
 }
 
 void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)

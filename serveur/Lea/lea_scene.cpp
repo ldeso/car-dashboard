@@ -3,7 +3,7 @@
 
 Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 {
-    this->setBackgroundBrush(QBrush(Qt::black));
+    this->setBackgroundBrush(QBrush("#733701"));
     QFontDatabase::addApplicationFont(":/Lea/Seven Segment.ttf");
 
     fond = new lea_SceneDeFond;

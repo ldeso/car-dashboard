@@ -6,6 +6,8 @@ class phares_Lea : public QGraphicsItem
 {
 public:
     phares_Lea();
+    QRectF boundingRect() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* );
 };
 
 #endif // PHARES_LEA_H

@@ -24,5 +24,5 @@ void sceneDeFondHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*,
 
 QRectF sceneDeFondHenri::boundingRect() const
 {
-    return QRect(-500,-300,1000,600);
+    return QRect(-660,-360,1320,720);
 }
