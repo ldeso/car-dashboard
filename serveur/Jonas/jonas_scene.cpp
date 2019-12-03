@@ -27,7 +27,6 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     jaugeTemperature->setValue(0);
     jaugeTemperature->setPos(160, 65);
     VoyantBatterie = new jonas_voyant_simple(":/icons/icon-battery.jpg", 25, 25, 25);
-    qDebug() << VoyantBatterie->getValue();
     VoyantBatterie->setPos(15,75);
     croisement = new jonas_voyant_simple(":/icons/dipped-beam.jpg", 25, 25, 25);
     croisement->setPos(-20, 75);
@@ -35,6 +34,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     route->setPos(-55, 75);
     position = new jonas_voyant_simple(":/icons/position-lamp.jpg", 25, 25, 25);
     position->setPos(-90, 75);
+    qDebug() << "batterie: " << VoyantBatterie->getValue();
     this->addItem(VoyantBatterie);
     this->addItem(croisement);
     this->addItem(route);
