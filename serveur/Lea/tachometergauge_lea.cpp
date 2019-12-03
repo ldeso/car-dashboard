@@ -23,7 +23,7 @@ TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double p
 
 QRectF TachometerGauge_Lea::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(-100,0,800,500);
 
     return rectf;
 }
@@ -37,7 +37,7 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
     else {v=valueMax;}
     QPen pen;
     QBrush brush(Qt::SolidPattern);
-    QRectF rect_tours_min (x-r,y-r,r*2,r*2);
+  //  QRectF rect_tours_min (x-r,y-r,r*2,r*2);
     pen.setColor(Qt::black);
     painter->setPen(pen);
        painter->setRenderHint(QPainter::Antialiasing);
