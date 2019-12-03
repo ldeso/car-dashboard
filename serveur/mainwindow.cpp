@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-    kmTimer->setInterval(1000);
+    kmTimer->setInterval(20);
     kmTimer->start();
 
 
@@ -158,7 +158,7 @@ void MainWindow::reception()
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 2){
             dashboard->Clignotant->setValue(cligno);
-            // ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -556,6 +556,36 @@ void MainWindow::reception()
             QString text;
             text = QString("valeur incorrecte, doit être égale à 0 ou 1");
             socket->write(text.toLocal8Bit());
+        }
+    }
+	else if(message=="CANN ENGINE_T"){
+        int engineT = string.section(' ', 2,2).toInt();
+
+        if(engineT <= dashboard->jaugeTemperature->getValueMax())
+        { dashboard->jaugeTemperature->setValue(engineT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->jaugeTemperature->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+	else if(message=="CANN OIL_T"){
+        int oilT = string.section(' ', 2,2).toInt();
+
+        if(oilT <= dashboard->OilTemp->getValueMax())
+        { dashboard->OilTemp->setValue(oilT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->OilTemp->getValueMax());
+            socket->write(text.toUtf8());
         }
     }
 

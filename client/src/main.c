@@ -99,10 +99,14 @@ int main()
             puts("CANN CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
+	    puts("CANN ENGINE_T x avec x = temperature du moteur" );
+	    puts("CANN OIL_T x avec x = temperature de l'huile" );
 
 
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;
+        } else if (strncmp(sent, "\033A", len) == 0) {
+            puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
         } else {
             if (validate_message(sent) == -1) {
                 puts("Commande invalide.");
