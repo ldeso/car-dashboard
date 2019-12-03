@@ -88,8 +88,6 @@ SOURCES += \
     Loto/tempgauge.cpp \
     Loto/loto_scene.cpp \
 
-
-
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
     Henri/cadranthenri.h \

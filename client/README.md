@@ -17,7 +17,7 @@ Se placer dans le dossier `client` et exécuter :
 
 ## Bibliothèque
 
-### Installation de la bibliothèque
+### Installation de la bibliothèque clientio
 
 Se placer dans le dossier `client` et exécuter :
 
@@ -29,7 +29,7 @@ Le client peut alors se lancer avec la simple commande :
 
 Attention, penser à réinstaller la bibliothèque en cas de mise à jour.
 
-### Désinstallation de la bibliothèque
+### Désinstallation de la bibliothèque clientio
 
 Se placer dans le dossier `client` et exécuter :
 
