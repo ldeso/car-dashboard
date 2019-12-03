@@ -137,7 +137,6 @@ HEADERS += \
     Karim/karim_scene.h \
     Karim/Voyant_batterie.h \
     Karim/voyants.h \
-    Loto/buttons.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
     Loto/loto_dashboard.h \
