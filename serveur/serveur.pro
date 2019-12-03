@@ -160,7 +160,8 @@ RESOURCES += \
     #florian.qrc \
     Karim/icone.qrc \
     Karim/newfont.qrc \
-    Loto/myicons/icons.qrc
+    Loto/myicons/icons.qrc \
+    Florian/florian.qrc
     #Lea/fuel.qrc
 
 DISTFILES += \
