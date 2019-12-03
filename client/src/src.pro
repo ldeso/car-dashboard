@@ -9,3 +9,5 @@ LIBS += -L$$OUT_PWD/../clientio/ -lclientio
 
 INCLUDEPATH += $$PWD/../clientio
 DEPENDPATH += $$PWD/../clientio
+
+TARGET = ../client
