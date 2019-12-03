@@ -189,16 +189,14 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    #Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
     Karim/icone.qrc \
     Karim/newfont.qrc \
     Loto/myicons/icons.qrc \
     Inna/InnaRSC/inna.qrc \
-    Lea/Lea.qrc
+    Lea/Lea.qrc \
     Florian/florian.qrc
-    #Lea/fuel.qrc
 
 
 DISTFILES += \
