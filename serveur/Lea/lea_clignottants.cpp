@@ -52,7 +52,7 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
             painter->drawPixmap(180,50,70,50,image4);
         }
          MAJ();
-        update();
+//        update();
     }
 }
 

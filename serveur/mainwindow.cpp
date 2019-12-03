@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
 
 
-    dashboard=new hugo_scene();
+    dashboard=new henri_scene();
     this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
                                                                //la taille de la scene est le plus grand des ::boundingRect() des objets
     this->move(0,0);
@@ -561,7 +561,7 @@ void MainWindow::reception()
 	else if(message=="CANN ENGINE_T"){
         int engineT = string.section(' ', 2,2).toInt();
 
-        if(engineT >=1 && engineT <= 4)
+        if(engineT <= dashboard->jaugeTemperature->getValueMax())
         { dashboard->jaugeTemperature->setValue(engineT);
             ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -569,7 +569,22 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("valeur incorrect, valeur entre 1 et 4").arg(dashboard->Essence->getValueMax());
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->jaugeTemperature->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+	else if(message=="CANN OIL_T"){
+        int oilT = string.section(' ', 2,2).toInt();
+
+        if(oilT <= dashboard->OilTemp->getValueMax())
+        { dashboard->OilTemp->setValue(oilT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->OilTemp->getValueMax());
             socket->write(text.toUtf8());
         }
     }

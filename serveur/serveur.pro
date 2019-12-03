@@ -106,7 +106,9 @@ SOURCES += \
     Inna/fuelengineinna.cpp \
     Inna/prnd_inna.cpp \
     Jonas/jonas_voyant_warning.cpp \
-    Jonas/jonas_compteurkm.cpp
+    Jonas/jonas_compteurkm.cpp \
+    Henri/porteshenri.cpp \
+    Henri/onoff.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -182,10 +184,11 @@ HEADERS += \
     Inna/arrowoiltinna.h \
     Inna/fuelengineinna.h \
     Inna/prnd_inna.h \
+    Henri/porteshenri.h \
+    Henri/onoff.h \
     Florian/floriancompteurkm.h \
     Jonas/jonas_voyant_warning.h \
     Jonas/jonas_compteurkm.h
-
 
 FORMS += \
         mainwindow.ui \
@@ -288,4 +291,4 @@ DISTFILES += \
     Loto/myicons/hand_brake.png \
     Loto/myicons/Oil_red.png \
     Loto/myicons/Oil_white.png \
-    Loto/myicons/seatBelt.png \
+    Loto/myicons/seatBelt.png

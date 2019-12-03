@@ -1,42 +1,40 @@
-#include "Inna/arrowoillinna.h"
+#include "Inna/arrowoill.h"
 #include "objet_virtuel.h"
 #include <QFont>
 #include <QtMath>
 #include <QPainter>
 
-ArrowOilLInna::ArrowOilLInna(objet_virtuel *parent) :  objet_virtuel(parent)
+ArrowOilL::ArrowOilL(objet_virtuel *parent) :  objet_virtuel(parent)
 {
-    value =0.0;
+    value =0;
     lmax = 5;
-    valueMax = lmax;
     A0 = 180 ;
     Amax = 110 ;
-    r = 100 ;
+    r = 100.0 ;
     dx = 10;
     dy = 9;
 
 }
 
-ArrowOilLInna::ArrowOilLInna(int LMAX, int ALPHA0, int ALPHAMAX)
+ArrowOilL::ArrowOilL(int LMAX, int ALPHA0, int ALPHAMAX)
 {
-    value=0.0;
+    value=0;
     lmax= LMAX;
-    valueMax = lmax;
     A0 = ALPHA0 ;
     Amax = ALPHAMAX ;
-    r = 100 ;
+    r = 100.0 ;
     dx = 10;
     dy = 9;
 
 }
 
-QRectF ArrowOilLInna::boundingRect() const
+QRectF ArrowOilL::boundingRect() const
 {
     QRectF rectf(0.0 , 0.0 , 1400.0 , 600.0);
     return rectf;
 }
 
-void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
+void ArrowOilL::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 { painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
      
     double  xol = xc +30.0*cos((A0+40+Amax/2)*rad) ;
@@ -49,13 +47,12 @@ void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
       
       painter->setPen(QPen(Qt::transparent));
       painter->setBrush(QBrush(radialGradol));
-      painter->drawEllipse(qRound(xol-15),qRound(yol-15),30,30);
+      painter->drawEllipse(xol-15,yol-15,30,30);
 
    //          *** draw fleche oil level ***
-    l=static_cast<double>(value);
-
-    k = (Amax+20) * 1.0/valueMax;
-   if (l < 0 || l > valueMax) l = (l < 0 ? 0 : valueMax);
+     l=value;
+    k = (Amax+20) * 1.0f/lmax;
+   if (l < 0 || l > lmax) l = (l < 0 ? 0 : lmax);
  QLinearGradient linearGradol  (QPointF(xol-(5*cos((A0+30+k*l-90)*rad)),yol+(5*sin((A0+30+k*l-90)*rad))), QPointF(xol+(7*cos((A0+30+k*l-90)*rad)),yol-(7*sin((A0+30+k*l-90)*rad))));
           linearGradol.setColorAt(0, "#F93737");
           linearGradol.setColorAt(0.5, "#ff4d4d");
