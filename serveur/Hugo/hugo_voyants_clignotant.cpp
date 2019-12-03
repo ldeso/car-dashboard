@@ -17,7 +17,7 @@ hugo_voyants_clignotant::hugo_voyants_clignotant()
 
 QRectF hugo_voyants_clignotant::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    return QRect(-200,-200,400,400);
 }
 
 ///

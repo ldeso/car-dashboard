@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     dashboard=new hugo_scene();
-    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille dans les constucters
-
+    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
     ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
