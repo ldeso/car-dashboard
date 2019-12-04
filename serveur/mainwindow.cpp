@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
 
 
-
     dashboard=new henri_scene();
     this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
                                                                //la taille de la scene est le plus grand des ::boundingRect() des objets
@@ -30,8 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(500);
     kmTimer->start();
-
-
 }
 
 ///
@@ -591,7 +588,6 @@ void MainWindow::reception()
     }
 
 
-
     else
         qDebug() << "erreur lors de la reception du message";
 
@@ -605,10 +601,6 @@ void MainWindow::update_km()
     if (dashboard->CompteurKm)
          dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
-
 }
-
-
-
 
 
