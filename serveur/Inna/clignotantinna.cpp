@@ -5,7 +5,7 @@
 #include <QTest>
 
 clignotantInna::clignotantInna(IconInna *parent) : IconInna (parent)
-{   mode = 0;
+{   value = 0;
     cligno = 0;
     this->setZValue(5.0);
 }
