@@ -165,6 +165,7 @@ int main(int argc, char** argv)
             puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
 	    puts("CANN ENGINE_T x avec x = temperature du moteur" );
 	    puts("CANN OIL_T x avec x = temperature de l'huile" );
+	    puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
 
 
         } else if (strncmp(sent, "END", len) == 0) {
