@@ -58,7 +58,7 @@ int validate_message(const char* message)
         "CRUISE_CONTROL_ON",
         "ENGINE_T",
         "OIL_T",
-	"CANN OIL_L"
+	"OIL_L"
     };
     size_t ncommands = sizeof(commands) / sizeof(*commands);
     int result = -1;
