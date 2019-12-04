@@ -430,22 +430,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
-    {
-        int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
-        if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
-          //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
-            ui->graphicsView->scene()->update();
-            QString text = "OK";
-            socket->write(text.toLocal8Bit());
-        }
-        else{
-            QString text;
-            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
-            socket->write(text.toLocal8Bit());
-        }
-    }
-
+    
         else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
@@ -587,7 +572,21 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-
+	else if(message=="CANN OIL_L"){
+        int oil = string.section(' ', 2,2).toInt();
+        if(oil>=0 && oil <= dashboard->oilLevel->getValueMax()){
+            dashboard->oilLevel->setValue(oil);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            qDebug()<<text;
+            text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
 
     else
         qDebug() << "erreur lors de la reception du message";
