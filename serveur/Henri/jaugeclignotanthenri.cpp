@@ -25,7 +25,7 @@ void jaugeClignotantHenri::MAJ()
 void jaugeClignotantHenri::MAJ2()
 {
     this->cligno+=1;
-    if(this->cligno == 2)
+    if(this->cligno > 1)
         this->cligno=0;
     QTest::qWait(500);
     update();
@@ -37,6 +37,8 @@ void jaugeClignotantHenri::paint(QPainter *painter, const QStyleOptionGraphicsIt
     painter->setPen(QPen(QBrush(QColor(255,200,0,125)) , 2, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(QColor(255,200,0,255)));
     float pi=3.14159265;
+    if (getValue() == 0)
+        cligno=0;
     if (getValue() ==2)
     {
         int l=241;

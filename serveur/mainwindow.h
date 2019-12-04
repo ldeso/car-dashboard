@@ -11,6 +11,7 @@
 #include "Leo/leo_scene.h"
 #include "Karim/karim_scene.h"
 #include "Loto/loto_scene.h"
+#include "Inna/inna_scene.h"
 
 namespace Ui {
 class MainWindow;
@@ -29,6 +30,7 @@ private slots:
     void connexion();
     void reception();
     void update_km();
+    void resizeEvent(QResizeEvent *event);
 private:
    // Compteur * c;
     scene_globale *dashboard;

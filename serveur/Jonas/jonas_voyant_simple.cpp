@@ -11,7 +11,8 @@ jonas_voyant_simple::jonas_voyant_simple(QString iconPath, int xPos, int yPos, i
 
 QRectF jonas_voyant_simple::boundingRect() const
 {
-    return QRect(-800,-450,1600,900);
+    qreal penWidth = 5;
+    return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
 void jonas_voyant_simple::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)

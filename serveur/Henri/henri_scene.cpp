@@ -19,21 +19,35 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     jaugeTemperature=new jaugeTemperatureHenri();
     addItem(jaugeTemperature);
 
+    OilTemp=new jaugeTemperatureHenri;
+    addItem(OilTemp);
+
     Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
 
     CompteurKm=new afficheKmHenri();
     addItem(CompteurKm);
 
-    VoyantBatterie=new jaugeBatterieHenri();
+    VoyantBatterie=new onoffpaintHenri(-170,10,55,50,QPixmap(":/new/prefix1/icones/iconeBatterie.png"));
     addItem(VoyantBatterie);
 
-    warning=new warninghenri();
+    warning=new onoff();
     addItem(warning);
 
     route=new feuxHenri();
     addItem(route);
 
+
+    portesHenri* portes=new portesHenri();
+    addItem(portes);
+    portes->moveBy(400,-100);
+    OpenDoorDriver=portes->DG;
+    OpenDoorFrontPassenger=portes->DD;
+    OpenDoorBackLeftPassenger=portes->PG;
+    OpenDoorBackRightPassenger=portes->PD;
+    BootOpen=portes->C;
+
+    this->setBackgroundBrush(QBrush(QColor("black")));
 }
 
 void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)

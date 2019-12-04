@@ -24,7 +24,7 @@ FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width,
 
 QRectF FuelGauge_lea::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }
@@ -67,12 +67,20 @@ void FuelGauge_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     painter->drawText(x3,y3,"F");
 
 
-    // ******************** Dessine l'icone blanche de l'escence
+    // ******************** Dessine l'icone blanche ou rouge de l'escence
 
+    if (value<25)
+    {
+        QPixmap voyant (":/Lea/Icones_Voyants/fuelL_red.gif");
+        QPixmap voyant2= voyant.scaled(40,40);
+        painter->drawPixmap(x-70,y+70,voyant2);
+    }
+    else
+    {
      QPixmap voyant (":/Lea/Icones_Voyants/fuelL_white.gif");
      QPixmap voyant2= voyant.scaled(40,40);
      painter->drawPixmap(x-70,y+70,voyant2);
-
+    }
 
 
 

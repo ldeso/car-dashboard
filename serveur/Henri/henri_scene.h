@@ -10,9 +10,11 @@
 #include "jaugetoursminutehenri.h"
 #include "scenedefondhenri.h"
 #include "affichekmhenri.h"
-#include "jaugebatteriehenri.h"
 #include "warninghenri.h"
 #include "feuxhenri.h"
+#include "onoff.h"
+#include "porteshenri.h"
+#include "onoffpainthenri.h"
 
 
 class henri_scene : public scene_globale

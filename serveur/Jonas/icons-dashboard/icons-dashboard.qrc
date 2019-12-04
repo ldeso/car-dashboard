@@ -6,9 +6,11 @@
         <file>icon-fuel.jpg</file>
         <file>icon-rear-fog-lamp.jpg</file>
         <file>icon-seatbelt.jpg</file>
-        <file>icon-temperature.jpg</file>
-        <file>icon-warning.jpg</file>
         <file>main-beam.jpg</file>
         <file>position-lamp.jpg</file>
+        <file>icon-turn-left.jpg</file>
+        <file>icon-turn-right.jpg</file>
+        <file>icon-temperature.jpg</file>
+        <file>icon-warning.jpg</file>
     </qresource>
 </RCC>

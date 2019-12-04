@@ -17,7 +17,7 @@ public:
     objet_virtuel *position;
     objet_virtuel *croisement;
     objet_virtuel *route;
-    objet_virtuel * warning;
+    objet_virtuel *warning;
     objet_virtuel *CompteurKm;
     objet_virtuel *AdaptiveSuspensionDampers;
     objet_virtuel *AutomaticTransmissionMode;
@@ -35,7 +35,8 @@ public:
     objet_virtuel *BonnetOpen;
     objet_virtuel *BootOpen;
     objet_virtuel *CruiseControlOn;
-
+    objet_virtuel *OilTemp;
+    objet_virtuel *SpeedLimit;
 };
 
 #endif // SCENE_GLOBALE_H

@@ -3,6 +3,7 @@
 jaugeTemperatureHenri::jaugeTemperatureHenri()
 {
     value=60;
+    valueMax=150;
 }
 
 QRectF jaugeTemperatureHenri::boundingRect() const
@@ -53,13 +54,13 @@ void jaugeTemperatureHenri::paint(QPainter *painter, const QStyleOptionGraphicsI
         {
         painter->setPen(QPen(QColor("red") , 32, Qt::SolidLine,Qt::FlatCap));
         painter->drawArc(carre3,-129*16,80*16);
-        QPixmap *test=new QPixmap(":/new/prefix1/iconeSurchaufe.png");
+        QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeSurchaufe.png");
         painter->drawPixmap(-15,195,30,30,*test);
         }
 
     else
     {
-    QPixmap *test=new QPixmap(":/new/prefix1/iconeSurchaufe.png");
+    QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeSurchaufe.png");
     painter->rotate(qMin(-getValue()*74/60+110.0,36.0));
 
     painter->drawPixmap(-15,195,30,30,*test);

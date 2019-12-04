@@ -45,6 +45,7 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
+    Leo/leo_display.cpp \
     Leo/leo_gauge.cpp \
     Leo/leo_indicator.cpp \
     Leo/leo_label.cpp \
@@ -58,7 +59,6 @@ SOURCES += \
     Florian/cadrantflorian.cpp \
     Florian/florianclignotant.cpp \
     Henri/affichekmhenri.cpp \
-    Henri/jaugebatteriehenri.cpp \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
@@ -87,6 +87,29 @@ SOURCES += \
     Loto/tachometre.cpp \
     Loto/tempgauge.cpp \
     Loto/loto_scene.cpp \
+    Lea/lea_scenedefond.cpp \
+    Jonas/jonas_voyant_clignotant.cpp \
+    Inna/arrowspeedometerinna.cpp \
+    Inna/arrowtachometerinna.cpp \
+    Inna/clignotantinna.cpp \
+    Inna/enginetinna.cpp \
+    Inna/fuellevelinna.cpp \
+    Inna/iconinna.cpp \
+    Inna/infowindowinna.cpp \
+    Inna/inna_scene.cpp \
+    Inna/oilgaugeinna.cpp \
+    Inna/speedometerinna.cpp \
+    Inna/tachometerinna.cpp \
+    Inna/icononoffinna.cpp \
+    Inna/arrowoillinna.cpp \
+    Inna/arrowoiltinna.cpp \
+    Inna/fuelengineinna.cpp \
+    Inna/prnd_inna.cpp \
+    Jonas/jonas_voyant_warning.cpp \
+    Jonas/jonas_compteurkm.cpp \
+    Henri/porteshenri.cpp \
+    Henri/onoff.cpp \
+    Henri/onoffpainthenri.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -104,6 +127,7 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
+    Leo/leo_display.h \
     Leo/leo_gauge.h \
     Leo/leo_indicator.h \
     Leo/leo_label.h \
@@ -116,7 +140,6 @@ HEADERS += \
     Florian/florianvoyant.h \
     Florian/florianclignotant.h \
     Henri/affichekmhenri.h \
-    Henri/jaugebatteriehenri.h \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
@@ -144,7 +167,30 @@ HEADERS += \
     Loto/tachometre.h \
     Loto/tempgauge.h \
     Loto/loto_scene.h \
-    Florian/floriancompteurkm.h
+    Lea/lea_scenedefond.h \
+    Jonas/jonas_voyant_clignotant.h \
+    Inna/tachometerinna.h \
+    Inna/speedometerinna.h \
+    Inna/oilgaugeinna.h \
+    Inna/inna_scene.h \
+    Inna/infowindowinna.h \
+    Inna/iconinna.h \
+    Inna/fuellevelinna.h \
+    Inna/enginetinna.h \
+    Inna/clignotantinna.h \
+    Inna/arrowtachometerinna.h \
+    Inna/arrowspeedometerinna.h \
+    Inna/icononoffinna.h \
+    Inna/arrowoillinna.h \
+    Inna/arrowoiltinna.h \
+    Inna/fuelengineinna.h \
+    Inna/prnd_inna.h \
+    Henri/porteshenri.h \
+    Henri/onoff.h \
+    Florian/floriancompteurkm.h \
+    Jonas/jonas_voyant_warning.h \
+    Jonas/jonas_compteurkm.h \
+    Henri/onoffpainthenri.h
 
 FORMS += \
         mainwindow.ui \
@@ -152,298 +198,20 @@ FORMS += \
 RESOURCES += \
     Henri/images.qrc \
     Hugo/Icones/icones.qrc \
-    Lea/Lea.qrc \
     Jonas/icons-dashboard/icons-dashboard.qrc \
     #florian.qrc \
     Karim/icone.qrc \
     Karim/newfont.qrc \
     Loto/myicons/icons.qrc \
+    Inna/InnaRSC/inna.qrc \
+    Lea/Lea.qrc \
     Florian/florian.qrc
-    #Lea/fuel.qrc
 
 
 DISTFILES += \
     Henri/iconeEssence.png \
     Henri/iconeSurchaufe.png \
     Henri/liserMoi \
-    Lea/Icones_Voyants/Oil_white.pix \
-    Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
-    Lea/Icones_Voyants/4WD_green.gif \
-    Lea/Icones_Voyants/4WD_red.gif \
-    Lea/Icones_Voyants/4WD_white.gif \
-    Lea/Icones_Voyants/4WD_yellow.gif \
-    Lea/Icones_Voyants/ABS_ON.gif \
-    Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
-    Lea/Icones_Voyants/adaptiveHeadlight.gif \
-    Lea/Icones_Voyants/AdaptiveSuspensionDampers_red.gif \
-    Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
-    Lea/Icones_Voyants/airBag.gif \
-    Lea/Icones_Voyants/airSuspention_red.gif \
-    Lea/Icones_Voyants/airSuspention_yellow.gif \
-    Lea/Icones_Voyants/auto_D.gif \
-    Lea/Icones_Voyants/auto_N.gif \
-    Lea/Icones_Voyants/auto_P.gif \
-    Lea/Icones_Voyants/auto_R.gif \
-    Lea/Icones_Voyants/AWD_blue.gif \
-    Lea/Icones_Voyants/AWD_green.gif \
-    Lea/Icones_Voyants/AWD_red.gif \
-    Lea/Icones_Voyants/AWD_white.gif \
-    Lea/Icones_Voyants/AWD_yellow.gif \
-    Lea/Icones_Voyants/backLeftDoorOpen.gif \
-    Lea/Icones_Voyants/backrightDoorOpen.gif \
-    Lea/Icones_Voyants/battery.gif \
-    Lea/Icones_Voyants/bonnetOpen_red.gif \
-    Lea/Icones_Voyants/bootOpen_red.gif \
-    Lea/Icones_Voyants/brake_warning.gif \
-    Lea/Icones_Voyants/brakeBulbFailure_yelow.gif \
-    Lea/Icones_Voyants/brakeLiquid_red.gif \
-    Lea/Icones_Voyants/brakePads.gif \
-    Lea/Icones_Voyants/BulbFailure_yelow.gif \
-    Lea/Icones_Voyants/checkEngine.gif \
-    Lea/Icones_Voyants/dayLight.gif \
-    Lea/Icones_Voyants/driverDoorOpen.gif \
-    Lea/Icones_Voyants/engineT_blue.gif \
-    Lea/Icones_Voyants/engineT_red.gif \
-    Lea/Icones_Voyants/engineT_white.gif \
-    Lea/Icones_Voyants/engineT_yellow.gif \
-    Lea/Icones_Voyants/ExclamationPoint_red.gif \
-    Lea/Icones_Voyants/ExclamationPoint_yellow.gif \
-    Lea/Icones_Voyants/frontFogLight.gif \
-    Lea/Icones_Voyants/frontRightDoorOpen.gif \
-    Lea/Icones_Voyants/fuelL_red.gif \
-    Lea/Icones_Voyants/fuelL_white.gif \
-    Lea/Icones_Voyants/hazardLights.gif \
-    Lea/Icones_Voyants/highBeam.gif \
-    Lea/Icones_Voyants/lowBattery.gif \
-    Lea/Icones_Voyants/lowBeam.gif \
-    Lea/Icones_Voyants/OFF.gif \
-    Lea/Icones_Voyants/Oil_t_white.gif \
-    Lea/Icones_Voyants/Oil_white.gif \
-    Lea/Icones_Voyants/powerSteering_red.gif \
-    Lea/Icones_Voyants/powerSteering_yellow.gif \
-    Lea/Icones_Voyants/rearFogLight.gif \
-    Lea/Icones_Voyants/rearFogLight_blue.gif \
-    Lea/Icones_Voyants/rearWindowHeating_yellow.gif \
-    Lea/Icones_Voyants/scoda.gif \
-    Lea/Icones_Voyants/seatBeltSign_red.gif \
-    Lea/Icones_Voyants/securityLight_red.gif \
-    Lea/Icones_Voyants/securityLight_yellow.gif \
-    Lea/Icones_Voyants/tractionControl_blue.gif \
-    Lea/Icones_Voyants/tractionControl_green.gif \
-    Lea/Icones_Voyants/tractionControl_red.gif \
-    Lea/Icones_Voyants/tractionControl_white.gif \
-    Lea/Icones_Voyants/tractionControl_yellow.gif \
-    Lea/Icones_Voyants/turnLeft.gif \
-    Lea/Icones_Voyants/turnRight.gif \
-    Lea/Icones_Voyants/tyrePressure_red.gif \
-    Lea/Icones_Voyants/tyrePressure_yellow.gif \
-    Lea/Icones_Voyants/washerLiquid_yellow.gif \
-    Lea/Icones_Voyants/black-leather-texture-background.jpg \
-    Lea/Icones_Voyants/bonnetOpen.png \
-    Lea/Icones_Voyants/brake.png \
-    Lea/Icones_Voyants/engineT_red.png \
-    Lea/Icones_Voyants/gearProblem.png \
-    Lea/Icones_Voyants/hand_brake.png \
-    Lea/Icones_Voyants/Oil_red.png \
-    Lea/Icones_Voyants/Oil_white.png \
-    Lea/Icones_Voyants/seatBelt.png \
-    Lea/ClignottantDroit.png \
-    Lea/ClignottantGauche.png \
-    Lea/fuel.png \
-    Lea/fuel2.png \
-    Lea/Oil.png \
-    Lea/PorteOuverte.png \
-    Lea/PorteOuverteConducteur.png \
-    Lea/PorteOuvertePassagerD.png \
-    Lea/PorteOuvertePassagerG.png \
-    Lea/Seatbelt.png \
-    Lea/Icones_Voyants/Oil_white.pix \
-    Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
-    Lea/Icones_Voyants/4WD_green.gif \
-    Lea/Icones_Voyants/4WD_red.gif \
-    Lea/Icones_Voyants/4WD_white.gif \
-    Lea/Icones_Voyants/4WD_yellow.gif \
-    Lea/Icones_Voyants/ABS_ON.gif \
-    Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
-    Lea/Icones_Voyants/adaptiveHeadlight.gif \
-    Lea/Icones_Voyants/AdaptiveSuspensionDampers_red.gif \
-    Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
-    Lea/Icones_Voyants/airBag.gif \
-    Lea/Icones_Voyants/airSuspention_red.gif \
-    Lea/Icones_Voyants/airSuspention_yellow.gif \
-    Lea/Icones_Voyants/auto_D.gif \
-    Lea/Icones_Voyants/auto_N.gif \
-    Lea/Icones_Voyants/auto_P.gif \
-    Lea/Icones_Voyants/auto_R.gif \
-    Lea/Icones_Voyants/AWD_blue.gif \
-    Lea/Icones_Voyants/AWD_green.gif \
-    Lea/Icones_Voyants/AWD_red.gif \
-    Lea/Icones_Voyants/AWD_white.gif \
-    Lea/Icones_Voyants/AWD_yellow.gif \
-    Lea/Icones_Voyants/backLeftDoorOpen.gif \
-    Lea/Icones_Voyants/backrightDoorOpen.gif \
-    Lea/Icones_Voyants/battery.gif \
-    Lea/Icones_Voyants/bonnetOpen_red.gif \
-    Lea/Icones_Voyants/bootOpen_red.gif \
-    Lea/Icones_Voyants/brake_warning.gif \
-    Lea/Icones_Voyants/brakeBulbFailure_yelow.gif \
-    Lea/Icones_Voyants/brakeLiquid_red.gif \
-    Lea/Icones_Voyants/brakePads.gif \
-    Lea/Icones_Voyants/BulbFailure_yelow.gif \
-    Lea/Icones_Voyants/checkEngine.gif \
-    Lea/Icones_Voyants/dayLight.gif \
-    Lea/Icones_Voyants/driverDoorOpen.gif \
-    Lea/Icones_Voyants/engineT_blue.gif \
-    Lea/Icones_Voyants/engineT_red.gif \
-    Lea/Icones_Voyants/engineT_white.gif \
-    Lea/Icones_Voyants/engineT_yellow.gif \
-    Lea/Icones_Voyants/ExclamationPoint_red.gif \
-    Lea/Icones_Voyants/ExclamationPoint_yellow.gif \
-    Lea/Icones_Voyants/frontFogLight.gif \
-    Lea/Icones_Voyants/frontRightDoorOpen.gif \
-    Lea/Icones_Voyants/fuelL_red.gif \
-    Lea/Icones_Voyants/fuelL_white.gif \
-    Lea/Icones_Voyants/hazardLights.gif \
-    Lea/Icones_Voyants/highBeam.gif \
-    Lea/Icones_Voyants/lowBattery.gif \
-    Lea/Icones_Voyants/lowBeam.gif \
-    Lea/Icones_Voyants/OFF.gif \
-    Lea/Icones_Voyants/Oil_t_white.gif \
-    Lea/Icones_Voyants/Oil_white.gif \
-    Lea/Icones_Voyants/powerSteering_red.gif \
-    Lea/Icones_Voyants/powerSteering_yellow.gif \
-    Lea/Icones_Voyants/rearFogLight.gif \
-    Lea/Icones_Voyants/rearFogLight_blue.gif \
-    Lea/Icones_Voyants/rearWindowHeating_yellow.gif \
-    Lea/Icones_Voyants/scoda.gif \
-    Lea/Icones_Voyants/seatBeltSign_red.gif \
-    Lea/Icones_Voyants/securityLight_red.gif \
-    Lea/Icones_Voyants/securityLight_yellow.gif \
-    Lea/Icones_Voyants/tractionControl_blue.gif \
-    Lea/Icones_Voyants/tractionControl_green.gif \
-    Lea/Icones_Voyants/tractionControl_red.gif \
-    Lea/Icones_Voyants/tractionControl_white.gif \
-    Lea/Icones_Voyants/tractionControl_yellow.gif \
-    Lea/Icones_Voyants/turnLeft.gif \
-    Lea/Icones_Voyants/turnRight.gif \
-    Lea/Icones_Voyants/tyrePressure_red.gif \
-    Lea/Icones_Voyants/tyrePressure_yellow.gif \
-    Lea/Icones_Voyants/washerLiquid_yellow.gif \
-    Lea/Icones_Voyants/black-leather-texture-background.jpg \
-    Lea/Icones_Voyants/ABS.png \
-    Lea/Icones_Voyants/bonnetOpen.png \
-    Lea/Icones_Voyants/brake.png \
-    Lea/Icones_Voyants/ClignottantDroit.png \
-    Lea/Icones_Voyants/ClignottantGauche.png \
-    Lea/Icones_Voyants/engineT_red.png \
-    Lea/Icones_Voyants/fuel.png \
-    Lea/Icones_Voyants/fuel2.png \
-    Lea/Icones_Voyants/gearProblem.png \
-    Lea/Icones_Voyants/hand_brake.png \
-    Lea/Icones_Voyants/Oil.png \
-    Lea/Icones_Voyants/Oil_red.png \
-    Lea/Icones_Voyants/Oil_white.png \
-    Lea/Icones_Voyants/seatBelt.png \
-    Lea/Icones_Voyants/Seatbelt.png \
-    Lea/PorteOuverte.png \
-    Lea/PorteOuverteConducteur.png \
-    Lea/PorteOuvertePassagerD.png \
-    Lea/PorteOuvertePassagerG.png \
-    Lea/Icones_Voyants/Oil_white.pix \
-    Lea/Seven Segment.ttf \
-    Lea/Icones_Voyants/4WD_blue.gif \
-    Lea/Icones_Voyants/4WD_green.gif \
-    Lea/Icones_Voyants/4WD_red.gif \
-    Lea/Icones_Voyants/4WD_white.gif \
-    Lea/Icones_Voyants/4WD_yellow.gif \
-    Lea/Icones_Voyants/ABS_ON.gif \
-    Lea/Icones_Voyants/adaptiveCruiseControl_green.gif \
-    Lea/Icones_Voyants/adaptiveHeadlight.gif \
-    Lea/Icones_Voyants/AdaptiveSuspensionDampers_red.gif \
-    Lea/Icones_Voyants/AdaptiveSuspensionDampers_yellow.gif \
-    Lea/Icones_Voyants/airBag.gif \
-    Lea/Icones_Voyants/airSuspention_red.gif \
-    Lea/Icones_Voyants/airSuspention_yellow.gif \
-    Lea/Icones_Voyants/auto_D.gif \
-    Lea/Icones_Voyants/auto_N.gif \
-    Lea/Icones_Voyants/auto_P.gif \
-    Lea/Icones_Voyants/auto_R.gif \
-    Lea/Icones_Voyants/AWD_blue.gif \
-    Lea/Icones_Voyants/AWD_green.gif \
-    Lea/Icones_Voyants/AWD_red.gif \
-    Lea/Icones_Voyants/AWD_white.gif \
-    Lea/Icones_Voyants/AWD_yellow.gif \
-    Lea/Icones_Voyants/backLeftDoorOpen.gif \
-    Lea/Icones_Voyants/backrightDoorOpen.gif \
-    Lea/Icones_Voyants/battery.gif \
-    Lea/Icones_Voyants/bonnetOpen_red.gif \
-    Lea/Icones_Voyants/bootOpen_red.gif \
-    Lea/Icones_Voyants/brake_warning.gif \
-    Lea/Icones_Voyants/brakeBulbFailure_yelow.gif \
-    Lea/Icones_Voyants/brakeLiquid_red.gif \
-    Lea/Icones_Voyants/brakePads.gif \
-    Lea/Icones_Voyants/BulbFailure_yelow.gif \
-    Lea/Icones_Voyants/checkEngine.gif \
-    Lea/Icones_Voyants/dayLight.gif \
-    Lea/Icones_Voyants/driverDoorOpen.gif \
-    Lea/Icones_Voyants/engineT_blue.gif \
-    Lea/Icones_Voyants/engineT_red.gif \
-    Lea/Icones_Voyants/engineT_white.gif \
-    Lea/Icones_Voyants/engineT_yellow.gif \
-    Lea/Icones_Voyants/ExclamationPoint_red.gif \
-    Lea/Icones_Voyants/ExclamationPoint_yellow.gif \
-    Lea/Icones_Voyants/frontFogLight.gif \
-    Lea/Icones_Voyants/frontRightDoorOpen.gif \
-    Lea/Icones_Voyants/fuelL_red.gif \
-    Lea/Icones_Voyants/fuelL_white.gif \
-    Lea/Icones_Voyants/hazardLights.gif \
-    Lea/Icones_Voyants/highBeam.gif \
-    Lea/Icones_Voyants/lowBattery.gif \
-    Lea/Icones_Voyants/lowBeam.gif \
-    Lea/Icones_Voyants/OFF.gif \
-    Lea/Icones_Voyants/Oil_t_white.gif \
-    Lea/Icones_Voyants/Oil_white.gif \
-    Lea/Icones_Voyants/powerSteering_red.gif \
-    Lea/Icones_Voyants/powerSteering_yellow.gif \
-    Lea/Icones_Voyants/rearFogLight.gif \
-    Lea/Icones_Voyants/rearFogLight_blue.gif \
-    Lea/Icones_Voyants/rearWindowHeating_yellow.gif \
-    Lea/Icones_Voyants/scoda.gif \
-    Lea/Icones_Voyants/seatBeltSign_red.gif \
-    Lea/Icones_Voyants/securityLight_red.gif \
-    Lea/Icones_Voyants/securityLight_yellow.gif \
-    Lea/Icones_Voyants/tractionControl_blue.gif \
-    Lea/Icones_Voyants/tractionControl_green.gif \
-    Lea/Icones_Voyants/tractionControl_red.gif \
-    Lea/Icones_Voyants/tractionControl_white.gif \
-    Lea/Icones_Voyants/tractionControl_yellow.gif \
-    Lea/Icones_Voyants/turnLeft.gif \
-    Lea/Icones_Voyants/turnRight.gif \
-    Lea/Icones_Voyants/tyrePressure_red.gif \
-    Lea/Icones_Voyants/tyrePressure_yellow.gif \
-    Lea/Icones_Voyants/washerLiquid_yellow.gif \
-    Lea/Icones_Voyants/black-leather-texture-background.jpg \
-    Lea/Icones_Voyants/ABS.png \
-    Lea/Icones_Voyants/bonnetOpen.png \
-    Lea/Icones_Voyants/brake.png \
-    Lea/Icones_Voyants/ClignottantDroit.png \
-    Lea/Icones_Voyants/ClignottantGauche.png \
-    Lea/Icones_Voyants/engineT_red.png \
-    Lea/Icones_Voyants/fuel.png \
-    Lea/Icones_Voyants/fuel2.png \
-    Lea/Icones_Voyants/gearProblem.png \
-    Lea/Icones_Voyants/hand_brake.png \
-    Lea/Icones_Voyants/Oil.png \
-    Lea/Icones_Voyants/Oil_red.png \
-    Lea/Icones_Voyants/Oil_white.png \
-    Lea/Icones_Voyants/seatBelt.png \
-    Lea/Icones_Voyants/Seatbelt.png \
-    Lea/PorteOuverte.png \
-    Lea/PorteOuverteConducteur.png \
-    Lea/PorteOuvertePassagerD.png \
-    Lea/PorteOuvertePassagerG.png \
     Karim/LCDfont.ttf \
     Loto/myicons/Oil_white.pix \
     Loto/myicons/4WD_blue.gif \
