@@ -24,14 +24,14 @@ speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r,
 
 QRectF speedometer_Lea::boundingRect() const
 {
-    QRectF rectf(-100,0,800,500);
+    QRectF rectf(0,0,800,500);
     return rectf;
 }
 
 void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    int v;
-    if (value>=0 && value <=valueMax) {v=value;}
+//    int v;
+    if (value>=0 && value <=valueMax) {v=qRound(value);}
     else if (value<0) {v=0;}
     else {v=valueMax;}
     QPen pen;
@@ -47,7 +47,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             QRadialGradient radial(QPointF(x,y),180);
             radial.setColorAt(0,Qt::transparent);
             radial.setColorAt(0.95,Qt::blue);
-            radial.setColorAt(1,"b8faf5");
+            radial.setColorAt(1,Qt::transparent);
             painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
             painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
             pen.setColor(Qt::transparent);
@@ -160,10 +160,7 @@ void speedometer_Lea::parametrage(double param_x, double param_y, double param_r
 
 }
 
-int speedometer_Lea::getValueMax()
-{
-   // return valueMax;
-}
+
 
 void speedometer_Lea::setValue(int v)
 {
