@@ -28,12 +28,6 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     Vitesse->setValue(0);
     this->addItem(Vitesse);
 
-//    deux_voyants_lea *fuel = new deux_voyants_lea;
-//    fuel->parametrage(580,320,":/Icones_Voyants/fuel.png",":/Icones_Voyants/fuel2.png");
-//    fuel->setSize(30,30);
-//    fuel->on=1;
-//    this->addItem(fuel);
-
     Essence= new FuelGauge_lea(850,250,25,100,825,350,825,250);
     Essence->setValue(40);
     this->addItem(Essence);
@@ -86,6 +80,18 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 
     RearAntifog = new voyant_Lea (770,430,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
     this->addItem(RearAntifog);
+
+    CheckEngine = new voyant_Lea (580,275,":/Lea/Icones_Voyants/checkEngine.gif",30,30);
+    this->addItem(CheckEngine);
+
+    AirbagOn= new voyant_Lea (0,0,":/Lea/Icones_Voyants/airBag.gif",30,30);
+    this->addItem(AirbagOn);
+
+    BootOpen = new voyant_Lea (580,400,":/Lea/Icones_Voyants/bootOpen_red.gif",50,30);
+    this->addItem(BootOpen);
+
+    BonnetOpen = new voyant_Lea (580,400,":/Lea/Icones_Voyants/bonnetOpen_red.gif",50,30);
+    this->addItem(BonnetOpen);
 
 
 

@@ -4,6 +4,7 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QTimer>
+#include <QCoreApplication>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -17,13 +18,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-
     dashboard=new hugo_scene();
+    //    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+    //                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
+    //    this->move(0,0);
 
-    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
-    //la taille de la scene est le plus grand des ::boundingRect() des objets
-    this->move(0,0);
     ui->graphicsView->setScene(dashboard);
+    QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
+    QCoreApplication::postEvent(this, resizeEvent);
+
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(500);
@@ -40,26 +43,35 @@ MainWindow::MainWindow(QWidget *parent) :
 ///
 void MainWindow::acceleration(int time)
 {
+    qDebug()<<"ok";
     float t=0;
-    float vitesse=0;
+    float vitesse=dashboard->Vitesse->getValue();
     int rapport=1;
     while (t<time){
         vitesse_actuelle=vitesse;
-        if ((vitesse)<=dashboard->Vitesse->getValueMax())
+        if ((vitesse)<=dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
-        if (dashboard->CompteTours->getValue()>4000){
-            rapport++;
+            if (vitesse<55){
+                rapport=1;
+                dashboard->CompteTours->setValue(vitesse*4500/55);
+            }
+            else if(vitesse<75){
+                rapport=2;
+                dashboard->CompteTours->setValue(vitesse*4500/75);
+            }
+            else if(vitesse<115){
+                rapport=3;
+                dashboard->CompteTours->setValue(vitesse*4500/115);
+            }
+            else if(vitesse<140){
+                rapport=4;
+                dashboard->CompteTours->setValue(vitesse*4500/140);
+            }
+            else{
+                rapport=5;
+                dashboard->CompteTours->setValue(vitesse*4500/185);
+            }
         }
-        if(rapport==1)
-            dashboard->CompteTours->setValue(vitesse*6800/55);
-        if(rapport==2)
-            dashboard->CompteTours->setValue(vitesse*6800/75);
-        if(rapport==3)
-            dashboard->CompteTours->setValue(vitesse*6800/115);
-        if(rapport==4)
-            dashboard->CompteTours->setValue(vitesse*6800/140);
-        if(rapport>=5 && vitesse*6800/185<=dashboard->CompteTours->getValueMax())
-            dashboard->CompteTours->setValue(vitesse*6800/185);
         ui->graphicsView->scene()->update();
         vitesse+=0.8;
         t+=0.1;
@@ -177,7 +189,6 @@ void MainWindow::reception()
             if (prenom=="HUGO"){
                 delete dashboard;
                 dashboard =new hugo_scene;
-                this->resize(dashboard->width()+200,dashboard->height()+63);
                 ui->graphicsView->setScene(dashboard);
             }
             if (prenom=="HENRI"){
@@ -214,6 +225,12 @@ void MainWindow::reception()
             if (prenom=="LOTO"){
                 delete dashboard;
                 dashboard = new loto_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+
+            if (prenom=="INNA"){
+                delete dashboard;
+                dashboard = new inna_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
@@ -271,7 +288,7 @@ void MainWindow::reception()
         if(warning>=0 && warning <= 1){
             dashboard->warning->setValue(warning);
             dashboard->Clignotant->setValue(2*warning);
-//            ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
@@ -582,32 +599,32 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN SPEED_LIMIT"){
-        int speed_limit = string.section(' ', 2, 2).toInt();
-        if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
-            dashboard->SpeedLimit->setValue(speed_limit);
-            ui->graphicsView->scene()->update();
-            QString text = "OK";
-            socket->write(text.toLocal8Bit());
-        }
-        else{
-            QString text;
-            text = QString("valeur incorrecte, la valeur doit être comprise entre 1 et %1").arg(dashboard->Vitesse->getValueMax());
-            socket->write(text.toLocal8Bit());
-        }
-    }
-    else {
+
+
+
+    else
         qDebug() << "erreur lors de la reception du message";
-    }
+
+
 }
 
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    //if (dashboard->CompteurKm) //
+
     // dashboard->CompteurKm->setValue(km_parcourus);
-  //  ui->graphicsView->scene()->update();
+    ui->graphicsView->scene()->update();
 
 }
+
+//permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
+void MainWindow::resizeEvent(QResizeEvent *)
+{
+    ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
+}
+
+
+
+
 
