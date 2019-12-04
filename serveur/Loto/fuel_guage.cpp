@@ -8,10 +8,12 @@
     #include "QString"
     #include "QRadialGradient"
     #include "QPolygon"
+    #include "objet_virtuel.h"
 
     fuel_guage::fuel_guage()
     {
-
+        value =0;
+        valueMax=100;
     }
 
     QRectF fuel_guage::boundingRect() const
@@ -119,6 +121,7 @@
             needlestartPos.setY(0);
 
             double needleAngle;
+            tankLevelLitres= getValue();
             needleAngle = getrotationAngle(tankLevelLitres);
             needleAngle= needleAngle;
 
@@ -145,6 +148,6 @@
     {
         double inputTankLevel = tankLevelLitres;
         double tankLevelAngle;
-        tankLevelAngle = inputTankLevel * (50.0/50.0);
+        tankLevelAngle = inputTankLevel * (50.0/100.0);
         return tankLevelAngle;
     }

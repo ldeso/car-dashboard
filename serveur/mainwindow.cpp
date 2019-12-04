@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     dashboard=new henri_scene();
 
-
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
     QCoreApplication::postEvent(this, resizeEvent);
@@ -370,7 +369,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CHECK_ENGINE"){
+    else if(message=="CANN CHECK_ENGINE"){
         int checkEngine_on = string.section(' ', 2,2).toInt();
         if(checkEngine_on==0 || checkEngine_on==1){
             dashboard->CheckEngine->setValue(checkEngine_on);
@@ -586,10 +585,23 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-
-    else
+    else if(message=="CANN SPEED_LIMIT"){
+        int speed_limit = string.section(' ', 2, 2).toInt();
+        if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
+            dashboard->SpeedLimit->setValue(speed_limit);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être comprise entre 1 et %1").arg(dashboard->Vitesse->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else{
         qDebug() << "erreur lors de la reception du message";
-
+    }
 }
 
 //A laisser commenté, peut poser problème pour certains dashboards

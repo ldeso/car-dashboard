@@ -5,6 +5,7 @@ Leo_label::Leo_label(const QString &text, QPointF pos, QGraphicsItem* parent)
 {
     SetFontSizePx(mFontSizePx);
     setPos(pos);
+    setBrush(QBrush(Qt::white));
 }
 
 void Leo_label::SetFontSizePx(const int fontSizePx)

@@ -93,12 +93,12 @@ QRect carre[13];
      int id = QFontDatabase::addApplicationFont(":/LCDfont.ttf");
      QString family = QFontDatabase::applicationFontFamilies(id).at(0);
      QFont F(family);
-     F.setPixelSize(33);
+     F.setPixelSize(32);
      painter->setFont(F);
      painter->setPen(QPen(Qt::darkBlue));
 
      //Ajout de l'heure
-     painter->drawText(QRectF(-50,-30,-135,200),Qt::AlignCenter,QString("%1 km/h").arg(getValue()));
+     painter->drawText(QRectF(-50,-30,-135,200),Qt::AlignCenter,QString::number(getValue(),'f',1)+" km/h");
      QString sDate = QDateTime::currentDateTime().toString("hh:mm");
      painter->drawText(QRectF(-50,-120,-100,200),Qt::AlignCenter,QString("%1").arg(sDate));
 

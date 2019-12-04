@@ -14,7 +14,8 @@
 
 tachometre::tachometre()
 {
-
+    value =0;
+    valueMax=14000;
 }
 
 QRectF tachometre::boundingRect() const
@@ -70,18 +71,18 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
         painter->drawLine(Ticks);
 
-        QLine graduations;
-        startLinePos.setX(98 * cos((theta+40)*pi/180));
-        startLinePos.setY(-98*sin((theta+40)*pi/180));
+//        QLine graduations;
+//        startLinePos.setX(98 * cos((theta+40)*pi/180));
+//        startLinePos.setY(-98*sin((theta+40)*pi/180));
 
-        endLinePos.setX(90 * cos((theta+40)*pi/180));
-        endLinePos.setY(-90 *sin((theta+40)*pi/180));
+//        endLinePos.setX(90 * cos((theta+40)*pi/180));
+//        endLinePos.setY(-90 *sin((theta+40)*pi/180));
 
-        graduations.setPoints(startLinePos,endLinePos);
-        painter->setRenderHint(QPainter::Antialiasing);
+//        graduations.setPoints(startLinePos,endLinePos);
+//        painter->setRenderHint(QPainter::Antialiasing);
 
-        painter->setPen(QPen(QBrush("white") ,3, Qt::SolidLine,Qt::SquareCap));
-        painter->drawLine(graduations);
+//        painter->setPen(QPen(QBrush("white") ,3, Qt::SolidLine,Qt::SquareCap));
+//        //painter->drawLine(graduations);
 
         int j = (-(theta-235))/20;
 
@@ -111,10 +112,12 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     needlestartPos.setX(0);
     needlestartPos.setY(0);
 
-    double needleAngle;
+    float needleAngle;
+    rpmValue = getValue();
     needleAngle = getRpmValue(rpmValue);
     needleAngle= -(needleAngle) - 125.0;
     qDebug()<<"needleAngle"<< needleAngle;
+    qDebug()<<rpmValue;
 
 
     needlestopPos.setX(96 * cos((needleAngle)*pi/180));
@@ -133,27 +136,16 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     //draw text to write rpm
 
     painter->setPen(QPen(QBrush("gray"),5,Qt::SolidLine, Qt::SquareCap));
-    painter->drawText(-20,-30,"x 1000");
+    painter->drawText(-20,-30,"x 1000rpm");
 
-
-    QPixmap ledEngineTemp(":/turnRight.gif");
-    QPixmap ledEngineTemp2=ledEngineTemp.scaled(60,60,Qt::IgnoreAspectRatio,Qt::FastTransformation);
-    painter->drawPixmap(140,-130,ledEngineTemp2);
-
-
-
-    QPixmap ledEngineTemp3(":/turnLeft.gif");
-    QPixmap ledEngineTemp4=ledEngineTemp3.scaled(60,60,Qt::IgnoreAspectRatio,Qt::FastTransformation);
-    painter->drawPixmap(140-50,-130,ledEngineTemp4);
 
 
 
 }
-
-double tachometre::getRpmValue(double rpmValue)
+float tachometre::getRpmValue(float rpmValue)
 {
-    double givenRpmValue = rpmValue; double rpmAngle;
-    rpmAngle = givenRpmValue * (280.0/280.0);
-
+    float rpmAngle;
+    rpmAngle = rpmValue * (280.00/14000.0);
+    qDebug()<<rpmAngle;
     return rpmAngle;
 }

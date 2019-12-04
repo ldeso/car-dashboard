@@ -5,6 +5,7 @@
 Leo_scene::Leo_scene(scene_globale *parent) :
     scene_globale(parent)
 {
+    setBackgroundBrush(Qt::black);
     mAddGauges(
         175,
         150,
@@ -29,6 +30,7 @@ Leo_scene::Leo_scene(scene_globale *parent) :
         725,
         25,
         {
+            {&Clignotant, "Turn"},
             {&position, "Position Lamps"},
             {&croisement, "Dipped Beam"},
             {&route, "Main Beam"},
