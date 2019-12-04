@@ -41,7 +41,7 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     QLinearGradient linearGrad(QPointF(-450, -200), QPointF(-450, -150));
     linearGrad.setColorAt(0, QColor(0,26,77));
     linearGrad.setColorAt(1, Qt::black);
-    QBrush black_brush(QColor(Qt::black));
+    QBrush black_brush((QColor(Qt::black)));
     painter->setBrush(linearGrad);
     QRect rect_fond(-450,-300,900,600);
      painter->drawRect(rect_fond);
