@@ -13,11 +13,13 @@
 
 tempGauge::tempGauge()
 {
-
+    value =0;
+    valueMax = 185;
 }
 
 QRectF tempGauge::boundingRect() const
 {
+    return QRect(-200,-200,400,400);
 
 }
 
@@ -147,3 +149,5 @@ double tempGauge::getEngineTemp(double engineTemp)
     engineTempAngle = inputTemp * (50.0/50.0);
     return engineTempAngle;
 }
+
+

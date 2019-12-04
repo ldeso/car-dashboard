@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
     //    this->move(0,0);
 
+
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
     QCoreApplication::postEvent(this, resizeEvent);
@@ -233,6 +234,7 @@ void MainWindow::reception()
                 dashboard = new inna_scene;
                 ui->graphicsView->setScene(dashboard);
             }
+            ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";
@@ -383,7 +385,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CHECK_ENGINE"){
+    else if(message=="CANN CHECK_ENGINE"){
         int checkEngine_on = string.section(' ', 2,2).toInt();
         if(checkEngine_on==0 || checkEngine_on==1){
             dashboard->CheckEngine->setValue(checkEngine_on);
@@ -457,7 +459,6 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-
     else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
@@ -599,22 +600,51 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-
-
-
-    else
+    else if(message=="CANN OIL_L"){
+        int oil = string.section(' ', 2,2).toInt();
+        if(oil>=0 && oil <= dashboard->oilLevel->getValueMax()){
+            dashboard->oilLevel->setValue(oil);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            qDebug()<<text;
+            text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN SPEED_LIMIT"){
+        int speed_limit = string.section(' ', 2, 2).toInt();
+        if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
+            dashboard->SpeedLimit->setValue(speed_limit);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être comprise entre 1 et %1").arg(dashboard->Vitesse->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else{
         qDebug() << "erreur lors de la reception du message";
-
-
+    }
 }
 
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
+    /*if (dashboard->CompteurKm)
+         dashboard->CompteurKm->setValue(km_parcourus);
+        ui->graphicsView->scene()->update();*/
 
-    // dashboard->CompteurKm->setValue(km_parcourus);
-    ui->graphicsView->scene()->update();
+    if (dashboard->CompteurKm) //
+        // dashboard->CompteurKm->setValue(km_parcourus);
+        ui->graphicsView->scene()->update();
 
 }
 
@@ -623,8 +653,5 @@ void MainWindow::resizeEvent(QResizeEvent *)
 {
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
-
-
-
 
 
