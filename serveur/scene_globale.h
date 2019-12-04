@@ -37,6 +37,7 @@ public:
     objet_virtuel *CruiseControlOn;
     objet_virtuel *OilTemp;
     objet_virtuel *SpeedLimit;
+    objet_virtuel *oilLevel;
 };
 
 #endif // SCENE_GLOBALE_H

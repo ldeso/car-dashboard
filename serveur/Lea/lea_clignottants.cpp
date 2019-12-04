@@ -11,7 +11,7 @@ lea_clignottants::lea_clignottants()
 
 QRectF lea_clignottants::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }

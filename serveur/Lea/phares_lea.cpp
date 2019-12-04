@@ -7,7 +7,7 @@ phares_Lea::phares_Lea()
 
 QRectF phares_Lea::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }

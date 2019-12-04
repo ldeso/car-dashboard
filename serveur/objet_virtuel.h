@@ -11,7 +11,7 @@ public:
     objet_virtuel(QGraphicsItem *parent=nullptr);
 
     float getValue() const;
-    void setValue(float value);
+    void setValue(float set_value);
     int getValueMax() const;
 
     QString styleTexte;

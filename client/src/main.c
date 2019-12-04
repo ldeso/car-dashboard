@@ -1,8 +1,64 @@
 #include <ctype.h> // toupper
 #include <stdio.h> // fgets, fprintf, getchar, printf, puts
 #include <string.h> // strncmp
-
+#include <argp.h>
 #include "clientio.h"
+
+const char * argp_program_version = "Client V0.1";
+
+const char *argp_program_bug_address =
+  "<dumasflorian08@gmail.com>";
+
+static struct argp_option options[] = {
+  {"ip-addr",  'i', "ipaddr",      0,  "Definir adresse ip du serveur",0 },
+  {"port",    'p', "port",      0,  "Definir port du serveur pour la communication",0 },
+  { 0 }
+};
+
+static char args_doc[] = "ne rien mettre";
+
+static char doc[] =
+  "Le programme client";
+
+struct arguments
+{
+    char * ipaddr;
+    int port;
+};
+
+char * ipaddr = "";
+int port = 0;
+
+static error_t
+parse_opt (int key, char *arg, struct argp_state *state)
+{
+    struct arguments *args = state->input;
+
+  switch (key)
+    {
+    case 'i':
+      args->ipaddr = arg;
+      //if(ipaddr)
+      break;
+    case 'p':
+      args->port = atoi(arg);
+      //xif(port)
+      break;
+    case ARGP_KEY_ARG:
+      if (state->arg_num >= 2)
+        /* Too many arguments. */
+        argp_usage (state);
+
+      break;
+
+    case ARGP_KEY_END:
+      break;
+
+    default:
+      return ARGP_ERR_UNKNOWN;
+    }
+  return 0;
+}
 
 /**
  * @brief die
@@ -44,6 +100,9 @@ void uppercase(char *message)
     }
 }
 
+
+static struct argp argp = { options, parse_opt, args_doc, doc, 0,0,0 };
+
 /**
  * @brief main
  * @return EXIT_SUCCESS si le programme se termine normalement
@@ -53,8 +112,13 @@ void uppercase(char *message)
  * todo : ajouter les commandes CANN pour les differents elements du dashboard.
  * Les messages seront du format CANN TYPEDECANN VALUE
  */
-int main()
+int main(int argc, char** argv)
 {
+    struct arguments arg;
+    arg.ipaddr = "127.0.0.1";
+    arg.port = 2222;
+    argp_parse(&argp,argc,argv,0,0,&arg);
+    printf("%s %i\n", arg.ipaddr, arg.port);
     char *sent;
     char *received;
     size_t len = 50;
@@ -63,7 +127,7 @@ int main()
         die("Erreur lors de l'allocation mémoire pour le message émis.");
     if ((received = malloc(len)) == NULL)
         die("Erreur lors de l'allocation mémoire pour le message reçu.");
-    if ((sockfd = create_connected_socket("127.0.0.1", 2222)) == -1)
+    if ((sockfd = create_connected_socket(arg.ipaddr, arg.port)) == -1)
         die("Erreur lors de la connexion au serveur.");
     int end = 0;
     while (!end) {
@@ -101,6 +165,7 @@ int main()
             puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
 	    puts("CANN ENGINE_T x avec x = temperature du moteur" );
 	    puts("CANN OIL_T x avec x = temperature de l'huile" );
+	    puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
 
 
         } else if (strncmp(sent, "END", len) == 0) {
