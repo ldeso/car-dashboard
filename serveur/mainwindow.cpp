@@ -219,8 +219,7 @@ void MainWindow::reception()
               dashboard = new inna_scene;
               ui->graphicsView->setScene(dashboard);
             }
-//            this->resize(dashboard->width()+31,dashboard->height()+63);
-            this->move(0,0);
+            ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";
