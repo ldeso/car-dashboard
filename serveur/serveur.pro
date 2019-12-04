@@ -49,6 +49,13 @@ SOURCES += \
     Leo/leo_indicator.cpp \
     Leo/leo_label.cpp \
     Leo/leo_scene.cpp \
+    Youcef/cardialerprototype.cpp \
+    Youcef/carspeeddial.cpp \
+    Youcef/engineheatgauge.cpp \
+    Youcef/fuelgauge.cpp \
+    Youcef/needlespeed.cpp \
+    Youcef/tachometer.cpp \
+    Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
     objet_virtuel.cpp \
@@ -130,6 +137,13 @@ HEADERS += \
     Leo/leo_indicator.h \
     Leo/leo_label.h \
     Leo/leo_scene.h \
+    Youcef/cardialerprototype.h \
+    Youcef/carspeeddial.h \
+    Youcef/engineheatgauge.h \
+    Youcef/fuelgauge.h \
+    Youcef/needlespeed.h \
+    Youcef/tachometer.h \
+    Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
