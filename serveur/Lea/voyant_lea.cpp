@@ -23,7 +23,7 @@ voyant_Lea::voyant_Lea(int param_x, int param_y, QString param_chemin, int param
 
 QRectF voyant_Lea::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }
