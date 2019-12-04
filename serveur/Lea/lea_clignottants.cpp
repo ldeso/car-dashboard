@@ -11,7 +11,7 @@ lea_clignottants::lea_clignottants()
 
 QRectF lea_clignottants::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(-100,0,800,500);
 
     return rectf;
 }
@@ -52,7 +52,7 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
             painter->drawPixmap(180,50,70,50,image4);
         }
          MAJ();
-        update();
+//        update();
     }
 }
 

@@ -24,7 +24,7 @@ void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*
     painter->setPen(QPen(QBrush(QColor(250-value*2.5,value*2.5/2,0,255)) , 40, Qt::SolidLine,Qt::FlatCap));
     painter->drawArc(carre,231*16,value*16*0.8);//l'essence réel de transparence 255 (aucune transparence)
 
-    QPixmap *test=new QPixmap(":/new/prefix1/iconeEssence.png");
+    QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeEssence.png");
     painter->drawPixmap(-15,265,30,30,*test);
 
 

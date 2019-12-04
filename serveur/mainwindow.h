@@ -33,7 +33,6 @@ private slots:
 private:
    // Compteur * c;
     scene_globale *dashboard;
-
     Ui::MainWindow *ui;
     QTcpServer * server;
     QTcpSocket * socket;

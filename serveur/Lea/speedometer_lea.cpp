@@ -24,7 +24,7 @@ speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r,
 
 QRectF speedometer_Lea::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(-100,0,800,500);
     return rectf;
 }
 
@@ -36,9 +36,23 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     else {v=valueMax;}
     QPen pen;
     QBrush brush(Qt::SolidPattern);
-//    brush.setColor(Qt::transparent);
+//    brush.setColor("#733701");
 //    painter->fillRect(this->boundingRect(),brush);
 
+
+    // ******************** Dessine l'arc au dessus du compteur
+
+    painter->setRenderHint(QPainter::Antialiasing);
+
+            QRadialGradient radial(QPointF(x,y),180);
+            radial.setColorAt(0,Qt::transparent);
+            radial.setColorAt(0.95,Qt::blue);
+            radial.setColorAt(1,"b8faf5");
+            painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
+            painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
+            pen.setColor(Qt::transparent);
+            pen.setCapStyle(Qt::RoundCap);
+            painter->setPen(pen);
 
 
 // ******************** Dessine les traits du compteur vitesse
@@ -68,14 +82,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
         }
     }
 
-// ******************** Dessine l'arc au dessus du compteur
 
-        QRadialGradient radial(QPointF(x,y),180);
-        radial.setColorAt(0,Qt::transparent);
-        radial.setColorAt(0.95,Qt::blue);
-        radial.setColorAt(1,"b8faf5");
-        painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
-        painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
 
 
 
@@ -84,6 +91,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 
 
     painter->setRenderHints(QPainter::Antialiasing);
+    brush.setStyle(Qt::SolidPattern);
     pen.setWidth(1);
     pen.setColor(Qt::red);
     brush.setColor(Qt::red);

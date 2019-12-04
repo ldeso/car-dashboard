@@ -17,11 +17,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-    dashboard=new hugo_scene();
 
+    dashboard=new henri_scene();
+    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+    //la taille de la scene est le plus grand des ::boundingRect() des objets
+    this->move(0,0);
+    ui->graphicsView->setScene(dashboard);
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
-    kmTimer->setInterval(1000);
+    kmTimer->setInterval(500);
     kmTimer->start();
 
     ui->graphicsView->setScene(dashboard);
@@ -153,7 +157,7 @@ void MainWindow::reception()
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 1){
             dashboard->Clignotant->setValue(cligno);
-            // ui->graphicsView->scene()->update();
+            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -172,6 +176,7 @@ void MainWindow::reception()
             if (prenom=="HUGO"){
                 delete dashboard;
                 dashboard =new hugo_scene;
+                this->resize(dashboard->width()+200,dashboard->height()+63);
                 ui->graphicsView->setScene(dashboard);
             }
             if (prenom=="HENRI"){
@@ -203,12 +208,12 @@ void MainWindow::reception()
                 delete dashboard;
                 dashboard = new karim_scene;
                 ui->graphicsView->setScene(dashboard);
-             }
+            }
 
-             if (prenom=="LOTO"){
-              delete dashboard;
-              dashboard = new loto_scene;
-              ui->graphicsView->setScene(dashboard);
+            if (prenom=="LOTO"){
+                delete dashboard;
+                dashboard = new loto_scene;
+                ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->scene()->update();
             km_parcourus=0;
@@ -423,7 +428,7 @@ void MainWindow::reception()
     {
         int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
-          //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
+            //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -435,7 +440,7 @@ void MainWindow::reception()
         }
     }
 
-        else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+    else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorBackLeftPassenger_on==0 || OpenDoorBackLeftPassenger_on==1){
@@ -531,6 +536,52 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="CANN CRUISE_CONTROL_ON")
+    {
+        int CruiseControlOn_on= string.section(' ', 2,2).toInt();
+        if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
+            dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN ENGINE_T"){
+        int engineT = string.section(' ', 2,2).toInt();
+
+        if(engineT <= dashboard->jaugeTemperature->getValueMax())
+        { dashboard->jaugeTemperature->setValue(engineT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->jaugeTemperature->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+    else if(message=="CANN OIL_T"){
+        int oilT = string.section(' ', 2,2).toInt();
+
+        if(oilT <= dashboard->OilTemp->getValueMax())
+        { dashboard->OilTemp->setValue(oilT);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toUtf8());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être inférieure a %1").arg(dashboard->OilTemp->getValueMax());
+            socket->write(text.toUtf8());
+        }
+    }
+
     else
         qDebug() << "erreur lors de la reception du message";
 
@@ -540,12 +591,9 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    if (dashboard->CompteurKm) //
-        // dashboard->CompteurKm->setValue(km_parcourus);
-        ui->graphicsView->scene()->update();
+
+    //if (dashboard->CompteurKm) //
+    // dashboard->CompteurKm->setValue(km_parcourus);
+  //  ui->graphicsView->scene()->update();
 }
-
-
-
-
 

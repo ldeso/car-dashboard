@@ -1,9 +1,10 @@
 #include "leo_label.h"
 
-Leo_label::Leo_label(const QString &text, QGraphicsItem* parent)
+Leo_label::Leo_label(const QString &text, QPointF pos, QGraphicsItem* parent)
     : QGraphicsSimpleTextItem(text, parent)
 {
     SetFontSizePx(mFontSizePx);
+    setPos(pos);
 }
 
 void Leo_label::SetFontSizePx(const int fontSizePx)
@@ -12,8 +13,4 @@ void Leo_label::SetFontSizePx(const int fontSizePx)
     QFont new_font = font();
     new_font.setPixelSize(mFontSizePx);
     setFont(new_font);
-    moveBy(
-        0.25*font().pixelSize() + 1.25*parentItem()->boundingRect().width(),
-        0.5 * (-font().pixelSize()+parentItem()->boundingRect().height())
-    );
 }

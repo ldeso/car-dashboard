@@ -12,11 +12,13 @@
 #include "quatre_voyants_lea.h"
 #include "fuelgauge_lea.h"
 #include "lea_clignottants.h"
+#include "lea_scenedefond.h"
 
 class Lea_scene : public scene_globale
 {
 public:
     Lea_scene(scene_globale *parent = nullptr);
+    lea_SceneDeFond *fond;
 
 
 };

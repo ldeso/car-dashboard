@@ -13,8 +13,8 @@ void Leo_indicator::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     QPainterPath path;
     path.addEllipse(
         mBoundingRect.center(),
-        (mBoundingRect.width()+PenWidthPx) / 2,
-        (mBoundingRect.height()+PenWidthPx) / 2
+        (mBoundingRect.width()-PenWidthPx) / 2,
+        (mBoundingRect.height()-PenWidthPx) / 2
     );
     if (value < 0.5f)
         painter->fillPath(path, ColorOff);

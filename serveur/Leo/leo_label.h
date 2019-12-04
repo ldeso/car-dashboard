@@ -6,10 +6,10 @@
 class Leo_label : public QGraphicsSimpleTextItem
 {
 public:
-    Leo_label(const QString &text, QGraphicsItem* parent = nullptr);
+    Leo_label(const QString &text, QPointF pos, QGraphicsItem* parent = nullptr);
     void SetFontSizePx(const int);
 private:
-    int mFontSizePx = 20;
+    int mFontSizePx = 25;
 };
 
 #endif // LEO_LABEL_H

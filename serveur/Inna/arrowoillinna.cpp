@@ -54,8 +54,8 @@ void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
    //          *** draw fleche oil level ***
     l=static_cast<double>(value);
 
-    k = (Amax+20) * 1.0/lmax;
-   if (l < 0 || l > lmax) l = (l < 0 ? 0 : lmax);
+    k = (Amax+20) * 1.0/valueMax;
+   if (l < 0 || l > valueMax) l = (l < 0 ? 0 : valueMax);
  QLinearGradient linearGradol  (QPointF(xol-(5*cos((A0+30+k*l-90)*rad)),yol+(5*sin((A0+30+k*l-90)*rad))), QPointF(xol+(7*cos((A0+30+k*l-90)*rad)),yol-(7*sin((A0+30+k*l-90)*rad))));
           linearGradol.setColorAt(0, "#F93737");
           linearGradol.setColorAt(0.5, "#ff4d4d");

@@ -35,6 +35,9 @@ public:
     objet_virtuel *BonnetOpen;
     objet_virtuel *BootOpen;
     objet_virtuel *CruiseControlOn;
+    objet_virtuel *OilTemp;
+
+
 
 };
 

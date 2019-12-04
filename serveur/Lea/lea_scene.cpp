@@ -3,8 +3,11 @@
 
 Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 {
-    this->setBackgroundBrush(QBrush(Qt::black));
+    this->setBackgroundBrush(QBrush("#733701"));
     QFontDatabase::addApplicationFont(":/Lea/Seven Segment.ttf");
+
+    fond = new lea_SceneDeFond;
+    this->addItem(fond);
 
     Vitesse = new speedometer_Lea(400.0,200.0,160.0,225,-270,270,220);
     Vitesse->setValue(0);
@@ -39,7 +42,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     Clignotant = new lea_clignottants;
     this->addItem(Clignotant);
 
-    voyant_Lea *handbrakeOn = new voyant_Lea(320,430,":/Lea/Icones_Voyants/hand_brake.png",50,50);
+    voyant_Lea *handbrakeOn = new voyant_Lea(320,430,":/Lea/Icones_Voyants/brake_warning.gif",50,50);
     this->addItem(handbrakeOn);
 
     VoyantBatterie = new voyant_Lea(260,430,":/Lea/Icones_Voyants/battery.gif",50,50);

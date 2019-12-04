@@ -12,7 +12,7 @@ QRectF feuxHenri::boundingRect() const
 
 void feuxHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    QPixmap *test=new QPixmap(":/new/prefix1/iconeRoute.png");
+    QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeRoute.png");
     if ( getValue()==1)
     painter->drawPixmap(-35,40,70,70,*test);
 }
