@@ -23,6 +23,8 @@ karim_scene::karim_scene()
     CompteTours->setPos(200,100);
     Essence->setPos(20,-250);
     jaugeTemperature->setPos(370,-250);
+    //Essence->setPos(-400,100);
+    //jaugeTemperature->setPos(800,100);
 
     this->setBackgroundBrush(Qt::black);
     this->addItem(Vitesse);
