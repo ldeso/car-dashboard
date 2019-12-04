@@ -3,6 +3,7 @@
 jaugeTemperatureHenri::jaugeTemperatureHenri()
 {
     value=60;
+    valueMax=150;
 }
 
 QRectF jaugeTemperatureHenri::boundingRect() const

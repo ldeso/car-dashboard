@@ -58,7 +58,6 @@ SOURCES += \
     Florian/cadrantflorian.cpp \
     Florian/florianclignotant.cpp \
     Henri/affichekmhenri.cpp \
-    Henri/jaugebatteriehenri.cpp \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
@@ -108,7 +107,8 @@ SOURCES += \
     Jonas/jonas_voyant_warning.cpp \
     Jonas/jonas_compteurkm.cpp \
     Henri/porteshenri.cpp \
-    Henri/onoff.cpp
+    Henri/onoff.cpp \
+    Henri/onoffpainthenri.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -138,7 +138,6 @@ HEADERS += \
     Florian/florianvoyant.h \
     Florian/florianclignotant.h \
     Henri/affichekmhenri.h \
-    Henri/jaugebatteriehenri.h \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
@@ -188,7 +187,8 @@ HEADERS += \
     Henri/onoff.h \
     Florian/floriancompteurkm.h \
     Jonas/jonas_voyant_warning.h \
-    Jonas/jonas_compteurkm.h
+    Jonas/jonas_compteurkm.h \
+    Henri/onoffpainthenri.h
 
 FORMS += \
         mainwindow.ui \

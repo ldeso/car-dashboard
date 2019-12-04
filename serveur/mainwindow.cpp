@@ -278,7 +278,7 @@ void MainWindow::reception()
         if(warning>=0 && warning <= 1){
             dashboard->warning->setValue(warning);
             dashboard->Clignotant->setValue(2*warning);
-            ui->graphicsView->scene()->update();
+//            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
@@ -589,12 +589,23 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-
-
-
-    else
+    else if(message=="CANN SPEED_LIMIT"){
+        int speed_limit = string.section(' ', 2, 2).toInt();
+        if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
+            dashboard->SpeedLimit->setValue(speed_limit);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être comprise entre 1 et %1").arg(dashboard->Vitesse->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else {
         qDebug() << "erreur lors de la reception du message";
-
+    }
 }
 
 //A laisser commenté, peut poser problème pour certains dashboards
@@ -602,8 +613,8 @@ void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
 
-    //if (dashboard->CompteurKm) //
-        // dashboard->CompteurKm->setValue(km_parcourus);
+    if (dashboard->CompteurKm)
+         dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
 
 }
