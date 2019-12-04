@@ -95,7 +95,6 @@ void cadrantHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWi
 //.....Designe text pour vitesse cadrant.............................................
 
     painter->setPen(QPen(QBrush("cyan") , 40 , Qt::SolidLine,Qt::FlatCap));
-    painter->drawText(carre[1],Qt::AlignCenter,"Bienvenue dans le cadrant de Henri V1.1");
     painter->setFont(QFont(styleTexte, tailleTexteVitesse, -1,false));
     float pi=3.14159265;
     int j=0;

@@ -26,6 +26,11 @@ void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*
 
     QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeEssence.png");
     painter->drawPixmap(-15,265,30,30,*test);
+    if (value == 0)
+    {
+        QPixmap *test2=new QPixmap(":/new/prefix1/icones/iconeEssenceRouge.png");
+        painter->drawPixmap(-15,265,30,30,*test2);
+    }
 
 
 //fin jauge essence
