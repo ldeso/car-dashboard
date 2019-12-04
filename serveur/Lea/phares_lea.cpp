@@ -13,6 +13,6 @@ QRectF phares_Lea::boundingRect() const
 }
 
 
-void phares_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem* , QWidget* )
+void phares_Lea::paint(QPainter *, const QStyleOptionGraphicsItem* , QWidget* )
 {
 }

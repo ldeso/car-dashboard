@@ -3,6 +3,7 @@
 
 karim_scene::karim_scene()
 {
+    this->setSceneRect(-600,-300,1000,600);
     Vitesse=new CadranVitesse;
     CompteTours= new CadranTourParMin();
     Essence= new CadranEss();

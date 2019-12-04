@@ -1,3 +1,4 @@
+#include "leo_display.h"
 #include "leo_gauge.h"
 #include "leo_scene.h"
 
@@ -69,6 +70,9 @@ Leo_scene::Leo_scene(scene_globale *parent) :
         Qt::red
     );
     // Clignotant
+    SpeedLimit = new Leo_display();
+    SpeedLimit->setPos(150, 195);
+    addItem(SpeedLimit);
 }
 
 void Leo_scene::mAddGauges(qreal ax, qreal ay, Leo_scene::gauges_t gauges, qreal sizePx, qreal spacingPx)
