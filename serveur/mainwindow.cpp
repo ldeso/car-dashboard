@@ -369,7 +369,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CHECK_ENGINE"){
+    else if(message=="CANN CHECK_ENGINE"){
         int checkEngine_on = string.section(' ', 2,2).toInt();
         if(checkEngine_on==0 || checkEngine_on==1){
             dashboard->CheckEngine->setValue(checkEngine_on);
