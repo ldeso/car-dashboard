@@ -4,6 +4,7 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QTimer>
+#include <QCoreApplication>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -20,18 +21,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    dashboard=new henri_scene();
-    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
-                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
-    this->move(0,0);
+    dashboard=new SceneFlorian();
+
     ui->graphicsView->setScene(dashboard);
+    QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
+    QCoreApplication::postEvent(this, resizeEvent);
 
     QTimer *kmTimer=new QTimer;
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(500);
     kmTimer->start();
-
-
 }
 
 ///
@@ -606,6 +605,12 @@ void MainWindow::update_km()
         // dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
 
+}
+
+//permet d'ajuster la taille de la scène chaque fois que MainWindow est redimensionnée
+void MainWindow::resizeEvent(QResizeEvent *)
+{
+    ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
 
 
