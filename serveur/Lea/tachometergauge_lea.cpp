@@ -23,7 +23,7 @@ TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double p
 
 QRectF TachometerGauge_Lea::boundingRect() const
 {
-    QRectF rectf(0,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }
