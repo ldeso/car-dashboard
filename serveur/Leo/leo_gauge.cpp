@@ -38,7 +38,7 @@ void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
         "0"
     );
     painter->drawText(
-        static_cast<int>(0.1 * mSizePx),
+        static_cast<int>(0.4*mSizePx - 20*QString::number(valueMax).size()),
         static_cast<int>(0.28 * mSizePx),
         QString::number(valueMax)
     );

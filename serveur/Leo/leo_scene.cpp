@@ -5,7 +5,7 @@ Leo_scene::Leo_scene(scene_globale *parent) :
     scene_globale(parent)
 {
     mAddGauges(
-        150,
+        175,
         150,
         {
             {&Vitesse, 220, 20, "Speed"},
@@ -13,64 +13,62 @@ Leo_scene::Leo_scene(scene_globale *parent) :
         }
     );
     mAddGauges(
-        725,
-        150,
+        75,
+        375,
         {
-            {&Essence, 100, 10, "Gas"},
-            {&OilTemp, 200, 20, "Oil"},
-            {&jaugeTemperature, 200, 20, "Engine"},
+            {&Essence, 100, 10, "Fuel"},
+            {&jaugeTemperature, 200, 20, "T° Engine"},
+            {&CompteurKm, 1000, 100, "km"},
+            {&OilTemp, 200, 20, "T° Oil"}
         },
         150,
         175
     );
     mAddIndicators(
-        50,
-        340,
+        725,
+        25,
         {
-            {&CheckEngine, "Engine Problem"},
-            {&OpenDoorDriver, "Hazard Warning Lights"},
-            {&SeatBelt, "Seat Belt"},
-            {&AirbagOn, "Airbag Problem"},
-            {&warning, "Hazard Warning Lights"},
-            {&warning, "Hazard Warning Lights"},
-            {&warning, "Hazard Warning Lights"},
-            {&warning, "Hazard Warning Lights"},
-        },
-        Qt::darkRed,
-        Qt::red
+            {&position, "Position Lamps"},
+            {&croisement, "Dipped Beam"},
+            {&route, "Main Beam"},
+            {&AdaptiveSuspensionDampers, "ASD"},
+            {&AutomaticTransmissionMode, "Automatic Transmission"},
+            {&FrontAntifog, "Front Antifog Lamps"},
+            {&RearAntifog, "Rear Antifog Lamps"},
+            {&RearWindowHeating, "Rear Window Heat"},
+            {&AdaptiveCruiseControl, "Cruise Control On"},
+            {&BonnetOpen, "Bonnet Open"},
+            {&BootOpen, "Boot Open"}
+        }
     );
     mAddIndicators(
-        450,
-        340,
+        1050,
+        25,
         {
             {&VoyantBatterie, "Battery"},
             {&warning, "Hazard Warning Lights"},
             {&SeatBelt, "Seat Belt"},
             {&OpenDoorDriver, "Driver Door Open"},
             {&OpenDoorFrontPassenger, "Front Door Open"},
-            {&OpenDoorBackRightPassenger, "Back Right Door Open"},
             {&OpenDoorBackLeftPassenger, "Back Left Door Open"},
+            {&OpenDoorBackRightPassenger, "Back Right Door Open"},
             {&CruiseControlOn, "Cruise Control"}
         },
         Qt::darkYellow,
         Qt::yellow
     );
     mAddIndicators(
-        850,
-        300,
+        1050,
+        345,
         {
-            {&position, "Position Lamps"},
-            {&croisement, "Dipped Beam"},
-            {&route, "Main Beam"},
-            {&FrontAntifog, "Front Antifog Lamps"},
-            {&RearAntifog, "Rear Antifog Lamps"},
-            {&AdaptiveSuspensionDampers, "ASD"},
-            {&RearWindowHeating, "Rear Window Heat"},
-            {&BonnetOpen, "Bonnet Open"},
-            {&BootOpen, "Boot Open"},
-            {&AdaptiveCruiseControl, "Cruise Control On"}
-        }
+            {&CheckEngine, "Engine Problem"},
+            {&SeatBelt, "Seat Belt"},
+            {&AirbagOn, "Airbag Problem"},
+        },
+        Qt::darkRed,
+        Qt::red
     );
+    // Clignotant
 }
 
 void Leo_scene::mAddGauges(qreal ax, qreal ay, Leo_scene::gauges_t gauges, qreal sizePx, qreal spacingPx)
