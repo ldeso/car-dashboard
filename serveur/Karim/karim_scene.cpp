@@ -8,7 +8,7 @@ karim_scene::karim_scene()
     Essence= new CadranEss();
     jaugeTemperature = new CadranEss();
     Clignotant = new clignot();
-    VoyantBatterie = new Voyants(":/Icones/antibrouillard.jpg",-50,-20,50);//karim il n'y avai pas le voyant batterie j'ai mdif pour compilé
+    VoyantBatterie = new Voyants(":/Icones/batterie.jpg",-50,-20,50);
     position= new Voyants(":/Icones/antibrouillard.jpg",-50,-100,50);
     croisement= new Voyants(":/Icones/feucroisement.jpg",-200,-100,50);
     route= new Voyants(":/Icones/pleinphare.jpg",-120,-100,50);

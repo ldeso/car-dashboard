@@ -18,12 +18,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-
-
     dashboard=new henri_scene();
-    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+  //  this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
                                                                //la taille de la scene est le plus grand des ::boundingRect() des objets
-    this->move(0,0);
+    //this->move(0,0);
     ui->graphicsView->setScene(dashboard);
 
     QTimer *kmTimer=new QTimer;
@@ -613,9 +611,9 @@ void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
 
-    if (dashboard->CompteurKm)
+    /*if (dashboard->CompteurKm)
          dashboard->CompteurKm->setValue(km_parcourus);
-        ui->graphicsView->scene()->update();
+        ui->graphicsView->scene()->update();*/
 
 }
 
