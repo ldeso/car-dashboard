@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new henri_scene();
+    dashboard=new hugo_scene();
 
     this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
     //la taille de la scene est le plus grand des ::boundingRect() des objets
