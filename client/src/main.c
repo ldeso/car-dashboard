@@ -96,7 +96,7 @@ int main()
             puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 eteint et 1 allumé" );
             puts("CANN ADAPT_CRUISE_CONTROL x = 0 eteint et 1 allumé" );
             puts("CANN AIRBAG_ON x = 0 eteint et 1 allumé" );
-            puts("CANN CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
+            puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
 	    puts("CANN ENGINE_T x avec x = temperature du moteur" );
