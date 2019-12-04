@@ -20,9 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
 
     dashboard=new henri_scene();
-  //  this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
-                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
-    //this->move(0,0);
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -221,8 +218,7 @@ void MainWindow::reception()
               dashboard = new inna_scene;
               ui->graphicsView->setScene(dashboard);
             }
-            this->resize(dashboard->width()+31,dashboard->height()+63);
-            this->move(0,0);
+            ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";
@@ -432,22 +428,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
-    {
-        int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
-        if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
-          //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
-            ui->graphicsView->scene()->update();
-            QString text = "OK";
-            socket->write(text.toLocal8Bit());
-        }
-        else{
-            QString text;
-            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
-            socket->write(text.toLocal8Bit());
-        }
-    }
-
+    
         else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
@@ -589,8 +570,21 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-
-
+	else if(message=="CANN OIL_L"){
+        int oil = string.section(' ', 2,2).toInt();
+        if(oil>=0 && oil <= dashboard->oilLevel->getValueMax()){
+            dashboard->oilLevel->setValue(oil);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            qDebug()<<text;
+            text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
 
     else
         qDebug() << "erreur lors de la reception du message";
@@ -612,6 +606,7 @@ void MainWindow::update_km()
         ui->graphicsView->scene()->update();
 
 
+
 }
 
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
@@ -619,8 +614,5 @@ void MainWindow::resizeEvent(QResizeEvent *)
 {
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
-
-
-
 
 
