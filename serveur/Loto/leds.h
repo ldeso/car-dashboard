@@ -19,6 +19,7 @@ public:
     QRectF boundingRect()const;
 
 
+
 private:
     int posX,posY, size =30;
     QString iconPath;

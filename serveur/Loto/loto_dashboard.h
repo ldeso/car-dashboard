@@ -8,18 +8,18 @@
 #include "qpainter.h"
 #include "QPaintEvent"
 #include "QBrush"
+#include "objet_virtuel.h"
 
 
-class loto_dashboard : public QGraphicsItem
+class loto_dashboard : public objet_virtuel
 {
 public:
     loto_dashboard();
     QRectF boundingRect()const;
-    double speedValue=0;
+    double speedValue;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
     const double pi=3.142;
     double getSpeedAngle(double speedValue);
-    void drawtachometertext(int theta);
 
 };
 
