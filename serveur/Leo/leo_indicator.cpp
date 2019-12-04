@@ -3,6 +3,8 @@
 Leo_indicator::Leo_indicator(QColor colorOff, QColor colorOn, objet_virtuel* parent)
     : objet_virtuel(parent)
 {
+    value = 0;
+    valueMax = 0;
     ColorOff = colorOff;
     ColorOn = colorOn;
 }
