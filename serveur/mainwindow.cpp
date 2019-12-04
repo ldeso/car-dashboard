@@ -19,17 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new henri_scene();
-  //  this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
-                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
-    //this->move(0,0);
-
-
-
     dashboard=new hugo_scene();
-//    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
-//                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
-//    this->move(0,0);
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -228,7 +219,7 @@ void MainWindow::reception()
               dashboard = new inna_scene;
               ui->graphicsView->setScene(dashboard);
             }
-            this->resize(dashboard->width()+31,dashboard->height()+63);
+//            this->resize(dashboard->width()+31,dashboard->height()+63);
             this->move(0,0);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
@@ -597,7 +588,6 @@ void MainWindow::reception()
         }
     }
 
-
     else
         qDebug() << "erreur lors de la reception du message";
 
@@ -618,6 +608,7 @@ void MainWindow::update_km()
         ui->graphicsView->scene()->update();
 
 
+
 }
 
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
@@ -625,8 +616,5 @@ void MainWindow::resizeEvent(QResizeEvent *)
 {
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
-
-
-
 
 

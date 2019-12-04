@@ -7,7 +7,6 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     addItem(fond);
 
     Vitesse=new cadrantHenri();
-    Vitesse->resetTransform();
     addItem(Vitesse);
 
     Essence=new jaugeEssenceHenri();
@@ -16,8 +15,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     CompteTours=new jaugeToursMinuteHenri();
     addItem(CompteTours);
 
-    jaugeTemperature=new jaugeTemperatureHenri();
-    addItem(jaugeTemperature);
+//    jaugeTemperature=new jaugeTemperatureHenri();
+//    addItem(jaugeTemperature);
 
     OilTemp=new jaugeTemperatureHenri;
     addItem(OilTemp);
@@ -36,7 +35,6 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
 
     route=new feuxHenri();
     addItem(route);
-
 
     portesHenri* portes=new portesHenri();
     addItem(portes);
@@ -57,5 +55,5 @@ void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
 
 QRectF henri_scene::boundingRect() const
 {
-    return QRect(-700,-350,1400,700);
+    return QRect(-300,-300,600,600);
 }
