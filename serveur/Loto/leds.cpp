@@ -43,7 +43,8 @@ void LEDS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 QRectF LEDS::boundingRect() const
 {
- return QRect (-800,-400,1000,1000);
+    return QRect(-200,-200,400,400);
+
 }
 
 
