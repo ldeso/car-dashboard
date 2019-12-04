@@ -30,6 +30,7 @@ private slots:
     void connexion();
     void reception();
     void update_km();
+    void resizeEvent(QResizeEvent *event);
 private:
    // Compteur * c;
     scene_globale *dashboard;
