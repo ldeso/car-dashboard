@@ -23,15 +23,13 @@ TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double p
 
 QRectF TachometerGauge_Lea::boundingRect() const
 {
-    QRectF rectf(-100,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }
 
 void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-
-    int v;
     if (value>=0 && value <=valueMax) {v=value;}
     else if (value<0) {v=0;}
     else {v=valueMax;}
@@ -125,14 +123,10 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
 
 }
 
-int TachometerGauge_Lea::getValueMax()
-{
-    return valueMax;
-}
 
 void TachometerGauge_Lea::setValue(int v)
 {
-  //  value=v/1000;
+    value=v;
 }
 
 void TachometerGauge_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_graduation,int param_rpmMax)

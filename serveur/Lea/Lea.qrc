@@ -64,5 +64,7 @@
     <qresource prefix="/Effets">
         <file>effet_verre4.png</file>
         <file>effet_verre5.png</file>
+        <file>effet_cuir.png</file>
+        <file>Icones_Voyants/orig_484482.jpg</file>
     </qresource>
 </RCC>

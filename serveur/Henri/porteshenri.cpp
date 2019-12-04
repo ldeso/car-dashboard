@@ -12,7 +12,7 @@ portesHenri::portesHenri(objet_virtuel *parent):objet_virtuel (parent)
 
 QRectF portesHenri::boundingRect() const
 {
-    return QRect(-500,-300,1000,600);
+    return QRect(-100,-100,200,200);
 }
 
 void portesHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)

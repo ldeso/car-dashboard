@@ -19,7 +19,7 @@ Quatre_Voyants_Lea::Quatre_Voyants_Lea(objet_virtuel *parent) :
 
 QRectF Quatre_Voyants_Lea::boundingRect() const
 {
-    QRectF rectf(-100,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }

@@ -24,7 +24,7 @@ FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width,
 
 QRectF FuelGauge_lea::boundingRect() const
 {
-    QRectF rectf(-100,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }

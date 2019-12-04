@@ -11,7 +11,7 @@ lea_clignottants::lea_clignottants()
 
 QRectF lea_clignottants::boundingRect() const
 {
-    QRectF rectf(-100,0,800,500);
+    QRectF rectf(0,0,1000,500);
 
     return rectf;
 }
@@ -27,7 +27,7 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
             QPixmap image(":/Lea/Icones_Voyants/turnLeft.gif");
             QPixmap image2=image.scaled(30,30);
             painter->setOpacity(cligno);
-            painter->drawPixmap(180,50,70,50,image2);
+            painter->drawPixmap(380,50,70,50,image2);
 
         }
         if (getValue()==1){
@@ -35,7 +35,7 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
             QPixmap image2=image.scaled(30,30);
 
             painter->setOpacity(cligno);
-            painter->drawPixmap(580,50,70,50,image2);
+            painter->drawPixmap(780,50,70,50,image2);
 
         }
         if (getValue()==2){
@@ -43,13 +43,13 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
             QPixmap image2=image.scaled(30,30);
 
             painter->setOpacity(cligno);
-            painter->drawPixmap(580,50,70,50,image2);
+            painter->drawPixmap(780,50,70,50,image2);
 
             QPixmap image3(":/Lea/Icones_Voyants/turnLeft.gif");
             QPixmap image4=image3.scaled(30,30);
 
             painter->setOpacity(cligno);
-            painter->drawPixmap(180,50,70,50,image4);
+            painter->drawPixmap(380,50,70,50,image4);
         }
          MAJ();
 //        update();

@@ -21,7 +21,7 @@ onoffpaintHenri::onoffpaintHenri(int xx, int yy, int ww, int hh, QPixmap pixm)
 
 QRectF onoffpaintHenri::boundingRect() const
 {
-    return QRect(-500,-300,1000,600);
+    return QRect(-300,-300,600,600);
 }
 
 void onoffpaintHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

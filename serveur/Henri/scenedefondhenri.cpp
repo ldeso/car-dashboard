@@ -16,13 +16,12 @@ void sceneDeFondHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*,
     QBrush brush(gradient);
     painter->setBrush(brush);
     painter->setPen(QPen(brush,1));
-    painter->drawEllipse(-660,-380,1320,760);
-
+    painter->drawEllipse(-700,-390,1400,780);
 // fin designe elipse de fond
 }
 
 
 QRectF sceneDeFondHenri::boundingRect() const
 {
-    return QRect(-660,-360,1320,720);
+    return QRect(-600,-390,1200,780);
 }

@@ -25,12 +25,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void acceleration(int);
     ~MainWindow();
-    void resizeEvent(QResizeEvent * event);
 
 private slots:
     void connexion();
     void reception();
     void update_km();
+    void resizeEvent(QResizeEvent *event);
 private:
    // Compteur * c;
     scene_globale *dashboard;
