@@ -278,7 +278,7 @@ void MainWindow::reception()
         if(warning>=0 && warning <= 1){
             dashboard->warning->setValue(warning);
             dashboard->Clignotant->setValue(2*warning);
-            ui->graphicsView->scene()->update();
+//            ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toUtf8());
         }
@@ -602,8 +602,8 @@ void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
 
-    //if (dashboard->CompteurKm) //
-        // dashboard->CompteurKm->setValue(km_parcourus);
+    if (dashboard->CompteurKm)
+         dashboard->CompteurKm->setValue(km_parcourus);
         ui->graphicsView->scene()->update();
 
 }

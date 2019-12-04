@@ -19,20 +19,24 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     jaugeTemperature=new jaugeTemperatureHenri();
     addItem(jaugeTemperature);
 
+    OilTemp=new jaugeTemperatureHenri;
+    addItem(OilTemp);
+
     Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
 
     CompteurKm=new afficheKmHenri();
     addItem(CompteurKm);
 
-    VoyantBatterie=new jaugeBatterieHenri();
+    VoyantBatterie=new onoffpaintHenri(-170,10,55,50,QPixmap(":/new/prefix1/icones/iconeBatterie.png"));
     addItem(VoyantBatterie);
 
-    warning=new warninghenri();
+    warning=new onoff();
     addItem(warning);
 
     route=new feuxHenri();
     addItem(route);
+
 
     portesHenri* portes=new portesHenri();
     addItem(portes);
