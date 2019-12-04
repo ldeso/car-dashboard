@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    dashboard=new henri_scene();
+    dashboard=new Lea_scene();
     this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
                                                                //la taille de la scene est le plus grand des ::boundingRect() des objets
     this->move(0,0);

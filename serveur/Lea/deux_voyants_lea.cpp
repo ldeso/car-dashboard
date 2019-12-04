@@ -19,7 +19,7 @@ deux_voyants_lea::deux_voyants_lea(objet_virtuel *parent) :
 
 QRectF deux_voyants_lea::boundingRect() const
 {
-    QRectF rectf(-100,0,800,500);
+    QRectF rectf(0,0,800,500);
 
     return rectf;
 }
