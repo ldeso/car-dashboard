@@ -3,6 +3,7 @@
 onoff::onoff(objet_virtuel *parent):objet_virtuel (parent)
 {
     value=0;
+    valueMax=999;
 }
 
 QRectF onoff::boundingRect() const

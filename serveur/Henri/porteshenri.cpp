@@ -39,12 +39,12 @@ void portesHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWid
         if (PD->getValue()==1)
         {
             painter->rotate(-45);
-            painter->drawPixmap(-25,36,198,200,*pd);
+            painter->drawPixmap(-25,35,198,200,*pd);
             painter->rotate(45);
         }
 
         if (PG->getValue()==0)
-            painter->drawPixmap(52,30,200,200,*pg);
+            painter->drawPixmap(52,32,200,200,*pg);
         if (PG->getValue()==1)
         {
             painter->rotate(45);
