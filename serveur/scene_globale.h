@@ -36,8 +36,7 @@ public:
     objet_virtuel *BootOpen;
     objet_virtuel *CruiseControlOn;
     objet_virtuel *OilTemp;
-
-
+    objet_virtuel *SpeedLimit;
 };
 
 #endif // SCENE_GLOBALE_H
