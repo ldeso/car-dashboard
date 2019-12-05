@@ -14,9 +14,7 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern)); // setting the background to be solid black
     CompteurKm = new compteurKmInna();
         CompteurKm->setZValue(5.0);
-
-       addItem(CompteurKm);
-
+        addItem(CompteurKm);
     speedometerInna = new SpeedometerInna();
         speedometerInna->setZValue(1.0); // setting the position in the scene item's order
         addItem(speedometerInna); // adding item to the scene

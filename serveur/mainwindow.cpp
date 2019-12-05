@@ -179,7 +179,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -218,10 +218,18 @@ void MainWindow::reception()
                 ui->graphicsView->setScene(dashboard);
             }
 
-            if (prenom=="LOTO"){
+
+            if (prenom=="YOUCEF"){
                 delete dashboard;
-                dashboard = new loto_scene;
+                dashboard = new Youcef_Scene;
                 ui->graphicsView->setScene(dashboard);
+             }
+
+             if (prenom=="LOTO"){
+              delete dashboard;
+              dashboard = new loto_scene;
+              ui->graphicsView->setScene(dashboard);
+
             }
 
             if (prenom=="INNA"){

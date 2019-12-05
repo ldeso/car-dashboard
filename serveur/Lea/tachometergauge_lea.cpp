@@ -27,13 +27,12 @@
 /// \param param_param_rpmMax determine le rpm maximum jusqu'à laquelle va le cadran
 ///
 
-TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double param_r,int param_start, int param_end, int param_spanAngle, int param_graduation, int param_rpmMax )
+TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double param_r,int param_start, int param_spanAngle, int param_graduation, int param_rpmMax )
 {
     x= param_x;
     y=param_y;
     r=param_r;
     angle_debut=param_start;
-    angle_fin = param_end;
     nb_graduation = param_graduation;
     span_angle=param_spanAngle;
     valueMax=param_rpmMax;
@@ -159,21 +158,3 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
    painter->drawText(qRound(x-50),qRound(y+75),"RPM x 1000");
 
 }
-
-
-//void TachometerGauge_Lea::setValue(int v)
-//{
-//    value=v;
-//}
-
-//void TachometerGauge_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_graduation,int param_rpmMax)
-//{
-//    x= param_x;
-//    y=param_y;
-//    r=param_r;
-//    angle_debut=param_start;
-//    angle_fin = param_end;
-//    nb_graduation = param_graduation;
-//    span_angle=param_spanAngle;
-//    valueMax=param_rpmMax;
-//}

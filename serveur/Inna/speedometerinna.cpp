@@ -2,7 +2,18 @@
 #include <QFont>
 #include <QtMath>
 #include <QPainter>
-
+///
+/// \file speedometerinna.cpp
+/// \brief Classe SpeedometerInna derivée de la classe QGraphicsItem
+/// \details Permettant la création d'un objet static de la jauge vitesse
+/// \param value - la valeur de vitesse
+/// \param valueMax -  la vitesse maximum
+/// \param A0 - l'angle de debut de la jauge
+/// \param Amax - l'ampleur de la jauge
+/// \param r - le rayon de l'arche de la jauge
+/// \param k - le coefficient pour convertir la valeur en degrés
+///
+///
 SpeedometerInna::SpeedometerInna(QGraphicsItem *parent) :  QGraphicsItem(parent)
 {
     vmax = 300 ;
@@ -37,6 +48,9 @@ QRectF SpeedometerInna::boundingRect() const
 
 void SpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 { painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
+    ///
+    ///\brief Dessin du circle encadrant
+    ///
     painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));
     painter->drawEllipse(QRectF(xc-r,yc-r,r*2,r*2));
      QRadialGradient radialGrad(QPointF(xc, yc), r+20); //setting the gradient to draw the outer arc
@@ -48,7 +62,8 @@ void SpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
      painter->setBrush(QBrush(Qt::transparent)); // to have a transparent background
      painter->drawArc(QRectF(xc-r,yc-r,r*2,r*2),37*16,298*16); // coordinates for the arc
 
-     // *** draw text and ticks***
+  /// \bref Dessin du texte et des traits
+  ///
      k = Amax * 1.0 / vmax ;
      for (int i = 0; i <= vmax ; i += 10) {
      if (i % 50 == 0)
