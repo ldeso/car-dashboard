@@ -169,7 +169,7 @@ painter->setFont(font);
 QRectF affiche_km_h (x-90,y+30,80,70);
 pen.setCapStyle(Qt::SquareCap);
 painter->setPen(pen);
-painter->drawText(affiche_km_h, Qt::AlignRight ,QString("%1").arg(value));
+painter->drawText(affiche_km_h, Qt::AlignRight ,QString("%1").arg(qRound(value)));
 
 QFont font2("Seven Segment",10,QFont::Bold);
 painter->setFont(font2);
