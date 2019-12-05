@@ -17,6 +17,7 @@ class loto_scene : public scene_globale
 {
 public:
     loto_scene(scene_globale *parent=nullptr);
+
 };
 
 #endif // LOTO_SCENE_H

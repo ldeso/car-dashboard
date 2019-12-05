@@ -109,7 +109,8 @@ SOURCES += \
     Jonas/jonas_compteurkm.cpp \
     Henri/porteshenri.cpp \
     Henri/onoff.cpp \
-    Henri/onoffpainthenri.cpp
+    Henri/onoffpainthenri.cpp \
+    Lea/warning_lea.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -190,7 +191,8 @@ HEADERS += \
     Florian/floriancompteurkm.h \
     Jonas/jonas_voyant_warning.h \
     Jonas/jonas_compteurkm.h \
-    Henri/onoffpainthenri.h
+    Henri/onoffpainthenri.h \
+    Lea/warning_lea.h
 
 FORMS += \
         mainwindow.ui \

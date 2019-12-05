@@ -34,15 +34,14 @@ QRect carre[13];
     }
 
 //Ajout de la graduations
-    painter->setRenderHints(QPainter::Antialiasing,false);
+    painter->setRenderHints(QPainter::Antialiasing);
     painter->setPen(QPen(QBrush("white") , 10, Qt::SolidLine,Qt::FlatCap));
-   for(float i=225;i>-46;i-=10.0*270/60)
+   for(float i=180;i>-1;i-=10.0*270/60)
     {
-     painter->drawArc(carre[6],i*16,8);
+     painter->drawArc(carre[6],i*16,10);
     }
 
 //Design de l'aiguille
-   //painter->rotate();
    painter->setPen(QPen( Qt::darkRed , 8, Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin));
    painter->drawLine(-300, 12, -300, 85);
    painter->setRenderHints(QPainter::Antialiasing);

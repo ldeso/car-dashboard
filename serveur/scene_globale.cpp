@@ -4,6 +4,7 @@
 ///
 
 #include "scene_globale.h"
+#include <QDebug>
 
 scene_globale::scene_globale(QGraphicsScene *parent):QGraphicsScene (parent)
 {

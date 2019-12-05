@@ -8,14 +8,14 @@
 #include "qpainter.h"
 #include "QPaintEvent"
 #include "QBrush"
+#include "objet_virtuel.h"
 
-
-class fuel_guage : public QGraphicsItem
+class fuel_guage : public objet_virtuel
 {
 public:
     fuel_guage();
     QRectF boundingRect()const;
-    double tankLevelLitres=0;
+    double tankLevelLitres=getValue();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
     const double pi=3.142;
     double getrotationAngle(double tankLevelLitres);
