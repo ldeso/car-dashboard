@@ -3,6 +3,18 @@
 #include <QtMath>
 #include <QPainter>
 
+///
+/// \file enginetinna.cpp
+/// \brief Classe EngineTInna derivée de la classe objet_virtuel
+/// \details Permettant la création de l' aiguille de la jauge de la température mu moteur qui tourne en fonction de la valeur "value".
+///
+/// \param value - la valeur de la température du moteur
+/// \param valueMax -  la température maximum
+/// \param A0 - l'angle de debut de la jauge
+/// \param Amax - l'ampleur de la jauge
+/// \param r - le rayon de l'arche de la jauge
+/// \param k - le coefficient pour convertir la valeur en degrés
+///
 
 EngineTInna::EngineTInna(objet_virtuel *parent) :  objet_virtuel(parent)
 {
@@ -37,7 +49,9 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
       double xet=xc+20.0*cos((A0+20+Amax/2)*rad); //position of engine temperature arrow
       double yet=yc-20.0*sin((A0+20+Amax/2)*rad);
 
-     // ***Draw central circle for engine temp ***
+      ///
+      ///\brief Dessin du circle central
+      ///
 
       QRadialGradient radialGradet(QPointF(xet, yet), 50);
       radialGradet.setColorAt(0, Qt::black);
@@ -46,11 +60,15 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
       painter->setBrush(QBrush(radialGradet));
       painter->drawEllipse(qRound(xet-15),qRound(yet-15),30,30);
 
-      //          *** draw fleche engine temp ***
+      ///
+      ///\brief Dessin de la fleche
+      ///
+      ///
     t=qRound(value);
-	if (t < 50 || t > (tmax + 5)) t = ( t < 50 ?  50 : (tmax+5));
+    if (t < 50 || t > (tmax + 5)) t = ( t < 50 ?  50 : (tmax+5));// condition to set the range and prevent arrow from pointing outside the scale
 
-      k = (Amax+30) * 1.0f / (tmax-60) ;
+
+      k = (Amax+30) * 1.0 / (tmax-60) ;
       QLinearGradient linearGradot(QPointF(xet-(5*cos((A0+5+k*(t-60)-90)*rad)),yet+(5*sin((A0+5+k*(t-60)-90)*rad))), QPointF(xet+(7*cos((A0+5+k*(t-60)-90)*rad)),yet-(7*sin((A0+5+k*(t-60)-90)*rad))));
       linearGradot.setColorAt(0, "#F93737");
       linearGradot.setColorAt(0.5, "#ff4d4d");
