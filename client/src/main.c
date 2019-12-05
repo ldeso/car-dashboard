@@ -262,7 +262,7 @@ int main(int argc, char** argv)
             puts("CANN ENGINE_T x avec x = temperature du moteur" );
             puts("CANN OIL_T x avec x = temperature de l'huile" );
             puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
-            puts("CANN SIM x avac x le nombre d'iterations");
+            puts("CANN SIM x avac x la vitesse de diminution");
 
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;

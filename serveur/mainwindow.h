@@ -39,10 +39,6 @@ private:
     QTcpServer * server;
     QTcpSocket * socket;
     QTimer *updateTimer;
-
-
-    float km_parcourus=0;
-    int vitesse_actuelle=0;
 };
 
 #endif // MAINWINDOW_H
