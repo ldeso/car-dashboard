@@ -47,29 +47,23 @@ void MainWindow::acceleration(int time)
     qDebug()<<"ok";
     float t=0;
     float vitesse=dashboard->Vitesse->getValue();
-    int rapport=1;
     while (t<time){
         vitesse_actuelle=vitesse;
         if ((vitesse)<=dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
             if (vitesse<55){
-                rapport=1;
                 dashboard->CompteTours->setValue(vitesse*4500/55);
             }
             else if(vitesse<75){
-                rapport=2;
                 dashboard->CompteTours->setValue(vitesse*4500/75);
             }
             else if(vitesse<115){
-                rapport=3;
                 dashboard->CompteTours->setValue(vitesse*4500/115);
             }
             else if(vitesse<140){
-                rapport=4;
                 dashboard->CompteTours->setValue(vitesse*4500/140);
             }
             else{
-                rapport=5;
                 dashboard->CompteTours->setValue(vitesse*4500/185);
             }
         }
