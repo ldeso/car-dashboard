@@ -13,7 +13,7 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     QFontDatabase::addApplicationFont(":/I_mecheffects2bb_reg.ttf");
     setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern)); // setting the background to be solid black
     CompteurKm = new compteurKmInna();
-        CompteurKm->setValue(5.0);
+        CompteurKm->setZValue(5.0);
         addItem(CompteurKm);
     speedometerInna = new SpeedometerInna();
         speedometerInna->setZValue(1.0); // setting the position in the scene item's order
