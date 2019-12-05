@@ -13,6 +13,7 @@
 #include "lea_scenedefond.h"
 #include "warning_lea.h"
 #include "compteur_kilometre_lea.h"
+#include "jauge_temperature_lea.h"
 
 class Lea_scene : public scene_globale
 {

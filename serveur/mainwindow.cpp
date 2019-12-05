@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
     dashboard=new hugo_scene();
 
+
+
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
     QCoreApplication::postEvent(this, resizeEvent);
