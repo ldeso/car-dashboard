@@ -54,8 +54,8 @@ SOURCES += \
     Youcef/carspeeddial.cpp \
     Youcef/engineheatgauge.cpp \
     Youcef/fuelgauge.cpp \
-    Youcef/needlespeed.cpp \
     Youcef/tachometer.cpp \
+    Youcef/voyantsyoucef.cpp \
     Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -143,8 +143,8 @@ HEADERS += \
     Youcef/carspeeddial.h \
     Youcef/engineheatgauge.h \
     Youcef/fuelgauge.h \
-    Youcef/needlespeed.h \
     Youcef/tachometer.h \
+    Youcef/voyantsyoucef.h \
     Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \
@@ -219,7 +219,8 @@ RESOURCES += \
     Loto/myicons/icons.qrc \
     Inna/InnaRSC/inna.qrc \
     Lea/Lea.qrc \
-    Florian/florian.qrc
+    Florian/florian.qrc \
+    Youcef/Youcef.qrc
 
 
 DISTFILES += \

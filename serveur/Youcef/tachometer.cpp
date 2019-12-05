@@ -36,12 +36,6 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->drawArc(RectSpeed,startAngle,spanAngle);
     }
 
-    /*test: line to define the center of the left main circle*/
-
-     painter->setPen(QPen(QBrush("dark") ,2, Qt::SolidLine,Qt::FlatCap));
-     painter->drawLine(QLine (-295,-400,-295,300));
-     painter->drawLine(QLine (-600,25,600,25));
-    /*test end */
 
 
     /*design Tachometer display*/
@@ -225,8 +219,6 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
 
 
-
-
     /*For the arc needle*/
 
     {
@@ -255,13 +247,6 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->drawEllipse(RectSpeed);
 
     }
-
-
-   /*test: line to define the center of the display rectangle*/
-     painter->setPen(QPen(QBrush("dark") ,2, Qt::SolidLine,Qt::FlatCap));
-     painter->drawLine(QLine (-600,-95,600,-95));
-
-     /*test end*/
 
 
 }

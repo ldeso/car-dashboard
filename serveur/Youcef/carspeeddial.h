@@ -3,20 +3,20 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QGraphicsItem>
+#include "objet_virtuel.h"
 
-class CarSpeedDial : public QGraphicsItem
+class CarSpeedDial : public objet_virtuel
 {
 public:
-    CarSpeedDial(QGraphicsItem *parent=nullptr);
+    CarSpeedDial(objet_virtuel *parent=nullptr);
 
     QRectF boundingRect() const ;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
 
     /* main parameters*/
 
-        float pi = 3.14159265359;  /* Global variable */
-        int speedvalue;
+        float pi = 3.14159265359;
+
 
 
 

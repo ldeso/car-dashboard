@@ -25,12 +25,7 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
      int spanAngle= -63*16;
      painter->setPen(QPen(QBrush("red"), 4, Qt::SolidLine,Qt::RoundCap,Qt::BevelJoin));
 
-       QPolygonF polygon;
-
-
-//       QRect rec(20,-94,198,179);
-//       painter->drawRect(rec);
-
+      QPolygonF polygon;
       QPainterPath rectPath;
       rectPath.moveTo(102,-64);
       rectPath.lineTo(20,-64);
@@ -40,13 +35,13 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
       rectPath.closeSubpath();
       rectPath.addPolygon(polygon);
 
-       QRadialGradient gradient(119, -4.5, 200);
-       gradient.setColorAt(0, QColor(0,0,0,0));
-       gradient.setColorAt(0.5, QColor("dark blue"));
-       gradient.setColorAt(1, QColor("dark"));
-       QBrush brush(gradient);
-       painter->setBrush(brush);
-       painter->drawPath(rectPath);
+      QRadialGradient gradient(119, -4.5, 200);
+      gradient.setColorAt(0, QColor(0,0,0,0));
+      gradient.setColorAt(0.5, QColor("dark blue"));
+      gradient.setColorAt(1, QColor("dark"));
+      QBrush brush(gradient);
+      painter->setBrush(brush);
+      painter->drawPath(rectPath);
 
      }
 
@@ -61,16 +56,13 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
          for (int i=0;i<=9;i++)
          {
-
-             float x1,y1;int r=15;
-             x1=260+195*(cos((170-(i*4.8))*pi/180));
-             y1=-90+195*(sin((170-(i*4.8))*pi/180));
-
+           float x1,y1;int r=15;
+           x1=260+195*(cos((170-(i*4.8))*pi/180));
+           y1=-90+195*(sin((170-(i*4.8))*pi/180));
            painter->drawRoundedRect(x1,y1,2*r,r/2,2,2);
-
          }
-}
-    {
+      }
+      {
          QRect RectSpeed (53,-350, 505, 505);
 
 
