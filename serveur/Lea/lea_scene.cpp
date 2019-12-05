@@ -1,3 +1,10 @@
+///
+///\file lea_scene.cpp
+/// \brief Classe dérivée de scene_globale où sont ajoutés et paramétrés tous les composants du tableau de bord. Tous les objets doivent être définis au préalable dans scene_globale.h
+///
+
+
+
 #include "lea_scene.h"
 #include <QFontDatabase>
 #include <QPainter>
@@ -5,20 +12,10 @@
 #include "mainwindow.h"
 
 Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
-{//QPainter *painter = new QPainter;
-
-
-
-
-
+{
     QPixmap texture_fond (":/Effets/Icones_Voyants/orig_484482.jpg");
     QPixmap voyant2= texture_fond.scaled(1300,600);
-   // qDebug()<<w.width() <<w.height();
-    //QBrush brush(texture_fond);
-    //brush.setTexture(voyant2);
     this->addPixmap(voyant2);
-
-    //this->setBackgroundBrush(brush);
     QFontDatabase::addApplicationFont(":/Lea/Seven Segment.ttf");
 
     fond = new lea_SceneDeFond;
@@ -72,7 +69,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     route =new voyant_Lea(660,430,":/Lea/Icones_Voyants/highBeam.gif",50,50);
     this->addItem(route);
 
-    CruiseControlOn = new voyant_Lea (600,245,":/Lea/Icones_Voyants/Cruise_Control.gif",30,30);
+    CruiseControlOn = new voyant_Lea (580,245,":/Lea/Icones_Voyants/Cruise_Control.gif",30,30);
     this->addItem(CruiseControlOn);
 
     FrontAntifog = new voyant_Lea (720,430,":/Lea/Icones_Voyants/frontFogLight.gif",50,50);
@@ -81,18 +78,20 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     RearAntifog = new voyant_Lea (770,430,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
     this->addItem(RearAntifog);
 
-    CheckEngine = new voyant_Lea (580,275,":/Lea/Icones_Voyants/checkEngine.gif",30,30);
+    CheckEngine = new voyant_Lea (400,300,":/Lea/Icones_Voyants/checkEngine.gif",30,30);
     this->addItem(CheckEngine);
 
     AirbagOn= new voyant_Lea (0,0,":/Lea/Icones_Voyants/airBag.gif",30,30);
     this->addItem(AirbagOn);
 
-    BootOpen = new voyant_Lea (580,400,":/Lea/Icones_Voyants/bootOpen_red.gif",50,30);
+    BootOpen = new voyant_Lea (580,400,":/Lea/Icones_Voyants/bootOpen_red.gif",50,50);
     this->addItem(BootOpen);
 
-    BonnetOpen = new voyant_Lea (580,400,":/Lea/Icones_Voyants/bonnetOpen_red.gif",50,30);
+    BonnetOpen = new voyant_Lea (580,400,":/Lea/Icones_Voyants/bonnetOpen_red.gif",50,50);
     this->addItem(BonnetOpen);
 
+    warning = new warning_lea (590,120,":/Lea/Icones_Voyants/hazardLights.gif",30,30);
+    this->addItem(warning);
 
 
 }

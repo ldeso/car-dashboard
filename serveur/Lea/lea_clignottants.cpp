@@ -1,6 +1,14 @@
+///
+///\file lea_clignottants.cpp
+///\brief Classe dérivée de objet_virtuel permettant l'affichage d'un voyant clignotant droite ou gauche
+///
+
+
 #include "lea_clignottants.h"
 #include <QDebug>
-
+///
+/// \brief lea_clignottants::lea_clignottants Constructeur de la classe
+///\details Constructeur de la classe initialisant la variable value de la classe mère, et la variable cligno qui permet de gérer l'affichage alternatif des voyants.
 
 lea_clignottants::lea_clignottants()
 {
@@ -55,6 +63,11 @@ void lea_clignottants::paint(QPainter *painter, const QStyleOptionGraphicsItem* 
 //        update();
     }
 }
+
+///
+/// \brief lea_clignottants::MAJ Fonction de mise à jour de l'affichage.
+/// \details La valeur cligno controle l'opacité du painter, permettant de le rendre visible ou non. La mise à jour est effectuée à l'aide d'un timer, permettant un affichage alterné.
+///
 
 
 void lea_clignottants::MAJ()

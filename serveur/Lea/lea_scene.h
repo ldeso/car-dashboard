@@ -13,6 +13,7 @@
 #include "fuelgauge_lea.h"
 #include "lea_clignottants.h"
 #include "lea_scenedefond.h"
+#include "warning_lea.h"
 
 class Lea_scene : public scene_globale
 {

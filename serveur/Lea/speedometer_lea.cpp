@@ -1,3 +1,10 @@
+///
+/// \file speedometer_lea.cpp
+/// \brief Classe speedometer, permettant la création du compteur vitesse paramétrable avec aiguille.
+/// \details Classe héritée de objet_virtuel. L'appel au constructeur permet d'initialiser la totalité des paramètres, et la fonction paint permet l'affichage.
+///
+
+
 #include "speedometer_lea.h"
 #include <QGraphicsItem>
 #include <QObject>
@@ -8,6 +15,16 @@
 #include <QtDebug>
 #include <QPointF>
 
+///
+/// \brief speedometer_Lea::speedometer_Lea Constructeur de la classe, permet d'initialiser tous les paramètres
+/// \param param_x position horizontale du centre du compteur
+/// \param param_y position verticale du centre du compteur
+/// \param param_r rayon et taille de l'aiguille
+/// \param param_start Angle de départ pour le tracé de l'arc de cercle
+/// \param param_end Angle de fin pour le tracé de l'arcle de cercle
+/// \param param_spanAngle angle total de cadran
+/// \param param_param_vitMax determine la vitesse maximum jusqu'à laquelle va le cadran
+///
 
 speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
 
@@ -17,7 +34,6 @@ speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r,
     r=param_r;
     angle_debut=param_start;
     angle_fin = param_end;
-
     span_angle=param_spanAngle;
     valueMax=param_vitMax;
 }
@@ -28,6 +44,12 @@ QRectF speedometer_Lea::boundingRect() const
     return rectf;
 }
 
+///
+/// \brief speedometer_Lea::paint Fonction permettant l'affichage du compteur
+/// \details Cette fonction construit un compteur en plusieurs étapes : création du cadran, des graduations, ajout du texte sur les graduations, ajout de l'aiguille.
+/// \param painter
+///
+
 void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 //    int v;
@@ -36,10 +58,10 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     else {v=valueMax;}
     QPen pen;
     QBrush brush(Qt::SolidPattern);
-//    brush.setColor("#733701");
-//    painter->fillRect(this->boundingRect(),brush);
-
-
+///
+/// \brief Création du cadran.
+/// \details Le cadran est basé sur un arc de cercle déssiné à l'aide de la fonction drawArc. le cercle est dessiné avec un QPen a qui a été donné une QBrush contenant un gradient radial de couleur bleu.
+///
     // ******************** Dessine l'arc au dessus du compteur
 
     painter->setRenderHint(QPainter::Antialiasing);
@@ -54,7 +76,10 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             pen.setCapStyle(Qt::RoundCap);
             painter->setPen(pen);
 
-
+///
+/// \brief Création des graduations du cadran.
+/// \details Les graduations sont créées en utilisant la fonction drawLine et une boucle if pour changer la couleur des graduations à 50, 90 et 130km/h. Les graduations sont déssinées tous les 10km/h.
+///
 // ******************** Dessine les traits du compteur vitesse
     {   pen.setColor(Qt::white);
         for (int i=0;i<=valueMax;i+=10)
@@ -70,7 +95,10 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             painter->setPen(pen);
 
             painter->drawLine((x+r*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-r*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),(x+(r-20)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-(r-20)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))));
-
+///
+/// \brief Ajout du texte sur les graduations
+/// \details Le texte est positionné de la même façon que les graduations, tous les 20km/h, avec une translation de manière à correspondre le plus possible aux positions des graduations.
+///
             pen.setColor(Qt::white);
             painter->setPen(pen);
             painter->setRenderHint(QPainter::Antialiasing);
@@ -82,10 +110,10 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
         }
     }
 
-
-
-
-
+///
+///\brief Création de l'aiguille.
+/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
+///
 
 // ******************** Dessine l'aiguille
 
@@ -110,7 +138,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 
 // ******************** Dessine le cercle au centre du cadran par dessus la fin de l'aiguille
     pen.setColor(Qt::transparent);
-    QLinearGradient linearGradie(QPointF(385, 185), QPointF(415, 215));
+    QLinearGradient linearGradie(QPointF(x-15, y-15), QPointF(x+15, y-15));
        linearGradie.setColorAt(0,"#9d0409" );
        linearGradie.setColorAt(1,Qt::red);
     QBrush brush9(linearGradie)  ;
@@ -119,7 +147,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     painter->drawEllipse(x-20,y-20,40,40);
 
 brush.setColor(Qt::black);
-QLinearGradient linearGradi(QPointF(415, 215), QPointF(385, 185));
+QLinearGradient linearGradi(QPointF(x+15, y+15), QPointF(x-15, y-15));
    linearGradi.setColorAt(0, "#9d0409");
    linearGradi.setColorAt(1,"#5e0407");
 QBrush brush8(linearGradi)  ;
@@ -127,7 +155,10 @@ painter->setPen(pen);
 painter->setBrush(brush8);
 painter->drawEllipse(x-15,y-15,30,30);
 
-
+///
+///\brief Création de l'affichage de la vitesse.
+///\details L'affichage de la vitesse se fait avec la fonction drawText et en utilisant la value donnée par la fonction getValue() de la classe objet_virtuel.
+///
 // ******************** Dessine l'affichage de la vitesse
 
 pen.setColor(Qt::white);
