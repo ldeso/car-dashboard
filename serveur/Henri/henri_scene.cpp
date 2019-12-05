@@ -15,11 +15,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     CompteTours=new jaugeToursMinuteHenri();
     addItem(CompteTours);
 
-//    jaugeTemperature=new jaugeTemperatureHenri();
-//    addItem(jaugeTemperature);
-
-    OilTemp=new jaugeTemperatureHenri;
-    addItem(OilTemp);
+    jaugeTemperature=new jaugeTemperatureHenri();
+    addItem(jaugeTemperature);
 
     Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
@@ -33,8 +30,14 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     warning=new onoff();
     addItem(warning);
 
-    route=new feuxHenri();
+    route=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeRoute.png"));
     addItem(route);
+
+    croisement=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeCode.png"));
+    addItem(croisement);
+
+    position=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeRoute.png"));
+    addItem(position);
 
     portesHenri* portes=new portesHenri();
     addItem(portes);
@@ -43,7 +46,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     OpenDoorFrontPassenger=portes->DD;
     OpenDoorBackLeftPassenger=portes->PG;
     OpenDoorBackRightPassenger=portes->PD;
-    BootOpen=portes->C;
+    BootOpen=portes->Cof;
+    BonnetOpen=portes->Cap;
 
     this->setBackgroundBrush(QBrush(QColor("black")));
 }

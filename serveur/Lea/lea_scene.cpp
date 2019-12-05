@@ -13,9 +13,10 @@
 
 Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 {
-    QPixmap texture_fond (":/Effets/Icones_Voyants/orig_484482.jpg");
-    QPixmap voyant2= texture_fond.scaled(1300,600);
-    this->addPixmap(voyant2);
+//    QPixmap texture_fond (":/Effets/Icones_Voyants/orig_484482.jpg");
+//    QPixmap voyant2= texture_fond.scaled(1300,600);
+//    this->addPixmap(voyant2);
+    this->setBackgroundBrush(Qt::black);
 
     QFontDatabase::addApplicationFont(":/Lea/Seven Segment.ttf");
 

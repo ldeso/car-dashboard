@@ -9,5 +9,9 @@
         <file>icones/iconeEssence.png</file>
         <file>icones/iconeRoute.png</file>
         <file>icones/iconeSurchaufe.png</file>
+        <file>icones/iconeCode.png</file>
+        <file>icones/iconeEssenceRouge.png</file>
+        <file>icones/iconeCapot.png</file>
+        <file>icones/iconeCoffre.png</file>
     </qresource>
 </RCC>
