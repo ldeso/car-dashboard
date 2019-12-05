@@ -1,19 +1,31 @@
 #include "floriancompteurkm.h"
 #include <limits>
 #include <QFontDatabase>
-
-FlorianCompteurKm::FlorianCompteurKm(QGraphicsItem *parent)
+/**
+ * @brief FlorianCompteurKm::FlorianCompteurKm
+ * @param parent
+ */
+FlorianCompteurKm::FlorianCompteurKm(QGraphicsItem *parent): objet_virtuel(parent)
 {
     this->value = 0;
     this->valueMax = 999999;
     QFontDatabase::addApplicationFont(":/new/prefix1/voyant/digital-7.ttf");
 }
 
+/**
+ * @brief FlorianCompteurKm::boundingRect
+ * @return  retourne un rectangle qui encadre l'objet
+ */
 QRectF FlorianCompteurKm::boundingRect() const
 {
     return QRectF(0,0,80,30);
 }
 
+/**
+ * @brief FlorianCompteurKm::paint
+ * @param painter
+ * @details dessine le compteur km avec une police d'ecriture digital
+ */
 void FlorianCompteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
