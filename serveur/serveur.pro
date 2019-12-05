@@ -64,8 +64,11 @@ SOURCES += \
     Hugo/hugo_voyant_warning.cpp \
     Henri/feuxhenri.cpp \
     Jonas/jonas_voyant_simple.cpp \
+    Lea/deux_voyants_lea.cpp \
     Lea/fuelgauge_lea.cpp \
     Lea/lea_scene.cpp \
+    Lea/phares_lea.cpp \
+    Lea/quatre_voyants_lea.cpp \
     Lea/speedometer_lea.cpp \
     Lea/tachometergauge_lea.cpp \
     Lea/voyant_lea.cpp \
@@ -102,12 +105,14 @@ SOURCES += \
     Inna/arrowoiltinna.cpp \
     Inna/fuelengineinna.cpp \
     Inna/prnd_inna.cpp \
+    Inna/compteurkminna.cpp \
     Jonas/jonas_voyant_warning.cpp \
     Jonas/jonas_compteurkm.cpp \
     Henri/porteshenri.cpp \
     Henri/onoff.cpp \
     Henri/onoffpainthenri.cpp \
-    Lea/warning_lea.cpp
+    Lea/warning_lea.cpp \
+   
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -143,8 +148,11 @@ HEADERS += \
     Hugo/hugo_voyant_warning.h \
     Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
+    Lea/deux_voyants_lea.h \
     Lea/fuelgauge_lea.h \
     Lea/lea_scene.h \
+    Lea/phares_lea.h \
+    Lea/quatre_voyants_lea.h \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
     Lea/voyant_lea.h \
@@ -180,13 +188,15 @@ HEADERS += \
     Inna/arrowoiltinna.h \
     Inna/fuelengineinna.h \
     Inna/prnd_inna.h \
+    Inna/compteurkminna.h \
     Henri/porteshenri.h \
     Henri/onoff.h \
     Florian/floriancompteurkm.h \
     Jonas/jonas_voyant_warning.h \
     Jonas/jonas_compteurkm.h \
     Henri/onoffpainthenri.h \
-    Lea/warning_lea.h
+    Lea/warning_lea.h \
+    compteurkminna.h
 
 FORMS += \
         mainwindow.ui \
