@@ -108,8 +108,7 @@ SOURCES += \
     Henri/onoff.cpp \
     Henri/onoffpainthenri.cpp \
     Lea/warning_lea.cpp \
-    Lea/compteur_kilometre_lea.cpp \
-    Lea/jauge_temperature_lea.cpp
+    Lea/compteur_kilometre_lea.cpp
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -144,7 +143,8 @@ HEADERS += \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
     Jonas/jonas_voyant_simple.h \
-    Lea/fuelgauge_lea.h \
+    Lea/deux_voyants_lea.h \
+    Lea/fuelgaugit oullge_lea.h \
     Lea/lea_scene.h \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
@@ -189,8 +189,7 @@ HEADERS += \
     Jonas/jonas_compteurkm.h \
     Henri/onoffpainthenri.h \
     Lea/warning_lea.h \
-    Lea/compteur_kilometre_lea.h \
-    Lea/jauge_temperature_lea.h
+    Lea/compteur_kilometre_lea.h
 
 FORMS += \
         mainwindow.ui \
