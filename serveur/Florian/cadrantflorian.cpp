@@ -1,6 +1,18 @@
 #include "cadrantflorian.h"
 #include <QDebug>
 #include <QtMath>
+
+/**
+ * @brief CadrantFlorian::CadrantFlorian
+ * @param hasText
+ * @param hasSubTrait
+ * @param invertAiguille
+ * @param pas
+ * @param angleB
+ * @param angleE
+ * @param valeurMax
+ * @param parent
+ */
 CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille, int pas, int angleB, int angleE, int valeurMax, QGraphicsItem * parent):objet_virtuel(parent)
 {
     this->invertAiguille = invertAiguille;
@@ -15,12 +27,21 @@ CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille
     this->value = 0;
 }
 
+/**
+ * @brief CadrantFlorian::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF CadrantFlorian::boundingRect()const
 {
     QRectF rect(0,0,width,height);
     return rect;
 }
 // paint la scène
+/**
+ * @brief CadrantFlorian::paint
+ * @param painter
+ * @details dessine les différents éléments du compteur : aiguille, compteur, chiffre...
+ */
 void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing); // ajout de l antialiasing au tableau de bord
@@ -47,28 +68,28 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     painter->setBrush(b);
     painter->setPen(pen1);
     float f = generateAngle();
-    QPoint * p = (QPoint *) malloc(sizeof(QPoint)*4);
-    //dessine l'aiguille
+    QPointF * p = (QPointF *) malloc(sizeof(QPointF)*4);
+    //dessine l'aiguille en fonction de si elle est à l'envers ou non (droite ou gauche)
     if(invertAiguille==1){
-        p[0].setX(width/2);
-        p[0].setY(height/2);
-        p[1].setX(cos(qDegreesToRadians(-angleB+10+f))*(15)+ width/2);
-        p[1].setY(sin(qDegreesToRadians(-angleB+10+f))*(15) + height/2);
-        p[2].setX(cos(qDegreesToRadians(-angleB+f))*(width/2-25)+ width/2);
-        p[2].setY(sin(qDegreesToRadians(-angleB+f))*(height/2-25) + height/2);
-        p[3].setX(cos(qDegreesToRadians(-angleB-10+f))*(15)+ width/2);
-        p[3].setY(sin(qDegreesToRadians(-angleB-10+f))*(15) + height/2);
+        p[0].setX(width/2.0);
+        p[0].setY(height/2.0);
+        p[1].setX(cos(qDegreesToRadians((-angleB+10+f)*1.0))*(15.0)+ width/2.0);
+        p[1].setY(sin(qDegreesToRadians((-angleB+10+f)*1.0))*(15.0) + height/2.0);
+        p[2].setX(cos(qDegreesToRadians((-angleB+f)*1.0))*(width/2.0-25)+ width/2.0);
+        p[2].setY(sin(qDegreesToRadians((-angleB+f)*1.0))*(height/2.0-25) + height/2.0);
+        p[3].setX(cos(qDegreesToRadians((-angleB-10+f)*1.0))*(15.0)+ width/2.0);
+        p[3].setY(sin(qDegreesToRadians((-angleB-10+f)*1.0))*(15.0) + height/2.0);
     }
     else{
 
-        p[0].setX(width/2);
-        p[0].setY(height/2);
-        p[1].setX(cos(qDegreesToRadians(-angleB+10+angleE+f))*(15)+ width/2);
-        p[1].setY(sin(qDegreesToRadians(-angleB+10+angleE+f))*(15) + height/2);
-        p[2].setX(cos(qDegreesToRadians(-angleB+angleE+f))*(width/2-25)+ width/2);
-        p[2].setY(sin(qDegreesToRadians(-angleB+angleE+f))*(height/2-25) + height/2);
-        p[3].setX(cos(qDegreesToRadians(-angleB+angleE-10+f))*(15)+ width/2);
-        p[3].setY(sin(qDegreesToRadians(-angleB+angleE-10+f))*(15) + height/2);
+        p[0].setX((width/2.0)*1.0);
+        p[0].setY((height/2.0)*1.0);
+        p[1].setX(cos(qDegreesToRadians((-angleB+10+angleE+f)*1.0))*(15.0)+ width/2.0);
+        p[1].setY(sin(qDegreesToRadians((-angleB+10+angleE+f)*1.0))*(15.0) + height/2.0);
+        p[2].setX(cos(qDegreesToRadians((-angleB+angleE+f)*1.0))*(width/2.0-25)+ width/2.0);
+        p[2].setY(sin(qDegreesToRadians((-angleB+angleE+f)*1.0))*(height/2.0-25) + height/2.0);
+        p[3].setX(cos(qDegreesToRadians((-angleB+angleE-10+f)*1.0))*(15.0)+ width/2.0);
+        p[3].setY(sin(qDegreesToRadians((-angleB+angleE-10+f)*1.0))*(15.0) + height/2.0);
     }
     painter->drawPolygon(p,4);
     painter->setPen(pen3);
@@ -89,6 +110,7 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
                           cos(qDegreesToRadians(-angleB+val))*(width/2-10)+ width/2,
                           sin(qDegreesToRadians(-angleB+val))*(height/2-10) + height/2);
         }
+        //ajoute le texte s'il y a besoin
         if(hasText == 1 && pair % 2 == 0){
             painter->drawText(cos(qDegreesToRadians(-angleB+val))*(width/2-20)+ width/2-6,
                               sin(qDegreesToRadians(-angleB+val))*(height/2-20) + height/2+2, QString("%1").arg(i));
@@ -96,6 +118,11 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         pair++;
     }
 }
+
+/**
+ * @brief CadrantFlorian::generateAngle
+ * @return la valeur de l'angle en fonction de la value et de la value max
+ */
 float CadrantFlorian::generateAngle()
 {
     float angle = 0.0f;

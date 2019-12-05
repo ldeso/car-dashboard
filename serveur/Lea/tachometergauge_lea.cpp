@@ -37,6 +37,7 @@ TachometerGauge_Lea::TachometerGauge_Lea(double param_x,double param_y, double p
     nb_graduation = param_graduation;
     span_angle=param_spanAngle;
     valueMax=param_rpmMax;
+    value=0;
 }
 
 QRectF TachometerGauge_Lea::boundingRect() const
@@ -74,7 +75,7 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
        radial.setColorAt(0.98,Qt::blue);
        radial.setColorAt(1,Qt::transparent);
        painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
-       painter->drawArc((x-r-15),(y-r-15),(r*2)+35,(r*2)+35,angle_debut*16, -span_angle*16);
+       painter->drawArc(qRound(x-r-15),qRound(y-r-15),qRound(r*2)+35,qRound(r*2)+35,angle_debut*16, -span_angle*16);
 
 
 ///
@@ -94,12 +95,12 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
                pen.setWidth(4);
                pen.setColor(Qt::white);
                painter->setPen(pen);
-               painter->drawText((x-10+(r-30)*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),(y+8-(r-30)*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))),QString("%1").arg(j/7));
+               painter->drawText(qRound(x-10+(r-30)*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),qRound(y+8-(r-30)*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))),QString("%1").arg(j/7));
                pen.setColor(Qt::red);
                painter->setPen(pen);
 
            }
-           painter->drawLine((x+r*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),(y-r*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))),(x+(r-10)*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),(y-(r-10)*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))));
+           painter->drawLine(qRound(x+r*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),qRound(y-r*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))),qRound(x+(r-10)*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),qRound(y-(r-10)*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))));
        }
 
 ///
@@ -155,11 +156,7 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
    pen.setColor(Qt::white);
    painter->setPen(pen);
    painter->setFont(font2);
-   painter->drawText(x-50,y+75,"RPM x 1000");
-
-
-
-
+   painter->drawText(qRound(x-50),qRound(y+75),"RPM x 1000");
 
 }
 
