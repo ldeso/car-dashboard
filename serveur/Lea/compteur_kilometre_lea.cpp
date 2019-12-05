@@ -11,20 +11,9 @@
 
 Compteur_kilometre_lea::Compteur_kilometre_lea(int param_x, int param_y)
 {
-
     x= param_x;
     y=param_y;
-
-//    QFont font3("Seven Segment",10,QFont::Bold);
-//    painter->setFont(font3);
-//    QRectF affiche_km_totaux (x-50,y+100,90,70);
-//    painter->drawText(affiche_km_totaux, Qt::AlignRight ,QString("ODO    %1 km").arg(271963+getValue());
-
-//    QFont font4("Seven Segment",10,QFont::Bold);
-//    painter->setFont(font4);
-//    QRectF affiche_km_trip_A (x-50,y+130,90,70);
-//    painter->drawText(affiche_km_trip_A, Qt::AlignRight ,QString("TRIP A    %1 km").arg(789+getValue());
-
+    value =0;
 }
 
 QRectF Compteur_kilometre_lea::boundingRect() const
@@ -41,7 +30,7 @@ void Compteur_kilometre_lea::paint(QPainter *painter, const QStyleOptionGraphics
     painter->setFont(font3);
     QRectF affiche_km_totaux (x-70,y+100,150,15);
     painter->drawRect(affiche_km_totaux);
-    painter->drawText(affiche_km_totaux, Qt::AlignRight ,QString("%1    ").arg(271963+getValue()));
+    painter->drawText(affiche_km_totaux, Qt::AlignRight ,QString("%1  ").arg(271963+getValue()));
     painter->drawText(affiche_km_totaux, Qt::AlignLeft ,QString("   ODO"));
 
     QFont font4("Seven Segment",10,QFont::Bold);
