@@ -149,7 +149,7 @@ HEADERS += \
     Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
     Lea/deux_voyants_lea.h \
-    Lea/fuelgauge_lea.h \
+    Lea/fuelgaugit oullge_lea.h \
     Lea/lea_scene.h \
     Lea/phares_lea.h \
     Lea/quatre_voyants_lea.h \

@@ -67,7 +67,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 
     painter->setRenderHint(QPainter::Antialiasing);
 
-            QRadialGradient radial(QPointF(x,y),180);
+            QRadialGradient radial(QPointF(x,y),r+20);
             radial.setColorAt(0,Qt::transparent);
             radial.setColorAt(0.95,Qt::blue);
             radial.setColorAt(1,Qt::transparent);
