@@ -164,15 +164,32 @@ painter->drawEllipse(x-15,y-15,30,30);
 
 pen.setColor(Qt::white);
 
-QFont font("Seven Segment",30);
+QFont font("Seven Segment",30,QFont::Bold);
 painter->setFont(font);
-QRectF affiche_km (x-90,y+80,80,70);
+QRectF affiche_km_h (x-90,y+30,80,70);
 pen.setCapStyle(Qt::SquareCap);
 painter->setPen(pen);
-painter->drawText(affiche_km, Qt::AlignRight ,QString("%1").arg(value));
-QFont font2("Times",20);
+painter->drawText(affiche_km_h, Qt::AlignRight ,QString("%1").arg(value));
+
+QFont font2("Seven Segment",10,QFont::Bold);
 painter->setFont(font2);
-painter->drawText(qRound(x+10),qRound(y+115),"km/h");
+painter->drawText(qRound(x+10),qRound(y+65),"km/h");
+
+QFont font3("Seven Segment",10,QFont::Bold);
+painter->setFont(font3);
+QRectF affiche_km_totaux (x-50,y+100,90,70);
+//pen.setCapStyle(Qt::SquareCap);
+//painter->setPen(pen);
+painter->drawText(affiche_km_totaux, Qt::AlignRight ,"ODO   271963 km");
+
+QFont font4("Seven Segment",10,QFont::Bold);
+painter->setFont(font4);
+QRectF affiche_km_trip_A (x-50,y+130,90,70);
+//pen.setCapStyle(Qt::SquareCap);
+//painter->setPen(pen);
+painter->drawText(affiche_km_trip_A, Qt::AlignRight ,"TRIP A    789 km");
+
+
 
 }
 
