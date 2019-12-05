@@ -81,10 +81,12 @@ Puis dans le fichier main.c du client, ajoutez votre commande "CANN votre_messag
 | BonnetOpen                 | Voyant qui s'allume quand le capot est ouvert                                    | CANN BONNET_OPEN X                | 0=éteint, 1=allumé                                                      |
 | BootOpen                   |  Voyant qui s'allume quand le coffre est ouvert                                  | CANN BOOT_OPEN X                  | 0=éteint, 1=allumé                                                      |
 | CruiseControlOn            | Voyant qui s'allume quand le limitateur de vitesse est activé                    | CANN CRUISE_CONTROL_ON X          | 0=éteint, 1=allumé                                                      |
-| OitTemp                    | Temperature de l'huile dans le moteur                                            | CANN OIL_T X                      | x                                                                       |
+| OitTemp                    | Temperature de l'huile dans le moteur                                            | CANN OIL_T X                      | x  entre 0 et  value_max                                                                     |
+| oilLevel                    | Niveau de l'huile dans le moteur                                            | CANN OIL_L X                      | x  entre 0 et  value_max                                                                     |
 | jaugeTemperature           | la température du moteur                                                         | CANN ENGINE_T X                   | x  jusqu'au  value_max                                                  | 
-| SpeedLimit                 | Affichage de la limite de vitesse                                                | CANN SPEED_LIMIT X                | X=Limite de vitesse                                                     |
+| SpeedLimit                 | Affichage de la limite de vitesse                                                | CANN SPEED_LIMIT X                | X=Limite de vitesse        
+
+
+                                             |
 
 ## Bugs répertoriés
-
-

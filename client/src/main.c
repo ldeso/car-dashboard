@@ -1,8 +1,67 @@
 #include <ctype.h> // toupper
 #include <stdio.h> // fgets, fprintf, getchar, printf, puts
 #include <string.h> // strncmp
-
+#include <termios.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <argp.h>
 #include "clientio.h"
+
+const char * argp_program_version = "Client V0.1";
+
+const char *argp_program_bug_address =
+        "<dumasflorian08@gmail.com>";
+
+static struct argp_option options[] = {
+{"ip-addr",  'i', "ipaddr",      0,  "Definir adresse ip du serveur",0 },
+{"port",    'p', "port",      0,  "Definir port du serveur pour la communication",0 },
+{ 0 }
+};
+
+static char args_doc[] = "ne rien mettre";
+
+static char doc[] =
+        "Le programme client";
+
+struct arguments
+{
+    char * ipaddr;
+    int port;
+};
+
+char * ipaddr = "";
+int port = 0;
+
+static error_t
+parse_opt (int key, char *arg, struct argp_state *state)
+{
+    struct arguments *args = state->input;
+
+    switch (key)
+    {
+    case 'i':
+        args->ipaddr = arg;
+        //if(ipaddr)
+        break;
+    case 'p':
+        args->port = atoi(arg);
+        //xif(port)
+        break;
+    case ARGP_KEY_ARG:
+        if (state->arg_num >= 2)
+            /* Too many arguments. */
+            argp_usage (state);
+
+        break;
+
+    case ARGP_KEY_END:
+        break;
+
+    default:
+        return ARGP_ERR_UNKNOWN;
+    }
+    return 0;
+}
 
 /**
  * @brief die
@@ -44,6 +103,61 @@ void uppercase(char *message)
     }
 }
 
+struct termios orig_termios;//Structure contenant les paramètres du terminal
+
+///
+/// \brief disableRawMode
+///\details Fonction qui remet le terminal à ses paramètres d'origine
+void disableRawMode() {
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios);
+}
+
+///
+/// \brief enableRawMode Passage du terminal en mode RAW
+///\details Afin d'obtenir un historique des commandes, accessible avec les touches KEY_UP et KEY_DOWN,
+/// il est nécessaire de passer le terminal en mode RAW. Ceci permet alors de désactiver l'affichage à
+/// l'écran à la suite d'un évènement clavier (~ECHO). Il faut également faire en sorte que chaque caractère soit lu
+/// l'un après l'autre, et non pas ligne par ligne.
+void enableRawMode() {
+    tcgetattr(STDIN_FILENO, &orig_termios);
+    atexit(disableRawMode);
+    struct termios raw = orig_termios;
+    raw.c_lflag &= ~(ECHO | ICANON);
+    tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+}
+
+
+///
+/// \brief is_arow Fonction permettant d'identifier lorsque une touche KEY_UP ou KEY_DOWN est appelée.
+/// \details Les touches Key up et down renvoie 3 caractères. Cette fonction les vérifie un par un, et détermine quelle touche à été appuyée.
+/// \return renvoie u pour la touche KEY_UP ou d pour la touche KEY_DOWN. Renvoie '0' sinon.
+///
+char is_key(){
+    char c='0';
+    read(STDIN_FILENO, &c, 1);
+    if (c==27){
+        read(STDIN_FILENO, &c, 1);
+        if (c==91){
+            read(STDIN_FILENO, &c, 1);
+            if (c==65){
+                return 'u';
+            }
+            if (c==66){
+                return 'd';
+            }
+        }
+
+    }
+    return c;
+}
+
+typedef struct {
+    char txt[60];
+}hist;
+
+
+static struct argp argp = { options, parse_opt, args_doc, doc, 0,0,0 };
+
 /**
  * @brief main
  * @return EXIT_SUCCESS si le programme se termine normalement
@@ -53,8 +167,17 @@ void uppercase(char *message)
  * todo : ajouter les commandes CANN pour les differents elements du dashboard.
  * Les messages seront du format CANN TYPEDECANN VALUE
  */
-int main()
+int main(int argc, char** argv)
 {
+
+    hist Commandes[100]={"CANN SPEED 150","CANN TURN 1","CANN GAZ 56","CANN RPM 2000","CANN BATTERY_LIGHT 1"};
+    int num_commande=4;
+    int i=num_commande;
+    struct arguments arg;
+    arg.ipaddr = "127.0.0.1";
+    arg.port = 2222;
+    argp_parse(&argp,argc,argv,0,0,&arg);
+    printf("%s %i\n", arg.ipaddr, arg.port);
     char *sent;
     char *received;
     size_t len = 50;
@@ -63,14 +186,51 @@ int main()
         die("Erreur lors de l'allocation mémoire pour le message émis.");
     if ((received = malloc(len)) == NULL)
         die("Erreur lors de l'allocation mémoire pour le message reçu.");
-    if ((sockfd = create_connected_socket("127.0.0.1", 2222)) == -1)
+    if ((sockfd = create_connected_socket(arg.ipaddr, arg.port)) == -1)
         die("Erreur lors de la connexion au serveur.");
     int end = 0;
     while (!end) {
+        enableRawMode();
         puts("Veuillez saisir une commande à envoyer.");
         puts("Veuillez saisir HELP pour afficher la liste de commande.");
-        enter_message(sent, len);
-        uppercase(sent);
+        char b=is_key();
+        i=num_commande;
+        while (b=='u'||b=='d'){
+            printf("%s\n",Commandes[i].txt);
+            b=is_key();
+            if(b=='d'){
+                if (i==num_commande){
+
+                }
+                else{
+                    i++;
+                }
+            }
+            if(b=='u'){
+                if (i==0){
+                }
+                else{
+                    i--;
+                }
+            }
+            //printf("%c\n",b);
+        }
+        disableRawMode();
+        if (b=='\n'){
+            strcpy(sent,Commandes[i].txt);
+        }
+        else{
+            printf("%c",b);
+            enter_message(sent, len);
+            int l=strlen(sent);
+            for (i=l;i>0;i--){
+                sent[i]=sent[i-1];
+            }
+            sent[0]=b;
+            uppercase(sent);
+        }
+        num_commande++;
+        strcpy(Commandes[num_commande].txt,sent);
         if (strncmp(sent, "HELP", len) == 0) {
             puts("Liste des commandes valides :");
             puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
@@ -99,8 +259,9 @@ int main()
             puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
-	    puts("CANN ENGINE_T x avec x = temperature du moteur" );
-	    puts("CANN OIL_T x avec x = temperature de l'huile" );
+            puts("CANN ENGINE_T x avec x = temperature du moteur" );
+            puts("CANN OIL_T x avec x = temperature de l'huile" );
+            puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
 
 
         } else if (strncmp(sent, "END", len) == 0) {

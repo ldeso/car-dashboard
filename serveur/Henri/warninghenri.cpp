@@ -7,7 +7,7 @@ warninghenri::warninghenri()
 
 QRectF warninghenri::boundingRect() const
 {
-    return QRect(-500,-300,1000,600);
+    return QRect(-300,-300,600,600);
 }
 
 void warninghenri::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)

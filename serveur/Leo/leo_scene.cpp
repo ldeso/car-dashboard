@@ -5,6 +5,7 @@
 Leo_scene::Leo_scene(scene_globale *parent) :
     scene_globale(parent)
 {
+    setBackgroundBrush(Qt::black);
     mAddGauges(
         175,
         150,
@@ -29,6 +30,7 @@ Leo_scene::Leo_scene(scene_globale *parent) :
         725,
         25,
         {
+            {&Clignotant, "Turn"},
             {&position, "Position Lamps"},
             {&croisement, "Dipped Beam"},
             {&route, "Main Beam"},
@@ -83,13 +85,7 @@ void Leo_scene::mAddGauges(qreal ax, qreal ay, Leo_scene::gauges_t gauges, qreal
         *p_gauge = new Leo_gauge(
             std::get<1>(tuple), std::get<2>(tuple), sizePx
         );
-        new Leo_label(
-            std::get<3>(tuple),
-            QPointF(
-                -8*description.size(), 0.4*(*p_gauge)->boundingRect().height()
-            ),
-            *p_gauge
-        );
+        new Leo_label(std::get<3>(tuple), (*p_gauge)->boundingRect(),*p_gauge);
         (*p_gauge)->setPos(ax, ay);
         ax += spacingPx;
         addItem(*p_gauge);
@@ -100,7 +96,7 @@ void Leo_scene::mAddIndicators(qreal ax, qreal ay, indicators_t indicators, QCol
 {
     for (auto pair : indicators) {
         *pair.first = new Leo_indicator(colorOff, colorOn);
-        new Leo_label(pair.second, QPointF(32, -2), *pair.first);
+        new Leo_label(pair.second, (*pair.first)->boundingRect().adjusted(30, 0, 200, 0), *pair.first);
         (*pair.first)->setPos(ax, ay);
         ay += spacingPx;
         addItem(*pair.first);

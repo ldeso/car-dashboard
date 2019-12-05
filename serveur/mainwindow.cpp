@@ -18,13 +18,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-
-
-
     dashboard=new hugo_scene();
-//    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
-//                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
-//    this->move(0,0);
+    //    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
+    //                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
+    //    this->move(0,0);
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -34,6 +32,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(kmTimer, SIGNAL(timeout()), this, SLOT(update_km()));
     kmTimer->setInterval(500);
     kmTimer->start();
+
+    ui->graphicsView->setScene(dashboard);
+
 }
 
 ///
@@ -43,26 +44,35 @@ MainWindow::MainWindow(QWidget *parent) :
 ///
 void MainWindow::acceleration(int time)
 {
+    qDebug()<<"ok";
     float t=0;
-    float vitesse=0;
+    float vitesse=dashboard->Vitesse->getValue();
     int rapport=1;
     while (t<time){
         vitesse_actuelle=vitesse;
-        if ((vitesse)<=dashboard->Vitesse->getValueMax())
+        if ((vitesse)<=dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
-        if (dashboard->CompteTours->getValue()>4000){
-            rapport++;
+            if (vitesse<55){
+                rapport=1;
+                dashboard->CompteTours->setValue(vitesse*4500/55);
+            }
+            else if(vitesse<75){
+                rapport=2;
+                dashboard->CompteTours->setValue(vitesse*4500/75);
+            }
+            else if(vitesse<115){
+                rapport=3;
+                dashboard->CompteTours->setValue(vitesse*4500/115);
+            }
+            else if(vitesse<140){
+                rapport=4;
+                dashboard->CompteTours->setValue(vitesse*4500/140);
+            }
+            else{
+                rapport=5;
+                dashboard->CompteTours->setValue(vitesse*4500/185);
+            }
         }
-        if(rapport==1)
-            dashboard->CompteTours->setValue(vitesse*6800/55);
-        if(rapport==2)
-            dashboard->CompteTours->setValue(vitesse*6800/75);
-        if(rapport==3)
-            dashboard->CompteTours->setValue(vitesse*6800/115);
-        if(rapport==4)
-            dashboard->CompteTours->setValue(vitesse*6800/140);
-        if(rapport>=5 && vitesse*6800/185<=dashboard->CompteTours->getValueMax())
-            dashboard->CompteTours->setValue(vitesse*6800/185);
         ui->graphicsView->scene()->update();
         vitesse+=0.8;
         t+=0.1;
@@ -159,7 +169,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN TURN"){
         int cligno = string.section(' ', 2,2).toInt();
-        if(cligno>=-1 && cligno <= 2){
+        if(cligno>=-1 && cligno <= 1){
             dashboard->Clignotant->setValue(cligno);
             ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -174,7 +184,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -211,20 +221,20 @@ void MainWindow::reception()
                 delete dashboard;
                 dashboard = new karim_scene;
                 ui->graphicsView->setScene(dashboard);
-             }
+            }
 
-             if (prenom=="LOTO"){
-              delete dashboard;
-              dashboard = new loto_scene;
-              ui->graphicsView->setScene(dashboard);
+            if (prenom=="LOTO"){
+                delete dashboard;
+                dashboard = new loto_scene;
+                ui->graphicsView->setScene(dashboard);
             }
-         if (prenom=="INNA"){
-              delete dashboard;
-              dashboard = new inna_scene;
-              ui->graphicsView->setScene(dashboard);
+
+            if (prenom=="INNA"){
+                delete dashboard;
+                dashboard = new inna_scene;
+                ui->graphicsView->setScene(dashboard);
             }
-            this->resize(dashboard->width()+31,dashboard->height()+63);
-            this->move(0,0);
+            ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             km_parcourus=0;
             QString text = "OK";
@@ -375,7 +385,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CHECK_ENGINE"){
+    else if(message=="CANN CHECK_ENGINE"){
         int checkEngine_on = string.section(' ', 2,2).toInt();
         if(checkEngine_on==0 || checkEngine_on==1){
             dashboard->CheckEngine->setValue(checkEngine_on);
@@ -438,7 +448,7 @@ void MainWindow::reception()
     {
         int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
-          //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
+            //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -449,8 +459,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-
-        else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+    else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorBackLeftPassenger_on==0 || OpenDoorBackLeftPassenger_on==1){
@@ -482,11 +491,11 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN ADAPT_CRUISE_CONTROL")
+    else if(message=="CANN CRUISE_CONTROL")
     {
-        int ad_cruiseControl_on= string.section(' ', 2,2).toInt();
-        if(ad_cruiseControl_on==0 || ad_cruiseControl_on==1){
-            dashboard->AdaptiveCruiseControl->setValue(ad_cruiseControl_on);
+        int cruiseControl_on= string.section(' ', 2,2).toInt();
+        if(cruiseControl_on==0 || cruiseControl_on==1){
+            dashboard->AdaptiveCruiseControl->setValue(cruiseControl_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -591,18 +600,47 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-
-
-
-    else
+    else if(message=="CANN OIL_L"){
+        int oil = string.section(' ', 2,2).toInt();
+        if(oil>=0 && oil <= dashboard->oilLevel->getValueMax()){
+            dashboard->oilLevel->setValue(oil);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            qDebug()<<text;
+            text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN SPEED_LIMIT"){
+        int speed_limit = string.section(' ', 2, 2).toInt();
+        if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
+            dashboard->SpeedLimit->setValue(speed_limit);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, la valeur doit être comprise entre 1 et %1").arg(dashboard->Vitesse->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else{
         qDebug() << "erreur lors de la reception du message";
-
+    }
 }
 
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
+    /*if (dashboard->CompteurKm)
+         dashboard->CompteurKm->setValue(km_parcourus);
+        ui->graphicsView->scene()->update();*/
 
     if (dashboard->CompteurKm) //
         // dashboard->CompteurKm->setValue(km_parcourus);
@@ -615,8 +653,5 @@ void MainWindow::resizeEvent(QResizeEvent *)
 {
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
-
-
-
 
 

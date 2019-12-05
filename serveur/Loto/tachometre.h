@@ -8,16 +8,18 @@
 #include "qpainter.h"
 #include "QPaintEvent"
 #include "QBrush"
+#include "objet_virtuel.h"
 
-class tachometre : public QGraphicsItem
+
+class tachometre : public objet_virtuel
 {
 public:
     tachometre();
     QRectF boundingRect()const;
-    double rpmValue=0;
+    float rpmValue=getValue();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
     const double pi=3.142;
-    double getRpmValue(double rpmValue);
+    float getRpmValue(float rpmValue);
 
 };
 
