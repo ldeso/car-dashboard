@@ -27,7 +27,7 @@ void jaugeClignotantHenri::MAJ2()
     this->cligno+=1;
     if(this->cligno > 1)
         this->cligno=0;
-    QTest::qWait(500);
+    QTest::qWait(400);
     update();
 }
 
