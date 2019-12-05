@@ -3,7 +3,15 @@
 #include <QtMath>
 #include <QPainter>
 
-
+///
+/// \file fuelengineinna.cpp
+/// \brief Classe dérivée de QGraphicsItem permettant l'affichage des jauges de l'essence et de la tepmerature du moteur.
+/// \param tmax - température du moteur;
+/// \param r - rayon de l'arche de la jauge;
+/// \param A0 -  l'angle du début de la jauge;
+/// \param Amax - l'angle total
+/// \param k - coefficient pour convertir la valeur en degrés
+///
 FuelEngineInna::FuelEngineInna(QGraphicsItem *parent) :  QGraphicsItem(parent)
 
 {
@@ -31,9 +39,15 @@ QRectF FuelEngineInna::boundingRect() const
     return rectf;
 }
 
+/// \brief FuelEngineInna::paint
+/// \param painter
+///\details La fonction paint va permettre de réaliser un affichage des objets fixes de la représentation des jauges de l'essence et de la température du moteur.
 void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
+    ///
+    ///\brief Remplissage du fond et dessin de l'arche encadrante
+    ///
     painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));
     painter->drawEllipse(QRectF(xc-r-20,yc-r-20,(r+20)*2,(r+20)*2));
       QRadialGradient radialGrad(QPointF(xc, yc), r+30);
@@ -45,9 +59,11 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
       painter->drawArc(QRectF(xc-r-20,yc-r-20,(r+20)*2,(r+20)*2),206*16,285*16) ;
       painter->drawPixmap(1140,315,40,40, QPixmap(":/I_engineT_blue.gif"));
 
-      k = Amax * 1.0f / (tmax - 60.0f) ;
+      k = Amax * 1.0 / (tmax - 60.0) ;
       // *** engine T ticks and tect ***
-
+      ///
+      ///\brief Affichage des traits et du texte pour la jauge de la température du moteur.
+      ///
       for (int i = 0; i <= (tmax - 60) ; i+=10) {
           if (i % 30 == 0)
               {
@@ -66,9 +82,11 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
               }
 
           }
-
+      ///
+      ///\brief Affichage des traits et du texte pour le niveau d'essance.
+      ///
       // ** fuel level ticks and text **
-       k = Amax * 1.0f;
+       k = Amax * 1.0;
       for (int i=0; i <= 10 ; i++) {
           if (i%5==0)
           {painter->setPen(QPen(QBrush("#f2f2f2"),5,Qt::SolidLine,Qt::FlatCap));

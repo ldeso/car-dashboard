@@ -3,7 +3,18 @@
 #include <QFont>
 #include <QtMath>
 #include <QPainter>
-
+///
+/// \file arrowoillinna.cpp
+/// \brief Classe ArrowOilLInna derivée de la classe objet_virtuel
+/// \details Permettant la création de l' aiguille de la jauge du niveu d'huile qui tourne en fonction de la valeur "value".
+///
+/// \param value - la valeur du niveau d'huile
+/// \param valueMax - le niveau d'huile maximum
+/// \param A0 - l'aunge de debut de la jauge
+/// \param Amax - l'ampleur de la jauge
+/// \param r - le rayon de l'arche de la jauge
+/// \param k - le coefficient pour convertir la valeur en degrés
+///
 ArrowOilLInna::ArrowOilLInna(objet_virtuel *parent) :  objet_virtuel(parent)
 {
     value =0.0;
@@ -42,7 +53,9 @@ void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
     double  xol = xc +30.0*cos((A0+40+Amax/2)*rad) ;
     double yol = yc - 30.0*sin((A0+40+Amax/2)*rad);
       
-    // ***Draw central circle for oil level ***
+///
+///\brief dessin du circle central
+///
       QRadialGradient radialGradol(QPointF(xol, yol), 50);
              radialGradol.setColorAt(0, Qt::black);
              radialGradol.setColorAt(1, "#e0e0d1");
@@ -50,13 +63,16 @@ void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
       painter->setPen(QPen(Qt::transparent));
       painter->setBrush(QBrush(radialGradol));
       painter->drawEllipse(qRound(xol-15),qRound(yol-15),30,30);
+///
+///\brief dessin de la fleche
+///
 
-   //          *** draw fleche oil level ***
     l=static_cast<double>(value);
 
-    k = (Amax+20) * 1.0/valueMax;
-   if (l < 0 || l > valueMax) l = (l < 0 ? 0 : valueMax);
- QLinearGradient linearGradol  (QPointF(xol-(5*cos((A0+30+k*l-90)*rad)),yol+(5*sin((A0+30+k*l-90)*rad))), QPointF(xol+(7*cos((A0+30+k*l-90)*rad)),yol-(7*sin((A0+30+k*l-90)*rad))));
+    k = (Amax+20) * 1.0/valueMax; // angle correction because the radius of a scale is not the same as the radius of the arrow trajectory
+
+   if (l < 0 || l > valueMax) l = (l < 0 ? 0 : valueMax); // condition to set the range and prevent arrow from pointing outside the scale
+   QLinearGradient linearGradol  (QPointF(xol-(5*cos((A0+30+k*l-90)*rad)),yol+(5*sin((A0+30+k*l-90)*rad))), QPointF(xol+(7*cos((A0+30+k*l-90)*rad)),yol-(7*sin((A0+30+k*l-90)*rad))));
           linearGradol.setColorAt(0, "#F93737");
           linearGradol.setColorAt(0.5, "#ff4d4d");
           linearGradol.setColorAt(1, "#F93737");

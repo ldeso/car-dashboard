@@ -1,14 +1,20 @@
 #include "florianclignotant.h"
 
 #include <QTest>
-
+/**
+ * @brief FlorianClignotant::FlorianClignotant
+ * @param parent
+ */
 FlorianClignotant::FlorianClignotant(QGraphicsItem *parent):objet_virtuel(parent)
 {
     this->value = 0;
     this->temp = this->value;
 }
 
-
+/**
+ * @brief FlorianClignotant::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF FlorianClignotant::boundingRect() const
 {
     QRectF rect(0,0,40,40);
