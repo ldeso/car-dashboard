@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
     dashboard=new hugo_scene();
 
 
-
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
     QCoreApplication::postEvent(this, resizeEvent);
