@@ -62,7 +62,6 @@ SOURCES += \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
-    Henri/feuxhenri.cpp \
     Jonas/jonas_voyant_simple.cpp \
     Lea/fuelgauge_lea.cpp \
     Lea/lea_scene.cpp \
@@ -144,7 +143,6 @@ HEADERS += \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
-    Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
     Lea/fuelgauge_lea.h \
     Lea/lea_scene.h \
