@@ -20,9 +20,9 @@ public:
     int span_angle;
     int vitesse_max=270;
     int v;
-    virtual void parametrage(double param_x,double param_y, double param_r,int param_start, int param_end, int param_spanAngle,  int param_vitMax );
+  //  virtual void parametrage(double param_x,double param_y, double param_r,int param_start, int param_end, int param_spanAngle,  int param_vitMax );
     int nb_graduation =28;
-    void setValue(int);
+  //  void setValue(int);
 
 
 };

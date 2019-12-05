@@ -22,7 +22,7 @@
 /// \param param_r rayon et taille de l'aiguille
 /// \param param_start Angle de départ pour le tracé de l'arc de cercle
 /// \param param_end Angle de fin pour le tracé de l'arcle de cercle
-/// \param param_spanAngle angle total de cadran
+/// \param param_spanAngle angle total du cadran
 /// \param param_param_vitMax determine la vitesse maximum jusqu'à laquelle va le cadran
 ///
 
@@ -36,6 +36,7 @@ speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r,
     angle_fin = param_end;
     span_angle=param_spanAngle;
     valueMax=param_vitMax;
+    value=0;
 }
 
 QRectF speedometer_Lea::boundingRect() const
@@ -71,7 +72,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             radial.setColorAt(0.95,Qt::blue);
             radial.setColorAt(1,Qt::transparent);
             painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
-            painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
+            painter->drawArc(qRound(x-r-20),qRound(y-r-20),qRound(r*2)+40,qRound(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
             pen.setColor(Qt::transparent);
             pen.setCapStyle(Qt::RoundCap);
             painter->setPen(pen);
@@ -94,7 +95,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             pen.setStyle(Qt::SolidLine);
             painter->setPen(pen);
 
-            painter->drawLine((x+r*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-r*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),(x+(r-20)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-(r-20)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))));
+            painter->drawLine(qRound(x+r*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y-r*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(x+(r-20)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y-(r-20)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))));
 ///
 /// \brief Ajout du texte sur les graduations
 /// \details Le texte est positionné de la même façon que les graduations, tous les 20km/h, avec une translation de manière à correspondre le plus possible aux positions des graduations.
@@ -105,7 +106,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             QFont font("Bell",12, QFont::Bold);
             painter->setFont(font);
         if (i%20==0)
-            painter->drawText((x-15+(r-40)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y+8-(r-40)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),QString("%1").arg(i));
+            painter->drawText(qRound(x-15+(r-40)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y+8-(r-40)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),QString("%1").arg(i));
 
         }
     }
@@ -171,29 +172,29 @@ painter->setPen(pen);
 painter->drawText(affiche_km, Qt::AlignRight ,QString("%1").arg(value));
 QFont font2("Times",20);
 painter->setFont(font2);
-painter->drawText(x+10,y+115,"km/h");
+painter->drawText(qRound(x+10),qRound(y+115),"km/h");
 
 }
 
 
 
-void speedometer_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
-{
+//void speedometer_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
+//{
 
-    x= param_x;
-    y=param_y;
-    r=param_r;
-    angle_debut=param_start;
-    angle_fin = param_end;
+//    x= param_x;
+//    y=param_y;
+//    r=param_r;
+//    angle_debut=param_start;
+//    angle_fin = param_end;
 
-    span_angle=param_spanAngle;
-    valueMax=param_vitMax;
+//    span_angle=param_spanAngle;
+//    valueMax=param_vitMax;
 
-}
+//}
 
 
 
-void speedometer_Lea::setValue(int v)
-{
-    value=v;
-}
+//void speedometer_Lea::setValue(int v)
+//{
+//    value=v;
+//}
