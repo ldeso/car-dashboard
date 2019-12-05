@@ -21,8 +21,6 @@ public:
     double width;
     double height;
 
-
-  //  virtual void parametrage(double param_x, double param_y, double param_width, double param_height, double param_x2, double param_y2, double param_x3, double param_y3);
 };
 
 #endif // FUELGAUGE_LEA_H
