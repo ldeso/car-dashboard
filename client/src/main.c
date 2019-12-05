@@ -151,6 +151,9 @@ char is_key(){
     return c;
 }
 
+///
+///\brief Structure contenant une chaine de caractères, qui va servir à enregistrer toutes les commandes
+///
 typedef struct {
     char txt[60];
 }hist;
@@ -163,6 +166,7 @@ static struct argp argp = { options, parse_opt, args_doc, doc, 0,0,0 };
  * @return EXIT_SUCCESS si le programme se termine normalement
  * sinon EXIT_FAILURE avec affichage d'une erreur dans le terminal
  * @details saisie des commandes en deux temps : d'abord le nom de la commande puis après la valeur
+ *
  * todo : ajouter les différents tests.
  * todo : ajouter les commandes CANN pour les differents elements du dashboard.
  * Les messages seront du format CANN TYPEDECANN VALUE
@@ -170,8 +174,8 @@ static struct argp argp = { options, parse_opt, args_doc, doc, 0,0,0 };
 int main(int argc, char** argv)
 {
 
-    hist Commandes[100]={"CANN SPEED 150","CANN TURN 1","CANN GAZ 56","CANN RPM 2000","CANN BATTERY_LIGHT 1"};
-    int num_commande=4;
+    hist Commandes[100]={{"CANN SPEED 150"},{"CANN TURN 1"},{"CANN GAZ 56"},{"CANN RPM 2000"},{"CANN BATTERY_LIGHT 1"}};//Initialisation de la structure d'historique avec quelques commandes
+    int num_commande=4;//Indice de la derniere commande dans le tableau
     int i=num_commande;
     struct arguments arg;
     arg.ipaddr = "127.0.0.1";
@@ -193,6 +197,14 @@ int main(int argc, char** argv)
         enableRawMode();
         puts("Veuillez saisir une commande à envoyer.");
         puts("Veuillez saisir HELP pour afficher la liste de commande.");
+        ///
+        /// \brief A partir d'ici, le programme va vérifier si la touche clavier enfoncée est un KEY_UP ou KEY_DOWN.
+        /// Si oui, possibilité de parcourir les dernières commandes entrées.
+        /// Taper un autre caractère fera sortir du mode RAW. Ce caractère sera affichée à l'écran,
+        /// mais ne sera pas interprété par la fonction enter_message. Ce caractère ne pourra malheureusement
+        /// pas être éffacé (tout le monde est le bienvenu pour parvenir à régler ce problème). La solution en
+        /// l'état actuel est de modifier le message en ajoutant le caractère manquant en début de chaine.
+        ///
         char b=is_key();
         i=num_commande;
         while (b=='u'||b=='d'){
@@ -213,7 +225,6 @@ int main(int argc, char** argv)
                     i--;
                 }
             }
-            //printf("%c\n",b);
         }
         disableRawMode();
         if (b=='\n'){
