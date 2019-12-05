@@ -18,6 +18,7 @@
 
     QRectF fuel_guage::boundingRect() const
     {
+        return QRect(-200,-200,400,400);
 
     }
 

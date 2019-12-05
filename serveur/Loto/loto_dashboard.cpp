@@ -19,7 +19,7 @@ loto_dashboard::loto_dashboard()
 
 QRectF loto_dashboard::boundingRect() const
 {
-
+    return QRect(-200,-200,400,400);
 }
 
 void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
