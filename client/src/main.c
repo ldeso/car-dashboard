@@ -163,10 +163,10 @@ int main(int argc, char** argv)
             puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
             puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
-	    puts("CANN ENGINE_T x avec x = temperature du moteur" );
-	    puts("CANN OIL_T x avec x = temperature de l'huile" );
-	    puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
-
+            puts("CANN ENGINE_T x avec x = temperature du moteur" );
+            puts("CANN OIL_T x avec x = temperature de l'huile" );
+            puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
+            puts("CANN SIM x avac x le nombre d'iterations");
 
         } else if (strncmp(sent, "END", len) == 0) {
             end = 1;

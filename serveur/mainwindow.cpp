@@ -585,6 +585,19 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+    else if(message=="CANN SIMU"){
+        int nombre = string.section(' ', 2,2).toInt();
+        if(nombre>0){
+            simulation(1);
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être supérieur à 0");
+            socket->write(text.toLocal8Bit());
+        }
+    }
     else if(message=="CANN SPEED_LIMIT"){
         int speed_limit = string.section(' ', 2, 2).toInt();
         if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
@@ -599,6 +612,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
     else{
         qDebug() << "erreur lors de la reception du message";
     }
@@ -607,16 +621,16 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-    km_parcourus+=1.0*(vitesse_actuelle)/3600;
+//    km_parcourus+=1.0*(vitesse_actuelle)/3600;
 
 
-    /*if (dashboard->CompteurKm)
-         dashboard->CompteurKm->setValue(km_parcourus);
-        ui->graphicsView->scene()->update();*/
+//    if (dashboard->CompteurKm)
+//         dashboard->CompteurKm->setValue(km_parcourus);
+//        ui->graphicsView->scene()->update();
 
-    if (dashboard->CompteurKm) //
-        // dashboard->CompteurKm->setValue(km_parcourus);
-        ui->graphicsView->scene()->update();
+//    if (dashboard->CompteurKm)
+//         dashboard->CompteurKm->setValue(km_parcourus);
+//        ui->graphicsView->scene()->update();
 
 
 
@@ -628,4 +642,113 @@ void MainWindow::resizeEvent(QResizeEvent *)
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
 
+void MainWindow::simulation(int b)
+{
+    dashboard->jaugeTemperature->setValue(92);
+    dashboard->CompteTours->setValue(900);
+    dashboard->Clignotant->setValue(2);
+    QTest::qWait(2000);
+    dashboard->CompteTours->setValue(900);
+    QTest::qWait(1000);
+    dashboard->OpenDoorFrontPassenger->setValue(1);
+    ui->graphicsView->scene()->update();
+    QTest::qWait(200);
+    dashboard->OpenDoorBackLeftPassenger->setValue(1);
+    ui->graphicsView->scene()->update();
+    QTest::qWait(800);
+    dashboard->OpenDoorFrontPassenger->setValue(0);
+    ui->graphicsView->scene()->update();
+    QTest::qWait(800);
+    dashboard->OpenDoorBackLeftPassenger->setValue(0);
+    QTest::qWait(600);
+    dashboard->Clignotant->setValue(0);
+    ui->graphicsView->scene()->update();
+    QTest::qWait(700);
+
+    for(int i=0;i<60;i++)
+    {
+        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001);
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.001);
+        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.7*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
+        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.9* dashboard->CompteTours->getValueMax()-900)/60);
+        QTest::qWait(30);
+        ui->graphicsView->scene()->update();
+    }
+    dashboard->CompteTours->setValue(1600);
+    dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
+    for(int i=0;i<100;i++)
+    {
+        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001);
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01);
+        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.5*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
+        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.8* dashboard->CompteTours->getValueMax()-900)/100);
+        QTest::qWait(30);
+        ui->graphicsView->scene()->update();
+    }
+    dashboard->CompteTours->setValue(1600);
+    dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
+    for(int i=0;i<200;i++)
+    {
+        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001);
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01);
+        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.5*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
+        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.6* dashboard->CompteTours->getValueMax()-900)/200);
+        QTest::qWait(30);
+        ui->graphicsView->scene()->update();
+    }
+    dashboard->CompteTours->setValue(1600);
+    dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
+    for(int i=0;i<200;i++)
+    {
+        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001);
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01);
+        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.5*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
+        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.6* dashboard->CompteTours->getValueMax()-900)/200);
+        QTest::qWait(30);
+        ui->graphicsView->scene()->update();
+    }
+    dashboard->CompteTours->setValue(1900);
+    dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
+    dashboard->Clignotant->setValue(-1);
+    for(int i=0;i<40;i++)
+    {
+        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001);
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01);
+        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.1);
+        QTest::qWait(30);
+        ui->graphicsView->scene()->update();
+    }
+    dashboard->Clignotant->setValue(0);
+
+//        objet_virtuel *Vitesse;
+//        objet_virtuel *Essence;
+//        objet_virtuel *CompteTours;
+//        objet_virtuel *jaugeTemperature;
+//        objet_virtuel *Clignotant;
+//        objet_virtuel *VoyantBatterie;
+//        objet_virtuel *position;
+//        objet_virtuel *croisement;
+//        objet_virtuel *route;
+//        objet_virtuel *warning;
+//        objet_virtuel *CompteurKm;
+//        objet_virtuel *AdaptiveSuspensionDampers;
+//        objet_virtuel *AutomaticTransmissionMode;
+//        objet_virtuel *FrontAntifog;
+//        objet_virtuel *RearAntifog;
+//        objet_virtuel *SeatBelt;
+//        objet_virtuel *RearWindowHeating;
+//        objet_virtuel *CheckEngine;
+//        objet_virtuel *OpenDoorDriver;
+//        objet_virtuel *OpenDoorFrontPassenger;
+//        objet_virtuel *OpenDoorBackLeftPassenger;
+//        objet_virtuel *OpenDoorBackRightPassenger;
+//        objet_virtuel *AdaptiveCruiseControl;
+//        objet_virtuel *AirbagOn;
+//        objet_virtuel *BonnetOpen;
+//        objet_virtuel *BootOpen;
+//        objet_virtuel *CruiseControlOn;
+//        objet_virtuel *OilTemp;
+//        objet_virtuel *SpeedLimit;
+//        objet_virtuel *oilLevel;
+}
 
