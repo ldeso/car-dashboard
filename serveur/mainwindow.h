@@ -25,6 +25,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void acceleration(int);
+    void simulation(int);
     ~MainWindow();
 
 private slots:
@@ -35,15 +36,10 @@ private slots:
 private:
    // Compteur * c;
     scene_globale *dashboard;
-
     Ui::MainWindow *ui;
     QTcpServer * server;
     QTcpSocket * socket;
     QTimer *updateTimer;
-
-
-    float km_parcourus=0;
-    int vitesse_actuelle=0;
 };
 
 #endif // MAINWINDOW_H

@@ -26,9 +26,9 @@ void jonas_compteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     QFont font;
 
     font.setFamily("digital-7");
-    font.setPixelSize(21);
+    font.setPixelSize(20);
     painter->setFont(font);
     painter->setPen(pen2);
     int temp = value;
-    painter->drawText(5,5,70,20,0, QString("%1").arg(temp));
+    painter->drawText(5,4,70,20,0, QString("%1").arg(temp));
 }

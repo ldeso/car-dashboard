@@ -14,12 +14,13 @@ Jonas_compteur::Jonas_compteur()
     graduations = 23;
     mod = 2;
     hLine = 1;
+    critical = valueMax;
     for (int i=0; i<=valueMax/10; i++) {
         textAround << (QString::number(10*i));
     }
 }
 
-Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, QString textCenter,int ngrad, bool line, int modulo, int size)
+Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, int critic, QString textCenter,int ngrad, bool line, int modulo, int size)
 {
     if (endAngle > startAngle) {
         alpha = startAngle;
@@ -31,7 +32,6 @@ Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, 
     }
     else
         qDebug() << "erreur startAngle = endAngle";
-
     valueMax = max;
     gaugeSize = size;
     textAround = gradList;
@@ -39,6 +39,9 @@ Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, 
     graduations = ngrad;
     hLine = line;
     mod = modulo;
+    if (critic >=0 && critic <=valueMax) {
+        critical = critic;
+    }
 }
 
 QRectF Jonas_compteur::boundingRect() const
@@ -62,8 +65,9 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     // Définition des différentes options graphiques
     QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
     QPen needlePen(QColor(Qt::red), gaugeSize*8/150, Qt::SolidLine, Qt::RoundCap);
-    QLineF needle(0,0,-90,0);
+    //QLineF needle(0,0,-90,0);
     QRectF needleCenter(-10, -10, 20, 20);
+
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // Définition des gradients
@@ -83,8 +87,6 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     for (int i=0;i<50;i++)
     {
         rect[i]=QRect(-gaugeSize+i*space,-gaugeSize+i*space,(gaugeSize-i*space)*2,(gaugeSize-i*space)*2);
-//        painter->setPen(QPen(Qt::white));
-//        painter->drawRect(rect[i]);
     }
     painter->setPen(Qt::white);
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -94,22 +96,44 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     float delta = beta;
     for (int i=0; i<graduations; i++)
     {
-        if  (k%2 == 0) {
-            painter->setPen(QPen(QBrush(QColor(38, 10, 178)), gaugeSize*24/150, Qt::SolidLine, Qt::FlatCap));
-            painter->drawArc(rect[3],delta*16, gaugeSize*28/150);
-        }
-        else {
-            painter->setPen(QPen(QBrush(Qt::white), gaugeSize*15/150, Qt::SolidLine,Qt::FlatCap));
+        if (critical == valueMax || delta > qRadiansToDegrees(speedToAngle(critical))) {
+            if  (k%2 == 0) {
+                painter->setPen(QPen(QBrush(QColor(38, 10, 178)), gaugeSize*24/150, Qt::SolidLine, Qt::FlatCap));
+                painter->drawArc(rect[3],delta*16, gaugeSize*28/150);
+            }
+            else {
+                painter->setPen(QPen(QBrush(Qt::white), gaugeSize*15/150, Qt::SolidLine,Qt::FlatCap));
                 painter->drawArc(rect[3],delta*16, gaugeSize*12/150);
             }
+        }
+        else {
+            if  (k%2 == 0) {
+                painter->setPen(QPen(QBrush(QColor(252, 3, 11)), gaugeSize*24/150, Qt::SolidLine, Qt::FlatCap));
+                painter->drawArc(rect[3],delta*16, gaugeSize*28/150);
+            }
+            else {
+                painter->setPen(QPen(QBrush(QColor(252, 3, 11)), gaugeSize*15/150, Qt::SolidLine,Qt::FlatCap));
+                painter->drawArc(rect[3],delta*16, gaugeSize*12/150);
+            }
+        }
             delta -= diffAngle;
         k++;
     }
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // Dessine le cadrant intérieur
-    painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
-    painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
+    if (critical == valueMax) {
+        painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
+        painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
+    }
+
+    else {
+        painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
+        painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
+        painter->setPen(QPen(QBrush(QColor(252, 3, 11)), 8));
+        painter->drawArc(rect[1],(alpha)*16, (qAbs(qRadiansToDegrees(speedToAngle(critical))-alpha-2.5))*16);
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // Dessine le cadrant extérieur
@@ -149,17 +173,31 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
 
     // Dessine l'aiguille et met à jour sa position
-    needle.setP1(QPointF(0, 0));
-    needle.setP2(QPointF(qCos(speedToAngle(value)), -qSin(speedToAngle(value)))); // Positionne l'aiguille selon la vitesse en entrée
-    needle.setLength(needleSize);
-    painter->setPen(needlePen);
-    painter->drawLine(needle);
+    painter->setPen(QPen(QBrush(Qt::white), 1));
+    painter->setBrush(Qt::red);
+    QPointF c(qCos(speedToAngle(value))*rect[6].height()/4, -qSin(speedToAngle(value))*rect[6].height()/4);
+    QPointF v1(qCos(speedToAngle(value))*rect[6].height()/2, -qSin(speedToAngle(value))*rect[6].height()/2);
+    double n = qSqrt(qPow(v1.x(),2)+qPow(v1.y(),2));
+    QPointF n1 = v1/n;
+    QPointF n2(n1.y(), -n1.x());
+    QPointF P[4];
+    P[0].setX(0);
+    P[0].setY(0);
+    P[1].setX(c.x()+5*n2.x());
+    P[1].setY(c.y()+5*n2.y());
+    P[3].setX(c.x()-5*n2.x());
+    P[3].setY(c.y()-5*n2.y());
+    P[2].setX(qCos(speedToAngle(value))*rect[6].height()/2);
+    P[2].setY(-qSin(speedToAngle(value))*rect[6].height()/2);
+    painter->drawPolygon(P, 4);
+    // Dessine le centre de l'aiguille
     painter->setPen(QPen(QBrush(QColor(172, 154, 154)), 4, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(Qt::black));
     painter->drawEllipse(needleCenter);
     ////////////////////////////////////////////////////////////////////////////////////////
 }
 
+// calcule l'angle (en radians) correspondant à la vitesse en entrée
 float Jonas_compteur::speedToAngle(float speed)
 {
     if (speed != 0)

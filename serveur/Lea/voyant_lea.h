@@ -12,11 +12,10 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QString chemin;
-    int x,y,on=0;
-    int width;
-    int height;
-   // void setSize(int, int);
-    virtual void parametrage(int param_x,int param_y, QString param_chemin);
+    int x,y;
+    int width=30;
+    int height=30;
+
 };
 
 #endif // VOYANT_LEA_H

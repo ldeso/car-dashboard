@@ -36,14 +36,15 @@ void LEDS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         brush.setColor(ledColor);
         painter->setBrush(brush);
         painter->drawPixmap(posX,posY,size,size,icon2);
-        //painter->drawEllipse(posX,posY,size,size);
+        painter->drawRect(posX,posY,size,size);
 
     }
 }
 
 QRectF LEDS::boundingRect() const
 {
- //return QRect (-800,-400,1000,1000);
+    return QRect(-200,-200,400,400);
+
 }
 
 

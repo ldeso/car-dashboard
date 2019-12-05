@@ -7,7 +7,6 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     addItem(fond);
 
     Vitesse=new cadrantHenri();
-    Vitesse->resetTransform();
     addItem(Vitesse);
 
     Essence=new jaugeEssenceHenri();
@@ -18,9 +17,6 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
 
     jaugeTemperature=new jaugeTemperatureHenri();
     addItem(jaugeTemperature);
-
-    OilTemp=new jaugeTemperatureHenri;
-    addItem(OilTemp);
 
     Clignotant=new jaugeClignotantHenri();
     addItem(Clignotant);
@@ -34,9 +30,14 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     warning=new onoff();
     addItem(warning);
 
-    route=new feuxHenri();
+    route=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeRoute.png"));
     addItem(route);
 
+    croisement=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeCode.png"));
+    addItem(croisement);
+
+    position=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeRoute.png"));
+    addItem(position);
 
     portesHenri* portes=new portesHenri();
     addItem(portes);
@@ -45,7 +46,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     OpenDoorFrontPassenger=portes->DD;
     OpenDoorBackLeftPassenger=portes->PG;
     OpenDoorBackRightPassenger=portes->PD;
-    BootOpen=portes->C;
+    BootOpen=portes->Cof;
+    BonnetOpen=portes->Cap;
 
     this->setBackgroundBrush(QBrush(QColor("black")));
 }
@@ -57,5 +59,5 @@ void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
 
 QRectF henri_scene::boundingRect() const
 {
-    return QRect(-700,-350,1400,700);
+    return QRect(-300,-300,600,600);
 }

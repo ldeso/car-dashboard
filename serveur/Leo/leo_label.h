@@ -6,10 +6,14 @@
 class Leo_label : public QGraphicsSimpleTextItem
 {
 public:
-    Leo_label(const QString &text, QPointF pos, QGraphicsItem* parent = nullptr);
-    void SetFontSizePx(const int);
+    explicit Leo_label(const QString &text, const QRectF boundingRect, QGraphicsItem* parent=nullptr)
+        : QGraphicsSimpleTextItem(text, parent), mText(text), mBoundingRect(boundingRect)
+    {}
+    QRectF boundingRect() const override;
+    void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) override;
 private:
-    int mFontSizePx = 25;
+    const QString mText;
+    const QRectF mBoundingRect;
 };
 
 #endif // LEO_LABEL_H

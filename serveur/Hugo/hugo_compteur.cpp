@@ -66,6 +66,8 @@ QRectF hugo_Compteur::boundingRect() const
 ///
 void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
+
+    float facteur=1;//Variable non nécessaire. Etait utilisée pour transformer la taille des objets.
     painter->setRenderHints(QPainter::Antialiasing);
 
     ///
@@ -73,28 +75,28 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     /// \details Le cadran est basé sur un arc de cercle déssiné à l'aide de la fonction drawArc. Cette méthode est répétée dans une boucle pour obtenir un effet de gradient. Si lors de la création de l'objet, le paamètre param_critique a été défini à une autre valeur qu'à 100, une partie du cadran serait redéssinée d'une autre couleur.
     ///
     ///
-    QRect carre_rpm(x-r,y-r,2*r,2*r);
+    QRect carre_rpm(facteur*(x-r),facteur*(y-r),2*r*facteur,2*r*facteur);
     //Support du cadran
     painter->setPen(QPen( couleur ,2, Qt::SolidLine,Qt::FlatCap));
     painter->drawArc(carre_rpm,start_angle*16,(end_angle-start_angle)*16);
     painter->setPen(QPen(couleurgrad ,5, Qt::SolidLine,Qt::FlatCap));
     //Boucle pour l'effet de gradient
     for (int i=1;i<5;i++){
-        QRect carre_grad(x-(r-i),y-(r-i),2*(r-i),2*(r-i));
+        QRect carre_grad(facteur*(x-(r-i)),facteur*(y-(r-i)),2*(r-i)*facteur,2*(r-i)*facteur);
         painter->drawArc(carre_grad,start_angle*16,(end_angle-start_angle)*16);
     }
     //On rentre dans la boucle uniquement si l'on veut donner 2 couleurs au compteur. Se définit dans le constructeur, non par défaut.
     if (critique!=100){
         painter->setPen(QPen( QColor(0,0,0) ,5, Qt::SolidLine,Qt::FlatCap));
         for (int i=1;i<5;i++){
-            QRect carre_grad(x-(r-i),y-(r-i),2*(r-i),2*(r-i));
+            QRect carre_grad(facteur*(x-(r-i)),facteur*(y-(r-i)),2*(r-i)*facteur,2*(r-i)*facteur);
             painter->drawArc(carre_grad,98*16,-39*16);
         }
         painter->setPen(QPen( couleur2 ,2, Qt::SolidLine,Qt::FlatCap));
         painter->drawArc(carre_rpm,98*16,-39*16);
         painter->setPen(QPen( couleurgrad2 ,5, Qt::SolidLine,Qt::FlatCap));
         for (int i=1;i<5;i++){
-            QRect carre_grad(x-(r-i),y-(r-i),2*(r-i),2*(r-i));
+            QRect carre_grad(x-(r-i),y-(r-i),2*(r-i)*facteur,2*(r-i)*facteur);
             painter->drawArc(carre_grad,98*16,-39*16);
         }
     }
@@ -112,7 +114,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         if (compteur>critique){
             painter->setPen(QPen( couleur2 ,1, Qt::SolidLine,Qt::FlatCap));
         }
-        painter->drawLine((r-10)*qCos(i*(pi/180))+x,-(r-10)*qSin(i*(pi/180))+y,(r)*qCos(i*(pi/180))+x,-(r)*qSin(i*(pi/180))+y);
+        painter->drawLine(facteur*(r-10)*qCos(i*(pi/180))+x,-facteur*(r-10)*qSin(i*(pi/180))+y,facteur*(r)*qCos(i*(pi/180))+x,-facteur*(r)*qSin(i*(pi/180))+y);
         compteur++;
     }
     //Boucle pour les petites graduations
@@ -124,7 +126,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         if (compteur>critique){
             painter->setPen(QPen( couleur2 ,1, Qt::SolidLine,Qt::FlatCap));
         }
-        painter->drawLine((r-5)*qCos(i*(pi/180))+x,-(r-5)*qSin(i*(pi/180))+y,(r)*qCos(i*(pi/180))+x,-(r)*qSin(i*(pi/180))+y);
+        painter->drawLine(facteur*(r-5)*qCos(i*(pi/180))+x,-facteur*(r-5)*qSin(i*(pi/180))+y,facteur*(r)*qCos(i*(pi/180))+x,-facteur*(r)*qSin(i*(pi/180))+y);
         compteur++;
     }
 
@@ -134,12 +136,12 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     ///
     int j=0;
     painter->setPen(QPen(QColor(Qt::darkGray) , 1, Qt::SolidLine,Qt::FlatCap));
-    painter->setFont(QFont("Arial", 9, -1,false));
+    painter->setFont(QFont("Arial", facteur*9, -1,false));
     compteur=0;
     while (compteur<=nbre_graduations)
     {
         float i=start_angle*1.0+compteur*(end_angle*1.0-start_angle*1.0)/(nbre_graduations*1.0);
-        painter->drawText(qCos(i*pi/180)*(r-20)+x-11,-qSin(i*pi/180)*(r-20)+y+3,graduations[j]);
+        painter->drawText(qCos(i*pi/180)*facteur*(r-20)+x-11,-qSin(i*pi/180)*facteur*(r-20)+y+3,graduations[j]);
         j++;
         compteur++;
     }
@@ -151,10 +153,10 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     ///
     // Création du cercle à la base de l'aiguille, avec différents effets de dégradés
     painter->setPen(QPen(QColor(Qt::darkGray) , 1, Qt::SolidLine,Qt::FlatCap));
-    QRect carre_aiguille(x-10,y-10,20,20);
+    QRect carre_aiguille(facteur*(x-10),facteur*(y-10),facteur*20,facteur*20);
     painter->drawEllipse(carre_aiguille);
-    QRect carre_aiguille2(x-8,y-8,16,16);
-    QLinearGradient linearGrad(QPointF((x+10*qCos(135*pi/180)), (y-10*qSin(135*pi/180))), QPointF(x, y));
+    QRect carre_aiguille2(facteur*(x-8),facteur*(y-8),facteur*16,facteur*16);
+    QLinearGradient linearGrad(QPointF(facteur*(x+10*qCos(135*pi/180)), facteur*(y-10*qSin(135*pi/180))), QPointF(x, y));
     linearGrad.setColorAt(0, QColor(200,200,200,80));
     linearGrad.setColorAt(1, QColor(0,0,0,0));
     painter->setBrush(linearGrad);

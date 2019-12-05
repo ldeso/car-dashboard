@@ -9,7 +9,7 @@ class Jonas_compteur : public objet_virtuel
 {
 public:
     Jonas_compteur();
-    Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, QString textCenter, int ngrad, bool line = 0, int mod = 2, int size = 150);
+    Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, int critic, QString textCenter, int ngrad, bool line = 0, int mod = 2, int size = 150);
     QRectF boundingRect() const override;
     void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
     void setTextLabel(QString newText);
@@ -31,6 +31,7 @@ private:
     int gaugeSize;
     int graduations;
     int mod;
+    int critical;
     bool hLine;
     QString textLabel;
     QStringList textAround;
