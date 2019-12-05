@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new Lea_scene();
+    dashboard=new harout_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -115,7 +115,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
+            text = QString("vitesse incorrecte, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
             socket->write(text.toLocal8Bit());
         }
     }
@@ -179,7 +179,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -217,24 +217,25 @@ void MainWindow::reception()
                 dashboard = new karim_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-
-
             if (prenom=="YOUCEF"){
                 delete dashboard;
                 dashboard = new Youcef_Scene;
                 ui->graphicsView->setScene(dashboard);
              }
-
              if (prenom=="LOTO"){
               delete dashboard;
               dashboard = new loto_scene;
               ui->graphicsView->setScene(dashboard);
 
             }
-
             if (prenom=="INNA"){
                 delete dashboard;
                 dashboard = new inna_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="HAROUT"){
+                delete dashboard;
+                dashboard = new harout_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
@@ -654,7 +655,7 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     if (dashboard->CompteurKm)
-         dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+         //dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
 
         ui->graphicsView->scene()->update();
 }

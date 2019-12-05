@@ -13,6 +13,7 @@
 #include "Loto/loto_scene.h"
 #include "Inna/inna_scene.h"
 #include "Youcef/youcef_scene.h"
+#include "Harout/harout_scene.h"
 
 namespace Ui {
 class MainWindow;

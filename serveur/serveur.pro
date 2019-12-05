@@ -116,7 +116,10 @@ SOURCES += \
     Henri/onoffpainthenri.cpp \
     Lea/warning_lea.cpp \
     Lea/jauge_temperature_lea.cpp \
-    Lea/compteur_kilometre_lea.cpp
+    Lea/compteur_kilometre_lea.cpp \
+    Harout/harout_scene.cpp \
+    Harout/cadran.cpp \
+    Harout/harc.cpp
    
 
 HEADERS += \
@@ -206,7 +209,10 @@ HEADERS += \
     Lea/warning_lea.h \
     compteurkminna.h \
     Lea/jauge_temperature_lea.h \
-    Lea/compteur_kilometre_lea.h
+    Lea/compteur_kilometre_lea.h \
+    Harout/harout_scene.h \
+    Harout/cadran.h \
+    Harout/harc.h
 
 FORMS += \
         mainwindow.ui \
