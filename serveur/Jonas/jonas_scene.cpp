@@ -46,13 +46,10 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     this->addItem(route);
     this->addItem(position);
     this->addItem(jaugeTemperature);
+    this->addItem(CompteurKm);
     this->addItem(Vitesse);
     this->addItem(CompteTours);
     this->addItem(Essence);
     this->addItem(Clignotant);
     this->addItem(warning);
-    this->addItem(CompteurKm);
-
-    // objets pas encore implémentées (= null)
-    CompteurKm = nullptr;
 }
