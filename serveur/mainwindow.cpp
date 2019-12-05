@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-    dashboard=new Lea_scene();
+    dashboard=new hugo_scene();
     //    this->resize(dashboard->width()+31,dashboard->height()+63);//pour metre la fentre a la taille du dasboard, attention donc au taille
     //                                                               //la taille de la scene est le plus grand des ::boundingRect() des objets
     //    this->move(0,0);
@@ -184,7 +184,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -638,9 +638,9 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     km_parcourus+=1.0*(vitesse_actuelle)/3600;
-    /*if (dashboard->CompteurKm)
+    if (dashboard->CompteurKm)
          dashboard->CompteurKm->setValue(km_parcourus);
-        ui->graphicsView->scene()->update();*/
+        ui->graphicsView->scene()->update();
 
     if (dashboard->CompteurKm) //
         // dashboard->CompteurKm->setValue(km_parcourus);

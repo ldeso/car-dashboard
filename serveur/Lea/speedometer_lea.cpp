@@ -113,7 +113,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 
 ///
 ///\brief Création de l'aiguille.
-/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
+/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawConvexPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
 ///
 
 // ******************** Dessine l'aiguille
@@ -137,7 +137,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     painter->drawConvexPolygon(points, 3);
 
 
-// ******************** Dessine le cercle au centre du cadran par dessus la fin de l'aiguille
+// ******************** Dessine le cercle au centre du cadran par dessus la fin de l'aiguille(deux cercles l'un sur l'autre avec un gradient linéaire inversé
     pen.setColor(Qt::transparent);
     QLinearGradient linearGradie(QPointF(x-15, y-15), QPointF(x+15, y-15));
        linearGradie.setColorAt(0,"#9d0409" );
@@ -160,7 +160,7 @@ painter->drawEllipse(x-15,y-15,30,30);
 ///\brief Création de l'affichage de la vitesse.
 ///\details L'affichage de la vitesse se fait avec la fonction drawText et en utilisant la value donnée par la fonction getValue() de la classe objet_virtuel.
 ///
-// ******************** Dessine l'affichage de la vitesse
+// ******************** Dessine l'affichage de la vitesse avec une police d'ecriture intégrée dans les ressources et appelée dans lea_scene.cpp
 
 pen.setColor(Qt::white);
 
@@ -175,43 +175,16 @@ QFont font2("Seven Segment",10,QFont::Bold);
 painter->setFont(font2);
 painter->drawText(qRound(x+10),qRound(y+65),"km/h");
 
-QFont font3("Seven Segment",10,QFont::Bold);
-painter->setFont(font3);
-QRectF affiche_km_totaux (x-50,y+100,90,70);
-//pen.setCapStyle(Qt::SquareCap);
-//painter->setPen(pen);
-painter->drawText(affiche_km_totaux, Qt::AlignRight ,"ODO   271963 km");
+//QFont font3("Seven Segment",10,QFont::Bold);
+//painter->setFont(font3);
+//QRectF affiche_km_totaux (x-50,y+100,90,70);
+//painter->drawText(affiche_km_totaux, Qt::AlignRight ,QString("ODO    %1 km").arg(271963+getValue());
 
-QFont font4("Seven Segment",10,QFont::Bold);
-painter->setFont(font4);
-QRectF affiche_km_trip_A (x-50,y+130,90,70);
-//pen.setCapStyle(Qt::SquareCap);
-//painter->setPen(pen);
-painter->drawText(affiche_km_trip_A, Qt::AlignRight ,"TRIP A    789 km");
-
-
+//QFont font4("Seven Segment",10,QFont::Bold);
+//painter->setFont(font4);
+//QRectF affiche_km_trip_A (x-50,y+130,90,70);
+//painter->drawText(affiche_km_trip_A, Qt::AlignRight ,QString("TRIP A    %1 km").arg(789+getValue());
 
 }
 
 
-
-//void speedometer_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
-//{
-
-//    x= param_x;
-//    y=param_y;
-//    r=param_r;
-//    angle_debut=param_start;
-//    angle_fin = param_end;
-
-//    span_angle=param_spanAngle;
-//    valueMax=param_vitMax;
-
-//}
-
-
-
-//void speedometer_Lea::setValue(int v)
-//{
-//    value=v;
-//}
