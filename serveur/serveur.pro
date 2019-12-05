@@ -66,7 +66,6 @@ SOURCES += \
     Jonas/jonas_voyant_simple.cpp \
     Lea/fuelgauge_lea.cpp \
     Lea/lea_scene.cpp \
-    Lea/quatre_voyants_lea.cpp \
     Lea/speedometer_lea.cpp \
     Lea/tachometergauge_lea.cpp \
     Lea/voyant_lea.cpp \
@@ -146,7 +145,6 @@ HEADERS += \
     Jonas/jonas_voyant_simple.h \
     Lea/fuelgauge_lea.h \
     Lea/lea_scene.h \
-    Lea/quatre_voyants_lea.h \
     Lea/speedometer_lea.h \
     Lea/tachometergauge_lea.h \
     Lea/voyant_lea.h \
