@@ -120,6 +120,8 @@ SOURCES += \
     Lea/horloge_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
+    Kodjo/kodjo_scene.cpp \
+    Kodjo/Cadran_Kodjo.cpp \
     Karim/voyants_warning.cpp \
     Karim/voyants_karim.cpp \
     Maroua/cadrantcontour.cpp \
@@ -130,6 +132,7 @@ SOURCES += \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp
+
    
 
 HEADERS += \
@@ -223,6 +226,8 @@ HEADERS += \
     Harout/harout_scene.h \
     Harout/cadran.h \
     Harout/harc.h \
+    Kodjo/kodjo_scene.h \
+    Kodjo/Cadran_Kodjo.h \
     Karim/voyants_warning.h \
     Karim/voyants_karim.h \
     Maroua/cadrantcontour.h \
@@ -232,6 +237,7 @@ HEADERS += \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h
+
 
 FORMS += \
         mainwindow.ui \
@@ -247,7 +253,8 @@ RESOURCES += \
     Inna/InnaRSC/inna.qrc \
     Lea/Lea.qrc \
     Florian/florian.qrc \
-    Youcef/Youcef.qrc
+    Youcef/Youcef.qrc \
+    Kodjo/kodjo.qrc
 
 
 DISTFILES += \
