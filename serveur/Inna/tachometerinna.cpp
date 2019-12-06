@@ -70,7 +70,7 @@ void TachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
    painter->setPen(QPen(QBrush(radialGrad),20,Qt::SolidLine,Qt::FlatCap));
    painter->drawArc(qRound(xc-r+10),qRound(yc-r+10),2*(r-10),2*(r-10),A0*16,-Amax*16);
-   painter->drawPixmap(qRound(xc-r+10),qRound(yc-r+10),2*(r-10),2*(r-10), QPixmap(":/I_cat.gif"));
+  // painter->drawPixmap(qRound(xc-r+10),qRound(yc-r+10),2*(r-10),2*(r-10), QPixmap(":/I_cat.gif"));
    /// \brief Dessin du texte et des traits.
    ///
    k = Amax * 1.0/ vmax ;

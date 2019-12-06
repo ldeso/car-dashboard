@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ///La scène par défault est
 
 
-    dashboard=new hugo_scene();
+    dashboard=new inna_scene();
 
 
 
