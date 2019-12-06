@@ -11,7 +11,7 @@ iconOnOffInna::iconOnOffInna(IconInna *parent) : IconInna (parent)
 {
     value = 0;
 }
-/// \bref iconOnOffInna::iconOnOffInna(QPoint p, QSize s, QString pth, double Z) - le constructeur multiparametrique
+/// \brief iconOnOffInna::iconOnOffInna(QPoint p, QSize s, QString pth, double Z) - le constructeur multiparametrique
 /// \details Le constructeur permet d'instancier un voyant a la position p, de la taille s,
 ///  \details avec une image donnée par le chemin pth et au niveu Z dans l'ordre de l'affichage des elements.
 ///
