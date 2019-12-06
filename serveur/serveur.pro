@@ -45,10 +45,8 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
-    Leo/leo_display.cpp \
     Leo/leo_gauge.cpp \
-    Leo/leo_indicator.cpp \
-    Leo/leo_label.cpp \
+    Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
@@ -148,10 +146,8 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
-    Leo/leo_display.h \
     Leo/leo_gauge.h \
-    Leo/leo_indicator.h \
-    Leo/leo_label.h \
+    Leo/leo_limit.h \
     Leo/leo_object.h \
     Leo/leo_scene.h \
     Youcef/cardialerprototype.h \
