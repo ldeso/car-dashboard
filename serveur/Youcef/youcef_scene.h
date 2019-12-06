@@ -5,7 +5,8 @@
 #include "tachometer.h"
 #include "fuelgauge.h"
 #include "engineheatgauge.h"
-#include "voyantsyoucef.h"
+#include "flashinglight_youss.h"
+#include "warning_youss.h"
 
 #include "scene_globale.h"
 

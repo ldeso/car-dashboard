@@ -4,9 +4,9 @@
 #include <QGraphicsTextItem>
 #include <QStringList>
 
-CarSpeedDial::CarSpeedDial(objet_virtuel *parent)
+CarSpeedDial::CarSpeedDial(objet_virtuel *)
 {
-
+    value=0;
 }
 
 QRectF CarSpeedDial::boundingRect() const
@@ -14,7 +14,7 @@ QRectF CarSpeedDial::boundingRect() const
   return QRectF(-600, -400, 1200, 800);
 }
 
-void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing);
 
@@ -68,6 +68,16 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
              }
           }
 
+       for (int i=0;i<=260;i+=5)
+          { if (i%10==0)
+             {
+             QRect RectScale(175,-225,260,260);
+             painter->setPen(QPen(QBrush("white "), 8, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+             painter->drawArc(RectScale,(220-i)*16,20*2);
+             }
+          }
+
+
     /*For the text speed scale*/
        {
         int j=0;
@@ -80,46 +90,7 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
         }
       }
 
-/*design speed display*/
-    /*main rectangle*/
 
-    {
-        /*arc center is (x=305,y=-95)*/
-        int dX=75;int dY=90;
-        int X= 305-dX;
-        int Y= -95+dY;
-        int x1=250;int y1=30;
-
-                           /* line to define the right arc center*/
-//                           painter->setPen(QPen(QBrush("dark") ,2, Qt::SolidLine,Qt::FlatCap));
-//                           painter->drawLine(QLine (305,-400,305,300));
-                           /*end of the line draw*/
-
-        {
-        QLinearGradient gradient(QPoint(X,Y),QPoint(X,Y+60));/* coordinates gradient ((x,y),(x1,y1)) are cooresponding to line where starting the color variation*/
-        gradient.setColorAt(1, QColor("#dark blue"));
-        gradient.setColorAt(0.5, QColor("#D4CAC7"));
-        gradient.setColorAt(0, QColor("#white"));
-        QBrush brush(gradient);
-        painter->setBrush(brush);
-
-        painter->setPen(QPen(QBrush("dark") ,5, Qt::SolidLine,Qt::FlatCap));
-        painter->drawRoundedRect(X,Y, dX*2,Y+60,15,15);
-//            painter->setPen(QPen(QBrush("white") ,5, Qt::SolidLine,Qt::FlatCap));
-//            painter->drawRoundedRect(X+3,Y+3, (dX*2)-6,Y+54,15,15);
-        }
-
-
-        painter->setFont(QFont("ariel", 18,  QFont::Bold, true));
-        painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
-        painter->drawText(x1,y1, QString("%1").arg(200)); /*replace after 20 by value*/
-
-
-        painter->setFont(QFont("ariel", 15, QFont::Bold, true));
-        painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
-        painter->drawText(310, 30, "km/h");
-
-    }
 
     /* Build speed needle */
     /*For the triangle*/
@@ -127,11 +98,11 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
 
             double xArcCenter=305.0; /*Coordinates Arc Tachometer Center P(305,-95)*/
             double yArcCenter= -95.0;
-            double AngleStart_Alpha = 270;
+            double AngleStart_Alpha = 220;
 
 
-            double c = cos (AngleStart_Alpha-value* pi/180);
-            double s = sin(AngleStart_Alpha-value* pi/180);
+            double c = cos ((AngleStart_Alpha-value)* pi/180);
+            double s = sin((AngleStart_Alpha-value)* pi/180);
 
             double xpos=xArcCenter+140*c;
             double ypos=yArcCenter-140*s;
@@ -184,6 +155,46 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     painter->drawEllipse(RectSpeed);
 
     }
+       /*design speed display*/
+           /*main rectangle*/
+
+           {
+               /*arc center is (x=305,y=-95)*/
+               int dX=75;int dY=90;
+               int X= 305-dX;
+               int Y= -95+dY;
+               int x1=250;int y1=30;
+
+                                  /* line to define the right arc center*/
+       //                           painter->setPen(QPen(QBrush("dark") ,2, Qt::SolidLine,Qt::FlatCap));
+       //                           painter->drawLine(QLine (305,-400,305,300));
+                                  /*end of the line draw*/
+
+               {
+               QLinearGradient gradient(QPoint(X,Y),QPoint(X,Y+60));/* coordinates gradient ((x,y),(x1,y1)) are cooresponding to line where starting the color variation*/
+               gradient.setColorAt(1, QColor("#dark blue"));
+               gradient.setColorAt(0.5, QColor("#D4CAC7"));
+               gradient.setColorAt(0, QColor("#white"));
+               QBrush brush(gradient);
+               painter->setBrush(brush);
+
+               painter->setPen(QPen(QBrush("dark") ,5, Qt::SolidLine,Qt::FlatCap));
+               painter->drawRoundedRect(X,Y, dX*2,Y+60,15,15);
+       //            painter->setPen(QPen(QBrush("white") ,5, Qt::SolidLine,Qt::FlatCap));
+       //            painter->drawRoundedRect(X+3,Y+3, (dX*2)-6,Y+54,15,15);
+               }
+
+
+               painter->setFont(QFont("ariel", 18,  QFont::Bold, true));
+               painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
+               painter->drawText(x1,y1, QString("%1").arg(value)); /*replace after 20 by value*/
+
+
+               painter->setFont(QFont("ariel", 15, QFont::Bold, true));
+               painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
+               painter->drawText(310, 30, "km/h");
+
+           }
     }
 }
 

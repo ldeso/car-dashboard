@@ -47,6 +47,8 @@ QRectF TachometerGauge_Lea::boundingRect() const
 /// \details Cette fonction construit un compteur en plusieurs étapes : création du cadran, des graduations, ajout du texte sur les graduations, ajout de l'aiguille.
 /// \param painter
 ///
+///
+
 
 void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {

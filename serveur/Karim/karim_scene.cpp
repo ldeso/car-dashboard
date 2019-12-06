@@ -5,6 +5,7 @@
 karim_scene::karim_scene()
 {
     this->setSceneRect(-600,-300,1000,600);
+
     Vitesse=new CadranVitesse;
     CompteTours= new CadranTourParMin();
     Essence= new CadranEss();
@@ -22,7 +23,7 @@ karim_scene::karim_scene()
     OpenDoorBackRightPassenger= new Voyants_karim(":/Lea/PorteOuvertePassagerD.png",-190,0,50);
     OpenDoorFrontPassenger= new Voyants_karim(":/Lea/PorteOuverte.png",-190,0,50);
     warning=new voyants_warning;
-    warning->setValue(0);
+    warning->setValue(0); 
 
     Vitesse->setPos(-400,100);
     CompteTours->setPos(200,100);

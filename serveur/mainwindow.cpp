@@ -6,7 +6,10 @@
 #include <QTimer>
 #include <QCoreApplication>
 
-
+/**
+ * @brief MainWindow::MainWindow
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -17,8 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     ///La scène par défault est
-    dashboard=new henri_scene();
-
+    dashboard=new harout_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -83,7 +85,7 @@ MainWindow::~MainWindow()
 void MainWindow::connexion()
 {
     socket = this->server->nextPendingConnection();
-    qDebug() << "connexion etabli";
+    qDebug() << "connexion etablie";
     connect(socket, SIGNAL(readyRead()),this, SLOT(reception()));
 }
 
