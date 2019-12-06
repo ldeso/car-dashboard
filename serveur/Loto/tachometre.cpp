@@ -28,15 +28,15 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 {
 
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i < 20; i+=1)
+    for (int i= 0; i < 30; i+=1)
     {
-        QRectF rectangle(-100+i, -100+i, 200.0-2*i, 200.0-2*i);
+        QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
         int startAngle = -45* 16;
         int spanAngle = 280* 16;
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,255-20*i);
+        QColor mCol(17,225,230,220-20*i);
         mPen.setCapStyle(Qt::RoundCap);
         mPen.setWidth(1);
         mPen.setColor(mCol);
@@ -58,11 +58,11 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         QPoint startLinePos;
         QPoint endLinePos;
 
-        startLinePos.setX(98 * cos(theta*pi/180));
-        startLinePos.setY(-98*sin(theta*pi/180));
+        startLinePos.setX(198 * cos(theta*pi/180));
+        startLinePos.setY(-198*sin(theta*pi/180));
 
-        endLinePos.setX(80* cos(theta*pi/180));
-        endLinePos.setY(-80*sin(theta*pi/180));
+        endLinePos.setX(180* cos(theta*pi/180));
+        endLinePos.setY(-180*sin(theta*pi/180));
 
 
 
@@ -85,17 +85,22 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 //        painter->setPen(QPen(QBrush("white") ,3, Qt::SolidLine,Qt::SquareCap));
 //        //painter->drawLine(graduations);
 
+        QFont displayFont("Courier");
+        displayFont.setPointSize(25);
+        displayFont.setWeight(75);
+        painter->setFont(displayFont);
+
         int j = (-(theta-235))/20;
 
         if (theta < 90)
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((110*cos((theta)*pi/180)),(-110 *sin((theta)*pi/180)),QString("%1").arg(j));}
+            painter->drawText((210*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));}
 
         else
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((130*cos((theta)*pi/180)),(-110 *sin((theta)*pi/180)),QString("%1").arg(j));
+            painter->drawText((230*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));
         };
 
 
@@ -121,8 +126,8 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     qDebug()<<rpmValue;
 
 
-    needlestopPos.setX(96 * cos((needleAngle)*pi/180));
-    needlestopPos.setY(-96*sin((needleAngle)*pi/180));
+    needlestopPos.setX(196 * cos((needleAngle)*pi/180));
+    needlestopPos.setY(-196*sin((needleAngle)*pi/180));
 
     needle.setPoints(needlestartPos,needlestopPos);
 
@@ -132,12 +137,17 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->drawLine(needle);
 
     painter->setPen(QPen(QBrush("white"),3,Qt::SolidLine, Qt::SquareCap));
-    painter->drawEllipse(-5,-5,10,10);
+    painter->drawEllipse(-10,-10,20,20);
 
     //draw text to write rpm
 
-    painter->setPen(QPen(QBrush("gray"),5,Qt::SolidLine, Qt::SquareCap));
-    painter->drawText(-20,-30,"x 1000rpm");
+    painter->setPen(QPen(QBrush("gray"),8,Qt::SolidLine, Qt::SquareCap));
+    QFont displayFont("Courier");
+    displayFont.setPointSize(30);
+    displayFont.setWeight(75);
+    painter->setFont(displayFont);
+    painter->drawText(-60,-30,"X 1000rpm");
+
 
 
 
@@ -150,3 +160,4 @@ float tachometre::getRpmValue(float rpmValue)
     qDebug()<<rpmAngle;
     return rpmAngle;
 }
+

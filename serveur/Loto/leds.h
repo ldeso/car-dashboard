@@ -18,12 +18,12 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
     QRectF boundingRect()const;
 
-
-
 private:
     int posX,posY, size =30;
     QString iconPath;
     QColor ledColor;
+
+
 
 
 };
