@@ -119,7 +119,9 @@ SOURCES += \
     Lea/compteur_kilometre_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
-    Harout/harc.cpp
+    Harout/harc.cpp \
+    Kodjo/kodjo_scene.cpp \
+    Kodjo/Cadran_Kodjo.cpp
    
 
 HEADERS += \
@@ -211,7 +213,9 @@ HEADERS += \
     Lea/compteur_kilometre_lea.h \
     Harout/harout_scene.h \
     Harout/cadran.h \
-    Harout/harc.h
+    Harout/harc.h \
+    Kodjo/kodjo_scene.h \
+    Kodjo/Cadran_Kodjo.h
 
 FORMS += \
         mainwindow.ui \
@@ -227,7 +231,8 @@ RESOURCES += \
     Inna/InnaRSC/inna.qrc \
     Lea/Lea.qrc \
     Florian/florian.qrc \
-    Youcef/Youcef.qrc
+    Youcef/Youcef.qrc \
+    Kodjo/kodjo.qrc
 
 
 DISTFILES += \

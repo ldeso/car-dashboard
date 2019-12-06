@@ -14,6 +14,7 @@
 #include "Inna/inna_scene.h"
 #include "Youcef/youcef_scene.h"
 #include "Harout/harout_scene.h"
+#include "Kodjo/kodjo_scene.h"
 
 namespace Ui {
 class MainWindow;
