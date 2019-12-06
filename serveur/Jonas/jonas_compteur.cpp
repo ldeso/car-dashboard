@@ -79,16 +79,16 @@ QRectF Jonas_compteur::boundingRect() const
  */
 void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    // Definition des constantes
+    /// Definition des constantes
     const float spanAngle = beta - alpha;
     const float diffAngle = (spanAngle+2)/(graduations-1);
 
-    // Active l'antialiasing pour les formes géométriques
+    /// Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Définition des différentes options graphiques
+    /// Définition des différentes options graphiques
     QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
     QPen needlePen(QColor(Qt::red), gaugeSize*8/150, Qt::SolidLine, Qt::RoundCap);
     //QLineF needle(0,0,-90,0);
@@ -107,7 +107,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     radialGradient.setSpread(QGradient::ReflectSpread);
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Dessine les carrés qui vont contenir les différents élements du cadrant
+    /// Dessine les carrés qui vont contenir les différents élements du cadrant
     QRect rect[50];
     int space = gaugeSize*5/150;
     for (int i=0;i<50;i++)
@@ -147,7 +147,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     }
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Dessine le cadrant intérieur
+    /// Dessine le cadrant intérieur
     if (critical == valueMax) {
         painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
         painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
@@ -162,7 +162,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Dessine le cadrant extérieur
+    /// Dessine le cadrant extérieur
     QPointF p1(qCos(qDegreesToRadians(beta+15))*rect[0].height()/2, -qSin(qDegreesToRadians(beta+15))*rect[0].height()/2);
     QPointF p2(qCos(qDegreesToRadians(alpha-15))*rect[0].height()/2, -qSin(qDegreesToRadians(alpha-15))*rect[0].height()/2);
     painter->setPen(QPen(QBrush(linearGradient), 7, Qt::SolidLine,Qt::RoundCap));
@@ -172,7 +172,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     //////////////////////////////////////////////////////////////////////////////////////////
 
 
-    // Dessine le texte autour du cadrant
+    /// Dessine le texte autour du cadrant
     painter->setPen(QPen(QBrush(QColor(Qt::white)) , gaugeSize*15/150 , Qt::SolidLine,Qt::FlatCap));
     painter->setFont(QFont("Ubuntu", gaugeSize*11/150, -1,false));
     float gamma = beta;
@@ -198,7 +198,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     //////////////////////////////////////////////////////////////////////////////////////////
 
 
-    // Dessine l'aiguille et met à jour sa position
+    /// Dessine l'aiguille et met à jour sa position
     painter->setPen(QPen(QBrush(Qt::white), 1));
     painter->setBrush(Qt::red);
     QPointF c(qCos(speedToAngle(value))*rect[6].height()/4, -qSin(speedToAngle(value))*rect[6].height()/4);
@@ -216,10 +216,9 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     P[3].setY(c.y()-d*n2.y());
     P[2].setX(qCos(speedToAngle(value))*rect[6].height()/2);
     P[2].setY(-qSin(speedToAngle(value))*rect[6].height()/2);
-//    qDebug() << "p1: (" << P[1].x() << "," << P[1].y() << ")";
-//    qDebug() << "p2: (" << P[2].x() << "," << P[2].y() << ")";
     painter->drawPolygon(P, 4);
-    // Dessine le centre de l'aiguille
+
+    /// Dessine le centre de l'aiguille
     painter->setPen(QPen(QBrush(QColor(172, 154, 154)), 4, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(Qt::black));
     painter->drawEllipse(needleCenter);
