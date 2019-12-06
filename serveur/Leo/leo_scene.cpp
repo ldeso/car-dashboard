@@ -1,13 +1,58 @@
-#include "leo_display.h"
 #include "leo_gauge.h"
 #include "leo_scene.h"
+
+namespace {
+    struct Data {
+        int key;
+        const QVariant value;
+    };
+
+    struct Object {
+        objet_virtuel** object;
+        QRectF rect;
+        std::vector<Data> data;
+    };
+
+    void AddGauges(Leo_scene* scene, const std::vector<Object> objects)
+    {
+        for (Object obj : objects) {
+            *obj.object = new Leo_gauge(obj.rect);
+            for (Data dat : obj.data)
+                (*obj.object)->setData(dat.key, dat.value);
+            scene->addItem(*obj.object);
+        }
+    }
+}
 
 Leo_scene::Leo_scene(scene_globale* parent)
     : scene_globale(parent)
 {
     setBackgroundBrush(Qt::black);
-    Vitesse = new Leo_gauge(QRectF(0, 0, 200, 200), 260, 20, 10);
-    addItem(Vitesse);
-    Essence = new Leo_gauge(QRectF(65, 130, 70, 70), 100, 50, 25);
-    addItem(Essence);
+    AddGauges(
+        this,
+        {
+            {
+                &CompteTours,
+                QRectF(0, 0, 200, 200),
+                {
+                    { Leo_gauge::MAX, 8000 },
+                    { Leo_gauge::DIVS, 4 },
+                    { Leo_gauge::SUBDIVS, 8 },
+                    { Leo_gauge::STARTANGLE, -145 },
+                    { Leo_gauge::ARCLENGTH, -155 }
+                }
+            },
+            {
+                &Vitesse,
+                QRectF(135, 0, 200, 200),
+                {
+                    { Leo_gauge::MAX, 260 },
+                    { Leo_gauge::DIVS, 13 },
+                    { Leo_gauge::SUBDIVS, 26 },
+                }
+            },
+            { &oilLevel, QRectF(60, 130, 70, 70), {} },
+            { &Essence, QRectF(200, 130, 70, 70), {} },
+        }
+    );
 }

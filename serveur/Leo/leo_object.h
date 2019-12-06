@@ -6,7 +6,7 @@
 class Leo_object : public objet_virtuel
 {
 public:
-    Leo_object(QRectF boundingRect, QGraphicsItem* parent = nullptr);
+    Leo_object(const QRectF boundingRect, QGraphicsItem* parent = nullptr);
     virtual QRectF boundingRect() const final override;
     virtual void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override = 0;
 protected:

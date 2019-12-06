@@ -91,6 +91,9 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     oilLevel = new ArrowOilLInna();
         oilLevel->setZValue(10.0);
         addItem(oilLevel);
+    ABS = new iconOnOffInna (QPoint(995,415), QSize(50,50), ":/I_ABS_ON.gif",5.0);
+        addItem(ABS);
+
 
 }
 
