@@ -49,6 +49,35 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     BootOpen=portes->Cof;
     BonnetOpen=portes->Cap;
 
+
+    //les voyant dont je ne me suis pas encore occupé, je les met en onoff pour pas de pb
+    AdaptiveSuspensionDampers=new onoff();
+    addItem(AdaptiveSuspensionDampers);
+    AutomaticTransmissionMode=new onoff();
+    addItem(AutomaticTransmissionMode);
+    FrontAntifog=new onoff();
+    addItem(FrontAntifog);
+    RearAntifog=new onoff();
+    addItem(RearAntifog);
+    SeatBelt =new onoff();
+    addItem(SeatBelt);
+    RearWindowHeating=new onoff();
+    addItem(RearWindowHeating);
+    CheckEngine=new onoff();
+    addItem(CheckEngine);
+    AdaptiveCruiseControl=new onoff();
+    addItem(AdaptiveCruiseControl);
+    AirbagOn=new onoff();
+    addItem(AirbagOn);
+    CruiseControlOn=new onoff();
+    addItem(CruiseControlOn);
+    OilTemp=new onoff();
+    addItem(OilTemp);
+    SpeedLimit=new onoff();
+    addItem(SpeedLimit);
+    oilLevel=new onoff();
+    addItem(oilLevel);
+
     this->setBackgroundBrush(QBrush(QColor("black")));
 }
 

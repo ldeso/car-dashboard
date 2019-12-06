@@ -62,6 +62,8 @@
         <file>Icones_Voyants/Cruise_Control.gif</file>
         <file>Icones_Voyants/ABS.png</file>
         <file>Icones_Voyants/ABS2.png</file>
+        <file>Icones_Voyants/ABS3.png</file>
+        <file>Icones_Voyants/Cruise_Control2.gif</file>
     </qresource>
     <qresource prefix="/Effets">
         <file>effet_verre4.png</file>

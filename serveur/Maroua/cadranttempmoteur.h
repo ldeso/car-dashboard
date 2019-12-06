@@ -1,12 +1,12 @@
 #ifndef CADRANTHUILE_H
 #define CADRANTHUILE_H
 
-
+#include "objet_virtuel.h"
 #include<QGraphicsItem>
 #include<QGraphicsScene>
 #include<QGraphicsView>
 
-class cadranthuile : public QGraphicsItem
+class cadranthuile : public objet_virtuel
 {
 public:
     cadranthuile(QGraphicsItem *parent=nullptr);

@@ -4,12 +4,10 @@
 ///
 #include "compteur_kilometre_lea.h"
 #include <QTime>
-#include <QGraphicsItem>
 #include <QObject>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
 #include <QRectF>
-#include <QtMath>
 #include <QtDebug>
 #include <QPointF>
 
@@ -36,7 +34,7 @@ QRectF Compteur_kilometre_lea::boundingRect() const
 ///
 /// \brief Compteur_kilometre_lea::paint
 /// \param painter
-/// \details La fonction paint va permettre de réaliser un affichage pour le compteur kilometrique et de récupérer le kilometrage avec la fonction getValue().
+/// \details La fonction paint va permettre de réaliser un affichage pour les compteurs kilometrique totaux et du voyage commencé, de récupérer le kilometrage avec la fonction getValue() et d'afficher l'heure.
 ///
 void Compteur_kilometre_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
