@@ -120,9 +120,15 @@ SOURCES += \
     Lea/horloge_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
-    Harout/harc.cpp \
     Karim/voyants_warning.cpp \
-    Karim/voyants_karim.cpp
+    Karim/voyants_karim.cpp \
+    Maroua/cadrantcontour.cpp \
+    Maroua/cadrantessence.cpp \
+    Maroua/cadranttempmoteur.cpp \
+    Maroua/cadranttour.cpp \
+    Maroua/cadrantvitesse.cpp \
+    Maroua/maroua_scene.cpp \
+    Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp
    
 
@@ -218,7 +224,14 @@ HEADERS += \
     Harout/cadran.h \
     Harout/harc.h \
     Karim/voyants_warning.h \
-    Karim/voyants_karim.h
+    Karim/voyants_karim.h \
+    Maroua/cadrantcontour.h \
+    Maroua/cadrantessence.h \
+    Maroua/cadranttempmoteur.h \
+    Maroua/cadranttour.h \
+    Maroua/cadrantvitesse.h \
+    Maroua/maroua_scene.h \
+    Maroua/voyantsmaroua.h
 
 FORMS += \
         mainwindow.ui \

@@ -102,6 +102,7 @@ void helpMessage(){
     puts("CANN OIL_T x avec x = temperature de l'huile" );
     puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
     puts("CANN SIM x avac x la vitesse de diminution");
+    puts("CANN HANDBRAKE x avec x=0 éteint et x=1 allumé");
 }
 
 /**
@@ -235,6 +236,7 @@ int main(int argc, char** argv)
     if(strcmp(arg.message, "")!=0){
         uppercase(arg.message);
         if (strncmp(arg.message, "HELP", len) == 0) {
+
             helpMessage();
         }
         else if (strncmp(sent, "\033A", len) == 0) {

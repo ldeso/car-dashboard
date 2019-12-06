@@ -4,14 +4,10 @@
 /// \details Classe héritée de objet_virtuel. Utilisée pour l'affichage du compteur rpm. L'appel au constructeur permet d'initialiser la totalité des paramètres, et la fonction paint permet l'affichage.
 ///
 
-
 #include "tachometergauge_lea.h"
-#include <QGraphicsItem>
 #include <QObject>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
-#include <QRectF>
-#include <QtMath>
 #include <QtDebug>
 #include <QPointF>
 
