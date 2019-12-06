@@ -7,9 +7,15 @@
 #include <QtMath>
 #include <QStringList>
 
-Harc::Harc(int param_arc)
+Harc::Harc(int param_value, int param_valueMax )
 {
-    spanAngle0 = param_arc;
+    //valueMax = 120;
+    value=0;
+    spanAngle0 = param_value;
+    //spanAngle =param_arcMax;
+    //value = param_value;
+    valueMax = param_valueMax;
+
 }
 
 QRectF Harc::boundingRect() const
@@ -17,7 +23,8 @@ QRectF Harc::boundingRect() const
     return QRectF(rec);
 }
 
-void Harc::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Harc::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
+                 QWidget *)
 {
     painter->translate(A/2, B/2);
     painter->scale(1, -1);
@@ -25,7 +32,35 @@ void Harc::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->setPen(QPen(QBrush("white"), 15, Qt::SolidLine, Qt::FlatCap ));
     painter->drawArc(rec,  startAngle, spanAngle);
 
-    painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
-    painter->drawArc(rec,  startAngle, spanAngle0);
+    if (value<=50)
+    {
+            painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
+            painter->drawArc(rec,  startAngle, getValue()*16);
+    }
+    else if ( (50<value) & (value<80) )
+    {
+            painter->setPen(QPen(QBrush("orange"), 10, Qt::SolidLine, Qt::FlatCap ));
+            painter->drawArc(rec,  startAngle, getValue()*16);
+    }
+    else
+    {
+        painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
+        painter->drawArc(rec,  startAngle, getValue()*16);
+    }
+
+
+//    if (value > 80){
+//    painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
+//    painter->drawArc(rec,  startAngle, getValue()*16);
+//    }
+//    else  if (50 <value<80){
+//        painter->setPen(QPen(QBrush("orange"), 10, Qt::SolidLine, Qt::FlatCap ));
+//        painter->drawArc(rec,  startAngle, getValue()*16);
+//    }
+//    else if (value<50) {
+//        painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
+//        painter->drawArc(rec,  startAngle, getValue()*16);
+//}
+
 
 }

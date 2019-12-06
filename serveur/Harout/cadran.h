@@ -18,11 +18,6 @@ public:
 
     void ellipse(QPainter *painter, QRectF);
     void aiguille(QPainter *painter, QRectF);
-    void arc(QPainter *painter, QRectF);
-//    void test(QPainter *painter, QRectF);
-//    void frame(QPainter *painter, QRectF);
-
-
     void graduation(QPainter *painter, QRectF);
 
 
@@ -32,11 +27,10 @@ private:
     int A = 250;
     int B = 250;
     QRectF rec     = QRectF(0,0, A, B);
-    //int startAngle = 30 * 16;  //C'est pour arc
-    //int spanAngle  = 120 * 16;//C'est pour arc
-    //int spanAngle0 = 10 * 16;
+    QRectF recgrd     = QRectF(-10,-10, A+50, B+50);
+
     QRectF recT     = QRectF(0,0, A/10, B/10);
-    //QRectF recArc   =QRectF(0,0,A/2,B/2);
+
     int r =  A/2           ;
     int stAngled = 30     ;
     int EndAngled = -210  ;
