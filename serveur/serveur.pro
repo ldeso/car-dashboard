@@ -49,6 +49,7 @@ SOURCES += \
     Leo/leo_gauge.cpp \
     Leo/leo_indicator.cpp \
     Leo/leo_label.cpp \
+    Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
@@ -144,6 +145,7 @@ HEADERS += \
     Leo/leo_gauge.h \
     Leo/leo_indicator.h \
     Leo/leo_label.h \
+    Leo/leo_object.h \
     Leo/leo_scene.h \
     Youcef/cardialerprototype.h \
     Youcef/carspeeddial.h \
