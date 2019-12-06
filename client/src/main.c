@@ -67,6 +67,40 @@ parse_opt (int key, char *arg, struct argp_state *state)
     return 0;
 }
 
+void helpMessage(){
+    puts("Liste des commandes valides :");
+    puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
+    puts("CANN DASHBOARD x où x est le prénom");
+    puts("CANN GAZ x avec x compris entre 0 et 100");
+    puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
+    puts("CANN RPM x avec x compris entre 0 et 15000");
+    puts("CANN SPEED x avec x compris entre 0 et 400");
+    puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
+    puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
+    puts("CANN WARNING x avec x = 0 éteint et 1 allumé");
+    puts("CANN ASD x avec x = 0 éteint et 1 allumé");
+    puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
+    puts("CANN FRONT_FOG x avec x = 0 éteint et 1 allumé");
+    puts("CANN REAR_FOG x avec x = 0 éteint et 1 allumé");
+    puts("CANN SEAT_BELT x avec x = 0 éteint et 1 allumé");
+    puts("CANN RW_HEAT x avec x = 0 éteint et 1 allumé");
+    puts("CANN CHECK_ENGINE x avec x = 0 éteint et 1 allumé");
+    puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
+    puts("CANN OPEN_DOOR_DRIVER x = 0 éteint et 1 allumé" );
+    puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CANN ADAPT_CRUISE_CONTROL x = 0 éteint et 1 allumé" );
+    puts("CANN AIRBAG_ON x = 0 éteint et 1 allumé" );
+    puts("CANN BONNET_OPEN x = 0 éteint et 1 allumé" );
+    puts("CANN BOOT_OPEN x = 0 éteint et 1 allumé" );
+    puts("CANN CRUISE_CONTROL_ON x avec 0 éteint et 1 allumé" );
+puts("CANN ENGINE_T x avec x = température du moteur" );
+puts("CANN OIL_T x avec x = température de l'huile" );
+puts("CANN OIL_L x avec x = niveau de l'huile du moteur");
+
+}
+
 /**
  * @brief die
  * @details arrêt du programme avec un message d'erreur dans le terminal
@@ -198,36 +232,7 @@ int main(int argc, char** argv)
     if(strcmp(arg.message, "")!=0){
         uppercase(arg.message);
         if (strncmp(arg.message, "HELP", len) == 0) {
-            puts("Liste des commandes valides :");
-            puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
-            puts("CANN DASHBOARD x où x est le prénom");
-            puts("CANN GAZ x avec x compris entre 0 et 100");
-            puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
-            puts("CANN RPM x avec x compris entre 0 et 15000");
-            puts("CANN SPEED x avec x compris entre 0 et 400");
-            puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
-            puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
-            puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
-            puts("CANN ASD x avec x = 0 eteint et 1 allumé");
-            puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
-            puts("CANN FRONT_FOG x avec x = 0 eteint et 1 allumé");
-            puts("CANN REAR_FOG x avec x = 0 eteint et 1 allumé");
-            puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
-            puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
-            puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
-            puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
-            puts("CANN OPEN_DOOR_DRIVER x = 0 eteint et 1 allumé" );
-            puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 eteint et 1 allumé" );
-            puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 eteint et 1 allumé" );
-            puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 eteint et 1 allumé" );
-            puts("CANN ADAPT_CRUISE_CONTROL x = 0 eteint et 1 allumé" );
-            puts("CANN AIRBAG_ON x = 0 eteint et 1 allumé" );
-            puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
-            puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
-            puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
-            puts("CANN ENGINE_T x avec x = temperature du moteur" );
-            puts("CANN OIL_T x avec x = temperature de l'huile" );
-            puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
+            helpMessage();
         }
         else if (strncmp(sent, "\033A", len) == 0) {
             puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
@@ -289,37 +294,7 @@ int main(int argc, char** argv)
             num_commande++;
             strcpy(Commandes[num_commande].txt,sent);
             if (strncmp(sent, "HELP", len) == 0) {
-                puts("Liste des commandes valides :");
-                puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
-                puts("CANN DASHBOARD x où x est le prénom");
-                puts("CANN GAZ x avec x compris entre 0 et 100");
-                puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
-                puts("CANN RPM x avec x compris entre 0 et 15000");
-                puts("CANN SPEED x avec x compris entre 0 et 400");
-                puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
-                puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
-                puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
-                puts("CANN ASD x avec x = 0 eteint et 1 allumé");
-                puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
-                puts("CANN FRONT_FOG x avec x = 0 eteint et 1 allumé");
-                puts("CANN REAR_FOG x avec x = 0 eteint et 1 allumé");
-                puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
-                puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
-                puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
-                puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
-                puts("CANN OPEN_DOOR_DRIVER x = 0 eteint et 1 allumé" );
-                puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 eteint et 1 allumé" );
-                puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 eteint et 1 allumé" );
-                puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 eteint et 1 allumé" );
-                puts("CANN ADAPT_CRUISE_CONTROL x = 0 eteint et 1 allumé" );
-                puts("CANN AIRBAG_ON x = 0 eteint et 1 allumé" );
-                puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
-                puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
-                puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
-            puts("CANN ENGINE_T x avec x = temperature du moteur" );
-            puts("CANN OIL_T x avec x = temperature de l'huile" );
-            puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
-
+                helpMessage();
             } else if (strncmp(sent, "END", len) == 0) {
                 end = 1;
             } else if (strncmp(sent, "\033A", len) == 0) {
