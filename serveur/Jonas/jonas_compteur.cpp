@@ -4,6 +4,10 @@
 #include <QRadialGradient>
 #include "jonas_compteur.h"
 
+/**
+ * @brief Jonas_compteur::Jonas_compteur
+ * @details constructeur par défaut
+ */
 Jonas_compteur::Jonas_compteur()
 {
     valueMax = 220;
@@ -20,6 +24,20 @@ Jonas_compteur::Jonas_compteur()
     }
 }
 
+/**
+ * @brief Jonas_compteur::Jonas_compteur
+ * @details constructeur surchargé
+ * @param max
+ * @param gradList
+ * @param startAngle
+ * @param endAngle
+ * @param critic
+ * @param textCenter
+ * @param ngrad
+ * @param line
+ * @param modulo
+ * @param size
+ */
 Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, int critic, QString textCenter,int ngrad, bool line, int modulo, int size)
 {
     if (endAngle > startAngle) {
@@ -44,17 +62,25 @@ Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, 
     }
 }
 
+/**
+ * @brief Jonas_compteur::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF Jonas_compteur::boundingRect() const
 {
     qreal penWidth = 5;
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
+/**
+ * @brief Jonas_compteur::paint
+ * @param painter
+ * @details dessine les différents élements du compteur
+ */
 void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     // Definition des constantes
     const float spanAngle = beta - alpha;
-    const float needleSize = gaugeSize*120/150;
     const float diffAngle = (spanAngle+2)/(graduations-1);
 
     // Active l'antialiasing pour les formes géométriques
@@ -200,7 +226,11 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     ////////////////////////////////////////////////////////////////////////////////////////
 }
 
-// calcule l'angle (en radians) correspondant à la vitesse en entrée
+/**
+ * @brief Jonas_compteur::speedToAngle
+ * @param speed
+ * @return calcule l'angle (en radians) correspondant à la vitesse en entrée
+ */
 float Jonas_compteur::speedToAngle(float speed)
 {
     if (speed != 0)
