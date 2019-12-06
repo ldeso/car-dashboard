@@ -129,7 +129,8 @@ SOURCES += \
     Maroua/cadranttour.cpp \
     Maroua/cadrantvitesse.cpp \
     Maroua/maroua_scene.cpp \
-    Maroua/voyantsmaroua.cpp
+    Maroua/voyantsmaroua.cpp \
+    Henri/stophenri.cpp
     Harout/harc.cpp
    
 
@@ -232,7 +233,8 @@ HEADERS += \
     Maroua/cadranttour.h \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
-    Maroua/voyantsmaroua.h
+    Maroua/voyantsmaroua.h \
+    Henri/stophenri.h
 
 FORMS += \
         mainwindow.ui \
