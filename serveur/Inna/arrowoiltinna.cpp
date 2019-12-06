@@ -5,7 +5,7 @@
 ///
 /// \file arrowoiltinna.cpp
 /// \brief Classe ArrowOilTInna derivée de la classe objet_virtuel
-/// \details Permettant la création de l' aiguille de la jauge de la température d'huile qui tourne en fonction de la valeur "value".
+/// \details Permet la création de l' aiguille de la jauge de la température d'huile qui tourne en fonction de la valeur "value".
 ///
 /// \param value - la valeur de la température d'huile
 /// \param valueMax - la température d'huile maximum
@@ -54,8 +54,9 @@ void ArrowOilTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
 
     
    ///
-   ///\brief Dessin du circle central
-   ///
+   ///\brief Dessin du circle central.
+   /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
+
 
     QRadialGradient radialGradot(QPointF(xot, yot), 50);
     radialGradot.setColorAt(0, Qt::black);
@@ -65,9 +66,15 @@ void ArrowOilTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
     painter->setBrush(QBrush(radialGradot));
     painter->drawEllipse(qRound(xot-15),qRound(yot-15),30,30);
 
+    if (t > 120 ) {painter->drawPixmap(220,305,40,40, QPixmap(":/I_Oil_t_red.gif"));}
+    else {painter->drawPixmap(220,305,40,40, QPixmap(":/I_Oil_t_white.gif"));}
+
+
+
     ///
-    ///\brief Dessin de la fleche
-    ///
+    ///\brief Dessin de la flèche.
+    ///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
+
 
     k = (Amax+30) * 1.0 / (tmax - 60.0) ; // angle correction because the radius of a scale is not the same as the radius of the arrow trajectory
 
@@ -86,8 +93,6 @@ void ArrowOilTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
 
     painter->drawConvexPolygon(points, 3);
     
-
-
 
 }
 

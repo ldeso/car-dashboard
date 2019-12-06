@@ -1,11 +1,9 @@
-///
+#include "Inna/compteurkminna.h"
+
 ///\file compteurkminna.cpp
 ///\brief Classe dérivant de objet_virtuel permettant un affichage en temps réel de la distance parcourue depuis le redémarrage du programme
-///
-#include "Inna/compteurkminna.h"
-///
-/// \brief compteurKmInna::compteurKmInna
-///\details Constructeur sans paramètres spécifiques. Initialise  la valeur value de la classe mère à 0.
+///\brief compteurKmInna::compteurKmInna
+///\details Constructeur sans paramètres spécifiques. Initialise  la valeur ***value*** de la classe mère à 0.
 ///
 compteurKmInna::compteurKmInna(objet_virtuel *parent) :  objet_virtuel(parent)
 {
@@ -19,8 +17,7 @@ QRectF compteurKmInna::boundingRect() const
 ///
 /// \brief compteurKmInna::paint
 /// \param painter
-///\details La fonction paint permet de réaliser un affichage pour le compteur kilometrique.
-///\details La valeur _value_ est envoyer par la fonction **MainWindow::update_km()** dans le fichier _mainwindow.cpp_.
+///\details La fonction paint permet de réaliser un affichage du compteur kilometrique.La valeur ***value*** est envoyer par la fonction MainWindow::update_km() dans le fichier mainwindow.cpp.
 
 void compteurKmInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {painter->setRenderHints(QPainter::Antialiasing);

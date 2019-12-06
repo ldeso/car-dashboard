@@ -16,7 +16,7 @@
 #include <QPointF>
 
 ///
-/// \brief TachometerGauge_Lea::TachometerGauge_Lea Constructeur de la classe, permet d'initialiser tous les paramètres
+/// \brief TachometerGauge_Lea::TachometerGauge_Lea Constructeur de la classe, permet d'initialiser tous les paramètres ainsi que la valeur value de la classe mère à 0.
 /// \param param_x position horizontale du centre du compteur
 /// \param param_y position verticale du centre du compteur
 /// \param param_r rayon et taille de l'aiguille
@@ -95,6 +95,7 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
                pen.setColor(Qt::white);
                painter->setPen(pen);
                painter->drawText(qRound(x-10+(r-30)*(cos((angle_debut-(i*span_angle/nb_graduation))*pi/180))),qRound(y+8-(r-30)*(sin((angle_debut-(i*span_angle/nb_graduation))*pi/180))),QString("%1").arg(j/7));
+               //ajoute un delta au x (-10) et au y (+8) pour que le texte se retrouve en face des graduations (sinon les nombres de plus de trois chiffres empiètent sur les graduations).
                pen.setColor(Qt::red);
                painter->setPen(pen);
 
@@ -104,7 +105,7 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
 
 ///
 ///\brief Création de l'aiguille.
-/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
+/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawConvexPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
 ///
 
 

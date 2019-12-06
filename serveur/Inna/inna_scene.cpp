@@ -57,6 +57,7 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     AdaptiveSuspensionDampers = new iconOnOffInna(QPoint(640,340),QSize(50,50),":/I_AdaptiveSuspensionDampers_yellow.gif",5.0);
         addItem(AdaptiveSuspensionDampers);
     AutomaticTransmissionMode = new PRND_Inna();
+        AutomaticTransmissionMode->setZValue(5.0);
         addItem(AutomaticTransmissionMode);
     RearAntifog = new iconOnOffInna(QPoint(460,360),QSize(50,50),":/I_rearFogLight.gif",5.0);
         addItem(RearAntifog);
@@ -87,6 +88,10 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     OilTemp = new ArrowOilTInna ();
         OilTemp->setZValue(8.0);
         addItem(OilTemp);
+    oilLevel = new ArrowOilLInna();
+        oilLevel->setZValue(10.0);
+        addItem(oilLevel);
+
 }
 
 QRectF inna_scene::boundingRect() const
