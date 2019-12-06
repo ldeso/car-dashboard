@@ -3,9 +3,10 @@
 #include <QGraphicsTextItem>
 #include <QStringList>
 
-FuelGauge::FuelGauge(QGraphicsItem *parent)
+FuelGauge::FuelGauge(objet_virtuel *)
 {
-
+value=0;
+valueMax =100;
 }
 
 QRectF FuelGauge::boundingRect() const
@@ -13,7 +14,7 @@ QRectF FuelGauge::boundingRect() const
    return QRectF(-600, -400, 1200, 800);
 }
 
-void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget *)
 {
      painter->setRenderHint(QPainter::Antialiasing);
 
@@ -21,8 +22,8 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
      QRect RectSpeed (100,-300, 405, 405);
 
 
-     int startAngle= 244*16;
-     int spanAngle= -63*16;
+//     int startAngle= 244*16;
+//     int spanAngle= -63*16;
      painter->setPen(QPen(QBrush("red"), 4, Qt::SolidLine,Qt::RoundCap,Qt::BevelJoin));
 
       QPolygonF polygon;
@@ -51,12 +52,18 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
          pen.setColor("#DF3A01");
          painter->setPen(pen);
 
-         QBrush NeedleColor("#DF3A01",Qt::SolidPattern);
+         QBrush NeedleColor("white",Qt::SolidPattern);
          painter->setBrush(NeedleColor);
 
          for (int i=0;i<=9;i++)
          {
-           float x1,y1;int r=15;
+             if((i+1)>getValue()/10)
+             {
+                 QBrush NeedleColor("#DF3A01",Qt::SolidPattern);
+                 painter->setBrush(NeedleColor);
+
+             }
+             float x1,y1;int r=15;
            x1=260+195*(cos((170-(i*4.8))*pi/180));
            y1=-90+195*(sin((170-(i*4.8))*pi/180));
            painter->drawRoundedRect(x1,y1,2*r,r/2,2,2);
@@ -66,9 +73,9 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
          QRect RectSpeed (53,-350, 505, 505);
 
 
-         int startAngle= 222*16;
-         int spanAngle= -32.5*16;
-         int spanAngle1 = -7.5*16;
+         double startAngle= 222*16;
+         double spanAngle= -32.5*16;
+         double spanAngle1 = -7.5*16;
 
          painter->setPen(QPen(QBrush("dark"), 5, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
          painter->drawArc(RectSpeed,startAngle,spanAngle);
@@ -87,7 +94,12 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
          painter->setPen(QPen(QBrush("red") ,10, Qt::SolidLine,Qt::FlatCap));
          painter->drawText(75, 75, "E");
 
+     }
+     {
 
+      QPixmap img1(":/new/logos/Icones/fuelWhiteIcone.gif");
+      QPixmap img2=img1.scaled(30,30);
+      painter->drawPixmap(15,-10,50,50,img2);
      }
 
 

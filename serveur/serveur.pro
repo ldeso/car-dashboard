@@ -53,9 +53,10 @@ SOURCES += \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
     Youcef/engineheatgauge.cpp \
+    Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
     Youcef/tachometer.cpp \
-    Youcef/voyantsyoucef.cpp \
+    Youcef/warning_youss.cpp \
     Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -146,9 +147,10 @@ HEADERS += \
     Youcef/cardialerprototype.h \
     Youcef/carspeeddial.h \
     Youcef/engineheatgauge.h \
+    Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
     Youcef/tachometer.h \
-    Youcef/voyantsyoucef.h \
+    Youcef/warning_youss.h \
     Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \
