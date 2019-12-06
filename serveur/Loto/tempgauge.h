@@ -16,10 +16,10 @@ class tempGauge : public objet_virtuel
 public:
     tempGauge();
     QRectF boundingRect()const;
-    double engineTemp=getValue();
+    float engineTemp=getValue();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
     const double pi=3.142;
-    double getEngineTemp(double engineTemp);
+    float getEngineTemp(float engineTemp);
 };
 
 #endif // TEMPGAUGE_H

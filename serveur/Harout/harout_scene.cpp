@@ -8,7 +8,7 @@ harout_scene::harout_scene()
     QStringList gradVitesse;
     gradVitesse<<"  220"<<" 200"<<" 180"<<" 160"<<" 140"<<"120"<<"100"<<"80"<<"60"<<"40"<<"20"<<"0";
     QString Vtext = "Km/h";
-    float angledVitesse = 170;
+    float angledVitesse = 0;
 
     QString Essencetext1 = "";
     int spanAngle0Essence = 10 *16;
