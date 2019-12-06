@@ -21,6 +21,19 @@ QRectF CadranVitesse::boundingRect() const
 
 void CadranVitesse::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
+    /* static const QPointF points[6] = {
+          QPointF(400, 170),
+          QPointF(400, -120),
+          QPointF(800, -360),
+          QPointF(-200, -360),
+          QPointF(200, -120),
+          QPointF(200, 170)
+      };
+
+      painter->setPen(QPen(QBrush("white"),8,Qt::SolidLine,Qt::RoundCap));
+      painter->setBrush(Qt::darkCyan);
+      painter->setRenderHints(QPainter::Antialiasing);
+      painter->drawPolygon(points, 6);*/
 
 // Ajout des carree qui vont servir à dessiner nos objets
 QRect carre[13];

@@ -626,7 +626,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="ABS"){
+    else if(message=="CANN ABS"){
         int abs_on = string.section(' ', 2,2).toInt();
         if(abs_on==0 || abs_on==1){
             dashboard->ABS->setValue(abs_on);

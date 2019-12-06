@@ -18,8 +18,10 @@ QRectF Voyants::boundingRect() const
 void Voyants::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
     painter->setRenderHints(QPainter::Antialiasing);
-    QPixmap im_essence(":/Icones/essence.jpg");
-    QPixmap im_tempmoteur(":/Icones/tempmoteur.jpg");
+    //QPixmap im_essence(":/Icones/essence.jpg");
+    //QPixmap im_tempmoteur(":/Icones/tempmoteur.jpg");
+    QPixmap im_essence(":/Lea/Icones_Voyants/fuelL_red.gif");
+    QPixmap im_tempmoteur(":/Lea/Icones_Voyants/engineT_red.gif");
     painter->drawPixmap(-300,-150,50,50,im_essence);
     painter->drawPixmap(45,-150,50,50,im_tempmoteur);
 

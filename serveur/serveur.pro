@@ -121,8 +121,9 @@ SOURCES += \
     Lea/horloge_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
+    Harout/harc.cpp \
+    Karim/voyants_warning.cpp
     Harout/harc.cpp
-
    
 
 HEADERS += \
@@ -216,7 +217,8 @@ HEADERS += \
     Lea/horloge_lea.h \
     Harout/harout_scene.h \
     Harout/cadran.h \
-    Harout/harc.h
+    Harout/harc.h \
+    Karim/voyants_warning.h
 
 FORMS += \
         mainwindow.ui \
