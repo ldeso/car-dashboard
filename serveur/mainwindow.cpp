@@ -644,6 +644,21 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="CANN HANDBRAKE"){
+        int handbrake_on = string.section(' ', 2,2).toInt();
+        if(handbrake_on==0 || handbrake_on==1){
+            dashboard->handbrake->setValue(handbrake_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else{
         qDebug() << "erreur lors de la reception du message";
     }
