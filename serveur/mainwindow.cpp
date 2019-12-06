@@ -6,7 +6,10 @@
 #include <QTimer>
 #include <QCoreApplication>
 
-
+/**
+ * @brief MainWindow::MainWindow
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -84,7 +87,7 @@ MainWindow::~MainWindow()
 void MainWindow::connexion()
 {
     socket = this->server->nextPendingConnection();
-    qDebug() << "connexion etabli";
+    qDebug() << "connexion etablie";
     connect(socket, SIGNAL(readyRead()),this, SLOT(reception()));
 }
 
