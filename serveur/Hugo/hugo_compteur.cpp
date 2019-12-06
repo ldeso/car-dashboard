@@ -75,7 +75,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     /// \details Le cadran est basé sur un arc de cercle déssiné à l'aide de la fonction drawArc. Cette méthode est répétée dans une boucle pour obtenir un effet de gradient. Si lors de la création de l'objet, le paamètre param_critique a été défini à une autre valeur qu'à 100, une partie du cadran serait redéssinée d'une autre couleur.
     ///
     ///
-    QRect carre_rpm(facteur*(x-r),facteur*(y-r),2*r*facteur,2*r*facteur);
+    QRect carre_rpm(facteur*(x-r),facteur*(y-r),2*r*facteur,2*r*facteur);//Ce carré va servir de référence pour tous les dessins qui vont suivre
     //Support du cadran
     painter->setPen(QPen( couleur ,2, Qt::SolidLine,Qt::FlatCap));
     painter->drawArc(carre_rpm,start_angle*16,(end_angle-start_angle)*16);
@@ -114,6 +114,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         if (compteur>critique){
             painter->setPen(QPen( couleur2 ,1, Qt::SolidLine,Qt::FlatCap));
         }
+        //le painter va dessiner une ligne de taille 10
         painter->drawLine(facteur*(r-10)*qCos(i*(pi/180))+x,-facteur*(r-10)*qSin(i*(pi/180))+y,facteur*(r)*qCos(i*(pi/180))+x,-facteur*(r)*qSin(i*(pi/180))+y);
         compteur++;
     }
@@ -126,6 +127,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         if (compteur>critique){
             painter->setPen(QPen( couleur2 ,1, Qt::SolidLine,Qt::FlatCap));
         }
+        //le painter va dessiner une ligne de taille 5
         painter->drawLine(facteur*(r-5)*qCos(i*(pi/180))+x,-facteur*(r-5)*qSin(i*(pi/180))+y,facteur*(r)*qCos(i*(pi/180))+x,-facteur*(r)*qSin(i*(pi/180))+y);
         compteur++;
     }
@@ -164,6 +166,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
     painter->drawEllipse(carre_aiguille2);
 
     //Calcul de la position de l'aiguille en redéfinissant le polygone a chaque nouvel update.
+    //L'aiguille est un polygone à 4 points, il faut donc mettre à jour les positions de tous ces points à chaque update (sauf celui de la base qui est fixe)
     angle=((1.0*(start_angle-end_angle))/(value2*1.0))*getValue()*1.0+(360-start_angle);
     QPointF points[4]={
         QPointF(x,y),
@@ -171,6 +174,7 @@ void hugo_Compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
         QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)),
         QPointF(x+(r/4)*qCos((angle-8)*pi/180),y+(r/4)*qSin((angle-8)*pi/180)),
     };
+    //Création d'un gradient pour remplir l'aiguille rouge-orange-rouge
     QLinearGradient linearGrad_aiguille( QPointF(x+r*qCos(angle*pi/180),y+r*qSin(angle*pi/180)), QPointF(x, y));
     linearGrad_aiguille.setColorAt(0, QColor(Qt::darkRed));
     linearGrad_aiguille.setColorAt(0.5, QColor(230, 46, 0));

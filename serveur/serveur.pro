@@ -50,6 +50,13 @@ SOURCES += \
     Leo/leo_indicator.cpp \
     Leo/leo_label.cpp \
     Leo/leo_scene.cpp \
+    Youcef/cardialerprototype.cpp \
+    Youcef/carspeeddial.cpp \
+    Youcef/engineheatgauge.cpp \
+    Youcef/fuelgauge.cpp \
+    Youcef/tachometer.cpp \
+    Youcef/voyantsyoucef.cpp \
+    Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
     objet_virtuel.cpp \
@@ -108,8 +115,12 @@ SOURCES += \
     Henri/onoff.cpp \
     Henri/onoffpainthenri.cpp \
     Lea/warning_lea.cpp \
+    Lea/jauge_temperature_lea.cpp \
     Lea/compteur_kilometre_lea.cpp \
-    Lea/jauge_temperature_lea.cpp
+    Harout/harout_scene.cpp \
+    Harout/cadran.cpp \
+    Harout/harc.cpp
+   
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -132,6 +143,13 @@ HEADERS += \
     Leo/leo_indicator.h \
     Leo/leo_label.h \
     Leo/leo_scene.h \
+    Youcef/cardialerprototype.h \
+    Youcef/carspeeddial.h \
+    Youcef/engineheatgauge.h \
+    Youcef/fuelgauge.h \
+    Youcef/tachometer.h \
+    Youcef/voyantsyoucef.h \
+    Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
@@ -189,8 +207,12 @@ HEADERS += \
     Jonas/jonas_compteurkm.h \
     Henri/onoffpainthenri.h \
     Lea/warning_lea.h \
+    compteurkminna.h \
+    Lea/jauge_temperature_lea.h \
     Lea/compteur_kilometre_lea.h \
-    Lea/jauge_temperature_lea.h
+    Harout/harout_scene.h \
+    Harout/cadran.h \
+    Harout/harc.h
 
 FORMS += \
         mainwindow.ui \
@@ -205,7 +227,8 @@ RESOURCES += \
     Loto/myicons/icons.qrc \
     Inna/InnaRSC/inna.qrc \
     Lea/Lea.qrc \
-    Florian/florian.qrc
+    Florian/florian.qrc \
+    Youcef/Youcef.qrc
 
 
 DISTFILES += \

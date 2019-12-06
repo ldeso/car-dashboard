@@ -18,8 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-    dashboard=new hugo_scene();
 
+    dashboard=new harout_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -44,28 +44,22 @@ void MainWindow::acceleration(int time)
     qDebug()<<"ok";
     float t=0;
     float vitesse=dashboard->Vitesse->getValue();
-    int rapport=1;
     while (t<time){
         if ((vitesse)<=dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
             if (vitesse<55){
-                rapport=1;
                 dashboard->CompteTours->setValue(vitesse*4500/55);
             }
             else if(vitesse<75){
-                rapport=2;
                 dashboard->CompteTours->setValue(vitesse*4500/75);
             }
             else if(vitesse<115){
-                rapport=3;
                 dashboard->CompteTours->setValue(vitesse*4500/115);
             }
             else if(vitesse<140){
-                rapport=4;
                 dashboard->CompteTours->setValue(vitesse*4500/140);
             }
             else{
-                rapport=5;
                 dashboard->CompteTours->setValue(vitesse*4500/185);
             }
         }
@@ -115,7 +109,7 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("vitesse incorrect, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
+            text = QString("vitesse incorrecte, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
             socket->write(text.toLocal8Bit());
         }
     }
@@ -179,7 +173,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -217,16 +211,25 @@ void MainWindow::reception()
                 dashboard = new karim_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-
-            if (prenom=="LOTO"){
+            if (prenom=="YOUCEF"){
                 delete dashboard;
-                dashboard = new loto_scene;
+                dashboard = new Youcef_Scene;
                 ui->graphicsView->setScene(dashboard);
-            }
+             }
+             if (prenom=="LOTO"){
+              delete dashboard;
+              dashboard = new loto_scene;
+              ui->graphicsView->setScene(dashboard);
 
+            }
             if (prenom=="INNA"){
                 delete dashboard;
                 dashboard = new inna_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="HAROUT"){
+                delete dashboard;
+                dashboard = new harout_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
@@ -645,9 +648,9 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-    if (dashboard->CompteurKm)
-         dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
 
+    if (dashboard->CompteurKm)
+         //dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
         ui->graphicsView->scene()->update();
 }
 

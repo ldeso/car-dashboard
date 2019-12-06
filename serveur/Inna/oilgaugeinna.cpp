@@ -2,7 +2,16 @@
 #include <QFont>
 #include <QtMath>
 #include <QPainter>
-
+///
+/// \file oilgaugeinna.cpp
+/// \brief Classe dérivée de QGraphicsItem permettant l'affichage des jauges de niveau et de température d'huile.
+/// \param tmax - la température maximum;
+/// \param lmax - le niveau maximum
+/// \param r - rayon de l'arche de la jauge;
+/// \param A0 -  l'angle du début de la jauge;
+/// \param Amax - l'angle total
+/// \param k - coefficient pour convertir la valeur en degrés
+///
 OilGaugeInna::OilGaugeInna(QGraphicsItem *parent) :  QGraphicsItem(parent)
 {
     tmax = 160 ;
@@ -32,6 +41,9 @@ QRectF OilGaugeInna::boundingRect() const
     QRectF rectf(0.0 , 0.0 , 1400.0 , 600.0);
     return rectf;
 }
+/// \brief FuelEngineInna::paint
+/// \param painter
+///\details La fonction paint va permettre de réaliser un affichage des objets fixes de la représentation des jauges de niveau et de température d'huile.
 
 void OilGaugeInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 { painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
@@ -45,9 +57,11 @@ void OilGaugeInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
   painter->setPen(QPen(QBrush(radialGrad),4,Qt::SolidLine,Qt::FlatCap));
   painter->drawArc(QRectF(xc-r-20,yc-r-20,(r+20)*2,(r+20)*2),50*16,285*16) ;
 
-      k = Amax * 1.0f / (tmax - 60.0f) ;
+      k = Amax * 1.0 / (tmax - 60.0) ;
 
-         // ** oil temp ticks and numbers **
+      ///
+      ///\brief Affichage des traits et du texte pour la jauge de la température d'huile.
+      ///
     for (int i = 0; i <= (tmax - 60) ; i+=10) {
         if (i % 30 == 0)
             {
@@ -69,8 +83,10 @@ void OilGaugeInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
     painter->drawPixmap(90,400,40,40, QPixmap(":/I_Oil_white.gif"));
     painter->drawPixmap(220,305,40,40, QPixmap(":/I_Oil_t_white.gif"));
 
-    // ** Block oil level **
-    k = Amax * 1.0f/lmax;
+    ///
+    ///\brief Affichage des traits et du texte pour le niveau d'huile.
+    ///
+    k = Amax * 1.0/lmax;
 
          // ** oil level ticks and numbers **
     for (int i=0; i <= lmax*2; i++) {

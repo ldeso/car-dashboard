@@ -1,4 +1,4 @@
-#include <ctype.h> // toupper
+
 #include <stdio.h> // fgets, fprintf, getchar, printf, puts
 #include <string.h> // strncmp
 #include <termios.h>
@@ -350,3 +350,6 @@ int main(int argc, char** argv)
     free(received);
     return EXIT_SUCCESS;
 }
+
+
+

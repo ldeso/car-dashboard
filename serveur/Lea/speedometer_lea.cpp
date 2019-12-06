@@ -26,14 +26,13 @@
 /// \param param_param_vitMax determine la vitesse maximum jusqu'à laquelle va le cadran
 ///
 
-speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
+speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r, int param_start, int param_spanAngle, int param_vitMax)
 
 {
     x= param_x;
     y=param_y;
     r=param_r;
     angle_debut=param_start;
-    angle_fin = param_end;
     span_angle=param_spanAngle;
     valueMax=param_vitMax;
     value=0;
@@ -169,21 +168,11 @@ painter->setFont(font);
 QRectF affiche_km_h (x-90,y+30,80,70);
 pen.setCapStyle(Qt::SquareCap);
 painter->setPen(pen);
-painter->drawText(affiche_km_h, Qt::AlignRight ,QString("%1").arg(value));
+painter->drawText(affiche_km_h, Qt::AlignRight ,QString("%1").arg(qRound(value)));
 
 QFont font2("Seven Segment",10,QFont::Bold);
 painter->setFont(font2);
 painter->drawText(qRound(x+10),qRound(y+65),"km/h");
-
-//QFont font3("Seven Segment",10,QFont::Bold);
-//painter->setFont(font3);
-//QRectF affiche_km_totaux (x-50,y+100,90,70);
-//painter->drawText(affiche_km_totaux, Qt::AlignRight ,QString("ODO    %1 km").arg(271963+getValue());
-
-//QFont font4("Seven Segment",10,QFont::Bold);
-//painter->setFont(font4);
-//QRectF affiche_km_trip_A (x-50,y+130,90,70);
-//painter->drawText(affiche_km_trip_A, Qt::AlignRight ,QString("TRIP A    %1 km").arg(789+getValue());
 
 }
 

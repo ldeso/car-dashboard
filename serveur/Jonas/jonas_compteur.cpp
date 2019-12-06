@@ -65,7 +65,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     // Définition des différentes options graphiques
     QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
     QPen needlePen(QColor(Qt::red), gaugeSize*8/150, Qt::SolidLine, Qt::RoundCap);
-    QLineF needle(0,0,-90,0);
+    //QLineF needle(0,0,-90,0);
     QRectF needleCenter(-10, -10, 20, 20);
 
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -173,11 +173,27 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
 
     // Dessine l'aiguille et met à jour sa position
-    needle.setP1(QPointF(0, 0));
-    needle.setP2(QPointF(qCos(speedToAngle(value)), -qSin(speedToAngle(value)))); // Positionne l'aiguille selon la vitesse en entrée
-    needle.setLength(needleSize);
-    painter->setPen(needlePen);
-    painter->drawLine(needle);
+    painter->setPen(QPen(QBrush(Qt::white), 1));
+    painter->setBrush(Qt::red);
+    QPointF c(qCos(speedToAngle(value))*rect[6].height()/4, -qSin(speedToAngle(value))*rect[6].height()/4);
+    QPointF v1(qCos(speedToAngle(value))*rect[6].height()/2, -qSin(speedToAngle(value))*rect[6].height()/2);
+    double n = qSqrt(qPow(v1.x(),2)+qPow(v1.y(),2));
+    double d = 6.0*gaugeSize/150;
+    QPointF n1 = v1/n;
+    QPointF n2(n1.y(), -n1.x());
+    QPointF P[4];
+    P[0].setX(0);
+    P[0].setY(0);
+    P[1].setX(c.x()+d*n2.x());
+    P[1].setY(c.y()+d*n2.y());
+    P[3].setX(c.x()-d*n2.x());
+    P[3].setY(c.y()-d*n2.y());
+    P[2].setX(qCos(speedToAngle(value))*rect[6].height()/2);
+    P[2].setY(-qSin(speedToAngle(value))*rect[6].height()/2);
+//    qDebug() << "p1: (" << P[1].x() << "," << P[1].y() << ")";
+//    qDebug() << "p2: (" << P[2].x() << "," << P[2].y() << ")";
+    painter->drawPolygon(P, 4);
+    // Dessine le centre de l'aiguille
     painter->setPen(QPen(QBrush(QColor(172, 154, 154)), 4, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(Qt::black));
     painter->drawEllipse(needleCenter);

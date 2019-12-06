@@ -13,27 +13,26 @@
 
 Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 {
-    QPixmap texture_fond (":/Effets/Icones_Voyants/orig_484482.jpg");
-    QPixmap voyant2= texture_fond.scaled(1300,600);
-    this->addPixmap(voyant2);
+//    QPixmap texture_fond (":/Effets/Icones_Voyants/orig_484482.jpg");
+//    QPixmap voyant2= texture_fond.scaled(1300,600);
+//    this->addPixmap(voyant2);
+    this->setBackgroundBrush(Qt::black);
 
     QFontDatabase::addApplicationFont(":/Lea/Seven Segment.ttf");
 
     fond = new lea_SceneDeFond;
     this->addItem(fond);
 
-    Vitesse = new speedometer_Lea(600.0,200.0,160.0,225,-270,270,220);
+    Vitesse = new speedometer_Lea(600.0,200.0,160.0,225,270,220);
  //   Vitesse->setValue(0);
     Vitesse->setZValue(1.0);
     this->addItem(Vitesse);
 
     Essence= new FuelGauge_lea(850,250,25,100,825,350,825,250);
-//    Essence->setValue(40);
     Essence->setZValue(1.0);
     this->addItem(Essence);
 
-    CompteTours = new TachometerGauge_Lea(340.0,240.0,130.0,230,50,180,41,6000);
- //   CompteTours->setValue(0);
+    CompteTours = new TachometerGauge_Lea(340.0,240.0,130.0,230,180,41,6000);
     CompteTours->setZValue(1.0);
     this->addItem(CompteTours);
 
