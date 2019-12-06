@@ -62,7 +62,7 @@ void SpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
      painter->setBrush(QBrush(Qt::transparent)); // to have a transparent background
      painter->drawArc(QRectF(xc-r,yc-r,r*2,r*2),37*16,298*16); // coordinates for the arc
 
-  /// \bref Dessin du texte et des traits
+  /// \brief Dessin du texte et des traits
   ///
      k = Amax * 1.0 / vmax ;
      for (int i = 0; i <= vmax ; i += 10) {

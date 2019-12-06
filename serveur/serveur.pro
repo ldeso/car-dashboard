@@ -109,7 +109,8 @@ SOURCES += \
     Henri/onoffpainthenri.cpp \
     Lea/warning_lea.cpp \
     Lea/jauge_temperature_lea.cpp \
-    Lea/compteur_kilometre_lea.cpp
+    Lea/compteur_kilometre_lea.cpp \
+    Lea/horloge_lea.cpp
    
 
 HEADERS += \
@@ -192,7 +193,8 @@ HEADERS += \
     Lea/warning_lea.h \
     compteurkminna.h \
     Lea/jauge_temperature_lea.h \
-    Lea/compteur_kilometre_lea.h
+    Lea/compteur_kilometre_lea.h \
+    Lea/horloge_lea.h
 
 FORMS += \
         mainwindow.ui \
