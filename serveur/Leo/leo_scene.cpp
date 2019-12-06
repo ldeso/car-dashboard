@@ -13,10 +13,11 @@ namespace {
         std::vector<Data> data;
     };
 
-    void AddGauges(Leo_scene* scene, const std::vector<Object> objects)
+    template <class T>
+    void AddObjects(Leo_scene* scene, const std::vector<Object> objects)
     {
         for (Object obj : objects) {
-            *obj.object = new Leo_gauge(obj.rect);
+            *obj.object = new T(obj.rect);
             for (Data dat : obj.data)
                 (*obj.object)->setData(dat.key, dat.value);
             scene->addItem(*obj.object);
@@ -28,7 +29,7 @@ Leo_scene::Leo_scene(scene_globale* parent)
     : scene_globale(parent)
 {
     setBackgroundBrush(Qt::black);
-    AddGauges(
+    AddObjects<Leo_gauge>(
         this,
         {
             {
