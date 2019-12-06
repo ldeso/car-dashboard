@@ -44,28 +44,22 @@ void MainWindow::acceleration(int time)
     qDebug()<<"ok";
     float t=0;
     float vitesse=dashboard->Vitesse->getValue();
-    int rapport=1;
     while (t<time){
         if ((vitesse)<=dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
             if (vitesse<55){
-                rapport=1;
                 dashboard->CompteTours->setValue(vitesse*4500/55);
             }
             else if(vitesse<75){
-                rapport=2;
                 dashboard->CompteTours->setValue(vitesse*4500/75);
             }
             else if(vitesse<115){
-                rapport=3;
                 dashboard->CompteTours->setValue(vitesse*4500/115);
             }
             else if(vitesse<140){
-                rapport=4;
                 dashboard->CompteTours->setValue(vitesse*4500/140);
             }
             else{
-                rapport=5;
                 dashboard->CompteTours->setValue(vitesse*4500/185);
             }
         }
@@ -646,6 +640,21 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="ABS"){
+        int abs_on = string.section(' ', 2,2).toInt();
+        if(abs_on==0 || abs_on==1){
+            dashboard->ABS->setValue(abs_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else{
         qDebug() << "erreur lors de la reception du message";
     }
@@ -654,9 +663,9 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
+
     if (dashboard->CompteurKm)
          //dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
-
         ui->graphicsView->scene()->update();
 }
 

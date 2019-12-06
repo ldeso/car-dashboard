@@ -14,8 +14,8 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     for (int i=0; i<=8; i++) {
         listRpm << QString::number(i);
     }
-    this->setBackgroundBrush(Qt::black);
-    this->setSceneRect(-300,-200,580,400);
+    this->setBackgroundBrush(Qt::black); // dessine l'arrière plan
+    this->setSceneRect(-300,-200,580,400); // permet de bien cadrer la scène
     listFuel << "E" << "F";
     listTemp << "C" << "H";
     Vitesse = new Jonas_compteur;

@@ -207,7 +207,6 @@ HEADERS += \
     Jonas/jonas_compteurkm.h \
     Henri/onoffpainthenri.h \
     Lea/warning_lea.h \
-    compteurkminna.h \
     Lea/jauge_temperature_lea.h \
     Lea/compteur_kilometre_lea.h \
     Harout/harout_scene.h \
