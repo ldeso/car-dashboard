@@ -23,15 +23,15 @@ namespace {
     {
         QPainterPath path;
         qreal len = 5;
-        QRectF big = params.rect.adjusted(len, len, -len, -len);
-        QRectF small = params.rect.adjusted(len/2, len/2, -len/2, -len/2);
+        QRectF big_rect = params.rect.adjusted(len, len, -len, -len);
+        QRectF small_rect = params.rect.adjusted(len/2, len/2, -len/2, -len/2);
         for (int i = 0; i <= params.subdivs; ++i) {
             qreal angle = i*params.arcLength/params.subdivs + params.startAngle;
             path.arcMoveTo(params.rect, angle);
             if (i % (params.subdivs/params.divs))
-                path.arcTo(small, angle, 0);
+                path.arcTo(small_rect, angle, 0);
             else
-                path.arcTo(big, angle, 0);
+                path.arcTo(big_rect, angle, 0);
         }
         return path;
     }
@@ -40,11 +40,15 @@ namespace {
     {
         qreal distance = 0.47 * params.rect.width() - 15;
         for (int val = 0; val <= params.max; val += params.step) {
-            qreal angle = qDegreesToRadians(val*params.arcLength/params.max+params.startAngle);
+            qreal angle = qDegreesToRadians(
+                val*params.arcLength/params.max + params.startAngle
+            );
             QPointF pos(distance*qCos(angle), -distance*qSin(angle));
             pos += params.rect.center();
             QRectF rect(pos - QPointF(30, 30), pos + QPointF(30, 30));
-            painter->drawText(rect, QString::number(val), Qt::AlignCenter | Qt::AlignVCenter);
+            painter->drawText(
+                rect, QString::number(val), Qt::AlignCenter | Qt::AlignVCenter
+            );
         }
     }
 
@@ -75,7 +79,6 @@ Leo_gauge::Leo_gauge(const QRectF boundingRect, QGraphicsItem *parent)
 
 void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    valueMax = data(MAX).toInt();
     Params params {
         mBoundingRect.adjusted(
             data(WIDTH).toReal()/2,
@@ -100,4 +103,5 @@ void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
     DrawScale(painter, params);
     painter->setPen(QPen(Qt::red, data(WIDTH).toReal()));
     painter->drawPath(Needle(params, static_cast<qreal>(value)));
+    valueMax = data(MAX).toInt();
 }
