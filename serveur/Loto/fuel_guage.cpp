@@ -9,6 +9,7 @@
     #include "QRadialGradient"
     #include "QPolygon"
     #include "objet_virtuel.h"
+#include "qtest.h"
 
     fuel_guage::fuel_guage()
     {
@@ -27,16 +28,16 @@
 
 
         //Loop to draw tiny concentric rectangles//
-        for (int i= 0; i < 20; i+=1)
+        for (int i= 0; i < 30; i+=1)
         {
-            QRectF rectangle(-100+i, -100+i, 200.0-2*i, 200.0-2*i);
+            QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
             int startAngle = 0 * 16;
             int spanAngle = 50* 16;
 
             // set painter properties//
 
             QPen mPen;
-            QColor mCol(17,225,230,255-20*i);
+            QColor mCol(17,225,230,220-20*i);
             mPen.setCapStyle(Qt::RoundCap);
             mPen.setWidth(1);
             mPen.setColor(mCol);
@@ -65,11 +66,11 @@
             QPoint startLinePos;
             QPoint endLinePos;
 
-            startLinePos.setX(98 * cos(theta*pi/180));
-            startLinePos.setY(-98*sin(theta*pi/180));
+            startLinePos.setX(198 * cos(theta*pi/180));
+            startLinePos.setY(-198*sin(theta*pi/180));
 
-            endLinePos.setX(80* cos(theta*pi/180));
-            endLinePos.setY(-80*sin(theta*pi/180));
+            endLinePos.setX(180* cos(theta*pi/180));
+            endLinePos.setY(-180*sin(theta*pi/180));
 
             line_j[theta].setPoints(startLinePos,endLinePos);
 
@@ -81,11 +82,11 @@
             painter->drawLine(Ticks);
 
             QLine graduations;
-            startLinePos.setX(98 * cos((theta+10)*pi/180));
-            startLinePos.setY(-98*sin((theta+10)*pi/180));
+            startLinePos.setX(198 * cos((theta+10)*pi/180));
+            startLinePos.setY(-198*sin((theta+10)*pi/180));
 
-            endLinePos.setX(90 * cos((theta+10)*pi/180));
-            endLinePos.setY(-90 *sin((theta+10)*pi/180));
+            endLinePos.setX(190 * cos((theta+10)*pi/180));
+            endLinePos.setY(-190 *sin((theta+10)*pi/180));
 
             graduations.setPoints(startLinePos,endLinePos);
             painter->setRenderHint(QPainter::Antialiasing);
@@ -98,15 +99,20 @@
 
             // This cannot be done in a loop else we will skip the point to label. Else create a variable to take the position
 
+            QFont displayFont("Courier");
+            displayFont.setPointSize(25);
+            displayFont.setWeight(75);
+            painter->setFont(displayFont);
+
             int fuelEmptyLabel= 0;
 
             painter->setPen(QPen(QBrush("red"),5,Qt::SolidLine));
-            painter->drawText((110*cos((fuelEmptyLabel)*pi/180)),(-110 *sin((fuelEmptyLabel)*pi/180)),"E");
+            painter->drawText((210*cos((fuelEmptyLabel)*pi/180)),(-210 *sin((fuelEmptyLabel)*pi/180)),"E");
 
             int fuelFullLabel= 50;
 
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((110*cos((fuelFullLabel)*pi/180)),(-110 *sin((fuelFullLabel)*pi/180)),"F");
+            painter->drawText((210*cos((fuelFullLabel)*pi/180)),(-210 *sin((fuelFullLabel)*pi/180)),"F");
 
         }
 
@@ -127,8 +133,8 @@
             needleAngle= needleAngle;
 
 
-            needlestopPos.setX(96 * cos((needleAngle)*pi/180));
-            needlestopPos.setY(-96*sin((needleAngle)*pi/180));
+            needlestopPos.setX(196 * cos((needleAngle)*pi/180));
+            needlestopPos.setY(-196*sin((needleAngle)*pi/180));
 
             needle.setPoints(needlestartPos,needlestopPos);
 
@@ -140,7 +146,20 @@
             painter->setPen(QPen(QBrush("white"),3,Qt::SolidLine, Qt::SquareCap));
             painter->drawEllipse(-5,-5,10,10);
 
+            if (getValue() > 90)
+            {
+            QPixmap ledEngineTemp(":/fuelL_white.gif");
+            QPixmap ledEngineTemp2=ledEngineTemp.scaled(70,70,Qt::IgnoreAspectRatio,Qt::FastTransformation);
+            painter->drawPixmap(100,-70,ledEngineTemp2);
+            }
+            else if(getValue()< 30)
+            {
+                    QPixmap ledEngineTemp(":/fuelL_red.gif");
+                    QPixmap ledEngineTemp2=ledEngineTemp.scaled(70,70,Qt::IgnoreAspectRatio,Qt::FastTransformation);
+                    painter->drawPixmap(100,-70,ledEngineTemp2);
+                    blinker();
 
+            }
 
 
     }
@@ -151,4 +170,11 @@
         double tankLevelAngle;
         tankLevelAngle = inputTankLevel * (50.0/100.0);
         return tankLevelAngle;
+    }
+
+    void fuel_guage::blinker()
+    {
+            blink = !blink;
+            QTest::qWait(500);
+            update();
     }

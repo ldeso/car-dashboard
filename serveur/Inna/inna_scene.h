@@ -17,6 +17,8 @@
 #include "Inna/prnd_inna.h"
 #include "Inna/icononoffinna.h"
 #include "Inna/clignotantinna.h"
+#include "Inna/compteurkminna.h"
+
 
 class inna_scene : public scene_globale
 {

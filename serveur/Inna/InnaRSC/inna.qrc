@@ -8,21 +8,24 @@
         <file>I_auto_P_blue.gif</file>
         <file>I_auto_R_blue.gif</file>
         <file>I_backLeftDoorOpen.gif</file>
-	<file>I_backrightDoorOpen.gif</file>
-     	<file>I_battery.gif</file>
+        <file>I_backrightDoorOpen.gif</file>
+        <file>I_battery.gif</file>
         <file>I_bonnetOpen_red.gif</file>
         <file>I_bootOpen_red.gif</file>
         <file>I_checkEngine.gif</file>
         <file>I_dayLight.gif</file>
         <file>I_driverDoorOpen.gif</file>
         <file>I_engineT_blue.gif</file>
+        <file>I_engineT_red.gif</file>
         <file>I_frontFogLight.gif</file>
         <file>I_frontRightDoorOpen.gif</file>
         <file>I_fuelL_red.gif</file>
         <file>I_fuelL_white.gif</file>
         <file>I_mecheffects2bb_ital.ttf</file>
         <file>I_mecheffects2bb_reg.ttf</file>
+        <file>I_Oil_t_red.gif</file>
         <file>I_Oil_t_white.gif</file>
+        <file>I_Oil_red.gif</file>
         <file>I_Oil_white.gif</file>
         <file>I_rearFogLight.gif</file>
         <file>I_rearWindowHeating_yellow.gif</file>
@@ -33,5 +36,6 @@
         <file>I_warning.gif</file>
         <file>I_highBeam.gif</file>
         <file>I_lowBeam.gif</file>
+        <file>I_gearProblem.gif</file>
     </qresource>
 </RCC>

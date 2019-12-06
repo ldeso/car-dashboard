@@ -3,6 +3,18 @@
 #include <QtMath>
 #include <QPainter>
 
+///
+/// \file arrowspeedometerinna.cpp
+/// \brief Classe ArrowSpeedometerInna derivée de la classe objet_virtuel
+/// \details Permettant la création de l' aiguille de la jauge de vitesse qui tourne en fonction de la valeur "value".
+///
+/// \param value - la valeur de vitesse
+/// \param valueMax - la vitesse maximum
+/// \param A0 - l'angle de debut de la jauge
+/// \param Amax - l'ampleur de la jauge
+/// \param r - le rayon de l'arche de la jauge
+/// \param k - le coefficient pour convertir la valeur en degrés
+///
 ArrowSpeedometerInna::ArrowSpeedometerInna(objet_virtuel *parent) :  objet_virtuel(parent)
 {   value=0.0;
     vmax = 300 ;
@@ -34,8 +46,12 @@ QRectF ArrowSpeedometerInna::boundingRect() const
 }
 
 void ArrowSpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
-{ painter->setRenderHints(QPainter::Antialiasing);
-    // ***Draw central circle ***
+{
+    painter->setRenderHints(QPainter::Antialiasing);
+    ///
+    ///\brief Dessin du circle central.
+    /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
+
      QRadialGradient radialGrad2(QPointF(xc, yc), 50);
          radialGrad2.setColorAt(0, Qt::black);
          radialGrad2.setColorAt(1, "#e0e0d1");
@@ -45,6 +61,10 @@ void ArrowSpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsIt
     v=qRound(value);
   if (v < 0 || v > (vmax +10) ) v = (v < 0 ? 0 : (vmax+10));
      v *= Amax * 1.0f / vmax ; // correction of the speed to angle
+
+     ///
+     ///\brief dessin de la flèche.
+     ///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
 
      QLinearGradient linearGradl(QPointF(xc-(9*cos((A0-v-90)*rad)),yc+(9*sin((A0-v-90)*rad))), QPointF(xc+(9*cos((A0-v-90)*rad)),yc-(9*sin((A0-v-90)*rad))));
          linearGradl.setColorAt(0, "#F93737");
@@ -59,6 +79,10 @@ void ArrowSpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsIt
          QPointF(xc+5*cos((A0-v-90)*rad),yc-5*sin((A0-v-90)*rad))
           };
      painter->drawConvexPolygon(points, 3);
+     ///
+     ///\brief Affichage de la vitesse actuelle
+     ///
+
     painter->setPen(QPen("#19b5e4"));
     painter->setFont(QFont("Chandas", 12, 0));
     painter->drawText(740,435, "km/h");

@@ -50,6 +50,13 @@ SOURCES += \
     Leo/leo_indicator.cpp \
     Leo/leo_label.cpp \
     Leo/leo_scene.cpp \
+    Youcef/cardialerprototype.cpp \
+    Youcef/carspeeddial.cpp \
+    Youcef/engineheatgauge.cpp \
+    Youcef/fuelgauge.cpp \
+    Youcef/tachometer.cpp \
+    Youcef/voyantsyoucef.cpp \
+    Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
     objet_virtuel.cpp \
@@ -62,7 +69,6 @@ SOURCES += \
     Henri/warninghenri.cpp \
     Hugo/hugo_ecran.cpp \
     Hugo/hugo_voyant_warning.cpp \
-    Henri/feuxhenri.cpp \
     Jonas/jonas_voyant_simple.cpp \
     Lea/fuelgauge_lea.cpp \
     Lea/lea_scene.cpp \
@@ -102,12 +108,19 @@ SOURCES += \
     Inna/arrowoiltinna.cpp \
     Inna/fuelengineinna.cpp \
     Inna/prnd_inna.cpp \
+    Inna/compteurkminna.cpp \
     Jonas/jonas_voyant_warning.cpp \
     Jonas/jonas_compteurkm.cpp \
     Henri/porteshenri.cpp \
     Henri/onoff.cpp \
     Henri/onoffpainthenri.cpp \
-    Lea/warning_lea.cpp
+    Lea/warning_lea.cpp \
+    Lea/jauge_temperature_lea.cpp \
+    Lea/compteur_kilometre_lea.cpp \
+    Harout/harout_scene.cpp \
+    Harout/cadran.cpp \
+    Harout/harc.cpp
+   
 
 HEADERS += \
     Henri/jaugeclignotanthenri.h \
@@ -130,6 +143,13 @@ HEADERS += \
     Leo/leo_indicator.h \
     Leo/leo_label.h \
     Leo/leo_scene.h \
+    Youcef/cardialerprototype.h \
+    Youcef/carspeeddial.h \
+    Youcef/engineheatgauge.h \
+    Youcef/fuelgauge.h \
+    Youcef/tachometer.h \
+    Youcef/voyantsyoucef.h \
+    Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h \
@@ -141,7 +161,6 @@ HEADERS += \
     Henri/warninghenri.h \
     Hugo/hugo_ecran.h \
     Hugo/hugo_voyant_warning.h \
-    Henri/feuxhenri.h \
     Jonas/jonas_voyant_simple.h \
     Lea/fuelgauge_lea.h \
     Lea/lea_scene.h \
@@ -180,13 +199,19 @@ HEADERS += \
     Inna/arrowoiltinna.h \
     Inna/fuelengineinna.h \
     Inna/prnd_inna.h \
+    Inna/compteurkminna.h \
     Henri/porteshenri.h \
     Henri/onoff.h \
     Florian/floriancompteurkm.h \
     Jonas/jonas_voyant_warning.h \
     Jonas/jonas_compteurkm.h \
     Henri/onoffpainthenri.h \
-    Lea/warning_lea.h
+    Lea/warning_lea.h \
+    Lea/jauge_temperature_lea.h \
+    Lea/compteur_kilometre_lea.h \
+    Harout/harout_scene.h \
+    Harout/cadran.h \
+    Harout/harc.h
 
 FORMS += \
         mainwindow.ui \
@@ -201,7 +226,8 @@ RESOURCES += \
     Loto/myicons/icons.qrc \
     Inna/InnaRSC/inna.qrc \
     Lea/Lea.qrc \
-    Florian/florian.qrc
+    Florian/florian.qrc \
+    Youcef/Youcef.qrc
 
 
 DISTFILES += \

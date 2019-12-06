@@ -11,7 +11,6 @@
 #include "scenedefondhenri.h"
 #include "affichekmhenri.h"
 #include "warninghenri.h"
-#include "feuxhenri.h"
 #include "onoff.h"
 #include "porteshenri.h"
 #include "onoffpainthenri.h"

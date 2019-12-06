@@ -1,14 +1,23 @@
 #include "Inna/inna_scene.h"
 #include <QPainter>
 #include <QFontDatabase>
+///
+/// \file inna_scene.cpp
+/// \brief Classe dérivée de scene_globale où sont ajoutés et paramétrés tous les composants du tableau de bord.
+/// Tous les objets doivent être définis au préalable dans scene_globale.h
+/// \param parent = scene_globale
+///
 inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
-{   QFontDatabase::addApplicationFont(":/I_SevenSegment.ttf");
+{   QFontDatabase::addApplicationFont(":/I_SevenSegment.ttf"); // adding custom fonts to the application
     QFontDatabase::addApplicationFont(":/I_mecheffects2bb_ital.ttf");
     QFontDatabase::addApplicationFont(":/I_mecheffects2bb_reg.ttf");
-    setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern));
+    setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern)); // setting the background to be solid black
+    CompteurKm = new compteurKmInna();
+        CompteurKm->setZValue(5.0);
+        addItem(CompteurKm);
     speedometerInna = new SpeedometerInna();
-        speedometerInna->setZValue(1.0);
-        addItem(speedometerInna);
+        speedometerInna->setZValue(1.0); // setting the position in the scene item's order
+        addItem(speedometerInna); // adding item to the scene
     tachometerInna = new TachometerInna();
         tachometerInna->setZValue(2.0);
         addItem(tachometerInna);
@@ -48,6 +57,7 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     AdaptiveSuspensionDampers = new iconOnOffInna(QPoint(640,340),QSize(50,50),":/I_AdaptiveSuspensionDampers_yellow.gif",5.0);
         addItem(AdaptiveSuspensionDampers);
     AutomaticTransmissionMode = new PRND_Inna();
+        AutomaticTransmissionMode->setZValue(5.0);
         addItem(AutomaticTransmissionMode);
     RearAntifog = new iconOnOffInna(QPoint(460,360),QSize(50,50),":/I_rearFogLight.gif",5.0);
         addItem(RearAntifog);
@@ -78,6 +88,10 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     OilTemp = new ArrowOilTInna ();
         OilTemp->setZValue(8.0);
         addItem(OilTemp);
+    oilLevel = new ArrowOilLInna();
+        oilLevel->setZValue(10.0);
+        addItem(oilLevel);
+
 }
 
 QRectF inna_scene::boundingRect() const

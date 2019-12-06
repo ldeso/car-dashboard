@@ -20,6 +20,11 @@ public:
     const double pi=3.142;
     double getrotationAngle(double tankLevelLitres);
 
+private:
+    bool blink=false;
+    void blinker();
+
+
 };
 
 #endif // FUEL_GUAGE_H

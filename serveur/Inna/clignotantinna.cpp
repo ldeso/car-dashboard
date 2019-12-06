@@ -1,9 +1,17 @@
+///
+/// \file clignotantinna.cpp
+/// \brief Classe permettant d'afficher les voyants clignotants
+///
+///
 #include "clignotantinna.h"
 #include "Inna/iconinna.h"
 #include <QPainter>
 #include <QDebug>
 #include <QTest>
-
+ ///
+/// \brief clignotantInna::clignotantInna -  Constructeur de la classe.
+///\details Constructeur de la classe initialisant la variable _value_ de la classe mère, et la variable _cligno_ qui permet de gérer l'affichage alternatif des voyants.
+///
 clignotantInna::clignotantInna(IconInna *parent) : IconInna (parent)
 {   value = 0;
     cligno = 0;
@@ -18,7 +26,13 @@ QRectF clignotantInna::boundingRect() const
 
 void clignotantInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {  painter->setRenderHint(QPainter::Antialiasing);
-    mode = qRound(value);
+
+ /// Va chercher la valeur de la variable _value_ de la classe clignotantInna.
+ /// value = 1 correspond à l'affichaqge du clignotant droit
+ /// value = -1 correspond à l'affichaqge du clignotant gauche
+ /// value = 2 correspond à l'affichaqge des clignotants droit et gauche au même temps
+
+    mode = qRound(value); // mode is ineger and value is float
     if  (mode != 0)
     {if (mode == -1)
         {painter->setOpacity(cligno);
@@ -46,7 +60,9 @@ void clignotantInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
 
 }
-
+///
+/// \brief clignotantInna::MAJ() Fonction de mise à jour de l'affichage. La valeur _cligno_ controle l'opacité du painter, permettant de le rendre visible ou non
+///
 void clignotantInna::MAJ()
 {cligno = !cligno;
  QTest::qWait(500);//

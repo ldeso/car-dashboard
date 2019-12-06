@@ -12,6 +12,8 @@
 #include "Karim/karim_scene.h"
 #include "Loto/loto_scene.h"
 #include "Inna/inna_scene.h"
+#include "Youcef/youcef_scene.h"
+#include "Harout/harout_scene.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,6 +26,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void acceleration(int);
+    void simulation(int);
     ~MainWindow();
 
 private slots:
@@ -38,10 +41,6 @@ private:
     QTcpServer * server;
     QTcpSocket * socket;
     QTimer *updateTimer;
-
-
-    float km_parcourus=0;
-    int vitesse_actuelle=0;
 };
 
 #endif // MAINWINDOW_H

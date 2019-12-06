@@ -16,6 +16,11 @@ void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*
 
 //début jauge à essence
 
+    if (value<0)
+        value=0;
+    if (value>100)
+        value=100;
+
     QRect carre(-280,-280,560,560);
     painter->setRenderHint(QPainter::Antialiasing);
     painter->setPen(QPen(QBrush(QColor(250-value*2.5,value*2.5,0,80)) , 34, Qt::SolidLine,Qt::FlatCap));
@@ -26,6 +31,12 @@ void jaugeEssenceHenri::paint(QPainter *painter, const QStyleOptionGraphicsItem*
 
     QPixmap *test=new QPixmap(":/new/prefix1/icones/iconeEssence.png");
     painter->drawPixmap(-15,265,30,30,*test);
+
+    if (value == 0)
+    {
+        QPixmap *test2=new QPixmap(":/new/prefix1/icones/iconeEssenceRouge.png");
+        painter->drawPixmap(-15,265,30,30,*test2);
+    }
 
 
 //fin jauge essence
