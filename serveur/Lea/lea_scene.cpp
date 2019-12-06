@@ -54,7 +54,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     Clignotant = new lea_clignottants;
     this->addItem(Clignotant);
 
-    handbrake = new voyant_Lea(520,200,":/Lea/Icones_Voyants/brake_warning.gif",50,50,Qt::red);
+    handbrake = new voyant_Lea(520,180,":/Lea/Icones_Voyants/brake_warning.gif",50,50,Qt::red);
     this->addItem(handbrake);
 
     VoyantBatterie = new voyant_Lea(350,250,":/Lea/Icones_Voyants/battery.gif",50,50,Qt::red);

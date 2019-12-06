@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est :
-    dashboard=new inna_scene();
+    dashboard=new Lea_scene();
 
 
     ui->graphicsView->setScene(dashboard);
