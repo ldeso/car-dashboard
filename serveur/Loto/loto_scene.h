@@ -1,6 +1,5 @@
 #ifndef LOTO_SCENE_H
 #define LOTO_SCENE_H
-
 #include "scene_globale.h"
 #include <QGraphicsScene>
 #include "scene_globale.h"
