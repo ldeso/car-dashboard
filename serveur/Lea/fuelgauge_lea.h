@@ -11,7 +11,6 @@ public:
     FuelGauge_lea(double, double, double, double, double, double, double, double);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-  //  void setValue(int);
     double x;
     double y;
     double x2;

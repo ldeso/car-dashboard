@@ -49,6 +49,7 @@ SOURCES += \
     Leo/leo_gauge.cpp \
     Leo/leo_indicator.cpp \
     Leo/leo_label.cpp \
+    Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
@@ -117,9 +118,11 @@ SOURCES += \
     Lea/warning_lea.cpp \
     Lea/jauge_temperature_lea.cpp \
     Lea/compteur_kilometre_lea.cpp \
+    Lea/horloge_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
     Harout/harc.cpp
+
    
 
 HEADERS += \
@@ -142,6 +145,7 @@ HEADERS += \
     Leo/leo_gauge.h \
     Leo/leo_indicator.h \
     Leo/leo_label.h \
+    Leo/leo_object.h \
     Leo/leo_scene.h \
     Youcef/cardialerprototype.h \
     Youcef/carspeeddial.h \
@@ -209,6 +213,7 @@ HEADERS += \
     Lea/warning_lea.h \
     Lea/jauge_temperature_lea.h \
     Lea/compteur_kilometre_lea.h \
+    Lea/horloge_lea.h \
     Harout/harout_scene.h \
     Harout/cadran.h \
     Harout/harc.h

@@ -36,10 +36,10 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     CompteTours->setZValue(1.0);
     this->addItem(CompteTours);
 
-    jaugeTemperature = new jauge_temperature_lea(800.0,200.0,90.0,120,-20,120,130);
+    jaugeTemperature = new jauge_temperature_lea(800.0,200.0,90.0,120,120,130);
     this->addItem(jaugeTemperature);
 
-    CompteurKm = new Compteur_kilometre_lea(600,200);
+    CompteurKm = new Compteur_kilometre_lea(530,300);
     this->addItem(CompteurKm);
 
     OpenDoorBackRightPassenger = new voyant_Lea(520,400,":/Lea/PorteOuvertePassagerD.png",80,80);

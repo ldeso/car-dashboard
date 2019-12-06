@@ -17,7 +17,7 @@
 #include <QPointF>
 
 ///
-/// \brief FuelGauge_lea::FuelGauge_lea, Constructeur de la classe, permet d'initialiser tous les paramètres
+/// \brief FuelGauge_lea::FuelGauge_lea, Constructeur de la classe, permet d'initialiser tous les paramètres ainsi que la valeur value de la classe mère à 30
 /// \param param_x position horizontale du coin en haut à gauche du rectangle définissant la jauge
 /// \param param_y position verticale coin en haut à gauche du rectangle définissant la jauge
 /// \param param_width largeur voulue de la jauge
