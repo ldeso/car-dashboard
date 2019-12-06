@@ -22,20 +22,20 @@
 /// \param param_r rayon et taille de l'aiguille
 /// \param param_start Angle de départ pour le tracé de l'arc de cercle
 /// \param param_end Angle de fin pour le tracé de l'arcle de cercle
-/// \param param_spanAngle angle total de cadran
+/// \param param_spanAngle angle total du cadran
 /// \param param_param_vitMax determine la vitesse maximum jusqu'à laquelle va le cadran
 ///
 
-speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
+speedometer_Lea::speedometer_Lea(double param_x, double param_y, double param_r, int param_start, int param_spanAngle, int param_vitMax)
 
 {
     x= param_x;
     y=param_y;
     r=param_r;
     angle_debut=param_start;
-    angle_fin = param_end;
     span_angle=param_spanAngle;
     valueMax=param_vitMax;
+    value=0;
 }
 
 QRectF speedometer_Lea::boundingRect() const
@@ -66,12 +66,12 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 
     painter->setRenderHint(QPainter::Antialiasing);
 
-            QRadialGradient radial(QPointF(x,y),180);
+            QRadialGradient radial(QPointF(x,y),r+20);
             radial.setColorAt(0,Qt::transparent);
             radial.setColorAt(0.95,Qt::blue);
             radial.setColorAt(1,Qt::transparent);
             painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
-            painter->drawArc((x-r-20),(y-r-20),(r*2)+40,(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
+            painter->drawArc(qRound(x-r-20),qRound(y-r-20),qRound(r*2)+40,qRound(r*2)+40,(angle_debut+85)*16,(span_angle+10)*16);
             pen.setColor(Qt::transparent);
             pen.setCapStyle(Qt::RoundCap);
             painter->setPen(pen);
@@ -94,7 +94,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             pen.setStyle(Qt::SolidLine);
             painter->setPen(pen);
 
-            painter->drawLine((x+r*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-r*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),(x+(r-20)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y-(r-20)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))));
+            painter->drawLine(qRound(x+r*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y-r*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(x+(r-20)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y-(r-20)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))));
 ///
 /// \brief Ajout du texte sur les graduations
 /// \details Le texte est positionné de la même façon que les graduations, tous les 20km/h, avec une translation de manière à correspondre le plus possible aux positions des graduations.
@@ -105,14 +105,14 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             QFont font("Bell",12, QFont::Bold);
             painter->setFont(font);
         if (i%20==0)
-            painter->drawText((x-15+(r-40)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),(y+8-(r-40)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),QString("%1").arg(i));
+            painter->drawText(qRound(x-15+(r-40)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y+8-(r-40)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),QString("%1").arg(i));
 
         }
     }
 
 ///
 ///\brief Création de l'aiguille.
-/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
+/// \details Dans un premier temps, affichage de l'aiguille à l'aide de la fonction drawConvexPolygon. Puis affichage d'un petit cercle à la base de l'aiguille.
 ///
 
 // ******************** Dessine l'aiguille
@@ -136,7 +136,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     painter->drawConvexPolygon(points, 3);
 
 
-// ******************** Dessine le cercle au centre du cadran par dessus la fin de l'aiguille
+// ******************** Dessine le cercle au centre du cadran par dessus la fin de l'aiguille(deux cercles l'un sur l'autre avec un gradient linéaire inversé
     pen.setColor(Qt::transparent);
     QLinearGradient linearGradie(QPointF(x-15, y-15), QPointF(x+15, y-15));
        linearGradie.setColorAt(0,"#9d0409" );
@@ -159,41 +159,21 @@ painter->drawEllipse(x-15,y-15,30,30);
 ///\brief Création de l'affichage de la vitesse.
 ///\details L'affichage de la vitesse se fait avec la fonction drawText et en utilisant la value donnée par la fonction getValue() de la classe objet_virtuel.
 ///
-// ******************** Dessine l'affichage de la vitesse
+// ******************** Dessine l'affichage de la vitesse avec une police d'ecriture intégrée dans les ressources et appelée dans lea_scene.cpp
 
 pen.setColor(Qt::white);
 
-QFont font("Seven Segment",30);
+QFont font("Seven Segment",30,QFont::Bold);
 painter->setFont(font);
-QRectF affiche_km (x-90,y+80,80,70);
+QRectF affiche_km_h (x-90,y+30,80,70);
 pen.setCapStyle(Qt::SquareCap);
 painter->setPen(pen);
-painter->drawText(affiche_km, Qt::AlignRight ,QString("%1").arg(value));
-QFont font2("Times",20);
+painter->drawText(affiche_km_h, Qt::AlignRight ,QString("%1").arg(qRound(value)));
+
+QFont font2("Seven Segment",10,QFont::Bold);
 painter->setFont(font2);
-painter->drawText(x+10,y+115,"km/h");
+painter->drawText(qRound(x+10),qRound(y+65),"km/h");
 
 }
 
 
-
-void speedometer_Lea::parametrage(double param_x, double param_y, double param_r, int param_start, int param_end, int param_spanAngle, int param_vitMax)
-{
-
-    x= param_x;
-    y=param_y;
-    r=param_r;
-    angle_debut=param_start;
-    angle_fin = param_end;
-
-    span_angle=param_spanAngle;
-    valueMax=param_vitMax;
-
-}
-
-
-
-void speedometer_Lea::setValue(int v)
-{
-    value=v;
-}

@@ -14,7 +14,8 @@ public:
     onoff* DG;
     onoff* PG;
     onoff* PD;
-    onoff* C;
+    onoff* Cap;
+    onoff* Cof;
 };
 
 #endif // PORTESHENRI_H

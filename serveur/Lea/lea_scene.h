@@ -8,12 +8,12 @@
 #include "speedometer_lea.h"
 #include "tachometergauge_lea.h"
 #include "voyant_lea.h"
-#include "deux_voyants_lea.h"
-#include "quatre_voyants_lea.h"
 #include "fuelgauge_lea.h"
 #include "lea_clignottants.h"
 #include "lea_scenedefond.h"
 #include "warning_lea.h"
+#include "compteur_kilometre_lea.h"
+#include "jauge_temperature_lea.h"
 
 class Lea_scene : public scene_globale
 {

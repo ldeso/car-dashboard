@@ -2,7 +2,18 @@
 #include <QGraphicsItem>
 #include <QtMath>
 #include <QPainter>
-
+///
+/// \file tachometerinna.cpp
+/// \brief Classe TachometerInna derivée de la classe QGraphicsItem
+/// \details Permettant la création d'un objet static de la jauge compte-tours
+/// \param value - la valeur de tours par minute
+/// \param valueMax -  la valeur de tours par minutemaximum
+/// \param A0 - l'angle de debut de la jauge
+/// \param Amax - l'ampleur de la jauge
+/// \param r - le rayon de l'arche de la jauge
+/// \param k - le coefficient pour convertir la valeur en degrés
+///
+///
 TachometerInna::TachometerInna(QGraphicsItem *parent) :  QGraphicsItem(parent)
 {
     
@@ -36,7 +47,9 @@ QRectF TachometerInna::boundingRect() const
 void TachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
    painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
-
+   ///
+   ///\brief Dessin du circle encadrant
+   ///
    QRadialGradient radialGradc(QPointF(xc, yc), r+20); //setting the gradient to draw the outer arc
    radialGradc.setColorAt(0, Qt::transparent);
    radialGradc.setColorAt(0.8, "#f2f2f2");
@@ -57,7 +70,8 @@ void TachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
    painter->setPen(QPen(QBrush(radialGrad),20,Qt::SolidLine,Qt::FlatCap));
    painter->drawArc(qRound(xc-r+10),qRound(yc-r+10),2*(r-10),2*(r-10),A0*16,-Amax*16);
 
-   // *** draw text ***
+   /// \bref Dessin du texte et des traits
+   ///
    k = Amax * 1.0/ vmax ;
    for (int i = 0; i <= vmax; i += 200) {
    if (i%1000==0)
@@ -77,6 +91,7 @@ void TachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
   }
  painter->setFont(QFont("Chandas",6, -1));
 
+// *** the code below is used to print the coordinates ***
 //   for (int i=0; i< 1401; i+=20)
 //   {
 //       for (int j=0; j<601; j+=20)
