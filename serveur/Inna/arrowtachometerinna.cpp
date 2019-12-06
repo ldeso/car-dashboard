@@ -55,8 +55,9 @@ void ArrowTachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsIte
    v = qRound(v*Amax * 1.0f / vmax) ;
   
    ///
-   ///\brief dessin du circle central
-   ///
+   ///\brief Dessin du circle central.
+   /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
+
    QRadialGradient radialGrad2(QPointF(xc, yc), 50);
    radialGrad2.setColorAt(0, Qt::black);
    radialGrad2.setColorAt(1, "#e0e0d1");
@@ -65,8 +66,9 @@ void ArrowTachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsIte
    painter->drawEllipse(qRound(xc-15),qRound(yc-15),30,30);
 
    ///
-   ///\brief dessin de la fleche
-   ///
+   ///\brief dessin de la flèche.
+  ///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
+  ///
   QLinearGradient linearGrad(QPointF(xc-(5*cos((A0-v-90)*rad)),yc+(5*sin((A0-v-90)*rad))), QPointF(xc+(5*cos((A0-v-90)*rad)),yc-(5*sin((A0-v-90)*rad))));
    linearGrad.setColorAt(0, "#F93737");
    linearGrad.setColorAt(0.5, "#ff3333");

@@ -50,8 +50,9 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
       double yet=yc-20.0*sin((A0+20+Amax/2)*rad);
 
       ///
-      ///\brief Dessin du circle central
-      ///
+      ///\brief Dessin du circle central.
+      /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
+
 
       QRadialGradient radialGradet(QPointF(xet, yet), 50);
       radialGradet.setColorAt(0, Qt::black);
@@ -60,9 +61,12 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
       painter->setBrush(QBrush(radialGradet));
       painter->drawEllipse(qRound(xet-15),qRound(yet-15),30,30);
 
+      if (t > 115 ) {painter->drawPixmap(1140,315,40,40, QPixmap(":/I_engineT_red.gif"));}
+      else {painter->drawPixmap(1140,315,40,40, QPixmap(":/I_engineT_blue.gif"));}
+
       ///
-      ///\brief Dessin de la fleche
-      ///
+      ///\brief Dessin de la flèche
+      ///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
       ///
     t=qRound(value);
     if (t < 50 || t > (tmax + 5)) t = ( t < 50 ?  50 : (tmax+5));// condition to set the range and prevent arrow from pointing outside the scale
@@ -84,5 +88,7 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
 
       painter->drawConvexPolygon(points, 3);
 
-     
+
+
+
 }

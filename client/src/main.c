@@ -29,11 +29,9 @@ struct arguments
 {
     char * ipaddr;
     int port;
+    int _;
     char * message;
 };
-
-char * ipaddr = "";
-int port = 0;
 
 static error_t
 parse_opt (int key, char *arg, struct argp_state *state)
@@ -68,6 +66,46 @@ parse_opt (int key, char *arg, struct argp_state *state)
 }
 
 /**
+ * @brief helpMessage
+ * @details fonction regroupant tous les messsages help et les affiche quand on fait la commande help
+ * (suppression doublon des commandes)
+ */
+void helpMessage(){
+    puts("Liste des commandes valides :");
+    puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
+    puts("CANN DASHBOARD x où x est le prénom");
+    puts("CANN GAZ x avec x compris entre 0 et 100");
+    puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
+    puts("CANN RPM x avec x compris entre 0 et 15000");
+    puts("CANN SPEED x avec x compris entre 0 et 400");
+    puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
+    puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
+    puts("CANN WARNING x avec x = 0 éteint et 1 allumé");
+    puts("CANN ASD x avec x = 0 éteint et 1 allumé");
+    puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
+    puts("CANN FRONT_FOG x avec x = 0 éteint et 1 allumé");
+    puts("CANN REAR_FOG x avec x = 0 éteint et 1 allumé");
+    puts("CANN SEAT_BELT x avec x = 0 éteint et 1 allumé");
+    puts("CANN RW_HEAT x avec x = 0 éteint et 1 allumé");
+    puts("CANN CHECK_ENGINE x avec x = 0 éteint et 1 allumé");
+    puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
+    puts("CANN OPEN_DOOR_DRIVER x = 0 éteint et 1 allumé" );
+    puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CANN ADAPT_CRUISE_CONTROL x = 0 éteint et 1 allumé" );
+    puts("CANN AIRBAG_ON x = 0 éteint et 1 allumé" );
+    puts("CANN BONNET_OPEN x = 0 éteint et 1 allumé" );
+    puts("CANN BOOT_OPEN x = 0 éteint et 1 allumé" );
+    puts("CANN CRUISE_CONTROL_ON x avec 0 éteint et 1 allumé" );
+    puts("CANN ENGINE_T x avec x = température du moteur" );
+    puts("CANN OIL_T x avec x = température de l'huile" );
+    puts("CANN OIL_L x avec x = niveau de l'huile du moteur");
+    puts("CANN SIM x avac x la vitesse de diminution");
+    puts("CANN HANDBRAKE x avec x=0 éteint et x=1 allumé");
+}
+
+/**
  * @brief die
  * @details arrêt du programme avec un message d'erreur dans le terminal
  */
@@ -83,12 +121,19 @@ void __attribute__((noreturn)) die(const char *str)
  */
 void enter_message(char *message, const size_t len)
 {
-    fgets(message, (int) len, stdin);
+    if(fgets(message, (int) len, stdin)== NULL){
+        fprintf(stderr, "error fgets");
+        exit(EXIT_FAILURE);
+    }
+
     size_t newline_span = strcspn(message, "\n");
     while (message[newline_span] != '\n') {
         printf("Message trop long (max = %zu). Réessayer : ", len-2);
         while (getchar() != '\n');
-        fgets(message, (int) len, stdin);
+        if(fgets(message, (int) len, stdin)==NULL){
+            fprintf(stderr, "error fgets");
+            exit(EXIT_FAILURE);
+        }
         newline_span = strcspn(message, "\n");
     }
     message[newline_span] = '\0';
@@ -107,7 +152,7 @@ void uppercase(char *message)
     }
 }
 
-struct termios orig_termios;//Structure contenant les paramètres du terminal
+static struct termios orig_termios;//Structure contenant les paramètres du terminal
 
 ///
 /// \brief disableRawMode
@@ -126,7 +171,7 @@ void enableRawMode() {
     tcgetattr(STDIN_FILENO, &orig_termios);
     atexit(disableRawMode);
     struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ECHO | ICANON);
+    raw.c_lflag &= (unsigned int) ~(ECHO | ICANON);
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
@@ -138,11 +183,20 @@ void enableRawMode() {
 ///
 char is_key(){
     char c='0';
-    read(STDIN_FILENO, &c, 1);
+    if(read(STDIN_FILENO, &c, 1)==-1){
+        fprintf(stderr, "error read");
+        exit(EXIT_FAILURE);
+    }
     if (c==27){
-        read(STDIN_FILENO, &c, 1);
+        if(read(STDIN_FILENO, &c, 1)==-1){
+            fprintf(stderr, "error read");
+            exit(EXIT_FAILURE);
+        }
         if (c==91){
-            read(STDIN_FILENO, &c, 1);
+            if(read(STDIN_FILENO, &c, 1)==-1){
+                fprintf(stderr, "error read");
+                exit(EXIT_FAILURE);
+            }
             if (c==65){
                 return 'u';
             }
@@ -198,42 +252,10 @@ int main(int argc, char** argv)
     if(strcmp(arg.message, "")!=0){
         uppercase(arg.message);
         if (strncmp(arg.message, "HELP", len) == 0) {
-            puts("Liste des commandes valides :");
-            puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
-            puts("CANN DASHBOARD x où x est le prénom");
-            puts("CANN GAZ x avec x compris entre 0 et 100");
-            puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
-            puts("CANN RPM x avec x compris entre 0 et 15000");
-            puts("CANN SPEED x avec x compris entre 0 et 400");
-            puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
-            puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
-            puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
-            puts("CANN ASD x avec x = 0 eteint et 1 allumé");
-            puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
-            puts("CANN FRONT_FOG x avec x = 0 eteint et 1 allumé");
-            puts("CANN REAR_FOG x avec x = 0 eteint et 1 allumé");
-            puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
-            puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
-            puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
-            puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
-            puts("CANN OPEN_DOOR_DRIVER x = 0 eteint et 1 allumé" );
-            puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 eteint et 1 allumé" );
-            puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 eteint et 1 allumé" );
-            puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 eteint et 1 allumé" );
-            puts("CANN ADAPT_CRUISE_CONTROL x = 0 eteint et 1 allumé" );
-            puts("CANN AIRBAG_ON x = 0 eteint et 1 allumé" );
-            puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
-            puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
-            puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
-            puts("CANN ENGINE_T x avec x = temperature du moteur" );
-            puts("CANN OIL_T x avec x = temperature de l'huile" );
-            puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
-            puts("CANN SIM x avac x la vitesse de diminution");
 
-        } else if (strncmp(sent, "END", len) == 0) {
-            end = 1;
-        } else if (strncmp(sent, "\033A", len) == 0) {
-
+            helpMessage();
+        }
+        else if (strncmp(sent, "\033A", len) == 0) {
             puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
         } else {
             if (validate_message(arg.message) == -1) {
@@ -283,7 +305,7 @@ int main(int argc, char** argv)
             else{
                 printf("%c",b);
                 enter_message(sent, len);
-                int l=strlen(sent);
+                int l = (int) strlen(sent);
                 for (i=l;i>0;i--){
                     sent[i]=sent[i-1];
                 }
@@ -293,37 +315,7 @@ int main(int argc, char** argv)
             num_commande++;
             strcpy(Commandes[num_commande].txt,sent);
             if (strncmp(sent, "HELP", len) == 0) {
-                puts("Liste des commandes valides :");
-                puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
-                puts("CANN DASHBOARD x où x est le prénom");
-                puts("CANN GAZ x avec x compris entre 0 et 100");
-                puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
-                puts("CANN RPM x avec x compris entre 0 et 15000");
-                puts("CANN SPEED x avec x compris entre 0 et 400");
-                puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
-                puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
-                puts("CANN WARNING x avec x = 0 eteint et 1 allumé");
-                puts("CANN ASD x avec x = 0 eteint et 1 allumé");
-                puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
-                puts("CANN FRONT_FOG x avec x = 0 eteint et 1 allumé");
-                puts("CANN REAR_FOG x avec x = 0 eteint et 1 allumé");
-                puts("CANN SEAT_BELT x avec x = 0 eteint et 1 allumé");
-                puts("CANN RW_HEAT x avec x = 0 eteint et 1 allumé");
-                puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
-                puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
-                puts("CANN OPEN_DOOR_DRIVER x = 0 eteint et 1 allumé" );
-                puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 eteint et 1 allumé" );
-                puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 eteint et 1 allumé" );
-                puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 eteint et 1 allumé" );
-                puts("CANN ADAPT_CRUISE_CONTROL x = 0 eteint et 1 allumé" );
-                puts("CANN AIRBAG_ON x = 0 eteint et 1 allumé" );
-                puts("CANN BONNET_OPEN x = 0 eteint et 1 allumé" );
-                puts("CANN BOOT_OPEN x = 0 eteint et 1 allumé" );
-                puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
-            puts("CANN ENGINE_T x avec x = temperature du moteur" );
-            puts("CANN OIL_T x avec x = temperature de l'huile" );
-            puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
-
+                helpMessage();
             } else if (strncmp(sent, "END", len) == 0) {
                 end = 1;
             } else if (strncmp(sent, "\033A", len) == 0) {

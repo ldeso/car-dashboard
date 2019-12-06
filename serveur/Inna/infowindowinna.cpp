@@ -35,5 +35,6 @@ void InfoWindowInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
    radialGradl.setColorAt(1, "#f2f2f2");
    painter->setPen(QPen(QBrush(radialGradl),4,Qt::SolidLine,Qt::FlatCap));
    painter->drawArc(QRectF(xc-r,yc-r,r*2,r*2),205*16,298*16);
+   painter->drawPixmap(895, 295, 180, 101, QPixmap(":/I_camera.gif"));
 
 }
