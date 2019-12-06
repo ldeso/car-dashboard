@@ -7,7 +7,7 @@
 #include <QtMath>
 #include <QStringList>
 
-Harc::Harc(int param_value, int param_valueMax )
+Harc::Harc(int param_value, int param_valueMax, QString param_type )
 {
     //valueMax = 120;
     value=0;
@@ -15,6 +15,7 @@ Harc::Harc(int param_value, int param_valueMax )
     //spanAngle =param_arcMax;
     //value = param_value;
     valueMax = param_valueMax;
+    type=param_type;
 
 }
 
@@ -32,35 +33,54 @@ void Harc::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     painter->setPen(QPen(QBrush("white"), 15, Qt::SolidLine, Qt::FlatCap ));
     painter->drawArc(rec,  startAngle, spanAngle);
 
-    if (value<=50)
-    {
+    if(type=="temperature"){
+        if (value<=50)
+        {
             painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
             painter->drawArc(rec,  startAngle, getValue()*16);
-    }
-    else if ( (50<value) & (value<80) )
-    {
+        }
+        else if ( (50<value) & (value<80) )
+        {
             painter->setPen(QPen(QBrush("orange"), 10, Qt::SolidLine, Qt::FlatCap ));
             painter->drawArc(rec,  startAngle, getValue()*16);
+        }
+        else
+        {
+            painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
+            painter->drawArc(rec,  startAngle, getValue()*16);
+        }
+    }
+
+    if(type=="essence"){
+    if (value<=25)
+    {
+        painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
+        painter->drawArc(rec,  startAngle, getValue()*16*1.2);
+    }
+    else if ( (25<value) & (value<50) )
+    {
+        painter->setPen(QPen(QBrush("orange"), 10, Qt::SolidLine, Qt::FlatCap ));
+        painter->drawArc(rec,  startAngle, getValue()*16*1.2);
     }
     else
     {
-        painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
-        painter->drawArc(rec,  startAngle, getValue()*16);
+        painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
+        painter->drawArc(rec,  startAngle, getValue()*16*1.2);
+    }
     }
 
-
-//    if (value > 80){
-//    painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
-//    painter->drawArc(rec,  startAngle, getValue()*16);
-//    }
-//    else  if (50 <value<80){
-//        painter->setPen(QPen(QBrush("orange"), 10, Qt::SolidLine, Qt::FlatCap ));
-//        painter->drawArc(rec,  startAngle, getValue()*16);
-//    }
-//    else if (value<50) {
-//        painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
-//        painter->drawArc(rec,  startAngle, getValue()*16);
-//}
+    //    if (value > 80){
+    //    painter->setPen(QPen(QBrush("red"), 10, Qt::SolidLine, Qt::FlatCap ));
+    //    painter->drawArc(rec,  startAngle, getValue()*16);
+    //    }
+    //    else  if (50 <value<80){
+    //        painter->setPen(QPen(QBrush("orange"), 10, Qt::SolidLine, Qt::FlatCap ));
+    //        painter->drawArc(rec,  startAngle, getValue()*16);
+    //    }
+    //    else if (value<50) {
+    //        painter->setPen(QPen(QBrush("blue"), 10, Qt::SolidLine, Qt::FlatCap ));
+    //        painter->drawArc(rec,  startAngle, getValue()*16);
+    //}
 
 
 }

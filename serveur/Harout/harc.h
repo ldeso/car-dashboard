@@ -12,7 +12,7 @@
 class Harc : public objet_virtuel
 {
 public:
-    Harc(int, int);
+    Harc(int, int,QString);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                QWidget *widget);
@@ -24,6 +24,7 @@ private:
     int startAngle = 30 * 16;  //C'est pour arc
     int spanAngle  = 120 * 16;//C'est pour arc
     int spanAngle0;
+    QString type;
 
 
 };
