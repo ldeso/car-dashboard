@@ -83,7 +83,6 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
-    Karim/voyants.cpp \
     Hugo/hugo_boite_vitesse.cpp \
     Loto/fuel_guage.cpp \
     Loto/leds.cpp \
@@ -122,7 +121,8 @@ SOURCES += \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
     Harout/harc.cpp \
-    Karim/voyants_warning.cpp
+    Karim/voyants_warning.cpp \
+    Karim/voyants_karim.cpp
     Harout/harc.cpp
    
 
@@ -178,7 +178,6 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
-    Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
@@ -218,7 +217,8 @@ HEADERS += \
     Harout/harout_scene.h \
     Harout/cadran.h \
     Harout/harc.h \
-    Karim/voyants_warning.h
+    Karim/voyants_warning.h \
+    Karim/voyants_karim.h
 
 FORMS += \
         mainwindow.ui \
