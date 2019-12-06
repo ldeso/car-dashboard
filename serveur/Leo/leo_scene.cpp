@@ -1,4 +1,3 @@
-#include "leo_display.h"
 #include "leo_gauge.h"
 #include "leo_scene.h"
 
@@ -33,23 +32,27 @@ Leo_scene::Leo_scene(scene_globale* parent)
         this,
         {
             {
-                &Vitesse,
+                &CompteTours,
                 QRectF(0, 0, 200, 200),
                 {
-                    { Leo_gauge::MAX, 260 },
-                    { Leo_gauge::DIVS, 10 },
-                    { Leo_gauge::SUBDIVS, 20 }
+                    { Leo_gauge::MAX, 8000 },
+                    { Leo_gauge::DIVS, 4 },
+                    { Leo_gauge::SUBDIVS, 8 },
+                    { Leo_gauge::STARTANGLE, -145 },
+                    { Leo_gauge::ARCLENGTH, -155 }
                 }
             },
             {
-                &Essence,
-                QRectF(65, 130, 70, 70),
+                &Vitesse,
+                QRectF(135, 0, 200, 200),
                 {
-                    { Leo_gauge::MAX, 100 },
-                    { Leo_gauge::DIVS, 2 },
-                    { Leo_gauge::SUBDIVS, 4 }
+                    { Leo_gauge::MAX, 260 },
+                    { Leo_gauge::DIVS, 13 },
+                    { Leo_gauge::SUBDIVS, 26 },
                 }
             },
+            { &oilLevel, QRectF(60, 130, 70, 70), {} },
+            { &Essence, QRectF(200, 130, 70, 70), {} },
         }
     );
 }
