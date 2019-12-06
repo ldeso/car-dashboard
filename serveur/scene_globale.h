@@ -18,7 +18,7 @@ public:
     objet_virtuel *croisement;
     objet_virtuel *route;
     objet_virtuel *warning;
-    objet_virtuel *CompteurKm;
+    objet_virtuel *CompteurKm = nullptr;
     objet_virtuel *AdaptiveSuspensionDampers;
     objet_virtuel *AutomaticTransmissionMode;
     objet_virtuel *FrontAntifog;
