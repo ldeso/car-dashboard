@@ -19,7 +19,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
+
     dashboard=new hugo_scene();
+
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -64,8 +67,8 @@ void MainWindow::acceleration(int time)
             }
         }
         ui->graphicsView->scene()->update();
-        vitesse+=0.8;
-        t+=0.1;
+        vitesse+=0.8f;
+        t+=0.1f;
         QTest::qWait(100);
 
     }
@@ -399,7 +402,7 @@ void MainWindow::reception()
     else if(message=="CANN ACCELERATION"){
         int time = string.section(' ', 2,2).toInt();
         if(time>0){
-            acceleration(1.0*time);
+            acceleration(qRound(1.0*time));
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -441,21 +444,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
-    {
-        int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
-        if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
-            //  dashboard->OpenDoorDriver->setValue(OpenDoorDriver_on);
-            ui->graphicsView->scene()->update();
-            QString text = "OK";
-            socket->write(text.toLocal8Bit());
-        }
-        else{
-            QString text;
-            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
-            socket->write(text.toLocal8Bit());
-        }
-    }
+
     else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
@@ -663,7 +652,6 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-
     if (dashboard->CompteurKm)
          //dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
         ui->graphicsView->scene()->update();

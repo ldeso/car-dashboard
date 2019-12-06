@@ -49,8 +49,9 @@ void ArrowSpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsIt
 {
     painter->setRenderHints(QPainter::Antialiasing);
     ///
-    ///\brief dessin du circle central
-    ///
+    ///\brief Dessin du circle central.
+    /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
+
      QRadialGradient radialGrad2(QPointF(xc, yc), 50);
          radialGrad2.setColorAt(0, Qt::black);
          radialGrad2.setColorAt(1, "#e0e0d1");
@@ -62,8 +63,9 @@ void ArrowSpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsIt
      v *= Amax * 1.0f / vmax ; // correction of the speed to angle
 
      ///
-     ///\brief dessin de la fleche
-     ///
+     ///\brief dessin de la flèche.
+     ///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
+
      QLinearGradient linearGradl(QPointF(xc-(9*cos((A0-v-90)*rad)),yc+(9*sin((A0-v-90)*rad))), QPointF(xc+(9*cos((A0-v-90)*rad)),yc-(9*sin((A0-v-90)*rad))));
          linearGradl.setColorAt(0, "#F93737");
          linearGradl.setColorAt(0.5, "#ff3333");

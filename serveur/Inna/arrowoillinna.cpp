@@ -6,7 +6,7 @@
 ///
 /// \file arrowoillinna.cpp
 /// \brief Classe ArrowOilLInna derivée de la classe objet_virtuel
-/// \details Permettant la création de l' aiguille de la jauge du niveu d'huile qui tourne en fonction de la valeur "value".
+/// \details Permet la création de l' aiguille de la jauge du niveu d'huile qui tourne en fonction de la valeur ***value***.
 ///
 /// \param value - la valeur du niveau d'huile
 /// \param valueMax - le niveau d'huile maximum
@@ -50,11 +50,12 @@ QRectF ArrowOilLInna::boundingRect() const
 void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 { painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
      
-    double  xol = xc +30.0*cos((A0+40+Amax/2)*rad) ;
-    double yol = yc - 30.0*sin((A0+40+Amax/2)*rad);
+    double  xol = xc +30.0*cos((A0+40+Amax/2)*rad) ; // calculation of the center
+    double yol = yc - 30.0*sin((A0+40+Amax/2)*rad); // depending on the senter of the central window
       
 ///
-///\brief dessin du circle central
+///\brief Dessin du circle central.
+/// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
 ///
       QRadialGradient radialGradol(QPointF(xol, yol), 50);
              radialGradol.setColorAt(0, Qt::black);
@@ -63,8 +64,14 @@ void ArrowOilLInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
       painter->setPen(QPen(Qt::transparent));
       painter->setBrush(QBrush(radialGradol));
       painter->drawEllipse(qRound(xol-15),qRound(yol-15),30,30);
+
+     if(l < 1.5 || l > 4.5) {painter->drawPixmap(90,400,40,40, QPixmap(":/I_Oil_red.gif"));}
+      else {painter->drawPixmap(90,400,40,40, QPixmap(":/I_Oil_white.gif"));}
+
+
 ///
-///\brief dessin de la fleche
+///\brief Dessin de la flèche.
+///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
 ///
 
     l=static_cast<double>(value);
