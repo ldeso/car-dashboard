@@ -72,7 +72,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     RearWindowHeating = new voyant_Lea(330,430,":/Lea/Icones_Voyants/rearWindowHeating_yellow.gif",40,40);
     this->addItem(RearWindowHeating);//	Chauffage de la glace arrière	CANN RW_HEAT X;
 
-    ABS = new voyant_Lea(630,210,":/Lea/Icones_Voyants/ABS2.png",60,60);
+    ABS = new voyant_Lea(630,210,":/Lea/Icones_Voyants/ABS2.png",70,60);
     this->addItem(ABS);
 
     position = new voyant_Lea(630,420,":/Lea/Icones_Voyants/dayLight.gif",50,50);
