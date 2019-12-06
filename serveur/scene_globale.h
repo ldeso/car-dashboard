@@ -38,6 +38,7 @@ public:
     objet_virtuel *OilTemp;
     objet_virtuel *SpeedLimit;
     objet_virtuel *oilLevel;
+    objet_virtuel *ABS;
 };
 
 #endif // SCENE_GLOBALE_H

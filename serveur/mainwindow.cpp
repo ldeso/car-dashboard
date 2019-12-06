@@ -640,6 +640,21 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="ABS"){
+        int abs_on = string.section(' ', 2,2).toInt();
+        if(abs_on==0 || abs_on==1){
+            dashboard->ABS->setValue(abs_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else{
         qDebug() << "erreur lors de la reception du message";
     }

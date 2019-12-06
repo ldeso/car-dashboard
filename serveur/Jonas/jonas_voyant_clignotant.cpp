@@ -1,12 +1,20 @@
 #include "jonas_voyant_clignotant.h"
 #include <QTest>
 
+/**
+ * @brief jonas_voyant_clignotant::jonas_voyant_clignotant
+ * @details constructeur par défaut
+ */
 jonas_voyant_clignotant::jonas_voyant_clignotant()
 {
     value = 0;
     enabled = 1;
 }
 
+/**
+ * @brief jonas_voyant_clignotant::updateTurn
+ * @details permet d'alterner l'affichage des clignotants
+ */
 void jonas_voyant_clignotant::updateTurn()
 {
     if (this->enabled==1){
@@ -19,11 +27,20 @@ void jonas_voyant_clignotant::updateTurn()
 //    update();
 }
 
+/**
+ * @brief jonas_voyant_clignotant::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF jonas_voyant_clignotant::boundingRect() const
 {
     return QRect(-200,-200,400,400);
 }
 
+/**
+ * @brief jonas_voyant_clignotant::paint
+ * @param painter
+ * @details dessine les clignotants
+ */
 void jonas_voyant_clignotant::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing);

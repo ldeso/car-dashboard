@@ -1,6 +1,10 @@
 #include "jonas_compteurkm.h"
 #include <QFontDatabase>
 
+/**
+ * @brief jonas_compteurKm::jonas_compteurKm
+ * @details il n'y a qu'un seul constructeur par défaut
+ */
 jonas_compteurKm::jonas_compteurKm()
 {
     this->value = 0;
@@ -8,11 +12,20 @@ jonas_compteurKm::jonas_compteurKm()
     QFontDatabase::addApplicationFont(":/LCDfont.ttf");
 }
 
+/**
+ * @brief jonas_compteurKm::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF jonas_compteurKm::boundingRect() const
 {
     return QRectF(0,0,80,30);
 }
 
+/**
+ * @brief jonas_compteurKm::paint
+ * @param painter
+ * @details dessine un écran affichant les km parcourus
+ */
 void jonas_compteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
