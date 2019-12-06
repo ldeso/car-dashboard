@@ -91,7 +91,6 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     /// Définition des différentes options graphiques
     QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
     QPen needlePen(QColor(Qt::red), gaugeSize*8/150, Qt::SolidLine, Qt::RoundCap);
-    //QLineF needle(0,0,-90,0);
     QRectF needleCenter(-10, -10, 20, 20);
 
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -150,7 +149,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     /// Dessine le cadrant intérieur
     if (critical == valueMax) {
         painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
-        painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
+        painter->drawArc(rect[1],(alpha+1)*16, (spanAngle-2)*16);
     }
 
     else {
@@ -174,7 +173,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     /// Dessine le texte autour du cadrant
     painter->setPen(QPen(QBrush(QColor(Qt::white)) , gaugeSize*15/150 , Qt::SolidLine,Qt::FlatCap));
-    painter->setFont(QFont("Ubuntu", gaugeSize*11/150, -1,false));
+    painter->setFont(QFont("Ubuntu", gaugeSize*12/150, -1,false));
     float gamma = beta;
     int j = 0;
 

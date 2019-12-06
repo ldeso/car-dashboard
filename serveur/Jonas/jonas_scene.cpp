@@ -22,13 +22,13 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     Vitesse->setValue(0);
     CompteTours = new Jonas_compteur(8000, listRpm, 70 , 210, 6000, "x1000rpm", 17, 0, 1, 100);
     CompteTours->setValue(0);
-    Essence = new Jonas_compteur(100, listFuel, -35, 35, 100, "", 3, 0, 1, 80);
-    Essence->setValue(0);
-    Essence->setPos(170,-90);
+    Essence = new Jonas_compteur(100, listFuel, 215, 145, 100, "", 3, 0, 1, 80);
+    Essence->setValue(100);
+    Essence->setPos(240,-90);
     CompteTours->setPos(-190,0);
-    jaugeTemperature = new Jonas_compteur(100, listTemp, -35, 35, 100, "", 3, 0, 1, 80);
+    jaugeTemperature = new Jonas_compteur(100, listTemp, 215, 145, 100, "", 3, 0, 1, 80);
     jaugeTemperature->setValue(0);
-    jaugeTemperature->setPos(160, 65);
+    jaugeTemperature->setPos(240, 65);
     VoyantBatterie = new jonas_voyant_simple(":/icons/icon-battery.jpg", 25, 25, 25);
     VoyantBatterie->setPos(15,75);
     croisement = new jonas_voyant_simple(":/icons/dipped-beam.jpg", 25, 25, 25);
