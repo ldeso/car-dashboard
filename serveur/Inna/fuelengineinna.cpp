@@ -47,7 +47,8 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
     ///
     ///\brief Remplissage du fond et dessin de l'arche encadrante
-    ///
+    /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une arche  encadrante avec un gradient de couleur.
+
     painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));
     painter->drawEllipse(QRectF(xc-r-20,yc-r-20,(r+20)*2,(r+20)*2));
       QRadialGradient radialGrad(QPointF(xc, yc), r+30);
@@ -57,7 +58,6 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
       radialGrad.setColorAt(1, "#f2f2f2");
       painter->setPen(QPen(QBrush(radialGrad),4,Qt::SolidLine,Qt::FlatCap));
       painter->drawArc(QRectF(xc-r-20,yc-r-20,(r+20)*2,(r+20)*2),206*16,285*16) ;
-      painter->drawPixmap(1140,315,40,40, QPixmap(":/I_engineT_blue.gif"));
 
       k = Amax * 1.0 / (tmax - 60.0) ;
       // *** engine T ticks and tect ***
@@ -69,15 +69,15 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
               {
               i<60 ? painter->setPen(QPen(QBrush("#f2f2f2"),5,Qt::SolidLine,Qt::FlatCap)) : painter->setPen(QPen(QBrush("#e60000"),6,Qt::SolidLine,Qt::FlatCap));
 
-              painter->drawLine(xc+(r+15)*cos((A0+20+k*i)*rad),yc-(r+15)*sin((A0+20+k*i)*rad),xc+(r+3)*cos((A0+20+k*i)*rad),yc-(r+3)*sin((A0+20+k*i)*rad));
+              painter->drawLine(qRound(xc+(r+15)*cos((A0+20+k*i)*rad)),qRound(yc-(r+15)*sin((A0+20+k*i)*rad)),qRound(xc+(r+3)*cos((A0+20+k*i)*rad)),qRound(yc-(r+3)*sin((A0+20+k*i)*rad)));
               painter->setFont(font);
               painter->setPen(QPen("#f5f5ef"));
-              painter->drawText(xc-dx+(r-10)*cos((A0+20+k*i)*rad),yc+dy-(r-10)*sin((A0+20+k*i)*rad),QString("%1").arg(i+60));
+              painter->drawText(qRound(xc-dx+(r-10)*cos((A0+20+k*i)*rad)),qRound(yc+dy-(r-10)*sin((A0+20+k*i)*rad)),QString("%1").arg(i+60));
               }
           else {
               i<60 ? painter->setPen(QPen(QBrush("#f2f2f2"),2,Qt::SolidLine,Qt::FlatCap)) : painter->setPen(QPen(QBrush("#e60000"),6,Qt::SolidLine,Qt::FlatCap));
 
-             painter->drawLine( xc+(r+15)*cos((A0+20+k*i)*rad),yc-(r+15)*sin((A0+20+k*i)*rad),xc+(r+8)*cos((A0+20+k*i)*rad),yc-(r+8)*sin((A0+20+k*i)*rad));
+             painter->drawLine(qRound(xc+(r+15)*cos((A0+20+k*i)*rad)),qRound(yc-(r+15)*sin((A0+20+k*i)*rad)),qRound(xc+(r+8)*cos((A0+20+k*i)*rad)),qRound(yc-(r+8)*sin((A0+20+k*i)*rad)));
 
               }
 
@@ -90,14 +90,14 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
       for (int i=0; i <= 10 ; i++) {
           if (i%5==0)
           {painter->setPen(QPen(QBrush("#f2f2f2"),5,Qt::SolidLine,Qt::FlatCap));
-          painter->drawLine(xc+(r+15)*cos((A0+220+k*i/10.0)*rad),yc-(r+15)*sin((A0+220+k*i/10.0)*rad),xc+(r+3)*cos((A0+220+k*i/10.0)*rad),yc-(r+3)*sin((A0+220+k*i/10.0)*rad));
+          painter->drawLine(qRound(xc+(r+15)*cos((A0+220+k*i/10.0)*rad)),qRound(yc-(r+15)*sin((A0+220+k*i/10.0)*rad)),qRound(xc+(r+3)*cos((A0+220+k*i/10.0)*rad)),qRound(yc-(r+3)*sin((A0+220+k*i/10.0)*rad)));
           painter->setFont(QFont("Chandas",12,QFont::Bold));
           painter->setPen(QPen("#f5f5ef"));
-          painter->drawText(xc-5+(r-10)*cos((220+k*i/10.0)*rad),yc+7-(r-10)*sin((220+k*i/10.0)*rad),QString("%1").arg(i*1./10));
+          painter->drawText(qRound(xc-5+(r-10)*cos((220+k*i/10.0)*rad)),qRound(yc+7-(r-10)*sin((220+k*i/10.0)*rad)),QString("%1").arg(i*1./10));
           }
           else {
              painter->setPen(QPen(QBrush("#f2f2f2"),2,Qt::SolidLine,Qt::FlatCap));
-             painter->drawLine( xc+(r+15)*cos((A0+220+k*i/10.0)*rad),yc-(r+15)*sin((A0+220+k*i/10.0)*rad),xc+(r+8)*cos((A0+220+k*i/10.0)*rad),yc-(r+8)*sin((A0+220+k*i/10.0)*rad));
+             painter->drawLine( qRound(xc+(r+15)*cos((A0+220+k*i/10.0)*rad)),qRound(yc-(r+15)*sin((A0+220+k*i/10.0)*rad)),qRound(xc+(r+8)*cos((A0+220+k*i/10.0)*rad)),qRound(yc-(r+8)*sin((A0+220+k*i/10.0)*rad)));
 
 }
 }

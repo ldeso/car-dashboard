@@ -86,7 +86,7 @@ Puis dans le fichier main.c du client, ajoutez votre commande "CANN votre_messag
 | jaugeTemperature           | la température du moteur                                                         | CANN ENGINE_T X                   | x  jusqu'au  value_max                                                  | 
 | SpeedLimit                 | Affichage de la limite de vitesse                                                | CANN SPEED_LIMIT X                | X=Limite de vitesse        
 | ABS                        | ABS                                                                              | CANN ABS X                      | 0=éteint, 1=allumé                                                      |
-
+|handbrake		| Frein à main enclanché								|CANN HANDBRAKE X			|0=éteint, 1=allumé							|
                                              |
 
 ## Bugs répertoriés

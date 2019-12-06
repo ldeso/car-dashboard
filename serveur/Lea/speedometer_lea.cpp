@@ -6,20 +6,17 @@
 
 
 #include "speedometer_lea.h"
-#include <QGraphicsItem>
 #include <QObject>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
-#include <QRectF>
-#include <QtMath>
 #include <QtDebug>
 #include <QPointF>
 
 ///
-/// \brief speedometer_Lea::speedometer_Lea Constructeur de la classe, permet d'initialiser tous les paramètres
+/// \brief speedometer_Lea::speedometer_Lea Constructeur de la classe, permet d'initialiser tous les paramètres ainsi que la valeur value de la classe mère à 0
 /// \param param_x position horizontale du centre du compteur
 /// \param param_y position verticale du centre du compteur
-/// \param param_r rayon et taille de l'aiguille
+/// \param param_r rayon du compteur et taille de l'aiguille
 /// \param param_start Angle de départ pour le tracé de l'arc de cercle
 /// \param param_end Angle de fin pour le tracé de l'arcle de cercle
 /// \param param_spanAngle angle total du cadran
@@ -52,7 +49,11 @@ QRectF speedometer_Lea::boundingRect() const
 
 void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-//    int v;
+///
+/// \brief calibration de "value"
+/// \details La variable "value" donnée par la fonction getValue() de la classe objet_virtuel est mise a 0 si la valeur entrée est inferieur à 0 et mise à "valueMax" si la valeur entrée est plus grande.
+///
+
     if (value>=0 && value <=valueMax) {v=qRound(value);}
     else if (value<0) {v=0;}
     else {v=valueMax;}
@@ -106,7 +107,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
             painter->setFont(font);
         if (i%20==0)
             painter->drawText(qRound(x-15+(r-40)*(cos((angle_debut-(i*span_angle/valueMax))*pi/180))),qRound(y+8-(r-40)*(sin((angle_debut-(i*span_angle/valueMax))*pi/180))),QString("%1").arg(i));
-
+//ajoute un delta au x (-15) et au y (+8) pour que le texte se retrouve en face des graduations (sinon les nombres de plus de trois chiffres empiètent sur les graduations).
         }
     }
 
@@ -128,7 +129,7 @@ void speedometer_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
     painter->setBrush(brush);
     QPointF points[3] =
     {
-          QPointF(x-9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y+9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180)),     //xc -9(taille rayon base aiguille)*cos (angle -90(angle droit aiguille))
+          QPointF(x-9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y+9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180)),     //x -9(taille rayon base aiguille)*cos (angle -90(angle droit aiguille))
           QPointF(x+r*(cos((angle_debut-(span_angle*1.0f/valueMax)*value)*pi/180)), y-r*(sin((angle_debut-(span_angle*1.0f/valueMax)*value)*pi/180))),
           QPointF(x+9*cos((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180),y-9*sin((angle_debut-(span_angle*1.0f/valueMax)*value-90)*pi/180))
      };
@@ -157,7 +158,7 @@ painter->drawEllipse(x-15,y-15,30,30);
 
 ///
 ///\brief Création de l'affichage de la vitesse.
-///\details L'affichage de la vitesse se fait avec la fonction drawText et en utilisant la value donnée par la fonction getValue() de la classe objet_virtuel.
+///\details L'affichage de la vitesse se fait avec la fonction drawText et en utilisant la variable "value" donnée par la fonction getValue() de la classe objet_virtuel.
 ///
 // ******************** Dessine l'affichage de la vitesse avec une police d'ecriture intégrée dans les ressources et appelée dans lea_scene.cpp
 

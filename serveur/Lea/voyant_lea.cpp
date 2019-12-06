@@ -6,12 +6,9 @@
 #include "voyant_lea.h"
 #include <iostream>
 #include <vector>
-#include <QGraphicsItem>
 #include <QObject>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
-#include <QRectF>
-#include <QtMath>
 #include <QtDebug>
 #include <QPointF>
 #include <QPixmap>
@@ -25,14 +22,15 @@
 /// \param param_height contrôle de la hauteur du pixmap
 ///
 
-voyant_Lea::voyant_Lea(int param_x, int param_y, QString param_chemin, int param_width, int param_height)
+voyant_Lea::voyant_Lea(int param_x, int param_y, QString param_chemin, int param_width, int param_height, QColor param_color)
 {
     x=param_x;
     y=param_y;
     chemin=param_chemin;
     width= param_width;
     height=param_height;
-
+    value = 1;
+    color = param_color;
 
 }
 
@@ -52,12 +50,17 @@ void voyant_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidg
     QPixmap voyant (chemin);
     QPixmap voyant2= voyant.scaled(width,height);
     QRadialGradient radialGrad(QPointF(x+width/2, y+height/2), width/2);
-    radialGrad.setColorAt(0, Qt::red);
-    radialGrad.setColorAt(1, QColor(0,0,0,120));
+    radialGrad.setColorAt(0, color);
+    radialGrad.setColorAt(1, Qt::transparent);
     QBrush brush(radialGrad);
+    QPen pen (Qt::transparent);
     painter->setBrush(brush);
+    painter->setPen(pen);
+    painter->setOpacity(0.7);
+    painter->drawEllipse(x,y,width,height);
+    painter->setOpacity(1);
     painter->drawPixmap(x,y,voyant2);
-  //  painter->drawEllipse(x,y,width,height);
+
   }
     else if (getValue()!=0)
     {

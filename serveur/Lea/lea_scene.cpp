@@ -3,8 +3,6 @@
 /// \brief Classe dérivée de scene_globale où sont ajoutés et paramétrés tous les composants du tableau de bord. Tous les objets doivent être définis au préalable dans scene_globale.h
 ///
 
-
-
 #include "lea_scene.h"
 #include <QFontDatabase>
 #include <QPainter>
@@ -24,11 +22,10 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     this->addItem(fond);
 
     Vitesse = new speedometer_Lea(600.0,200.0,160.0,225,270,220);
- //   Vitesse->setValue(0);
     Vitesse->setZValue(1.0);
     this->addItem(Vitesse);
 
-    Essence= new FuelGauge_lea(850,250,25,100,825,350,825,250);
+    Essence= new FuelGauge_lea(850,250,25,100);
     Essence->setZValue(1.0);
     this->addItem(Essence);
 
@@ -36,67 +33,73 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     CompteTours->setZValue(1.0);
     this->addItem(CompteTours);
 
-    jaugeTemperature = new jauge_temperature_lea(800.0,200.0,90.0,120,-20,120,130);
+    jaugeTemperature = new jauge_temperature_lea(800.0,200.0,90.0,120,120,130);
     this->addItem(jaugeTemperature);
 
-    CompteurKm = new Compteur_kilometre_lea(600,200);
+    CompteurKm = new Compteur_kilometre_lea(530,300);
     this->addItem(CompteurKm);
 
-    OpenDoorBackRightPassenger = new voyant_Lea(520,400,":/Lea/PorteOuvertePassagerD.png",80,80);
+    OpenDoorBackRightPassenger = new voyant_Lea(520,400,":/Lea/PorteOuvertePassagerD.png",80,80,Qt::transparent);
     this->addItem(OpenDoorBackRightPassenger);
 
-    OpenDoorBackLeftPassenger = new voyant_Lea(520,400,":/Lea/PorteOuvertePassagerG.png",80,80);
+    OpenDoorBackLeftPassenger = new voyant_Lea(520,400,":/Lea/PorteOuvertePassagerG.png",80,80,Qt::transparent);
     this->addItem(OpenDoorBackLeftPassenger);
 
-    OpenDoorFrontPassenger = new voyant_Lea(520,400,":/Lea/PorteOuverte.png",80,80);
+    OpenDoorFrontPassenger = new voyant_Lea(520,400,":/Lea/PorteOuverte.png",80,80,Qt::transparent);
     this->addItem(OpenDoorFrontPassenger);
 
-    OpenDoorDriver = new voyant_Lea(520,400,":/Lea/PorteOuverteConducteur.png",80,80);
+    OpenDoorDriver = new voyant_Lea(520,400,":/Lea/PorteOuverteConducteur.png",80,80,Qt::transparent);
     this->addItem(OpenDoorDriver);
 
     Clignotant = new lea_clignottants;
     this->addItem(Clignotant);
 
-    voyant_Lea *handbrakeOn = new voyant_Lea(520,430,":/Lea/Icones_Voyants/brake_warning.gif",50,50);
-    this->addItem(handbrakeOn);
+    handbrake = new voyant_Lea(520,200,":/Lea/Icones_Voyants/brake_warning.gif",50,50,Qt::red);
+    this->addItem(handbrake);
 
-    VoyantBatterie = new voyant_Lea(560,350,":/Lea/Icones_Voyants/battery.gif",50,50);
+    VoyantBatterie = new voyant_Lea(350,250,":/Lea/Icones_Voyants/battery.gif",50,50,Qt::red);
     this->addItem(VoyantBatterie);
 
-    SeatBelt = new voyant_Lea(385,430,":/Lea/Icones_Voyants/seatBeltSign_red.gif",40,40);
+    SeatBelt = new voyant_Lea(385,430,":/Lea/Icones_Voyants/seatBeltSign_red.gif",40,40,Qt::red);
     this->addItem(SeatBelt);
 
-    objet_virtuel *Oil = new voyant_Lea(360,430,":/Lea/Oil.png",50,50);
-    this->addItem(Oil);
+//    objet_virtuel *Oil = new voyant_Lea(360,430,":/Lea/Oil.png",50,50);
+//    this->addItem(Oil);
 
-    position = new voyant_Lea(630,420,":/Lea/Icones_Voyants/dayLight.gif",50,50);
+    RearWindowHeating = new voyant_Lea(330,430,":/Lea/Icones_Voyants/rearWindowHeating_yellow.gif",40,40,(Qt::yellow));
+    this->addItem(RearWindowHeating);
+
+    ABS = new voyant_Lea(630,210,":/Lea/Icones_Voyants/ABS3.png",40,40,"#f87626");
+    this->addItem(ABS);
+
+    position = new voyant_Lea(630,420,":/Lea/Icones_Voyants/dayLight.gif",50,50,Qt::green);
     this->addItem(position);
 
-    croisement =new voyant_Lea(630,420,":/Lea/Icones_Voyants/lowBeam.gif",50,50);
+    croisement =new voyant_Lea(630,420,":/Lea/Icones_Voyants/lowBeam.gif",50,50,Qt::green);
     this->addItem(croisement);
 
-    route =new voyant_Lea(630,420,":/Lea/Icones_Voyants/highBeam.gif",50,50);
+    route =new voyant_Lea(630,420,":/Lea/Icones_Voyants/highBeam.gif",50,50,Qt::blue);
     this->addItem(route);
 
-    CruiseControlOn = new voyant_Lea (550,125,":/Lea/Icones_Voyants/Cruise_Control.gif",50,50);
+    CruiseControlOn = new voyant_Lea (550,125,":/Lea/Icones_Voyants/Cruise_Control2.gif",50,50,Qt::green);
     this->addItem(CruiseControlOn);
 
-    FrontAntifog = new voyant_Lea (690,420,":/Lea/Icones_Voyants/frontFogLight.gif",50,50);
+    FrontAntifog = new voyant_Lea (690,420,":/Lea/Icones_Voyants/frontFogLight.gif",50,50,Qt::yellow);
     this->addItem(FrontAntifog);
 
-    RearAntifog = new voyant_Lea (740,420,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50);
+    RearAntifog = new voyant_Lea (740,420,":/Lea/Icones_Voyants/rearFogLight_blue.gif",50,50,Qt::blue);
     this->addItem(RearAntifog);
 
-    CheckEngine = new voyant_Lea (400,350,":/Lea/Icones_Voyants/checkEngine.gif",50,50);
+    CheckEngine = new voyant_Lea (400,350,":/Lea/Icones_Voyants/checkEngine.gif",50,50,Qt::red);
     this->addItem(CheckEngine);
 
-    AirbagOn= new voyant_Lea (720,350,":/Lea/Icones_Voyants/airBag.gif",50,50);
+    AirbagOn= new voyant_Lea (720,350,":/Lea/Icones_Voyants/airBag.gif",50,50,Qt::red);
     this->addItem(AirbagOn);
 
-    BootOpen = new voyant_Lea (400,400,":/Lea/Icones_Voyants/bootOpen_red.gif",50,50);
+    BootOpen = new voyant_Lea (440,400,":/Lea/Icones_Voyants/bootOpen_red.gif",50,50,Qt::red);
     this->addItem(BootOpen);
 
-    BonnetOpen = new voyant_Lea (400,440,":/Lea/Icones_Voyants/bonnetOpen_red.gif",50,50);
+    BonnetOpen = new voyant_Lea (440,440,":/Lea/Icones_Voyants/bonnetOpen_red.gif",50,50,Qt::red);
     this->addItem(BonnetOpen);
 
     warning = new warning_lea (590,120,":/Lea/Icones_Voyants/hazardLights.gif",30,30);
