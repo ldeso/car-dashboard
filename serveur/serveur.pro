@@ -119,7 +119,8 @@ SOURCES += \
     Lea/compteur_kilometre_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
-    Harout/harc.cpp
+    Harout/harc.cpp \
+    Karim/voyants_warning.cpp
    
 
 HEADERS += \
@@ -212,7 +213,8 @@ HEADERS += \
     Lea/compteur_kilometre_lea.h \
     Harout/harout_scene.h \
     Harout/cadran.h \
-    Harout/harc.h
+    Harout/harc.h \
+    Karim/voyants_warning.h
 
 FORMS += \
         mainwindow.ui \

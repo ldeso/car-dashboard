@@ -1,5 +1,6 @@
 #include "Karim/karim_scene.h"
 #include "Karim/voyants.h"
+#include "Karim/voyants_warning.h"
 
 karim_scene::karim_scene()
 {
@@ -9,15 +10,19 @@ karim_scene::karim_scene()
     Essence= new CadranEss();
     jaugeTemperature = new CadranEss();
     Clignotant = new clignot();
-    VoyantBatterie = new Voyants(":/Icones/batterie.jpg",-50,-20,50);
-    position= new Voyants(":/Icones/antibrouillard.jpg",-50,-100,50);
-    croisement= new Voyants(":/Icones/feucroisement.jpg",-200,-100,50);
-    route= new Voyants(":/Icones/pleinphare.jpg",-120,-100,50);
-    SeatBelt= new Voyants(":/Icones/ceinture.jpg",-120,-20,50);
-    OpenDoorDriver= new Voyants(":/Icones/portouverte.jpg",-200,-20,50);
-    OpenDoorBackLeftPassenger= new Voyants(":/Icones/portouverte.jpg",-200,-20,50);
-    OpenDoorBackRightPassenger= new Voyants(":/Icones/portouverte.jpg",-200,-20,50);
-    OpenDoorFrontPassenger= new Voyants(":/Icones/portouverte.jpg",-200,-20,50);
+    VoyantBatterie = new Voyants(":/Lea/Icones_Voyants/battery.gif",-50,-20,50);
+    position= new Voyants(":/Lea/Icones_Voyants/dayLight.gif",-50,-100,50);
+    croisement= new Voyants(":/Lea/Icones_Voyants/lowBeam.gif",-50,-100,50);
+    route= new Voyants(":/Lea/Icones_Voyants/highBeam.gif",-50,-100,50);
+    AirbagOn=new Voyants(":/Lea/Icones_Voyants/airBag.gif",-200,-100,50);
+    CheckEngine=new Voyants(":/Images/check_engine.jpg",-120,-100,50);
+    SeatBelt= new Voyants(":/Lea/Icones_Voyants/seatBeltSign_red.gif",-120,-20,50);
+    OpenDoorDriver= new Voyants(":/Lea/PorteOuverteConducteur.png",-200,-20,50);
+    OpenDoorBackLeftPassenger= new Voyants(":/Lea/PorteOuvertePassagerG.png",-200,-20,50);
+    OpenDoorBackRightPassenger= new Voyants(":/Lea/PorteOuvertePassagerD.png",-200,-20,50);
+    OpenDoorFrontPassenger= new Voyants(":/Lea/PorteOuverte.png",-200,-20,50);
+    warning=new voyants_warning;
+    warning->setValue(0);
 
     Vitesse->setPos(-400,100);
     CompteTours->setPos(200,100);
@@ -25,6 +30,8 @@ karim_scene::karim_scene()
     jaugeTemperature->setPos(370,-250);
     //Essence->setPos(-400,100);
     //jaugeTemperature->setPos(800,100);
+
+
 
     this->setBackgroundBrush(Qt::black);
     this->addItem(Vitesse);
@@ -36,10 +43,13 @@ karim_scene::karim_scene()
     this->addItem(position);
     this->addItem(croisement);
     this->addItem(route);
+    this->addItem(AirbagOn);
+    this->addItem(CheckEngine);
     this->addItem(SeatBelt);
     this->addItem(OpenDoorDriver);
     this->addItem(OpenDoorBackLeftPassenger);
     this->addItem(OpenDoorBackRightPassenger);
     this->addItem(OpenDoorFrontPassenger);
+    this->addItem(warning);
 
 }

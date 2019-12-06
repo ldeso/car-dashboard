@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new harout_scene();
+    dashboard=new hugo_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -640,7 +640,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="ABS"){
+    else if(message=="CANN ABS"){
         int abs_on = string.section(' ', 2,2).toInt();
         if(abs_on==0 || abs_on==1){
             dashboard->ABS->setValue(abs_on);
