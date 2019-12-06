@@ -49,7 +49,8 @@ void FuelLevelInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
     double yf=yc-30.0*sin((A0+220+Amax/2)*rad);
     ///
     ///\brief dessin du circle central
-    ///
+    /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une ellipse avec un gradient de couleur.
+
         QRadialGradient radialGradol(QPointF(xf, yf), 50);
         radialGradol.setColorAt(0, Qt::black);
         radialGradol.setColorAt(1, "#e0e0d1");
@@ -58,7 +59,8 @@ void FuelLevelInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
         painter->drawEllipse(qRound(xf-15),qRound(yf-15),30,30);
 
         ///
-        ///\brief dessin de la fleche
+        ///\brief Dessin de la flèche.
+        ///\details On crée le gradient linear et un triangle, qu'on remplie avec un gradient de couleur. La position de la pointe de flèche est mathematiquement calculée.
         ///
     l = static_cast<double>(value);
 

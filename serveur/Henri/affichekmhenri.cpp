@@ -1,5 +1,12 @@
+///
+///\file afficheKmHenri.cpp
+/// \brief Classe dérivant de objet_virtuel permettant l'affichage du nombre de km parcourut.
+///
 #include "affichekmhenri.h"
 
+///
+/// \brief afficheKmHenri::afficheKmHenri
+///\details Initialise la variable value de la classe mère à 0
 afficheKmHenri::afficheKmHenri(objet_virtuel *parent):objet_virtuel (parent)
 {
     value=0;
