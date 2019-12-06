@@ -28,15 +28,15 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     /*re draw new method*/
 
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i < 20; i+=1)
+    for (int i= 0; i <= 30; i+=1)
     {
-        QRectF rectangle(-100+i, -100+i, 200.0-2*i, 200.0-2*i);
+        QRectF rectangle(-200+i, -200+i, 400.0-2*i,400.0-2*i);
         int startAngle = -45* 16;
         int spanAngle = 280* 16;
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,255-20*i);
+        QColor mCol(17,225,230,220-20*i);
         mPen.setCapStyle(Qt::RoundCap);
         mPen.setWidth(1);
         mPen.setColor(mCol);
@@ -60,11 +60,11 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         QPoint startLinePos;
         QPoint endLinePos;
 
-        startLinePos.setX(98 * cos(theta*pi/180));
-        startLinePos.setY(-98*sin(theta*pi/180));
+        startLinePos.setX(198 * cos(theta*pi/180));
+        startLinePos.setY(-198*sin(theta*pi/180));
 
-        endLinePos.setX(80* cos(theta*pi/180));
-        endLinePos.setY(-80*sin(theta*pi/180));
+        endLinePos.setX(180* cos(theta*pi/180));
+        endLinePos.setY(-180*sin(theta*pi/180));
 
         QLine Ticks;
         Ticks.setPoints(startLinePos,endLinePos);
@@ -73,11 +73,11 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         painter->drawLine(Ticks);
 
         QLine graduations;
-        startLinePos.setX(98 * cos((theta+10)*pi/180));
-        startLinePos.setY(-98*sin((theta+10)*pi/180));
+        startLinePos.setX(198 * cos((theta+10)*pi/180));
+        startLinePos.setY(-198*sin((theta+10)*pi/180));
 
-        endLinePos.setX(90 * cos((theta+10)*pi/180));
-        endLinePos.setY(-90 *sin((theta+10)*pi/180));
+        endLinePos.setX(190 * cos((theta+10)*pi/180));
+        endLinePos.setY(-190 *sin((theta+10)*pi/180));
 
         graduations.setPoints(startLinePos,endLinePos);
         painter->setRenderHint(QPainter::Antialiasing);
@@ -85,16 +85,21 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         painter->setPen(QPen(QBrush("white") ,3, Qt::SolidLine,Qt::SquareCap));
         painter->drawLine(graduations);
 
+        QFont displayFont("Courier");
+        displayFont.setPointSize(25);
+        displayFont.setWeight(75);
+        painter->setFont(displayFont);
+
         int j = -(theta-235);
         if (theta < 90)
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((110*cos((theta)*pi/180)),(-110 *sin((theta)*pi/180)),QString("%1").arg(j));}
+            painter->drawText((210*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));}
 
         else
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((130*cos((theta)*pi/180)),(-110 *sin((theta)*pi/180)),QString("%1").arg(j));};
+            painter->drawText((250*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));};
         }
 
     /* function to get the speed Value and put needle at the right position*/
@@ -114,8 +119,8 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         qDebug()<<"needleAngle"<< needleAngle;
 
 
-        needlestopPos.setX(96 * cos((needleAngle)*pi/180));
-        needlestopPos.setY(-96*sin((needleAngle)*pi/180));
+        needlestopPos.setX(196 * cos((needleAngle)*pi/180));
+        needlestopPos.setY(-196*sin((needleAngle)*pi/180));
 
         needle.setPoints(needlestartPos,needlestopPos);
 
@@ -125,7 +130,7 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         painter->drawLine(needle);
 
         painter->setPen(QPen(QBrush("white"),3,Qt::SolidLine, Qt::SquareCap));
-        painter->drawEllipse(-5,-5,10,10);
+        painter->drawEllipse(-10,-10,20,20);
 
         //draw text to write km/h
         painter->setPen(QPen(QBrush("gray"),5,Qt::SolidLine, Qt::SquareCap));
