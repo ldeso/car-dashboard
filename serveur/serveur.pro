@@ -121,6 +121,123 @@ SOURCES += \
     Lea/horloge_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
+<<<<<<< HEAD \
+    Florian/cadrantflorian.cpp \
+    Florian/cadrantvirtuel.cpp \
+    Florian/florianclignotant.cpp \
+    Florian/floriancompteurkm.cpp \
+    Florian/florianvoyant.cpp \
+    Florian/jaugevirtuel.cpp \
+    Florian/main.cpp \
+    Florian/mainwindow.cpp \
+    Florian/scenedefond.cpp \
+    Florian/sceneflorian.cpp \
+    Florian/sceneglobale.cpp \
+    Harout/cadran.cpp \
+    Harout/harc.cpp \
+    Harout/harout_scene.cpp \
+    Henri/affichekmhenri.cpp \
+    Henri/cadranthenri.cpp \
+    Henri/henri_scene.cpp \
+    Henri/jaugeclignotanthenri.cpp \
+    Henri/jaugeessencehenri.cpp \
+    Henri/jaugetemperaturehenri.cpp \
+    Henri/jaugetoursminutehenri.cpp \
+    Henri/main.cpp \
+    Henri/mainwindow.cpp \
+    Henri/onoff.cpp \
+    Henri/onoffpainthenri.cpp \
+    Henri/porteshenri.cpp \
+    Henri/scenedefondhenri.cpp \
+    Henri/warninghenri.cpp \
+    Hugo/hugo_boite_vitesse.cpp \
+    Hugo/hugo_compteur.cpp \
+    Hugo/hugo_ecran.cpp \
+    Hugo/hugo_mygraphicsitem.cpp \
+    Hugo/hugo_scene.cpp \
+    Hugo/hugo_voyant_warning.cpp \
+    Hugo/hugo_voyants_clignotant.cpp \
+    Hugo/hugo_voyants_simples.cpp \
+    Inna/arrowoill.cpp \
+    Inna/arrowoillinna.cpp \
+    Inna/arrowoilt.cpp \
+    Inna/arrowoiltinna.cpp \
+    Inna/arrowspeedometerinna.cpp \
+    Inna/arrowtachometerinna.cpp \
+    Inna/clignotantinna.cpp \
+    Inna/compteurkminna.cpp \
+    Inna/enginetinna.cpp \
+    Inna/fuelengine.cpp \
+    Inna/fuelengineinna.cpp \
+    Inna/fuellevelinna.cpp \
+    Inna/iconinna.cpp \
+    Inna/icononoff.cpp \
+    Inna/icononoffinna.cpp \
+    Inna/infowindowinna.cpp \
+    Inna/inna_scene.cpp \
+    Inna/oilgaugeinna.cpp \
+    Inna/prnd.cpp \
+    Inna/prnd_inna.cpp \
+    Inna/speedometerinna.cpp \
+    Inna/tachometerinna.cpp \
+    Jonas/jonas_compteur.cpp \
+    Jonas/jonas_compteurkm.cpp \
+    Jonas/jonas_scene.cpp \
+    Jonas/jonas_voyant_clignotant.cpp \
+    Jonas/jonas_voyant_simple.cpp \
+    Jonas/jonas_voyant_warning.cpp \
+    Karim/cadranEss.cpp \
+    Karim/cadrantourparmin.cpp \
+    Karim/CadranVitesse.cpp \
+    Karim/clignot.cpp \
+    Karim/karim_scene.cpp \
+    Karim/voyants.cpp \
+    Karim/voyants_warning.cpp \
+    Lea/aiguille_lea.cpp \
+    Lea/compteur_kilometre_lea.cpp \
+    Lea/fuelgauge_lea.cpp \
+    Lea/horloge_lea.cpp \
+    Lea/jauge_temperature_lea.cpp \
+    Lea/lea_clignottants.cpp \
+    Lea/lea_scene.cpp \
+    Lea/lea_scenedefond.cpp \
+    Lea/main.cpp \
+    Lea/mainwindow.cpp \
+    Lea/mygraphicitem.cpp \
+    Lea/speedometer_lea.cpp \
+    Lea/tachometergauge_lea.cpp \
+    Lea/voyant_lea.cpp \
+    Lea/warning_lea.cpp \
+    Leo/leo_display.cpp \
+    Leo/leo_gauge.cpp \
+    Leo/leo_indicator.cpp \
+    Leo/leo_label.cpp \
+    Leo/leo_object.cpp \
+    Leo/leo_scene.cpp \
+    Loto/fuel_guage.cpp \
+    Loto/leds.cpp \
+    Loto/loto_dashboard.cpp \
+    Loto/loto_scene.cpp \
+    Loto/tachometre.cpp \
+    Loto/tempgauge.cpp \
+    Maroua/cadrantcontour.cpp \
+    Maroua/cadrantessence.cpp \
+    Maroua/cadranttempmoteur.cpp \
+    Maroua/cadranttour.cpp \
+    Maroua/cadrantvitesse.cpp \
+    Maroua/maroua_scene.cpp \
+    Maroua/voyants.cpp \
+    Youcef/cardialerprototype.cpp \
+    Youcef/carspeeddial.cpp \
+    Youcef/engineheatgauge.cpp \
+    Youcef/fuelgauge.cpp \
+    Youcef/tachometer.cpp \
+    Youcef/voyantsyoucef.cpp \
+    Youcef/youcef_scene.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    objet_virtuel.cpp \
+    scene_globale.cpp
 <<<<<<< HEAD
     Harout/harc.cpp \
     Florian/cadrantflorian.cpp \
@@ -240,6 +357,11 @@ SOURCES += \
     Harout/harc.cpp
 
 >>>>>>> f284ba241d578ff529edaf5a0c2e4ba312ac0cdb
+=======
+    Harout/harc.cpp \
+    Karim/voyants_warning.cpp
+    Harout/harc.cpp
+>>>>>>> ba1ff125b82aec671b82f2186fb9ebe8de2d30b4
    
 
 HEADERS += \
@@ -334,6 +456,115 @@ HEADERS += \
     Harout/harout_scene.h \
     Harout/cadran.h \
     Harout/harc.h \
+<<<<<<< HEAD \
+    Florian/cadrantflorian.h \
+    Florian/cadrantvirtuel.h \
+    Florian/florianclignotant.h \
+    Florian/floriancompteurkm.h \
+    Florian/florianvoyant.h \
+    Florian/jaugevirtuel.h \
+    Florian/mainwindow.h \
+    Florian/scenedefond.h \
+    Florian/sceneflorian.h \
+    Florian/sceneglobale.h \
+    Harout/cadran.h \
+    Harout/harc.h \
+    Harout/harout_scene.h \
+    Henri/affichekmhenri.h \
+    Henri/cadranthenri.h \
+    Henri/henri_scene.h \
+    Henri/jaugeclignotanthenri.h \
+    Henri/jaugeessencehenri.h \
+    Henri/jaugetemperaturehenri.h \
+    Henri/jaugetoursminutehenri.h \
+    Henri/mainwindow.h \
+    Henri/onoff.h \
+    Henri/onoffpainthenri.h \
+    Henri/porteshenri.h \
+    Henri/scenedefondhenri.h \
+    Henri/warninghenri.h \
+    Hugo/hugo_boite_vitesse.h \
+    Hugo/hugo_compteur.h \
+    Hugo/hugo_ecran.h \
+    Hugo/hugo_mygraphicsitem.h \
+    Hugo/hugo_scene.h \
+    Hugo/hugo_voyant_warning.h \
+    Hugo/hugo_voyants_clignotant.h \
+    Hugo/hugo_voyants_simples.h \
+    Inna/arrowoillinna.h \
+    Inna/arrowoiltinna.h \
+    Inna/arrowspeedometerinna.h \
+    Inna/arrowtachometerinna.h \
+    Inna/clignotantinna.h \
+    Inna/compteurkminna.h \
+    Inna/enginetinna.h \
+    Inna/fuelengineinna.h \
+    Inna/fuellevelinna.h \
+    Inna/iconinna.h \
+    Inna/icononoff.h \
+    Inna/icononoffinna.h \
+    Inna/infowindowinna.h \
+    Inna/inna_scene.h \
+    Inna/oilgaugeinna.h \
+    Inna/prnd_inna.h \
+    Inna/speedometerinna.h \
+    Inna/tachometerinna.h \
+    Jonas/jonas_compteur.h \
+    Jonas/jonas_compteurkm.h \
+    Jonas/jonas_scene.h \
+    Jonas/jonas_voyant_clignotant.h \
+    Jonas/jonas_voyant_simple.h \
+    Jonas/jonas_voyant_warning.h \
+    Karim/cadranEss.h \
+    Karim/cadrantourparmin.h \
+    Karim/CadranVitesse.h \
+    Karim/clignot.h \
+    Karim/karim_scene.h \
+    Karim/voyants.h \
+    Karim/voyants_warning.h \
+    Lea/aiguille_lea.h \
+    Lea/compteur_kilometre_lea.h \
+    Lea/fuelgauge_lea.h \
+    Lea/horloge_lea.h \
+    Lea/jauge_temperature_lea.h \
+    Lea/lea_clignottants.h \
+    Lea/lea_scene.h \
+    Lea/lea_scenedefond.h \
+    Lea/mainwindow.h \
+    Lea/mygraphicitem.h \
+    Lea/speedometer_lea.h \
+    Lea/tachometergauge_lea.h \
+    Lea/voyant_lea.h \
+    Lea/warning_lea.h \
+    Leo/leo_display.h \
+    Leo/leo_gauge.h \
+    Leo/leo_indicator.h \
+    Leo/leo_label.h \
+    Leo/leo_object.h \
+    Leo/leo_scene.h \
+    Loto/fuel_guage.h \
+    Loto/leds.h \
+    Loto/loto_dashboard.h \
+    Loto/loto_scene.h \
+    Loto/tachometre.h \
+    Loto/tempgauge.h \
+    Maroua/cadrantcontour.h \
+    Maroua/cadrantessence.h \
+    Maroua/cadranttempmoteur.h \
+    Maroua/cadranttour.h \
+    Maroua/cadrantvitesse.h \
+    Maroua/maroua_scene.h \
+    Maroua/voyants.h \
+    Youcef/cardialerprototype.h \
+    Youcef/carspeeddial.h \
+    Youcef/engineheatgauge.h \
+    Youcef/fuelgauge.h \
+    Youcef/tachometer.h \
+    Youcef/voyantsyoucef.h \
+    Youcef/youcef_scene.h \
+    mainwindow.h \
+    objet_virtuel.h \
+    scene_globale.h
     Florian/cadrantflorian.h \
     Florian/cadrantvirtuel.h \
     Florian/florianclignotant.h \
@@ -439,6 +670,9 @@ HEADERS += \
     mainwindow.h \
     objet_virtuel.h \
     scene_globale.h
+=======
+    Karim/voyants_warning.h
+>>>>>>> ba1ff125b82aec671b82f2186fb9ebe8de2d30b4
 
 FORMS += \
         mainwindow.ui \
