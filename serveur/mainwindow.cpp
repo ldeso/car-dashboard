@@ -626,7 +626,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="ABS"){
+    else if(message=="CANN ABS"){
         int abs_on = string.section(' ', 2,2).toInt();
         if(abs_on==0 || abs_on==1){
             dashboard->ABS->setValue(abs_on);
@@ -650,8 +650,8 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
     if (dashboard->CompteurKm)
-         //dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
-        ui->graphicsView->scene()->update();
+        dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+     ui->graphicsView->scene()->update();
 }
 
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée

@@ -36,7 +36,7 @@ QRectF Compteur_kilometre_lea::boundingRect() const
 ///
 /// \brief Compteur_kilometre_lea::paint
 /// \param painter
-/// \details La fonction paint va permettre de réaliser un affichage pour les compteurs kilometriques (compteur total initialisé à une valeur aléatoire et compteur du voyage initialisé à 0), de récupérer le kilometrage avec la fonction getValue() et d'afficher l'heure.
+/// \details La fonction paint va permettre de réaliser un affichage pour le compteur kilometrique et de récupérer le kilometrage avec la fonction getValue().
 ///
 void Compteur_kilometre_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
@@ -70,5 +70,4 @@ void Compteur_kilometre_lea::paint(QPainter *painter, const QStyleOptionGraphics
     painter->drawText(affiche_km_trip_A_texte, Qt::AlignRight ,QString("km "));
     painter->drawText(affiche_time, Qt::AlignLeft ,QString("   Time"));
     painter->drawText(affiche_km_totaux, Qt::AlignLeft ,QString("   ODOMETRE"));
-
 }
