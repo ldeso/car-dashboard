@@ -60,6 +60,8 @@
         <file>Icones_Voyants/tyrePressure_red.gif</file>
         <file>Icones_Voyants/tyrePressure_yellow.gif</file>
         <file>Icones_Voyants/Cruise_Control.gif</file>
+        <file>Icones_Voyants/ABS.png</file>
+        <file>Icones_Voyants/ABS2.png</file>
     </qresource>
     <qresource prefix="/Effets">
         <file>effet_verre4.png</file>

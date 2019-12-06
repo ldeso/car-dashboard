@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
+
     dashboard=new henri_scene();
 
     ui->graphicsView->setScene(dashboard);
@@ -173,7 +174,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -230,6 +231,11 @@ void MainWindow::reception()
             if (prenom=="HAROUT"){
                 delete dashboard;
                 dashboard = new harout_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="MAROUA"){
+                delete dashboard;
+                dashboard = new maroua_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
@@ -641,6 +647,21 @@ void MainWindow::reception()
         }
     }
 
+    else if(message=="CANN HANDBRAKE"){
+        int handbrake_on = string.section(' ', 2,2).toInt();
+        if(handbrake_on==0 || handbrake_on==1){
+            dashboard->handbrake->setValue(handbrake_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else{
         qDebug() << "erreur lors de la reception du message";
     }
@@ -649,8 +670,8 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-        dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
-        ui->graphicsView->scene()->update();
+    dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+    ui->graphicsView->scene()->update();
 }
 
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée

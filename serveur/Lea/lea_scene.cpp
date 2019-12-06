@@ -60,7 +60,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     voyant_Lea *handbrakeOn = new voyant_Lea(520,430,":/Lea/Icones_Voyants/brake_warning.gif",50,50);
     this->addItem(handbrakeOn);
 
-    VoyantBatterie = new voyant_Lea(560,350,":/Lea/Icones_Voyants/battery.gif",50,50);
+    VoyantBatterie = new voyant_Lea(350,250,":/Lea/Icones_Voyants/battery.gif",50,50);
     this->addItem(VoyantBatterie);
 
     SeatBelt = new voyant_Lea(385,430,":/Lea/Icones_Voyants/seatBeltSign_red.gif",40,40);
@@ -68,6 +68,12 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 
     objet_virtuel *Oil = new voyant_Lea(360,430,":/Lea/Oil.png",50,50);
     this->addItem(Oil);
+
+    RearWindowHeating = new voyant_Lea(330,430,":/Lea/Icones_Voyants/rearWindowHeating_yellow.gif",40,40);
+    this->addItem(RearWindowHeating);//	Chauffage de la glace arrière	CANN RW_HEAT X;
+
+    ABS = new voyant_Lea(630,210,":/Lea/Icones_Voyants/ABS2.png",70,60);
+    this->addItem(ABS);
 
     position = new voyant_Lea(630,420,":/Lea/Icones_Voyants/dayLight.gif",50,50);
     this->addItem(position);

@@ -7,7 +7,7 @@ namespace {
         qreal arcLength;
     };
 
-    QPainterPath Outline(Shape shape)
+    QPainterPath Outline(const Shape shape)
     {
         QPainterPath path;
         path.arcMoveTo(shape.rect, shape.startAngle);
@@ -15,16 +15,16 @@ namespace {
         return path;
     }
 
-    QPainterPath Ticks(Shape shape, int bigSteps, int smallSteps)
+    QPainterPath Ticks(const Shape shape, const int divisions, const  int subdivisions)
     {
         QPainterPath path;
         qreal len = 5;
         QRectF big = shape.rect.adjusted(len, len, -len, -len);
         QRectF small = shape.rect.adjusted(len/2, len/2, -len/2, -len/2);
-        for (int i = 0; i <= smallSteps; ++i) {
-            qreal angle = i*(shape.arcLength)/smallSteps + shape.startAngle;
+        for (int i = 0; i <= subdivisions; ++i) {
+            qreal angle = i*(shape.arcLength)/subdivisions + shape.startAngle;
             path.arcMoveTo(shape.rect, angle);
-            if (i % (smallSteps/bigSteps))
+            if (i % (subdivisions/divisions))
                 path.arcTo(small, angle, 0);
             else
                 path.arcTo(big, angle, 0);
@@ -32,7 +32,7 @@ namespace {
         return path;
     }
 
-    void DrawScale(QPainter* painter, Shape shape, int max, int step)
+    void DrawScale(QPainter* painter, const Shape shape, const int max, const int step)
     {
         qreal distance = 0.47 * shape.rect.width() - 15;
         for (int val = 0; val <= max; val += step) {
@@ -44,12 +44,12 @@ namespace {
         }
     }
 
-    QPainterPath Needle(Shape shape, float val, int max)
+    QPainterPath Needle(const Shape shape, const qreal val, const int max)
     {
         qreal len = 0.50 * shape.rect.width() - 10;
         QPainterPath path(shape.rect.center());
         qreal angle = qDegreesToRadians(
-            static_cast<qreal>(val)*shape.arcLength/max+shape.startAngle
+            val*shape.arcLength/max+shape.startAngle
         );
         QPointF pos(len*qCos(angle), -len*qSin(angle));
         path.lineTo(pos + shape.rect.center());
@@ -57,34 +57,39 @@ namespace {
     }
 }
 
-Leo_gauge::Leo_gauge(QRectF boundingRect, int max, int bigStep, int smallStep, QGraphicsItem* parent)
+Leo_gauge::Leo_gauge(const QRectF boundingRect, QGraphicsItem *parent)
     : Leo_object(boundingRect, parent)
-    , mBigStep(bigStep)
-    , mSmallStep(smallStep)
 {
-    valueMax = max;
+    setData(MAX, 100);
+    setData(DIVS, 10);
+    setData(SUBDIVS, 20);
+    setData(STARTANGLE, -145);
+    setData(ARCLENGTH, -250);
+    setData(WIDTH, 2);
+    setData(FONT, 10);
+    valueMax = data(MAX).toInt();
 }
 
 void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     Shape shape {
         mBoundingRect.adjusted(
-            mPenWidth/2,
-            mPenWidth/2,
-            -mPenWidth/2,
-            -mPenWidth/2
+            data(WIDTH).toReal() / 2,
+            data(WIDTH).toReal() / 2,
+            -data(WIDTH).toReal() / 2,
+            -data(WIDTH).toReal() / 2
         ),
-        mStartAngle,
-        mArcLength
+        data(STARTANGLE).toReal(),
+        data(ARCLENGTH).toReal()
     };
     QFont font = painter->font();
-    font.setPixelSize(10);
+    font.setPixelSize(data(FONT).toInt());
     painter->setFont(font);
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(QPen(Qt::white, mPenWidth));
+    painter->setPen(QPen(Qt::white, data(WIDTH).toReal()));
     painter->drawPath(Outline(shape));
-    painter->drawPath(Ticks(shape, valueMax/mBigStep, valueMax/mSmallStep));
-    DrawScale(painter, shape, valueMax, mBigStep);
-    painter->setPen(QPen(Qt::red, mPenWidth));
-    painter->drawPath(Needle(shape, value, valueMax));
+    painter->drawPath(Ticks(shape, data(DIVS).toInt(), data(SUBDIVS).toInt()));
+    DrawScale(painter, shape, valueMax, valueMax/data(DIVS).toInt());
+    painter->setPen(QPen(Qt::red, data(WIDTH).toReal()));
+    painter->drawPath(Needle(shape, static_cast<qreal>(value), valueMax));
 }

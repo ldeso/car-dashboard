@@ -122,7 +122,14 @@ SOURCES += \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
     Harout/harc.cpp \
-    Karim/voyants_warning.cpp
+    Karim/voyants_warning.cpp \
+    Maroua/cadrantcontour.cpp \
+    Maroua/cadrantessence.cpp \
+    Maroua/cadranttempmoteur.cpp \
+    Maroua/cadranttour.cpp \
+    Maroua/cadrantvitesse.cpp \
+    Maroua/maroua_scene.cpp \
+    Maroua/voyantsmaroua.cpp
     Harout/harc.cpp
    
 
@@ -218,7 +225,14 @@ HEADERS += \
     Harout/harout_scene.h \
     Harout/cadran.h \
     Harout/harc.h \
-    Karim/voyants_warning.h
+    Karim/voyants_warning.h \
+    Maroua/cadrantcontour.h \
+    Maroua/cadrantessence.h \
+    Maroua/cadranttempmoteur.h \
+    Maroua/cadranttour.h \
+    Maroua/cadrantvitesse.h \
+    Maroua/maroua_scene.h \
+    Maroua/voyantsmaroua.h
 
 FORMS += \
         mainwindow.ui \

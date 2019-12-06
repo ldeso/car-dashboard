@@ -100,8 +100,9 @@ void helpMessage(){
     puts("CANN CRUISE_CONTROL_ON x avec 0 eteint et 1 allumé" );
     puts("CANN ENGINE_T x avec x = temperature du moteur" );
     puts("CANN OIL_T x avec x = temperature de l'huile" );
-    puts("CANN OIL_L x avec x = niveau de l'huile du moteur");
-    puts("CANN SIM x avec x la vitesse de diminution pour une simulation");
+    puts("CANN OIL_L x avec x = niveu de l'huile du moteur");
+    puts("CANN SIM x avac x la vitesse de diminution");
+    puts("CANN HANDBRAKE x avec x=0 éteint et x=1 allumé");
 }
 
 /**
