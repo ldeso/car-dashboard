@@ -91,20 +91,9 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     /// Définition des différentes options graphiques
     QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
     QPen needlePen(QColor(Qt::red), gaugeSize*8/150, Qt::SolidLine, Qt::RoundCap);
-    QRectF needleCenter(-10, -10, 20, 20);
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Définition des gradients
-    QRadialGradient radialGradient;
-    QLinearGradient linearGradient;
-    linearGradient.setColorAt(0.0, Qt::white);
-    linearGradient.setColorAt(0.3, QColor(172, 154, 154));
-    radialGradient.setColorAt(0.0, Qt::black);
-    radialGradient.setColorAt(1.0, Qt::white);
-    linearGradient.setSpread(QGradient::ReflectSpread);
-    radialGradient.setSpread(QGradient::ReflectSpread);
-    //////////////////////////////////////////////////////////////////////////////////////////
 
     /// Dessine les carrés qui vont contenir les différents élements du cadrant
     QRect rect[50];
@@ -116,7 +105,27 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     painter->setPen(Qt::white);
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    // Dessine les graduations du cadrant
+    /// Définition des gradients
+    QRadialGradient radialGrad1(QPointF(0,0), rect[2].height()/2);
+    QLinearGradient linearGrad1(rect[0].topLeft(), rect[0].bottomRight());
+    QLinearGradient linearGrad2(rect[2].topLeft(), rect[2].bottomRight());
+    linearGrad1.setColorAt(1.0, Qt::white);
+    linearGrad1.setColorAt(0.0, QColor(169, 165, 166));
+    linearGrad2.setColorAt(0.0, Qt::white);
+    linearGrad2.setColorAt(1.0, Qt::black);
+    radialGrad1.setColorAt(1.0, Qt::black);
+    radialGrad1.setColorAt(0.0, Qt::white);
+    linearGrad1.setSpread(QGradient::ReflectSpread);
+    linearGrad2.setSpread((QGradient::ReflectSpread));
+    radialGrad1.setSpread(QGradient::ReflectSpread);
+
+    /// Dessine les gradients en arrière plan
+//    painter->setBrush(QBrush(radialGrad1));
+//    painter->setPen(Qt::NoPen);
+//    painter->drawEllipse(QPoint(0,0), rect[2].height()/2, rect[2].height()/2);
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    /// Dessine les graduations du cadrant
     int k = 0;
     float delta = beta;
     for (int i=0; i<graduations; i++)
@@ -148,7 +157,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     /// Dessine le cadrant intérieur
     if (critical == valueMax) {
-        painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
+        painter->setPen(QPen(QBrush(QColor("dark blue")), 8));
         painter->drawArc(rect[1],(alpha+1)*16, (spanAngle-2)*16);
     }
 
@@ -164,7 +173,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     /// Dessine le cadrant extérieur
     QPointF p1(qCos(qDegreesToRadians(beta+15))*rect[0].height()/2, -qSin(qDegreesToRadians(beta+15))*rect[0].height()/2);
     QPointF p2(qCos(qDegreesToRadians(alpha-15))*rect[0].height()/2, -qSin(qDegreesToRadians(alpha-15))*rect[0].height()/2);
-    painter->setPen(QPen(QBrush(linearGradient), 7, Qt::SolidLine,Qt::RoundCap));
+    painter->setPen(QPen(QBrush(linearGrad1), 7, Qt::SolidLine,Qt::RoundCap));
     painter->drawArc(rect[0],(alpha-15)*16, (spanAngle+30)*16);
     if (hLine)
     painter->drawLine(p1, p2);
@@ -197,7 +206,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     //////////////////////////////////////////////////////////////////////////////////////////
 
 
-    /// Dessine l'aiguille et met à jour sa position
+    /// Dessine l'aiguille et met à jour sa position à chaque update
     painter->setPen(QPen(QBrush(Qt::white), 1));
     painter->setBrush(Qt::red);
     QPointF c(qCos(speedToAngle(value))*rect[6].height()/4, -qSin(speedToAngle(value))*rect[6].height()/4);
@@ -215,19 +224,32 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     P[3].setY(c.y()-d*n2.y());
     P[2].setX(qCos(speedToAngle(value))*rect[6].height()/2);
     P[2].setY(-qSin(speedToAngle(value))*rect[6].height()/2);
-    painter->drawPolygon(P, 4);
 
-    /// Dessine le centre de l'aiguille
-    painter->setPen(QPen(QBrush(QColor(172, 154, 154)), 4, Qt::SolidLine,Qt::FlatCap));
-    painter->setBrush(QBrush(Qt::black));
+    QLinearGradient linearGradNeedle(P[0], P[3]);
+    linearGradNeedle.setColorAt(0, QColor(Qt::darkRed));
+    linearGradNeedle.setColorAt(0.5, QColor(230, 46, 0));
+    linearGradNeedle.setColorAt(1, QColor(Qt::darkRed));
+
+    painter->setBrush(QBrush(linearGradNeedle));
+    painter->setPen(QPen(QColor(Qt::darkRed), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    painter->drawPolygon(P,4);
+
+    /// Dessine le cercle à la base de l'aiguille
+    QRectF needleCenter(-10, -10, 20, 20);
+    QLinearGradient linearGrad(needleCenter.topLeft(), needleCenter.bottomRight());
+    linearGrad.setColorAt(0, QColor(200,200,200));
+    linearGrad.setColorAt(1, QColor(0,0,0));
+    painter->setBrush(QBrush(linearGrad));
+    painter->setPen(QPen(QBrush(QColor(172, 154, 154)), 1, Qt::SolidLine,Qt::FlatCap));
     painter->drawEllipse(needleCenter);
+
     ////////////////////////////////////////////////////////////////////////////////////////
 }
 
 /**
  * @brief Jonas_compteur::speedToAngle
  * @param speed
- * @return calcule l'angle (en radians) correspondant à la vitesse en entrée
+ * @return retourne l'angle (en radians) correspondant à la vitesse en entrée
  */
 float Jonas_compteur::speedToAngle(float speed)
 {

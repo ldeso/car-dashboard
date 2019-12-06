@@ -5,7 +5,7 @@
 class CadrantFlorian : public objet_virtuel
 {
 public:
-    CadrantFlorian(bool hasText = true, bool hasSubTrait = true, int invertAiguille = 1, int pas = 10, int angleB = 220, int angleE= 260,int valeurMax=260, QGraphicsItem * parent = NULL);
+    CadrantFlorian(bool hasText = true, bool hasSubTrait = true, int invertAiguille = 1, int pas = 10, int angleB = 220, int angleE= 260,int valeurMax=260, bool hasGradient= true, QGraphicsItem * parent = NULL);
     QRectF boundingRect()const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     float generateAngle();
@@ -19,6 +19,7 @@ private:
     int angleE;
     int width;
     int height;
+    bool hasGradient;
 };
 
 #endif // CADRANTFLORIAN_H

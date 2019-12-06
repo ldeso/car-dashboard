@@ -1,24 +1,18 @@
 #ifndef LEO_GAUGE_H
 #define LEO_GAUGE_H
 
-#include "objet_virtuel.h"
+#include "leo_object.h"
 
-class Leo_gauge : public objet_virtuel
-{
+class Leo_gauge : public Leo_object {
 public:
-    Leo_gauge(int maxValue, int spacing, qreal sizePx, objet_virtuel* parent = nullptr);
-    QRectF boundingRect() const override { return mBoundingRect; }
-    void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
+    Leo_gauge(QRectF boundingRect, int max = 100, int bigStep = 10, int smallStep = 10, QGraphicsItem* parent = nullptr);
+    virtual void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) final override;
 private:
-    qreal mSizePx;
-    QRectF mBoundingRect;
-    qreal mPenWidthPx = 2;
-    qreal mBottomAngle = 90;
-    qreal mTickSizePx = 15;
-    QColor mColor = Qt::lightGray;
-    int mFontSizePx = 25;
-    int mNeedleSizePx;
-    int mSpacing = 20;
+    qreal mPenWidth = 2;
+    qreal mStartAngle = 215;
+    qreal mArcLength = -250;
+    int mBigStep;
+    int mSmallStep;
 };
 
 #endif // LEO_GAUGE_H
