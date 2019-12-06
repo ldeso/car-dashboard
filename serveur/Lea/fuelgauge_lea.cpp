@@ -7,12 +7,9 @@
 #include "fuelgauge_lea.h"
 #include <iostream>
 #include <vector>
-#include <QGraphicsItem>
 #include <QObject>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
-#include <QRectF>
-#include <QtMath>
 #include <QtDebug>
 #include <QPointF>
 
@@ -22,22 +19,14 @@
 /// \param param_y position verticale coin en haut à gauche du rectangle définissant la jauge
 /// \param param_width largeur voulue de la jauge
 /// \param param_height hauteur voulue de la jauge
-/// \param param_x2 position horizontale du coin en haut à gauche de la position de la lettre F (Full)
-/// \param param_y2 position verticale du coin en haut à gauche de la position de la lettre F (Full)
-/// \param param_x3 position horizontale du coin en haut à gauche de la position de la lettre E (Empty)
-/// \param param_y3 position verticale coin du coin en haut à gauche de la position de la lettre F (Empty)
 ///
 
-FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width, double param_height, double param_x2, double param_y2, double param_x3, double param_y3)
+FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width, double param_height)
 {
     x=param_x;
     y=param_y;
     width=param_width;
     height=param_height;
-    x2=param_x2;
-    y2=param_y2;
-    x3=param_x3;
-    y3=param_y3;
     value = 30;
 }
 
@@ -99,12 +88,12 @@ void FuelGauge_lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QW
      }
     for(int i=0; i<10; i++)
         vector_rect.push_back(QRectF((x+3),(((y+height)-7)-i*(height/10)),(width-6),((height/10)-3)));   //rentre les différents rectangles de la jauge d'essence
-    for (int i=0;i<qRound(value*0.1f);i++)                           //value donnee en pourcentage et transformée en ordre d'entrée dans la liste du vecteur
+    for (int i=0;i<qRound(value*0.1f);i++)                           //value donnée en pourcentage et transformée en ordre d'entrée dans la liste du vecteur
         painter->drawRect(vector_rect[i]);
     pen.setColor(Qt::white);
     painter->setPen(pen);
-    painter->drawText(x2,y2,"E");
-    painter->drawText(x3,y3,"F");
+    painter->drawText(x-25,y+100,"E");      //Place la lettre "E" pour Empty
+    painter->drawText(x-25,y,"F");          //Place la lettre "F" pour Full
 
 
 ///

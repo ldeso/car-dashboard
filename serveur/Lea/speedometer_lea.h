@@ -1,6 +1,5 @@
 #ifndef SPEEDOMETER_LEA_H
 #define SPEEDOMETER_LEA_H
-#include <QGraphicsItem>
 #include <QRectF>
 #include <QColor>
 #include "objet_virtuel.h"
