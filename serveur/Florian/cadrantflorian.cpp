@@ -1,6 +1,7 @@
 #include "cadrantflorian.h"
 #include <QDebug>
 #include <QtMath>
+#include <QLinearGradient>
 
 /**
  * @brief CadrantFlorian::CadrantFlorian
@@ -13,7 +14,7 @@
  * @param valeurMax
  * @param parent
  */
-CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille, int pas, int angleB, int angleE, int valeurMax, QGraphicsItem * parent):objet_virtuel(parent)
+CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille, int pas, int angleB, int angleE, int valeurMax, bool hasGradient, QGraphicsItem * parent):objet_virtuel(parent)
 {
     this->invertAiguille = invertAiguille;
     this->hasText = hasText;
@@ -25,6 +26,7 @@ CadrantFlorian::CadrantFlorian(bool hasText, bool hasSubTrait,int invertAiguille
     this->angleB = angleB;
     this->angleE = angleE;
     this->value = 0;
+    this->hasGradient = hasGradient;
 }
 
 /**
@@ -45,9 +47,19 @@ QRectF CadrantFlorian::boundingRect()const
 void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing); // ajout de l antialiasing au tableau de bord
+    if(this->hasGradient == true){
+        QLinearGradient gradient(QPointF(0,0),QPointF(200,200));
+        gradient.setColorAt(0,QColor(100,100,100,90));
+        gradient.setColorAt(1,QColor(0,0,0,255));
+
+        painter->setBrush(QBrush(gradient));
+        painter->drawEllipse(0,0,height, width);
+    }
     QPen pen2(QColor(10,10,200));
     QPen pen1(QColor(Qt::gray));
     QPen pen3(QColor(Qt::white));
+
+
     pen1.setWidth(1);
     QFont font = QFont();
     font.setPixelSize(9);
@@ -115,6 +127,7 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
             painter->drawText(cos(qDegreesToRadians(-angleB+val))*(width/2-20)+ width/2-6,
                               sin(qDegreesToRadians(-angleB+val))*(height/2-20) + height/2+2, QString("%1").arg(i));
         }
+
         pair++;
     }
 }
