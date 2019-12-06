@@ -17,11 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
 
-    ///La scène par défault est
-
-
-    dashboard=new Lea_scene();
-
+    ///La scène par défault est :
+    dashboard=new inna_scene();
 
 
     ui->graphicsView->setScene(dashboard);
