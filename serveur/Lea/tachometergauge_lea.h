@@ -1,6 +1,5 @@
 #ifndef TACHOMETERGAUGE_LEA_H
 #define TACHOMETERGAUGE_LEA_H
-#include <QGraphicsItem>
 #include <QRectF>
 #include "objet_virtuel.h"
 

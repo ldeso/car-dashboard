@@ -16,7 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
-
     ///La scène par défault est
 
 
