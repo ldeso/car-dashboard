@@ -1,13 +1,13 @@
-#ifndef VOYANTS_H
-#define VOYANTS_H
+#ifndef VOYANTSMAROUA_H
+#define VOYANTSMAROUA_H
 #include "objet_virtuel.h"
 #include <QPainter>
 
-class Voyants : public objet_virtuel
+class VoyantsMaroua : public objet_virtuel
 {
 
 public:
-    Voyants(QString , int, int , int);
+    VoyantsMaroua(QString , int, int , int);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
@@ -20,4 +20,4 @@ private:
 
 };
 
-#endif // VOYANTS_H
+#endif // VOYANTSMAROUA_H

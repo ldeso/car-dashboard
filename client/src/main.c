@@ -236,6 +236,7 @@ int main(int argc, char** argv)
     if(strcmp(arg.message, "")!=0){
         uppercase(arg.message);
         if (strncmp(arg.message, "HELP", len) == 0) {
+
             helpMessage();
         }
         else if (strncmp(sent, "\033A", len) == 0) {

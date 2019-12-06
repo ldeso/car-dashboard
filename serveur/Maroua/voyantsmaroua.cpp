@@ -1,8 +1,8 @@
-#include "voyants.h"
+#include "voyantsmaroua.h"
 
 
 
-Voyants::Voyants(QString pixpath, int xp, int yp, int ims)
+VoyantsMaroua::VoyantsMaroua(QString pixpath, int xp, int yp, int ims)
 {
     value=0;
     path=pixpath;
@@ -11,13 +11,13 @@ Voyants::Voyants(QString pixpath, int xp, int yp, int ims)
     size= ims;
 }
 
-QRectF Voyants::boundingRect() const
+QRectF VoyantsMaroua::boundingRect() const
 {
     QRectF rectf(-800,-500,1600,1000);
     return rectf;
 }
 
-void Voyants::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
+void VoyantsMaroua::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
     painter->setRenderHints(QPainter::Antialiasing);
     QPixmap esse("/home/sahli/Bureau/TableauMini/Icones/voyant_carburant.jpg");
