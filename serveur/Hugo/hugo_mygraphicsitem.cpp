@@ -57,10 +57,10 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     painter->drawArc(QRect(-450,-150,900,300),0,180*16);
     painter->drawArc(QRect(-450,120,900,300),0,180*16);
     painter->setPen(QPen( QColor(5,5,5) ,6, Qt::SolidLine,Qt::FlatCap));
-    for (int i=-153;i<121;i++){
+   /* for (int i=-153;i<121;i++){
         painter->drawArc(QRect(-450,i,900,300),0,180*16);
         painter->drawArc(QRect(-450,i,900,300),0,180*16);
-    }
+    }*/
 
     for (int i=1;i<20;i++){
         painter->setPen(QPen( QColor(65,65,65,5*i) ,6, Qt::SolidLine,Qt::FlatCap));

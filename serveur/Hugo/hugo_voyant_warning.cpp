@@ -24,7 +24,7 @@ QRectF hugo_voyant_warning::boundingRect() const
 
 ///
 /// \brief hugo_voyants_clignotant::MAJ Fonction de mise à jour de l'affichage.
-/// \detailsLa valeur cligno controle l'opacité du painter, permettant de le rendre visible ou non
+/// \details La valeur cligno controle l'opacité du painter, permettant de le rendre visible ou non
 ///
 void hugo_voyant_warning::MAJ()
 {
