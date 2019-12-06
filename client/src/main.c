@@ -29,11 +29,9 @@ struct arguments
 {
     char * ipaddr;
     int port;
+    int _;
     char * message;
 };
-
-char * ipaddr = "";
-int port = 0;
 
 static error_t
 parse_opt (int key, char *arg, struct argp_state *state)
@@ -146,7 +144,7 @@ void uppercase(char *message)
     }
 }
 
-struct termios orig_termios;//Structure contenant les paramètres du terminal
+static struct termios orig_termios;//Structure contenant les paramètres du terminal
 
 ///
 /// \brief disableRawMode
@@ -165,7 +163,7 @@ void enableRawMode() {
     tcgetattr(STDIN_FILENO, &orig_termios);
     atexit(disableRawMode);
     struct termios raw = orig_termios;
-    raw.c_lflag &= ~(ECHO | ICANON);
+    raw.c_lflag &= (unsigned int) ~(ECHO | ICANON);
     tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
@@ -289,7 +287,7 @@ int main(int argc, char** argv)
             else{
                 printf("%c",b);
                 enter_message(sent, len);
-                int l=strlen(sent);
+                int l = (int) strlen(sent);
                 for (i=l;i>0;i--){
                     sent[i]=sent[i-1];
                 }
