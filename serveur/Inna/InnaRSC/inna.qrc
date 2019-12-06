@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>I_ABS_ON.gif</file>
         <file>I_adaptiveCruiseControl_green.gif</file>
         <file>I_AdaptiveSuspensionDampers_yellow.gif</file>
         <file>I_airBag.gif</file>
@@ -12,6 +13,8 @@
         <file>I_battery.gif</file>
         <file>I_bonnetOpen_red.gif</file>
         <file>I_bootOpen_red.gif</file>
+        <file>I_camera.gif</file>
+        <file>I_cat.gif</file>
         <file>I_checkEngine.gif</file>
         <file>I_dayLight.gif</file>
         <file>I_driverDoorOpen.gif</file>

@@ -1,6 +1,5 @@
 #ifndef FUELGAUGE_LEA_H
 #define FUELGAUGE_LEA_H
-#include <QGraphicsItem>
 #include <QRectF>
 #include "objet_virtuel.h"
 
@@ -8,7 +7,7 @@
 class FuelGauge_lea : public objet_virtuel
 {
 public:
-    FuelGauge_lea(double, double, double, double, double, double, double, double);
+    FuelGauge_lea(double, double, double, double);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     double x;

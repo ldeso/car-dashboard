@@ -6,12 +6,9 @@
 
 
 #include "speedometer_lea.h"
-#include <QGraphicsItem>
 #include <QObject>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
-#include <QRectF>
-#include <QtMath>
 #include <QtDebug>
 #include <QPointF>
 

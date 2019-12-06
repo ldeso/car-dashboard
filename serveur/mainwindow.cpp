@@ -19,10 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
-
     ///La scène par défault est
-
-    dashboard=new inna_scene();
+    dashboard=new henri_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -176,7 +174,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -233,6 +231,11 @@ void MainWindow::reception()
             if (prenom=="HAROUT"){
                 delete dashboard;
                 dashboard = new harout_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+            if (prenom=="MAROUA"){
+                delete dashboard;
+                dashboard = new maroua_scene;
                 ui->graphicsView->setScene(dashboard);
             }
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
@@ -629,10 +632,25 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="ABS"){
+    else if(message=="CANN ABS"){
         int abs_on = string.section(' ', 2,2).toInt();
         if(abs_on==0 || abs_on==1){
             dashboard->ABS->setValue(abs_on);
+            ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
+    else if(message=="CANN HANDBRAKE"){
+        int handbrake_on = string.section(' ', 2,2).toInt();
+        if(handbrake_on==0 || handbrake_on==1){
+            dashboard->handbrake->setValue(handbrake_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -652,9 +670,8 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-    if (dashboard->CompteurKm)
-         //dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
-        ui->graphicsView->scene()->update();
+   // dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+    ui->graphicsView->scene()->update();
 }
 
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
@@ -694,7 +711,6 @@ void MainWindow::simulation(int vitesseDactualisation)
         dashboard->Essence->setValue(dashboard->Essence->getValue()-0.001*vitesseDactualisation);
         dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.7*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
         dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.9* dashboard->CompteTours->getValueMax()-900)/60);
-        qDebug()<<dashboard->CompteurKm->getValue();
         QTest::qWait(30);
         ui->graphicsView->scene()->update();
     }
@@ -706,7 +722,6 @@ void MainWindow::simulation(int vitesseDactualisation)
         dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01*vitesseDactualisation);
         dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.5*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
         dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.8* dashboard->CompteTours->getValueMax()-900)/100);
-        qDebug()<<dashboard->CompteurKm->getValue();
         QTest::qWait(30);
         ui->graphicsView->scene()->update();
     }
@@ -715,23 +730,13 @@ void MainWindow::simulation(int vitesseDactualisation)
     for(int i=0;i<200;i++)
     {
         dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001*vitesseDactualisation);
-        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01*vitesseDactualisation);
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.001*vitesseDactualisation);
         dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.5*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
         dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.6* dashboard->CompteTours->getValueMax()-900)/200);
         QTest::qWait(30);
         ui->graphicsView->scene()->update();
     }
     dashboard->CompteTours->setValue(1600);
-    dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
-    for(int i=0;i<200;i++)
-    {
-        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001*vitesseDactualisation);
-        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01*vitesseDactualisation);
-        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.5*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
-        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.6* dashboard->CompteTours->getValueMax()-900)/200);
-        ui->graphicsView->scene()->update();
-    }
-    dashboard->CompteTours->setValue(1900);
     dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
     dashboard->Clignotant->setValue(-1);
     for(int i=0;i<40;i++)
@@ -739,40 +744,43 @@ void MainWindow::simulation(int vitesseDactualisation)
         dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001*vitesseDactualisation);
         dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+10);
         dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01*vitesseDactualisation);
-        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.1);
+        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.3*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
+        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.5* dashboard->CompteTours->getValueMax()-900)/40);
         QTest::qWait(30);
         ui->graphicsView->scene()->update();
     }
-
-//        objet_virtuel *Vitesse;
-//        objet_virtuel *Essence;
-//        objet_virtuel *CompteTours;
-//        objet_virtuel *jaugeTemperature;
-//        objet_virtuel *Clignotant;
-//        objet_virtuel *VoyantBatterie;
-//        objet_virtuel *position;
-//        objet_virtuel *croisement;
-//        objet_virtuel *route;
-//        objet_virtuel *warning;
-//        objet_virtuel *CompteurKm;
-//        objet_virtuel *AdaptiveSuspensionDampers;
-//        objet_virtuel *AutomaticTransmissionMode;
-//        objet_virtuel *FrontAntifog;
-//        objet_virtuel *RearAntifog;
-//        objet_virtuel *SeatBelt;
-//        objet_virtuel *RearWindowHeating;
-//        objet_virtuel *CheckEngine;
-//        objet_virtuel *OpenDoorDriver;
-//        objet_virtuel *OpenDoorFrontPassenger;
-//        objet_virtuel *OpenDoorBackLeftPassenger;
-//        objet_virtuel *OpenDoorBackRightPassenger;
-//        objet_virtuel *AdaptiveCruiseControl;
-//        objet_virtuel *AirbagOn;
-//        objet_virtuel *BonnetOpen;
-//        objet_virtuel *BootOpen;
-//        objet_virtuel *CruiseControlOn;
-//        objet_virtuel *OilTemp;
-//        objet_virtuel *SpeedLimit;
-//        objet_virtuel *oilLevel;
+    dashboard->Clignotant->setValue(-1);
+    QTest::qWait(3000);
+    dashboard->VoyantBatterie->setValue(1);
+    QTest::qWait(1000);
+    dashboard->VoyantBatterie->setValue(0);
+    dashboard->position->setValue(1);
+    QTest::qWait(1000);
+    dashboard->position->setValue(0);
+    dashboard->croisement->setValue(1);
+    QTest::qWait(1000);
+    dashboard->croisement->setValue(0);
+    dashboard->route->setValue(1);
+    QTest::qWait(1000);
+    dashboard->route->setValue(0);
+    dashboard->OpenDoorDriver->setValue(1);
+    QTest::qWait(500);
+    dashboard->OpenDoorFrontPassenger->setValue(1);
+    QTest::qWait(500);
+    dashboard->OpenDoorBackLeftPassenger->setValue(1);
+    QTest::qWait(500);
+    dashboard->OpenDoorBackRightPassenger->setValue(1);
+    QTest::qWait(500);
+    dashboard->BonnetOpen->setValue(1);
+    QTest::qWait(1000);
+    dashboard->BootOpen->setValue(1);
+    QTest::qWait(500);
+    dashboard->OpenDoorDriver->setValue(0);
+    dashboard->OpenDoorFrontPassenger->setValue(0);
+    dashboard->OpenDoorBackLeftPassenger->setValue(0);
+    dashboard->OpenDoorBackRightPassenger->setValue(0);
+    dashboard->BonnetOpen->setValue(0);
+    dashboard->BootOpen->setValue(0);
+    QTest::qWait(1000);
 }
 

@@ -1,14 +1,14 @@
-#ifndef VOYANTS_H
-#define VOYANTS_H
+#ifndef VOYANTS_KARIM_H
+#define VOYANTS_KARIM_H
 #include <objet_virtuel.h>
 #include <QGraphicsItem>
 #include <QPainter>
 
-class Voyants : public objet_virtuel
+class Voyants_karim : public objet_virtuel
 {
 
 public:
-    Voyants(QString , int, int , int);
+    Voyants_karim(QString , int, int , int);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
@@ -20,4 +20,4 @@ private:
 
  };
 
-#endif // VOYANTS_H
+#endif // VOYANTS_KARIM_H

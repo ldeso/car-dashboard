@@ -1,6 +1,6 @@
 #include "Karim/clignot.h"
 #include <QPainter>
-#include "Karim/voyants.h"
+#include "Karim/voyants_karim.h"
 #include <QTest>
 
 clignot::clignot(QGraphicsItem*)
