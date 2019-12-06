@@ -5,7 +5,7 @@
 
 class Leo_gauge : public Leo_object {
 public:
-    Leo_gauge(QRectF boundingRect, QGraphicsItem* parent = nullptr);
+    Leo_gauge(const QRectF boundingRect, QGraphicsItem* parent = nullptr);
     void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
     enum Data { MAX, DIVS, SUBDIVS, STARTANGLE, ARCLENGTH, WIDTH, FONT };
 };

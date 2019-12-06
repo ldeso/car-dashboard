@@ -7,7 +7,7 @@ namespace {
         qreal arcLength;
     };
 
-    QPainterPath Outline(Shape shape)
+    QPainterPath Outline(const Shape shape)
     {
         QPainterPath path;
         path.arcMoveTo(shape.rect, shape.startAngle);
@@ -15,7 +15,7 @@ namespace {
         return path;
     }
 
-    QPainterPath Ticks(Shape shape, int divisions, int subdivisions)
+    QPainterPath Ticks(const Shape shape, const int divisions, const  int subdivisions)
     {
         QPainterPath path;
         qreal len = 5;
@@ -32,7 +32,7 @@ namespace {
         return path;
     }
 
-    void DrawScale(QPainter* painter, Shape shape, int max, int step)
+    void DrawScale(QPainter* painter, const Shape shape, const int max, const int step)
     {
         qreal distance = 0.47 * shape.rect.width() - 15;
         for (int val = 0; val <= max; val += step) {
@@ -44,7 +44,7 @@ namespace {
         }
     }
 
-    QPainterPath Needle(Shape shape, qreal val, int max)
+    QPainterPath Needle(const Shape shape, const qreal val, const int max)
     {
         qreal len = 0.50 * shape.rect.width() - 10;
         QPainterPath path(shape.rect.center());
@@ -57,7 +57,7 @@ namespace {
     }
 }
 
-Leo_gauge::Leo_gauge(QRectF boundingRect, QGraphicsItem *parent)
+Leo_gauge::Leo_gauge(const QRectF boundingRect, QGraphicsItem *parent)
     : Leo_object(boundingRect, parent)
 {
     setData(MAX, 100);
