@@ -12,7 +12,7 @@ namespace {
     {
         static int last_limit;
         static bool is_blinking;
-        static std::chrono::time_point<std::chrono::high_resolution_clock> start;
+        static std::chrono::high_resolution_clock::time_point start;
         if (!is_blinking && (!limits.contains(limit) || (limit == last_limit)))
             return false;
         if (!is_blinking) {
@@ -26,7 +26,7 @@ namespace {
             is_blinking = false;
             return false;
         }
-        return !((elapsed/std::chrono::milliseconds(time_ms/(2*blinks))) % 2);
+        return !((2*blinks*elapsed/std::chrono::milliseconds(time_ms)) % 2);
     }
 }
 
