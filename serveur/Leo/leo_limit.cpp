@@ -8,35 +8,25 @@ namespace {
         return path;
     }
 
-    bool ShowSign(int limit, QList<int> valid_limits, int blinks)
+    bool ShowSign(int limit, QList<int> limits, int blinks, int time_ms = 4000)
     {
         static int last_limit;
-        static int blink_cnt;
+        static bool is_blinking;
         static std::chrono::time_point<std::chrono::high_resolution_clock> start;
-        static bool is_started;
-        static bool is_shown;
-
-        is_shown = false;
-        if (valid_limits.contains(limit) && (limit != last_limit)) {
-            is_shown = true;
-            if (!is_started) {
-                start = std::chrono::high_resolution_clock::now();
-                is_started = true;
-            }
-            auto now = std::chrono::high_resolution_clock::now();
-            if (now - start > std::chrono::milliseconds(500)) {
-                if (blink_cnt < blinks) {
-                    blink_cnt++;
-                    is_shown = !is_shown;
-                } else {
-                    blink_cnt = 0;
-                    is_shown = true;
-                    last_limit = limit;
-                }
-                is_started = false;
-            }
+        if (!is_blinking && (!limits.contains(limit) || (limit == last_limit)))
+            return false;
+        if (!is_blinking) {
+            start = std::chrono::high_resolution_clock::now();
+            is_blinking = true;
+            return true;
         }
-        return is_shown;
+        auto elapsed = std::chrono::high_resolution_clock::now() - start;
+        if (elapsed > std::chrono::milliseconds(time_ms)) {
+            last_limit = limit;
+            is_blinking = false;
+            return false;
+        }
+        return !((elapsed/std::chrono::milliseconds(time_ms/(2*blinks))) % 2);
     }
 }
 
