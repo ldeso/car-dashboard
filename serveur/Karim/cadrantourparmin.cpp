@@ -26,7 +26,21 @@ QRect carre[13];
         carre[i]=QRect(-200+i*5,-200+i*5,400-i*10,400-i*10);
     }
 
+//Ajout des gradients
     painter->setRenderHints(QPainter::Antialiasing);
+    QLinearGradient linearGrad1(carre[0].topLeft(), carre[0].bottomRight());
+    QLinearGradient linearGrad2(carre[4].topLeft(), carre[4].bottomRight());
+    linearGrad1.setColorAt(0.0, Qt::white);
+    linearGrad1.setColorAt(0.3, Qt::gray);
+    linearGrad1.setColorAt(1.0, Qt::gray);
+    linearGrad2.setColorAt(0.0, Qt::white);
+    linearGrad2.setColorAt(0.35, Qt::black);
+    linearGrad1.setSpread(QGradient::ReflectSpread);
+    linearGrad2.setSpread((QGradient::ReflectSpread));
+    painter->setBrush(QBrush(linearGrad2));
+    painter->setPen(Qt::NoPen);
+    painter->drawEllipse(QPoint(0,0), carre[4].height()/2, carre[4].height()/2);
+
 
    //Design du cercle de l'aiguille
     painter->setBrush(Qt::darkRed);
@@ -61,7 +75,7 @@ QRect carre[13];
       k++;
  }
 
-   painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
+   painter->setPen(QPen(QBrush("white") ,15, Qt::SolidLine,Qt::FlatCap));
    painter->drawText(QRectF(-70,50,150,80),Qt::AlignCenter,"*1000r/min");
 
    //Ajout des graduations

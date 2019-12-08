@@ -31,7 +31,6 @@ karim_scene::karim_scene()
     jaugeTemperature->setPos(340,-230);
     //Essence->setPos(-400,100);
     //jaugeTemperature->setPos(800,100);
-
     this->setBackgroundBrush(Qt::black);
     this->addItem(Vitesse);
     this->addItem(CompteTours);
@@ -50,5 +49,25 @@ karim_scene::karim_scene()
     this->addItem(OpenDoorBackRightPassenger);
     this->addItem(OpenDoorFrontPassenger);
     this->addItem(warning);
+
+    QFont font;
+    font.setBold(1);
+    font.setPixelSize(15);
+
+    QGraphicsSimpleTextItem * hot = this->addSimpleText("H",font);
+    hot->setBrush(Qt::white);
+    hot->setPos(95, -145);
+
+    QGraphicsSimpleTextItem * cold = this->addSimpleText("C",font);
+    cold->setBrush(Qt::white);
+    cold->setPos(-30, -145);
+
+    QGraphicsSimpleTextItem * empty = this->addSimpleText("E",font);
+    empty->setBrush(Qt::white);
+    empty->setPos(-320, -145);
+
+    QGraphicsSimpleTextItem * full = this->addSimpleText("F",font);
+    full->setBrush(Qt::white);
+    full->setPos(-190, -145);
 
 }

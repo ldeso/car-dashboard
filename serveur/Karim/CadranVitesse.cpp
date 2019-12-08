@@ -35,7 +35,8 @@ void CadranVitesse::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QW
       painter->setRenderHints(QPainter::Antialiasing);
       painter->drawPolygon(points, 6);*/
 
-// Ajout des carree qui vont servir à dessiner nos objets
+
+// Ajout des carree qui vont servir à concevoir nos objets
 QRect carre[13];
    for (int i=0;i<13;i++)
     {
@@ -43,6 +44,22 @@ QRect carre[13];
     }
 
     painter->setRenderHints(QPainter::Antialiasing);
+
+//Ajout des gradients
+    QLinearGradient linearGrad1(carre[0].topLeft(), carre[0].bottomRight());
+    QLinearGradient linearGrad2(carre[4].topLeft(), carre[4].bottomRight());
+    linearGrad1.setColorAt(0.0, Qt::white);
+    linearGrad1.setColorAt(0.3, Qt::gray);
+    linearGrad1.setColorAt(1.0, Qt::gray);
+    linearGrad2.setColorAt(0.0, Qt::white);
+    linearGrad2.setColorAt(0.35, Qt::black);
+    linearGrad1.setSpread(QGradient::ReflectSpread);
+    linearGrad2.setSpread((QGradient::ReflectSpread));
+    painter->setBrush(QBrush(linearGrad2));
+    painter->setPen(Qt::NoPen);
+    painter->drawEllipse(QPoint(0,0), carre[4].height()/2, carre[4].height()/2);
+
+
 
   // Design du cercle aiguille
    painter->setBrush(Qt::darkRed);
@@ -72,7 +89,7 @@ QRect carre[13];
          }
 
     //Ajout des graduations
-    painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
+    painter->setPen(QPen(QBrush("white") ,15, Qt::SolidLine,Qt::FlatCap));
     painter->drawText(QRectF(-200,-100,400,400),Qt::AlignCenter,"Km/h");
      int j=0;
      for (float i=35*pi/28;i>=-7*pi/28;i-=12*pi/(27*4)*270/(270+1))
