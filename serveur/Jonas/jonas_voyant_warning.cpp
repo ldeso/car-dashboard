@@ -49,6 +49,6 @@ void jonas_voyant_warning::paint(QPainter *painter, const QStyleOptionGraphicsIt
         QPixmap image(":/icons/icon-warning.jpg");
         QPixmap warning = image.scaled(30,30);
         painter->setOpacity(enabled);
-        painter->drawPixmap(-6, -190, warning);
+        painter->drawPixmap(-15, -190, warning);
     }
 }
