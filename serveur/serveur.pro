@@ -45,18 +45,17 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
-    Leo/leo_display.cpp \
     Leo/leo_gauge.cpp \
-    Leo/leo_indicator.cpp \
-    Leo/leo_label.cpp \
+    Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
     Youcef/engineheatgauge.cpp \
+    Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
     Youcef/tachometer.cpp \
-    Youcef/voyantsyoucef.cpp \
+    Youcef/warning_youss.cpp \
     Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -151,18 +150,17 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
-    Leo/leo_display.h \
     Leo/leo_gauge.h \
-    Leo/leo_indicator.h \
-    Leo/leo_label.h \
+    Leo/leo_limit.h \
     Leo/leo_object.h \
     Leo/leo_scene.h \
     Youcef/cardialerprototype.h \
     Youcef/carspeeddial.h \
     Youcef/engineheatgauge.h \
+    Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
     Youcef/tachometer.h \
-    Youcef/voyantsyoucef.h \
+    Youcef/warning_youss.h \
     Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \

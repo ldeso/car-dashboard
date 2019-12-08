@@ -47,6 +47,7 @@ void hugo_voyants_simples::paint(QPainter *painter, const QStyleOptionGraphicsIt
         painter->drawPixmap(x,y,size,size,image2);
 
         painter->drawEllipse(x,y,size,size);
+
     }
 }
 

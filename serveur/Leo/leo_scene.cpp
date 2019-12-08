@@ -1,4 +1,5 @@
 #include "leo_gauge.h"
+#include "leo_limit.h"
 #include "leo_scene.h"
 
 namespace {
@@ -56,4 +57,5 @@ Leo_scene::Leo_scene(scene_globale* parent)
             { &Essence, QRectF(200, 130, 70, 70), {} },
         }
     );
+    AddObjects<Leo_limit>(this, {{&SpeedLimit, QRectF(210, 40, 50, 50), {}}});
 }
