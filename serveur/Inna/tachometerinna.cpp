@@ -92,16 +92,16 @@ void TachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
   }
 
 // *** the code below is used to print the coordinates ***
-   painter->setFont(QFont("Chandas",6, -1));
-   for (int i=0; i< 1401; i+=20)
-   {
-       for (int j=0; j<601; j+=20)
-       {
-           if (i%100 ==0 && j%100 == 0) painter->drawText(i,j,QString("*%1,%2").arg(i).arg(j));
-           else painter->drawText(i,j,"'");
+//   painter->setFont(QFont("Chandas",6, -1));
+//   for (int i=0; i< 1401; i+=20)
+//   {
+//       for (int j=0; j<601; j+=20)
+//       {
+//           if (i%100 ==0 && j%100 == 0) painter->drawText(i,j,QString("*%1,%2").arg(i).arg(j));
+//           else painter->drawText(i,j,"'");
 
-       }
-   }
+//       }
+//   }
 
 
 }
