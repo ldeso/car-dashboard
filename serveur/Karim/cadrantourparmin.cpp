@@ -26,23 +26,20 @@ QRect carre[13];
         carre[i]=QRect(-200+i*5,-200+i*5,400-i*10,400-i*10);
     }
 
+    painter->setRenderHints(QPainter::Antialiasing);
+
    //Design du cercle de l'aiguille
     painter->setBrush(Qt::darkRed);
-    painter->setPen(QPen(QBrush("darkRed"),7,Qt::SolidLine));
-    painter->setRenderHints(QPainter::Antialiasing);
+    painter->setPen(QPen(QBrush("darkRed"),8,Qt::SolidLine));
     painter->drawEllipse(-20,-20,40,40);
 
    //Design du cadran tours par minutes
-   for (int i=5;i>0;i--)
-    {
-        painter->setPen(QPen( Qt::gray, i, Qt::SolidLine,Qt::FlatCap));
-        painter->setRenderHints(QPainter::Antialiasing);
-        painter->drawArc(carre[4],300*16,300*16);
-        painter->drawLine(92, 155, -92, 155);
-        painter->setPen(QPen(QBrush("blue") , i, Qt::SolidLine,Qt::FlatCap));
-        painter->drawArc(carre[2],300*16,300*16);
-        painter->drawLine(96, 165, -96, 165);
-    }
+   painter->setPen(QPen( Qt::gray, 5, Qt::SolidLine,Qt::FlatCap));
+   painter->drawArc(carre[4],300*16,300*16);
+   painter->drawLine(92, 155, -92, 155);
+   painter->setPen(QPen(QBrush("blue") , 5, Qt::SolidLine,Qt::FlatCap));
+   painter->drawArc(carre[2],300*16,300*16);
+   painter->drawLine(96, 165, -96, 165);
 
    //Ajout des traits
     painter->setPen(QPen(QBrush("white") , 10, Qt::SolidLine,Qt::FlatCap));
@@ -77,11 +74,10 @@ QRect carre[13];
           painter->setPen(QPen(QBrush("red") , 40, Qt::SolidLine,Qt::FlatCap));
      }
 
-   //Design de l'aiguille
+   //Design et rotation de l'aiguille
    painter->rotate((getValue()-4000)*180./5300.);
    painter->setPen(QPen( Qt::darkRed , 8, Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin));
-   painter->drawLine(0, 0, 0, -170);
-   painter->setRenderHints(QPainter::Antialiasing);
+   painter->drawLine(0, -22, 0, -170);
    painter->rotate(-((getValue()-4000)*180./5300.));
 }
 

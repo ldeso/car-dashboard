@@ -5,8 +5,7 @@
 CadranEss::CadranEss(QGraphicsItem *)
 {
     value=0;
-    valueMax=60;
-
+    valueMax=180;
 }
 
 QRectF CadranEss::boundingRect() const
@@ -25,25 +24,28 @@ QRect carre[13];
         carre[i]=QRect(-400+i*5,-15+i*5,200-i*10,200-i*10);
     }
 
+painter->setRenderHints(QPainter::Antialiasing);
+
+// Design du cercle aiguille
+ painter->setBrush(Qt::darkGray);
+ painter->setPen(QPen(QBrush("darkRed"),7,Qt::SolidLine));
+ painter->drawEllipse(-313,70,25,25);
+
 //Design du cadran
-   for(int i=5;i>0;i--)
-    {
-        painter->setPen(QPen( Qt::darkGray, i, Qt::SolidLine,Qt::FlatCap));
-        painter->setRenderHints(QPainter::Antialiasing);
-        painter->drawArc(carre[4],360*16,360*16);
-    }
+    painter->setPen(QPen( Qt::darkGray, 5, Qt::SolidLine,Qt::FlatCap));
+    painter->drawArc(carre[4],360*16,360*16);
 
-//Ajout de la graduations
-    painter->setRenderHints(QPainter::Antialiasing);
+//Ajout des graduations
     painter->setPen(QPen(QBrush("white") , 10, Qt::SolidLine,Qt::FlatCap));
-   for(float i=180;i>-1;i-=10.0*270/60)
-    {
-     painter->drawArc(carre[6],i*16,10);
-    }
+ for(float i=180;i>-1;i-=10.0*270/60)
+  {
+    painter->drawArc(carre[6],i*16,10);
+  }
 
-//Design de l'aiguille
+//Design et rotation de l'aiguille
    painter->setPen(QPen( Qt::darkRed , 8, Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin));
-   painter->drawLine(-300, 12, -300, 85);
-   painter->setRenderHints(QPainter::Antialiasing);
-
+   painter->translate(-300,85);
+   painter->rotate(getValue()-90);
+   painter->drawLine(0,-15,0,-75);
+   painter->rotate(-(getValue()-90));
 }
