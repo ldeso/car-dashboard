@@ -12,6 +12,7 @@
 #include "leds.h"
 #include "objet_virtuel.h"
 #include "QString"
+#include "blinkingleds.h"
 
 class loto_scene : public scene_globale
 {
