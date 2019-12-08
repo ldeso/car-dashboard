@@ -12,7 +12,7 @@
 ///
 kmCalculator::kmCalculator()
 {
- value = 999;
+ value = 0;
  valueMax = 500000;
  QFontDatabase::addApplicationFont(":/digital-7.ttf");
 

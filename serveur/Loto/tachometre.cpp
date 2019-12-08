@@ -137,7 +137,7 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
     displayFont.setPointSize(30);
     displayFont.setWeight(75);
     painter->setFont(displayFont);
-    painter->drawText(-60,-30,"X 1000rpm");
+    painter->drawText(-60,-30,"x 1000rpm");
 
 }
 

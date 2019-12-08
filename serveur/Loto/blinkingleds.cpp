@@ -87,6 +87,6 @@ void blinkingleds::blinkled()
     else{
         this->blinker=1;
     }
-    QTest::qWait(400);
+    QTest::qWait(500);
     update();
 }
