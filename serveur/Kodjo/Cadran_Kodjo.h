@@ -33,6 +33,9 @@ public:
     void Setteur_Graduation_Essence_Huile(QString val_choix);
     void Clignotant(QPainter *clignotants_painter);
     void Setteur_Clignotant(int cpt_clignotant);
+    void Voyant_Batterie(QPainter *batterie_painter, float etat_batterie);
+    void Voyant_Porte_Ouverte(QPainter *porte_painter, float etat_porte);
+    void Voyant_Ceinture_De_Securite(QPainter *ceinture_painter, float etat_ceinture_de_securite);
 
 
 public slots :
@@ -113,7 +116,8 @@ public:
     QLineF *aiguille_enssence_huile = new  QLineF (75,75, 225,75);
     QColor couleur_aiguille_enssence_huile;
     QPen *pen_aiguille_enssence_huile = new QPen;
-    int Degres_aiguille_enssence_huile = 0;
+    //int Degres_aiguille_enssence_huile = 0;
+    float Degres_aiguille_enssence_huile = 50;
 
     QLineF *graduation_huile_essence= new QLineF(200,350, 400, 200);
     QColor couleur_graduation_enssence_huile;
@@ -134,8 +138,22 @@ public:
     QPixmap *image_huile = new QPixmap(":/new/prefix1/huile_moteur.png",Q_NULLPTR, Qt::AutoColor);
     //QPixmap image("fichier.png");
     QPixmap *image_clignotant_gauche = new QPixmap("/home/utilisateur/Bureau/Tableau_De_Bord_Kodjo/clignotants_gauche.png",Q_NULLPTR, Qt::AutoColor);
+
+    //QPixmap *image_voyant_batterie = new QPixmap("/home/houndjago/Bureau/car-dashboard/serveur/Kodjo/voyant_batterie.png",Q_NULLPTR, Qt::AutoColor);
+    QPixmap *image_voyant_batterie = new QPixmap(":/new/prefix1/voyant_batterie.png",Q_NULLPTR, Qt::AutoColor);
+
+    //QPixmap *image_voyant_porte_ouverte = new QPixmap("/home/houndjago/Bureau/car-dashboard/serveur/Kodjo/voyant_porte_ouverte.png",Q_NULLPTR, Qt::AutoColor);
+    QPixmap *image_voyant_porte_ouverte = new QPixmap(":/new/prefix1/voyant_porte_ouverte.png",Q_NULLPTR, Qt::AutoColor);
+
+    //QPixmap *image_voyant_ceinture_de_securite = new QPixmap("/home/houndjago/Bureau/car-dashboard/serveur/Kodjo/voyant_ceinture_de_securite.png",Q_NULLPTR, Qt::AutoColor);
+    QPixmap *image_voyant_ceinture_de_securite = new QPixmap(":/new/prefix1/voyant_ceinture_de_securite.png",Q_NULLPTR, Qt::AutoColor);
+
     int compteur_clignotant = 0;
     float vitesse_vehicule;
+    float etat_batterie_globale;
+    float etat_porte_globale;
+    float etat_ceinture_de_securite_globale;
+
 
 
 
