@@ -102,18 +102,21 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
 }
 }
-
-      painter->setPen(QPen(QBrush("#F93737",Qt::SolidPattern),5,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin));
+       QRadialGradient radgrad(700.0,300.0,600,350.0, 150.0);
+       radgrad.setColorAt(0, "#333333");
+       radgrad.setColorAt(1, "#0d0d0d");
+      //brush.setStyle(Qt::Dense2Pattern);
+      painter->setPen(QPen(QBrush(radgrad),20,Qt::SolidLine,Qt::FlatCap,Qt::RoundJoin));
      painter->setBrush(QBrush(Qt::transparent));
        QPainterPath path;
-      path.moveTo(1320,460);
-      path.arcTo(50,500,1300,200,30,120);
-      path.lineTo(80,460);
-      path.arcTo(50,220,300,300,205,-137);
-      path.arcTo(230,150,370,350,148,-86);
-      path.arcTo(400,100,600,600,130,-80);
-      path.arcTo(800,150,370,350,118,-86);
-      path.arcTo(1050,220,300,300,112,-137);
+      path.moveTo(1330,470);
+      path.arcTo(40,510,1320,220,30,120);
+      path.lineTo(70,470);
+      path.arcTo(40,210,320,320,207,-137);
+      path.arcTo(220,140,390,370,144,-83);
+      path.arcTo(420,80,560,600,130,-80);
+      path.arcTo(790,140,390,370,118,-83);
+      path.arcTo(1050,210,320,320,112,-125);
       path.closeSubpath();
       painter->drawPath(path);
 

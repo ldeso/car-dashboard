@@ -45,10 +45,6 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
-    Leo/leo_gauge.cpp \
-    Leo/leo_limit.cpp \
-    Leo/leo_object.cpp \
-    Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
     Youcef/engineheatgauge.cpp \
@@ -130,7 +126,11 @@ SOURCES += \
     Maroua/cadrantvitesse.cpp \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
-    Harout/harc.cpp
+    Harout/harc.cpp 
+#    Leo/leo_gauge.cpp \
+ #   Leo/leo_limit.cpp \
+  #  Leo/leo_object.cpp \
+   # Leo/leo_scene.cpp 
 
    
 
@@ -150,10 +150,10 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
-    Leo/leo_gauge.h \
-    Leo/leo_limit.h \
-    Leo/leo_object.h \
-    Leo/leo_scene.h \
+#    Leo/leo_gauge.h \
+#    Leo/leo_limit.h \
+#    Leo/leo_object.h \
+#    Leo/leo_scene.h \
     Youcef/cardialerprototype.h \
     Youcef/carspeeddial.h \
     Youcef/engineheatgauge.h \

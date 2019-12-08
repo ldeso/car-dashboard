@@ -197,11 +197,11 @@ void MainWindow::reception()
                 dashboard =new Lea_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-            if (prenom=="LEO"){
-                delete dashboard;
-                dashboard = new Leo_scene;
-                ui->graphicsView->setScene(dashboard);
-            }
+//            if (prenom=="LEO"){
+//                delete dashboard;
+//                dashboard = new Leo_scene;
+//                ui->graphicsView->setScene(dashboard);
+//            }
             if (prenom=="FLORIAN"){
                 delete dashboard;
                 dashboard = new SceneFlorian;

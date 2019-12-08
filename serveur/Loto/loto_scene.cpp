@@ -24,7 +24,7 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
     Essence = new fuel_guage();
     CompteTours = new tachometre();
     jaugeTemperature = new tempGauge();
-    CompteurKm =new kmCalculator();
+    //CompteurKm =new kmCalculator();
 
 
         BootOpen= new LEDS(220,-130,":/bootOpen_red.gif",235,0,0,80); //
@@ -37,7 +37,7 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
         FrontAntifog = new LEDS(-190,-260,":/frontFogLight.gif",235,0,0,100);
         RearAntifog= new LEDS(-20,-260,":/rearFogLight_blue.gif",235,0,0,100); //
         croisement = new LEDS(-100,-260,":/dayLight.gif",235,0,0,100);
-        Clignotant = new blinkingleds();
+        //Clignotant = new blinkingleds();
 
 
 

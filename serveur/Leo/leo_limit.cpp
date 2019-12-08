@@ -10,27 +10,27 @@ namespace {
 
     bool ShowSign(int limit, QList<int> limits, int blinks, int time_ms = 4000)
     {
-        static int last_limit;
-        static bool is_blinking;
-        static std::chrono::high_resolution_clock::time_point start;
-        if (!is_blinking && (!limits.contains(limit) || (limit == last_limit)))
+//        static int last_limit;
+//        static bool is_blinking;
+//        static std::chrono::high_resolution_clock::time_point start;
+//        if (!is_blinking && (!limits.contains(limit) || (limit == last_limit)))
             return false;
-        if (!is_blinking) {
-            start = std::chrono::high_resolution_clock::now();
-            is_blinking = true;
-            return true;
-        }
-        auto elapsed = std::chrono::high_resolution_clock::now() - start;
-        if (elapsed > std::chrono::milliseconds(time_ms)) {
-            last_limit = limit;
-            is_blinking = false;
-            return false;
-        }
-        return !((2*blinks*elapsed/std::chrono::milliseconds(time_ms)) % 2);
-    }
+//        if (!is_blinking) {
+//            start = std::chrono::high_resolution_clock::now();
+//            is_blinking = true;
+//            return true;
+//        }
+//        auto elapsed = std::chrono::high_resolution_clock::now() - start;
+//        if (elapsed > std::chrono::milliseconds(time_ms)) {
+//            last_limit = limit;
+//            is_blinking = false;
+//            return false;
+//        }
+//        return !((2*blinks*elapsed/std::chrono::milliseconds(time_ms)) % 2);
+//    }
 }
 
-Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem *parent)
+Leo_limit::Leo_limit(/*const QRectF boundingRect, */QGraphicsItem *parent)
     : Leo_object(boundingRect, parent)
 {
     setData(LIMITS, QVariant::fromValue<QList<int>>(
