@@ -8,6 +8,13 @@
 #include "tempgauge.h"
 #include "leds.h"
 #include "objet_virtuel.h"
+#include "blinkingleds.h"
+#include "kmcalculator.h"
+
+///
+///\file loto_scene.cpp
+/// \brief Cet classe est derivé de scene globale et il est utilisé pour afficher toute les objet graphic item.
+///
 
 loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
 {
@@ -17,10 +24,12 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
     Essence = new fuel_guage();
     CompteTours = new tachometre();
     jaugeTemperature = new tempGauge();
+    CompteurKm =new kmCalculator();
 
-        BootOpen= new LEDS(220,-130,":/bootOpen_red.gif",235,0,0,70); //
-        SeatBelt = new LEDS(300,0,":/seatBeltSign_red.gif",235,0,0,70); //pos OK
-        VoyantBatterie = new LEDS(-100,110,":/battery.gif",235,0,0,70);
+
+        BootOpen= new LEDS(220,-130,":/bootOpen_red.gif",235,0,0,80); //
+        SeatBelt = new LEDS(300,0,":/seatBeltSign_red.gif",235,0,0,80); //pos OK
+        VoyantBatterie = new LEDS(-100,110,":/battery.gif",235,0,0,80);
         BonnetOpen= new LEDS(130,-130,":/bonnetOpen_red.gif",235,0,0,80);
         AirbagOn= new LEDS(50,0,":/airBag.gif",235,0,0,70); //pos ok
 
@@ -28,7 +37,8 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
         FrontAntifog = new LEDS(-190,-260,":/frontFogLight.gif",235,0,0,100);
         RearAntifog= new LEDS(-20,-260,":/rearFogLight_blue.gif",235,0,0,100); //
         croisement = new LEDS(-100,-260,":/dayLight.gif",235,0,0,100);
-        Clignotant = new LEDS(-150,-260,":/turnRight.gif",235,0,0,100);
+        Clignotant = new blinkingleds();
+
 
 
 //            for (int i = 1000;i >= -1000; i-=100)
@@ -68,6 +78,8 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
     CompteTours->setPos(-300,0);
     Essence->setPos(500,0);
     jaugeTemperature->setPos(-600,0);
+    Clignotant->setPos(-300,0);
+    CompteurKm->setPos(-300,0);
 
 
 
@@ -75,9 +87,11 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
     this->addItem(CompteTours);
     this->addItem(Essence);
     this->addItem(jaugeTemperature);
+    this->addItem(CompteurKm);
     SeatBelt->setZValue(10.0);
     RearAntifog->setZValue(10.0);
     this->addItem(SeatBelt);
+    this->addItem(Clignotant);
 
 
     this->addItem(RearAntifog);
