@@ -1,33 +1,43 @@
 #include "leo_limit.h"
 
 namespace {
-    QPainterPath Outline(const QRectF rect)
+    struct Params {
+        const QRectF rect;
+        const QList<int> limits;
+        const int blinks;
+        const int period;
+    };
+
+    QPainterPath Outline(const Params params)
     {
         QPainterPath path;
-        path.addEllipse(rect.center(), rect.width()/2, rect.height()/2);
+        path.addEllipse(
+            params.rect.center(), params.rect.width()/2, params.rect.height()/2
+        );
         return path;
     }
 
-    bool ShowSign(int limit, QList<int> limits, int blinks, int time_ms = 4000)
+    bool ShowSign(float &value, int &current_limit, const Params params)
     {
-//        static int last_limit;
-//        static bool is_blinking;
-//        static std::chrono::high_resolution_clock::time_point start;
-//        if (!is_blinking && (!limits.contains(limit) || (limit == last_limit)))
+
+        int new_limit = qRound(value);
+        value = 0;
+        static std::chrono::high_resolution_clock::time_point start;
+        if (params.limits.contains(new_limit) && (new_limit != current_limit)) {
+            current_limit = new_limit;
+            start = std::chrono::high_resolution_clock::now();
+            return true;
+        }
+        if (current_limit == 0)
             return false;
-//        if (!is_blinking) {
-//            start = std::chrono::high_resolution_clock::now();
-//            is_blinking = true;
-//            return true;
-//        }
-//        auto elapsed = std::chrono::high_resolution_clock::now() - start;
-//        if (elapsed > std::chrono::milliseconds(time_ms)) {
-//            last_limit = limit;
-//            is_blinking = false;
-//            return false;
-//        }
-//        return !((2*blinks*elapsed/std::chrono::milliseconds(time_ms)) % 2);
-//    }
+        auto elapsed = std::chrono::high_resolution_clock::now() - start;
+        if (elapsed > params.blinks*std::chrono::milliseconds(params.period)) {
+            current_limit = 0;
+            return false;
+        }
+        return !((2*elapsed/std::chrono::milliseconds(params.period)) % 2);
+    }
+
 }
 
 Leo_limit::Leo_limit(/*const QRectF boundingRect, */QGraphicsItem *parent)
@@ -39,32 +49,37 @@ Leo_limit::Leo_limit(/*const QRectF boundingRect, */QGraphicsItem *parent)
     setData(FONT, 16);
     setData(WIDTH, 6);
     setData(BLINKS, 3);
+    setData(PERIOD, 3000);
+    value = 90;
 }
 
 void Leo_limit::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    QList<int> valid_limits = data(LIMITS).value<QList<int>>();
-    if (ShowSign(qRound(value), valid_limits, data(BLINKS).toInt())) {
-        int limit = qRound(value);
-
-        QRectF rect = mBoundingRect.adjusted(
+    static int current_limit;
+    const struct Params params {
+        mBoundingRect.adjusted(
             data(WIDTH).toReal()/2,
             data(WIDTH).toReal()/2,
             -data(WIDTH).toReal()/2,
             -data(WIDTH).toReal()/2
-        );
+        ),
+        data(LIMITS).value<QList<int>>(),
+        data(BLINKS).toInt(),
+        data(PERIOD).toInt()
+    };
+    if (ShowSign(value, current_limit, params)) {
         QFont font = p->font();
         font.setPixelSize(data(FONT).toInt());
         font.setBold(true);
         p->setFont(font);
         p->setRenderHint(QPainter::Antialiasing);
-        p->fillPath(Outline(rect), Qt::white);
+        p->fillPath(Outline(params), Qt::white);
         p->setPen(QPen(Qt::red, data(WIDTH).toReal()));
-        p->drawPath(Outline(rect));
+        p->drawPath(Outline(params));
         p->setPen(QPen(Qt::black, data(WIDTH).toReal()));
         p->drawText(
             mBoundingRect,
-            QString::number(limit),
+            QString::number(current_limit),
             Qt::AlignCenter | Qt::AlignVCenter
         );
     }
