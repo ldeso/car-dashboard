@@ -13,7 +13,7 @@
 ///\details Constructeur de la classe initialisant la variable _value_ de la classe mère, et la variable _cligno_ qui permet de gérer l'affichage alternatif des voyants.
 ///
 clignotantInna::clignotantInna(IconInna *parent) : IconInna (parent)
-{   value = 2;
+{   value = 0;
     cligno = 0;
     this->setZValue(5.0);
 }

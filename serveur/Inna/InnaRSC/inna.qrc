@@ -49,5 +49,6 @@
         <file>I_C.gif</file>
         <file>I_CruiseControl_green.gif</file>
         <file>I_hand_brake.gif</file>
+        <file>I_fond.gif</file>
     </qresource>
 </RCC>
