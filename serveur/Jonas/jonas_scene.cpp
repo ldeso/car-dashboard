@@ -15,7 +15,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     /// Initialisation des jauges
     // Compteur de vitesse
     Vitesse = new Jonas_compteur;
-    Vitesse->setValue(90);
+    Vitesse->setValue(0);
 
     // Compteur tr/min
     QStringList listRpm;
