@@ -17,9 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
     ///La scène par défault est
-
-
     dashboard=new henri_scene();
+
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -669,7 +669,7 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-    dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+   // dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
     ui->graphicsView->scene()->update();
 }
 

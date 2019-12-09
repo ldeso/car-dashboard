@@ -12,11 +12,16 @@ QRectF stopHenri::boundingRect() const
 
 void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-//    QRect carre(-150,-150,300,300);
-//    painter->setRenderHint(QPainter::Antialiasing);
-//    painter->setPen(QPen(QBrush(QColor("red")) , 88, Qt::SolidLine,Qt::FlatCap));
-//    painter->drawArc(carre,231*16,80*16);
+    if (getValue()==1)
+    {
+    QRect carre(-150,-150,300,300);
+    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setPen(QPen(QBrush(QColor("red")) , 88, Qt::SolidLine,Qt::FlatCap));
+    painter->drawArc(carre,231*16,80*16);
 
-//    QRect carre2(-100,0,200,100);
-//    painter->drawRect(carre2);
+    painter->setPen(QPen(QBrush(QColor("red")) , 1, Qt::SolidLine,Qt::FlatCap));
+    painter->setBrush(QBrush(QColor("red")));
+    QRect carre2(-66,81,134,50);
+    painter->drawRect(carre2);
+    }
 }

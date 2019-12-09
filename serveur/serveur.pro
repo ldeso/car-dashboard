@@ -83,7 +83,6 @@ SOURCES += \
     Karim/CadranVitesse.cpp \
     Karim/clignot.cpp \
     Karim/karim_scene.cpp \
-    Karim/voyants.cpp \
     Hugo/hugo_boite_vitesse.cpp \
     Loto/fuel_guage.cpp \
     Loto/leds.cpp \
@@ -121,8 +120,10 @@ SOURCES += \
     Lea/horloge_lea.cpp \
     Harout/harout_scene.cpp \
     Harout/cadran.cpp \
-    Harout/harc.cpp \
+    Kodjo/kodjo_scene.cpp \
+    Kodjo/Cadran_Kodjo.cpp \
     Karim/voyants_warning.cpp \
+    Karim/voyants_karim.cpp \
     Maroua/cadrantcontour.cpp \
     Maroua/cadrantessence.cpp \
     Maroua/cadranttempmoteur.cpp \
@@ -130,8 +131,9 @@ SOURCES += \
     Maroua/cadrantvitesse.cpp \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
+    Harout/harc.cpp \
     Henri/stophenri.cpp
-    Harout/harc.cpp
+
    
 
 HEADERS += \
@@ -186,7 +188,6 @@ HEADERS += \
     Karim/CadranVitesse.h \
     Karim/clignot.h \
     Karim/karim_scene.h \
-    Karim/voyants.h \
     Hugo/hugo_boite_vitesse.h \
     Loto/fuel_guage.h \
     Loto/leds.h \
@@ -226,7 +227,10 @@ HEADERS += \
     Harout/harout_scene.h \
     Harout/cadran.h \
     Harout/harc.h \
+    Kodjo/kodjo_scene.h \
+    Kodjo/Cadran_Kodjo.h \
     Karim/voyants_warning.h \
+    Karim/voyants_karim.h \
     Maroua/cadrantcontour.h \
     Maroua/cadrantessence.h \
     Maroua/cadranttempmoteur.h \
@@ -235,6 +239,7 @@ HEADERS += \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
     Henri/stophenri.h
+
 
 FORMS += \
         mainwindow.ui \
@@ -250,7 +255,8 @@ RESOURCES += \
     Inna/InnaRSC/inna.qrc \
     Lea/Lea.qrc \
     Florian/florian.qrc \
-    Youcef/Youcef.qrc
+    Youcef/Youcef.qrc \
+    Kodjo/kodjo.qrc
 
 
 DISTFILES += \

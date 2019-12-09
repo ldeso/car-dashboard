@@ -14,31 +14,31 @@ Jonas_compteur::Jonas_compteur()
     alpha = -50;
     beta = 230;
     gaugeSize = 150;
-    textLabel = "km/h";
-    graduations = 23;
+    textOnCenter = "km/h";
+    nGrad = 23;
     mod = 2;
-    hLine = 1;
+    hSubLine = 1;
+    hExtLine = 1;
+    gradient = 1;
     critical = valueMax;
-    for (int i=0; i<=valueMax/10; i++) {
-        textAround << (QString::number(10*i));
-    }
+    textOnGraduations = addList(valueMax);
 }
 
 /**
  * @brief Jonas_compteur::Jonas_compteur
  * @details constructeur surchargé
- * @param max
- * @param gradList
+ * @param valueMax
+ * @param textOnGraduations
  * @param startAngle
  * @param endAngle
  * @param critic
- * @param textCenter
- * @param ngrad
- * @param line
+ * @param textOnCenter
+ * @param nGrad
+ * @param hasSubLine
  * @param modulo
- * @param size
+ * @param gaugeSize
  */
-Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, float endAngle, int critic, QString textCenter,int ngrad, bool line, int modulo, int size)
+Jonas_compteur::Jonas_compteur(int valueMax, float startAngle, float endAngle, int critical, QString textOnCenter,int nGrad, bool hasExtLine, bool hasSubLine, int modulo, int gaugeSize, QStringList textOnGraduations, bool gradient)
 {
     if (endAngle > startAngle) {
         alpha = startAngle;
@@ -49,16 +49,21 @@ Jonas_compteur::Jonas_compteur(int max, QStringList gradList, float startAngle, 
         beta = startAngle;
     }
     else
-        qDebug() << "erreur startAngle = endAngle";
-    valueMax = max;
-    gaugeSize = size;
-    textAround = gradList;
-    textLabel = textCenter;
-    graduations = ngrad;
-    hLine = line;
-    mod = modulo;
-    if (critic >=0 && critic <=valueMax) {
-        critical = critic;
+        qDebug() << "erreur start angle = end angle";
+    this->valueMax = valueMax;
+    this->gaugeSize = gaugeSize;
+    if (textOnGraduations.isEmpty())
+        this->textOnGraduations = addList(this->valueMax);
+    else
+        this->textOnGraduations = textOnGraduations;
+    this->textOnCenter = textOnCenter;
+    this->gradient = gradient;
+    this->nGrad = nGrad;
+    this->hSubLine = hasSubLine;
+    this->hExtLine = hasExtLine;
+    this->mod = modulo;
+    if (critical >=0 && critical <=this->valueMax) {
+        this->critical = critical;
     }
 }
 
@@ -81,19 +86,13 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 {
     /// Definition des constantes
     const float spanAngle = beta - alpha;
-    const float diffAngle = (spanAngle+2)/(graduations-1);
+    const float diffAngle = (spanAngle)/(nGrad-1);
+    const QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
 
     /// Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
 
     //////////////////////////////////////////////////////////////////////////////////////////
-
-    /// Définition des différentes options graphiques
-    QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
-    QPen needlePen(QColor(Qt::red), gaugeSize*8/150, Qt::SolidLine, Qt::RoundCap);
-
-    //////////////////////////////////////////////////////////////////////////////////////////
-
 
     /// Dessine les carrés qui vont contenir les différents élements du cadrant
     QRect rect[50];
@@ -106,33 +105,32 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     //////////////////////////////////////////////////////////////////////////////////////////
 
     /// Définition des gradients
-    QRadialGradient radialGrad1(QPointF(0,0), rect[2].height()/2);
     QLinearGradient linearGrad1(rect[0].topLeft(), rect[0].bottomRight());
     QLinearGradient linearGrad2(rect[2].topLeft(), rect[2].bottomRight());
-    linearGrad1.setColorAt(1.0, Qt::white);
-    linearGrad1.setColorAt(0.0, QColor(169, 165, 166));
+    linearGrad1.setColorAt(0.0, Qt::white);
+    linearGrad1.setColorAt(0.3, QColor(169, 165, 166));
+    linearGrad1.setColorAt(1.0, Qt::gray);
     linearGrad2.setColorAt(0.0, Qt::white);
-    linearGrad2.setColorAt(1.0, Qt::black);
-    radialGrad1.setColorAt(1.0, Qt::black);
-    radialGrad1.setColorAt(0.0, Qt::white);
+    linearGrad2.setColorAt(0.35, Qt::black);
     linearGrad1.setSpread(QGradient::ReflectSpread);
     linearGrad2.setSpread((QGradient::ReflectSpread));
-    radialGrad1.setSpread(QGradient::ReflectSpread);
 
     /// Dessine les gradients en arrière plan
-//    painter->setBrush(QBrush(radialGrad1));
-//    painter->setPen(Qt::NoPen);
-//    painter->drawEllipse(QPoint(0,0), rect[2].height()/2, rect[2].height()/2);
+    if (gradient) {
+    painter->setBrush(QBrush(linearGrad2));
+    painter->setPen(Qt::NoPen);
+    painter->drawEllipse(QPoint(0,0), rect[2].height()/2, rect[2].height()/2);
+    }
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    /// Dessine les graduations du cadrant
+    /// Dessine les nGrad du cadrant
     int k = 0;
     float delta = beta;
-    for (int i=0; i<graduations; i++)
+    for (int i=0; i<nGrad; i++)
     {
         if (critical == valueMax || delta > qRadiansToDegrees(speedToAngle(critical))) {
             if  (k%2 == 0) {
-                painter->setPen(QPen(QBrush(QColor(38, 10, 178)), gaugeSize*24/150, Qt::SolidLine, Qt::FlatCap));
+                painter->setPen(QPen(QBrush(QColor(34,52,123)), gaugeSize*24/150, Qt::SolidLine, Qt::FlatCap));
                 painter->drawArc(rect[3],delta*16, gaugeSize*28/150);
             }
             else {
@@ -157,51 +155,54 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     /// Dessine le cadrant intérieur
     if (critical == valueMax) {
-        painter->setPen(QPen(QBrush(QColor("dark blue")), 8));
-        painter->drawArc(rect[1],(alpha+1)*16, (spanAngle-2)*16);
+        painter->setPen(QPen(QBrush(QColor(34,52,123)), 6, Qt::SolidLine, Qt::FlatCap));
+        painter->drawArc(rect[1],(alpha)*16, (spanAngle)*16);
     }
 
     else {
-        painter->setPen(QPen(QBrush(QColor(38, 10, 178)), 8));
-        painter->drawArc(rect[1],(alpha)*16, (spanAngle-1)*16);
-        painter->setPen(QPen(QBrush(QColor(252, 3, 11)), 8));
-        painter->drawArc(rect[1],(alpha)*16, (qAbs(qRadiansToDegrees(speedToAngle(critical))-alpha-2.5))*16);
+        painter->setPen(QPen(QBrush(QColor("dark blue")), 6, Qt::SolidLine, Qt::FlatCap));
+        painter->drawArc(rect[1],(alpha)*16, (spanAngle)*16);
+        painter->setPen(QPen(QBrush(QColor(252, 3, 11)), 6, Qt::SolidLine, Qt::FlatCap));
+        painter->drawArc(rect[1],(alpha)*16, (qAbs(qRadiansToDegrees(speedToAngle(critical))-alpha+1))*16);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
     /// Dessine le cadrant extérieur
+    if (hExtLine) {
     QPointF p1(qCos(qDegreesToRadians(beta+15))*rect[0].height()/2, -qSin(qDegreesToRadians(beta+15))*rect[0].height()/2);
     QPointF p2(qCos(qDegreesToRadians(alpha-15))*rect[0].height()/2, -qSin(qDegreesToRadians(alpha-15))*rect[0].height()/2);
     painter->setPen(QPen(QBrush(linearGrad1), 7, Qt::SolidLine,Qt::RoundCap));
     painter->drawArc(rect[0],(alpha-15)*16, (spanAngle+30)*16);
-    if (hLine)
-    painter->drawLine(p1, p2);
+    if (hSubLine)
+        painter->drawLine(p1, p2);
+    }
     //////////////////////////////////////////////////////////////////////////////////////////
 
 
     /// Dessine le texte autour du cadrant
-    painter->setPen(QPen(QBrush(QColor(Qt::white)) , gaugeSize*15/150 , Qt::SolidLine,Qt::FlatCap));
-    painter->setFont(QFont("Ubuntu", gaugeSize*12/150, -1,false));
+    painter->setPen(QPen(Qt::white));
+    painter->setFont(QFont("Ubuntu", 10, -1,false));
     float gamma = beta;
     int j = 0;
 
-    for (int i=0; i<textAround.size(); i++)
+    for (int i=0; i<textOnGraduations.size(); i++)
     {
         if (j%mod == 0) {
-        painter->drawText(qCos(qDegreesToRadians((gamma)))*rect[8].height()/2-gaugeSize*10/150,
-                -qSin(qDegreesToRadians(gamma))*rect[8].height()/2 +gaugeSize*5/150,
-                textAround[i]);
+        painter->drawText(qCos(qDegreesToRadians((gamma)))*rect[9].height()/2-gaugeSize*10/150,
+                -qSin(qDegreesToRadians(gamma))*rect[9].height()/2 +gaugeSize*5/150,
+                textOnGraduations[i]);
         }
         j++;
-        gamma -= (spanAngle)/(float)(textAround.size()-1);
+        gamma -= (spanAngle)/(float)(textOnGraduations.size()-1);
     }
 
-    painter->setFont(QFont("Helvetica", gaugeSize*12/150, QFont::Bold));
+    /// Dessine le texte au centre
+    painter->setFont(QFont("Ubuntu", gaugeSize*12/150, QFont::Bold));
     painter->setPen(QPen(QBrush(QColor(Qt::white)), gaugeSize*4/150));
-    painter->drawText(qCos(qDegreesToRadians(90.0))*rect[21].height()/2-gaugeSize*20/150,
+    painter->drawText(qCos(qDegreesToRadians(90.0))*rect[21].height()/2-gaugeSize*22/150,
             -qSin(qDegreesToRadians(90.0))*rect[21].height()/2,
-            textLabel);
+            textOnCenter);
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -257,6 +258,20 @@ float Jonas_compteur::speedToAngle(float speed)
         return qDegreesToRadians(((alpha-beta)/(valueMax))*speed+beta);
     else
         return qDegreesToRadians(beta);
+}
+
+/**
+ * @brief Jonas_compteur::addList
+ * @param num
+ * @return retourne la liste des graduations (0->valueMax)
+ */
+QStringList Jonas_compteur::addList(int num)
+{
+    QStringList list;
+    for (int i=0; i<=num; i+=10) {
+        list << QString::number(i);
+    }
+    return list;
 }
 
 
