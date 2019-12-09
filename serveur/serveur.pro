@@ -131,7 +131,8 @@ SOURCES += \
     Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
-    Loto/blinkingleds.cpp
+    Loto/blinkingleds.cpp \
+    Loto/kmcalculator.cpp
 
    
 
@@ -235,7 +236,8 @@ HEADERS += \
     Maroua/cadranttour.h \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
-    Maroua/voyantsmaroua.h
+    Maroua/voyantsmaroua.h \
+    Loto/kmcalculator.h
 
 
 FORMS += \
