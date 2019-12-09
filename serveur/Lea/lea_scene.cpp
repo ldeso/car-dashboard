@@ -106,6 +106,21 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     warning = new warning_lea (590,120,":/Lea/Icones_Voyants/hazardLights.gif",30,30);
     this->addItem(warning);
 
+    AdaptiveSuspensionDampers = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    AutomaticTransmissionMode = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    AdaptiveCruiseControl = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    OilTemp = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    SpeedLimit = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    oilLevel = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+
+
+
 
 }
 
