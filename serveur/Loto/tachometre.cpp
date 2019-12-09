@@ -117,7 +117,6 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
     float needleAngle;
     rpmValue = float(getValue());
     needleAngle = getRpmValue(rpmValue);
-    needleAngle= -(needleAngle) - 125.0;
     needleAngle= -(needleAngle) - 125.0f;
 
 

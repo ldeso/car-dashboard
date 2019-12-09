@@ -126,7 +126,7 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         speedValue = getValue();
 
         float needleAngle = getSpeedAngle(speedValue);
-        needleAngle= (needleAngle) - 125.0f;
+        needleAngle= -(needleAngle) - 125.0f;
 
 
         needlestopPos.setX(qRound(196.0 * cos((needleAngle)*pi/180.0)));
@@ -164,9 +164,9 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         painter->setBrush(displayBrush);
 
         painter->setPen(QPen(QBrush("white"),10,Qt::SolidLine, Qt::SquareCap));
-        displayFont.setPointSize(40);
+        displayFont.setPointSize(14);
         displayFont.setWeight(75);
-        painter->setFont(Font);
+        painter->setFont(displayFont);
 
         QTime time= QTime::currentTime();
         QString currentTime = time.toString("hh:mm:ss");

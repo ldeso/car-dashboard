@@ -49,8 +49,7 @@ Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem *parent)
     setData(FONT, 16);
     setData(WIDTH, 6);
     setData(BLINKS, 3);
-    setData(PERIOD, 3000);
-    value = 90;
+    setData(PERIOD, 1000);
 }
 
 void Leo_limit::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)

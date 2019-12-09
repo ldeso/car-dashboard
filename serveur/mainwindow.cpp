@@ -21,8 +21,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault es
 
-    dashboard=new loto_scene();
 
+    ///La scène par défault est
+
+    dashboard=new loto_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -202,11 +204,11 @@ void MainWindow::reception()
                 dashboard =new Lea_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-//            if (prenom=="LEO"){
-//                delete dashboard;
-//                dashboard = new Leo_scene;
-//                ui->graphicsView->setScene(dashboard);
-//            }
+            if (prenom=="LEO"){
+                delete dashboard;
+                dashboard = new Leo_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
             if (prenom=="FLORIAN"){
                 delete dashboard;
                 dashboard = new SceneFlorian;
@@ -690,9 +692,11 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
+
     if (dashboard->CompteurKm != nullptr)
         dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
     ui->graphicsView->scene()->update();
+
 }
 
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée

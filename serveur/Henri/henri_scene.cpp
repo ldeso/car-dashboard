@@ -39,6 +39,9 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     position=new onoffpaintHenri(-35,40,70,70,QPixmap(":/new/prefix1/icones/iconeRoute.png"));
     addItem(position);
 
+    stopHenri* stop=new stopHenri();
+    addItem(stop);
+
     portesHenri* portes=new portesHenri();
     addItem(portes);
     portes->moveBy(400,-100);

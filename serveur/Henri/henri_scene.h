@@ -14,6 +14,7 @@
 #include "onoff.h"
 #include "porteshenri.h"
 #include "onoffpainthenri.h"
+#include "stophenri.h"
 
 
 class henri_scene : public scene_globale
