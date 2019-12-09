@@ -789,6 +789,7 @@ void MainWindow::update_km()
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
 void MainWindow::resizeEvent(QResizeEvent *)
 {
+    dashboard->Clignotant->setValue(0);
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
 
@@ -816,6 +817,12 @@ void MainWindow::simulation(int vitesseDactualisation)
     dashboard->Clignotant->setValue(0);
     ui->graphicsView->scene()->update();
     QTest::qWait(700);
+    dashboard->OpenDoorDriver->setValue(0);
+    dashboard->OpenDoorFrontPassenger->setValue(0);
+    dashboard->OpenDoorBackLeftPassenger->setValue(0);
+    dashboard->OpenDoorBackRightPassenger->setValue(0);
+    dashboard->BonnetOpen->setValue(0);
+    dashboard->BootOpen->setValue(0);
 
     for(int i=0;i<60;i++)
     {
@@ -850,17 +857,7 @@ void MainWindow::simulation(int vitesseDactualisation)
     }
     dashboard->CompteTours->setValue(1600);
     dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
-    dashboard->Clignotant->setValue(-1);
-    for(int i=0;i<40;i++)
-    {
-        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001*vitesseDactualisation);
-        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+10);
-        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01*vitesseDactualisation);
-        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.3*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
-        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.5* dashboard->CompteTours->getValueMax()-900)/40);
-        QTest::qWait(30);
-        ui->graphicsView->scene()->update();
-    }
+
     dashboard->Clignotant->setValue(-1);
     QTest::qWait(3000);
     dashboard->VoyantBatterie->setValue(1);
