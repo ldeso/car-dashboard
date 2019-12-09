@@ -91,5 +91,5 @@ void henri_scene::paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*)
 
 QRectF henri_scene::boundingRect() const
 {
-    return QRect(-300,-300,600,600);
+    return QRect(-500,-400,1000,800);
 }

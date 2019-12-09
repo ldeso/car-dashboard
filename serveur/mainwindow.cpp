@@ -19,9 +19,14 @@ MainWindow::MainWindow(QWidget *parent) :
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
+    ///La scène par défault es
+
+
     ///La scène par défault est
 
-    dashboard=new Lea_scene();
+
+    dashboard=new loto_scene();
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -42,7 +47,11 @@ MainWindow::MainWindow(QWidget *parent) :
 /// \param time Durée de la simulation
 ///
 void MainWindow::acceleration(int time)
-{
+{   int deceleration=1;
+    if (time<0){
+        deceleration=-1;
+        time=-1*time;
+    }
     qDebug()<<"ok";
     float t=0;
     float vitesse=dashboard->Vitesse->getValue();
@@ -66,7 +75,7 @@ void MainWindow::acceleration(int time)
             }
         }
         ui->graphicsView->scene()->update();
-        vitesse+=0.8f;
+        vitesse+=deceleration*0.8f;
         t+=0.1f;
         QTest::qWait(100);
 
@@ -107,8 +116,30 @@ void MainWindow::reception()
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
-            dashboard->CruiseControlOn->setValue(0);
+            if (dashboard->CruiseControlOn!=nullptr)
+                dashboard->CruiseControlOn->setValue(0);
             ui->graphicsView->scene()->update();
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("vitesse incorrecte, vitesse comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    if(message=="CANN SPEEDTO"){
+        int vitesse = string.section(' ', 2,2).toInt();
+        if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
+            float pas=(vitesse-dashboard->Vitesse->getValue())/100;
+            dashboard->CruiseControlOn->setValue(0);
+            for (int i=0;i<100;i++)
+            {
+                dashboard->Vitesse->setValue(dashboard->Vitesse->getValue() + pas);
+                ui->graphicsView->scene()->update();
+                QTest::qWait(20);
+            }
+            dashboard->Vitesse->setValue(vitesse);
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
@@ -132,6 +163,28 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    if(message=="CANN RPMTO"){
+        int rpm = string.section(' ', 2,2).toInt();
+        if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
+            float pas=(rpm-dashboard->CompteTours->getValue())/100;
+            dashboard->CruiseControlOn->setValue(0);
+            for (int i=0;i<100;i++)
+            {
+                dashboard->CompteTours->setValue(dashboard->CompteTours->getValue() + pas);
+                ui->graphicsView->scene()->update();
+                QTest::qWait(20);
+            }
+            dashboard->CompteTours->setValue(rpm);
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("rpm incorrecte, rpm compris entre 0 et %1").arg(dashboard->CompteTours->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else if(message=="CANN BATTERY_LIGHT"){
         int battery_on = string.section(' ', 2,2).toInt();
         if(battery_on==0 || battery_on==1){
@@ -152,6 +205,27 @@ void MainWindow::reception()
             dashboard->Essence->setValue(essence);
             ui->graphicsView->scene()->update();
             QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            qDebug()<<text;
+            text = QString("Quantité incorrect, quantité comprise entre 0 et %1").arg(dashboard->Essence->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+    else if(message=="CANN GAZTO"){
+        int essence = string.section(' ', 2,2).toInt();
+        if(essence>=0 && essence <= dashboard->Essence->getValueMax()){
+            float pas=(essence-dashboard->Essence->getValue())/100;
+            for (int i=0;i<100;i++)
+            {
+                dashboard->Essence->setValue(dashboard->Essence->getValue() + pas);
+                ui->graphicsView->scene()->update();
+                QTest::qWait(20);
+            }
+            QString text = "OK";
+            dashboard->Essence->setValue(essence);
             socket->write(text.toLocal8Bit());
         }
         else{
@@ -593,6 +667,28 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
+    if(message=="CANN ENGINE_TTO"){
+        int engineT = string.section(' ', 2,2).toInt();
+        if(engineT>=0 && engineT <= dashboard->jaugeTemperature->getValueMax()){
+            float pas=(engineT-dashboard->jaugeTemperature->getValue())/100;
+            dashboard->CruiseControlOn->setValue(0);
+            for (int i=0;i<100;i++)
+            {
+                dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue() + pas);
+                ui->graphicsView->scene()->update();
+                QTest::qWait(20);
+            }
+            dashboard->jaugeTemperature->setValue(engineT);
+            QString text = "OK";
+            socket->write(text.toLocal8Bit());
+        }
+        else{
+            QString text;
+            text = QString("temperature incorrecte, temperature comprise entre 0 et %1").arg(dashboard->jaugeTemperature->getValueMax());
+            socket->write(text.toLocal8Bit());
+        }
+    }
+
     else if(message=="CANN OIL_T"){
         int oilT = string.section(' ', 2,2).toInt();
 
@@ -680,6 +776,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
 
     else{
         qDebug() << "erreur lors de la reception du message";
