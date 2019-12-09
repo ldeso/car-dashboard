@@ -38,6 +38,7 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
 {
 
     //Loop to draw tiny concentric rectangles//
+
     for (int i= 0; i < 40; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
@@ -46,6 +47,7 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
         // set painter properties//
 
         QPen mPen;
+
         QColor mCol(17,225,230,220-5*i);
         mPen.setCapStyle(Qt::RoundCap);
         mPen.setWidth(1);

@@ -1,3 +1,7 @@
+///
+///\file lea_scenedefond.cpp
+/// \brief Classe dérivée de QGraphicsItem où sont ajoutés les scènes de fond formant le tableau de bord.
+///
 #include "lea_scenedefond.h"
 #include <QPainter>
 
@@ -13,6 +17,11 @@ QRectF lea_SceneDeFond::boundingRect() const
     return rectf;
 }
 
+///
+/// \brief lea_SceneDeFond::paint
+/// \details Cette fonction dessine la scène de fond du tableau de bord.
+/// \param painter
+///
 void lea_SceneDeFond::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 

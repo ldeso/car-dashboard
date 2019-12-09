@@ -24,6 +24,7 @@ karim_scene::karim_scene()
     OpenDoorFrontPassenger= new Voyants_karim(":/Lea/PorteOuverte.png",-190,0,50);
     warning=new voyants_warning;
     warning->setValue(0); 
+    CompteurKm=NULL;
 
     Vitesse->setPos(-400,100);
     CompteTours->setPos(200,100);
