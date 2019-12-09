@@ -135,15 +135,13 @@ SOURCES += \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Loto/blinkingleds.cpp \
-<<<<<<< HEAD
+
     Loto/kmcalculator.cpp \
     Harout/hvoyant.cpp \
     Harout/hvoyantwarning.cpp \
     Harout/hclignotant.cpp
 
-=======
-    Loto/kmcalculator.cpp
->>>>>>> 999c2a8a3a415badc4daf7948cec495d5ab7bad1
+
    
 
 HEADERS += \

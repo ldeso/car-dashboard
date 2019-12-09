@@ -21,11 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-<<<<<<< HEAD
+
     dashboard=new harout_scene();
-=======
-    dashboard=new henri_scene();
->>>>>>> 999c2a8a3a415badc4daf7948cec495d5ab7bad1
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
