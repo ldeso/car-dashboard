@@ -2,12 +2,11 @@
 #include "QPainter"
 #include "QGradient"
 #include "QtMath"
-#include "QDebug"
 #include "QTextItem"
 #include "QString"
 #include "QPolygon"
 #include "objet_virtuel.h"
-#include <qdebug.h>
+#include <QDebug>
 #include "QFontDatabase"
 #include "QDateTime"
 
@@ -36,6 +35,7 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     /*re draw new method*/
 
     //Loop to draw tiny concentric rectangles//
+
     for (int i= 0; i <= 40; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i,400.0-2*i);
@@ -164,9 +164,11 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         painter->setBrush(displayBrush);
 
         painter->setPen(QPen(QBrush("white"),10,Qt::SolidLine, Qt::SquareCap));
-        displayFont.setPointSize(40);
+
+        displayFont.setPointSize(16);
+
         displayFont.setWeight(75);
-        painter->setFont(Font);
+        painter->setFont(displayFont);
 
         QTime time= QTime::currentTime();
         QString currentTime = time.toString("hh:mm:ss");
@@ -212,6 +214,7 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
 float loto_dashboard::getSpeedAngle(float speedValue)
 {
+
     float givenSpeedValue = speedValue;
     float speedAngle;
     speedAngle = givenSpeedValue * (280.0f/280.0f);

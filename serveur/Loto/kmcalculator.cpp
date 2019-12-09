@@ -42,8 +42,8 @@ void kmCalculator::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 
     QFont displayFont;
     displayFont.setFamily("digital-7");
-    displayFont.setPointSize(60);
-    displayFont.setWeight(75);
+    displayFont.setPointSize(30);
+    displayFont.setWeight(50);
     painter->setFont(displayFont);
     painter->drawRect(boundingRect());
 
