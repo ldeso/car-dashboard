@@ -34,11 +34,11 @@ void jonas_compteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     /// Ajoute un effet de dégradé sur l'écran LCD
     QLinearGradient linearGrad(boundingRect().topLeft(), boundingRect().bottomRight());
     linearGrad.setColorAt(0, Qt::white);
-    linearGrad.setColorAt(0.35, QColor(0,160,250));
+    linearGrad.setColorAt(0.18, QColor(58,3,21));
     linearGrad.setSpread(QGradient::ReflectSpread);
 
     /// Dessine l'écran LCD
-    QPen pen1(QColor(0,160,250));
+    QPen pen1(QColor(58,3,21));
     painter->setPen(pen1);
     painter->setBrush(QBrush(linearGrad));
     painter->drawRect(boundingRect());
@@ -49,7 +49,7 @@ void jonas_compteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *
     QFont font(family);
     font.setPixelSize(21);
     painter->setFont(font);
-    painter->setPen(QPen(Qt::black));
+    painter->setPen(QColor(220,73,65));
     double temp = value;
     painter->drawText(boundingRect(), Qt::AlignRight, QString("%1").arg(temp, -4, 'f', 1));
     painter->setFont(QFont("Ubuntu", 9));

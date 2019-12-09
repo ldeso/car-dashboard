@@ -12,15 +12,15 @@
 ///
 kmCalculator::kmCalculator()
 {
- value = 0;
+ value = 999;
  valueMax = 500000;
- QFontDatabase::addApplicationFont(":/digital-7.ttf");
+ QFontDatabase::addApplicationFont(":/fonts/SFDigitalReadout-Medium.ttf");
 
 }
 
 QRectF kmCalculator::boundingRect() const
 {
-    return QRect(-40,30,100,60);
+    return QRect(-40,90,100,60);
 
 }
 
@@ -34,16 +34,16 @@ void kmCalculator::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 {
     painter->setRenderHint(QPainter::Antialiasing);
 
-    QPen pen1(QColor(255,255,255));
+    QPen pen1(QColor(0,0,0));
     QBrush brush(QColor(102,255,255,255));
-    brush.setStyle(Qt::Dense6Pattern);
+    //brush.setStyle(Qt::Dense6Pattern);
     painter->setPen(pen1);
     painter->setBrush(brush);
 
     QFont displayFont;
-    displayFont.setFamily("digital-7");
-    displayFont.setPointSize(30);
-    displayFont.setWeight(50);
+    displayFont.setFamily("SFDigitalReadout");
+    displayFont.setPointSize(50);
+    displayFont.setWeight(60);
     painter->setFont(displayFont);
     painter->drawRect(boundingRect());
 
@@ -51,6 +51,6 @@ void kmCalculator::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
     displayBrush.setColor(Qt::white);
     painter->setBrush(displayBrush);
 
-    int kmtravelled = static_cast<int>(value);
+    float kmtravelled = value;
     painter->drawText(boundingRect(),Qt::AlignCenter,QString("%1").arg(kmtravelled));
 }

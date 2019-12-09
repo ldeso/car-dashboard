@@ -809,6 +809,9 @@ if (dashboard->CompteurKm != nullptr)
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
 void MainWindow::resizeEvent(QResizeEvent *)
 {
+    dashboard->Clignotant->setValue(0);
+    ui->graphicsView->scene()->update();
+    dashboard->warning->setValue(0);
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
 }
 
