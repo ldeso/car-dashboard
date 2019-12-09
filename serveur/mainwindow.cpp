@@ -21,11 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ///La scène par défault est
-
-
-    dashboard=new inna_scene();
-
-
+    dashboard=new henri_scene();
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -134,22 +130,22 @@ void MainWindow::reception()
             for (int i=0;i<100;i++)
             {
                 dashboard->Vitesse->setValue(dashboard->Vitesse->getValue() + pas);
-                float val=dashboard->Vitesse->getValue();
-                if (val<55){
-                        dashboard->CompteTours->setValue(val*4500/55);
-                    }
-                    else if(val<75 && val >= 55){
-                        dashboard->CompteTours->setValue(val*4500/75);
-                    }
-                    else if(val<115 && val >= 75){
-                        dashboard->CompteTours->setValue(val*4500/115);
-                    }
-                    else if(val<140 && val >= 115){
-                        dashboard->CompteTours->setValue(val*4500/140);
-                    }
-                    else{
-                        dashboard->CompteTours->setValue(dashboard->Vitesse->getValue()*4500/185);
-                    }
+//                float val=dashboard->Vitesse->getValue();
+//                if (val<55){
+//                        dashboard->CompteTours->setValue(val*4500/55);
+//                    }
+//                    else if(val<75 && val >= 55){
+//                        dashboard->CompteTours->setValue(val*4500/75);
+//                    }
+//                    else if(val<115 && val >= 75){
+//                        dashboard->CompteTours->setValue(val*4500/115);
+//                    }
+//                    else if(val<140 && val >= 115){
+//                        dashboard->CompteTours->setValue(val*4500/140);
+//                    }
+//                    else{
+//                        dashboard->CompteTours->setValue(dashboard->Vitesse->getValue()*4500/185);
+//                    }
 
                 ui->graphicsView->scene()->update();
                 QTest::qWait(20);
@@ -809,7 +805,6 @@ if (dashboard->CompteurKm != nullptr)
 //permet d'ajuster la taille de la scène (en fonction de boundingRect) chaque fois que MainWindow est redimensionnée
 void MainWindow::resizeEvent(QResizeEvent *)
 {
-    dashboard->Clignotant->setValue(0);
     ui->graphicsView->scene()->update();
     dashboard->warning->setValue(0);
     ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
@@ -839,6 +834,12 @@ void MainWindow::simulation(int vitesseDactualisation)
     dashboard->Clignotant->setValue(0);
     ui->graphicsView->scene()->update();
     QTest::qWait(700);
+    dashboard->OpenDoorDriver->setValue(0);
+    dashboard->OpenDoorFrontPassenger->setValue(0);
+    dashboard->OpenDoorBackLeftPassenger->setValue(0);
+    dashboard->OpenDoorBackRightPassenger->setValue(0);
+    dashboard->BonnetOpen->setValue(0);
+    dashboard->BootOpen->setValue(0);
 
     for(int i=0;i<60;i++)
     {
@@ -873,17 +874,7 @@ void MainWindow::simulation(int vitesseDactualisation)
     }
     dashboard->CompteTours->setValue(1600);
     dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()-2);
-    dashboard->Clignotant->setValue(-1);
-    for(int i=0;i<40;i++)
-    {
-        dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue()+0.001*vitesseDactualisation);
-        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+10);
-        dashboard->Essence->setValue(dashboard->Essence->getValue()-0.01*vitesseDactualisation);
-        dashboard->Vitesse->setValue(dashboard->Vitesse->getValue()+0.3*dashboard->CompteTours->getValue()/dashboard->CompteTours->getValueMax());
-        dashboard->CompteTours->setValue(dashboard->CompteTours->getValue()+(0.5* dashboard->CompteTours->getValueMax()-900)/40);
-        QTest::qWait(30);
-        ui->graphicsView->scene()->update();
-    }
+
     dashboard->Clignotant->setValue(-1);
     QTest::qWait(3000);
     dashboard->VoyantBatterie->setValue(1);

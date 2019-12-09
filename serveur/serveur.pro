@@ -50,6 +50,7 @@ SOURCES += \
     Youcef/engineheatgauge.cpp \
     Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
+    Youcef/indicator_youss.cpp \
     Youcef/maindisplay_youcef.cpp \
     Youcef/tachometer.cpp \
     Youcef/warning_youss.cpp \
@@ -163,6 +164,7 @@ HEADERS += \
     Youcef/engineheatgauge.h \
     Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
+    Youcef/indicator_youss.h \
     Youcef/maindisplay_youcef.h \
     Youcef/tachometer.h \
     Youcef/warning_youss.h \

@@ -8,6 +8,7 @@
 #include "flashinglight_youss.h"
 #include "warning_youss.h"
 #include "maindisplay_youcef.h"
+#include "indicator_youss.h"
 
 #include "scene_globale.h"
 
