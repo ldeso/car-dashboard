@@ -34,6 +34,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     this->addItem(CompteTours);
 
     jaugeTemperature = new jauge_temperature_lea(800.0,200.0,90.0,120,120,130);
+    jaugeTemperature->setZValue(1.0);
     this->addItem(jaugeTemperature);
 
     CompteurKm = new Compteur_kilometre_lea(530,300);
