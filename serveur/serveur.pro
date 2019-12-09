@@ -12,7 +12,7 @@ linux-buildroot-g++ {
     target.path     = root
     INSTALLS       += target
 }
-
+CONFIG += c++11
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = serveur
@@ -45,18 +45,13 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
-    Leo/leo_display.cpp \
-    Leo/leo_gauge.cpp \
-    Leo/leo_indicator.cpp \
-    Leo/leo_label.cpp \
-    Leo/leo_object.cpp \
-    Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
     Youcef/engineheatgauge.cpp \
+    Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
     Youcef/tachometer.cpp \
-    Youcef/voyantsyoucef.cpp \
+    Youcef/warning_youss.cpp \
     Youcef/youcef_scene.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -132,8 +127,13 @@ SOURCES += \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp \
-    Henri/stophenri.cpp
-
+    Henri/stophenri.cpp \
+    Leo/leo_gauge.cpp \
+    Leo/leo_limit.cpp \
+    Leo/leo_object.cpp \
+    Leo/leo_scene.cpp \
+    Loto/blinkingleds.cpp \
+    Loto/kmcalculator.cpp
    
 
 HEADERS += \
@@ -145,6 +145,7 @@ HEADERS += \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
     Henri/scenedefondhenri.h \
+    Henri/stophenri.h \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
@@ -152,18 +153,17 @@ HEADERS += \
     Hugo/hugo_voyants_simples.h \
     Jonas/jonas_compteur.h \
     Jonas/jonas_scene.h \
-    Leo/leo_display.h \
     Leo/leo_gauge.h \
-    Leo/leo_indicator.h \
-    Leo/leo_label.h \
+    Leo/leo_limit.h \
     Leo/leo_object.h \
     Leo/leo_scene.h \
     Youcef/cardialerprototype.h \
     Youcef/carspeeddial.h \
     Youcef/engineheatgauge.h \
+    Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
     Youcef/tachometer.h \
-    Youcef/voyantsyoucef.h \
+    Youcef/warning_youss.h \
     Youcef/youcef_scene.h \
     mainwindow.h \
     objet_virtuel.h \
@@ -238,7 +238,8 @@ HEADERS += \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
-    Henri/stophenri.h
+    Loto/kmcalculator.h
+
 
 
 FORMS += \

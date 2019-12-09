@@ -11,6 +11,9 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
 {   QFontDatabase::addApplicationFont(":/I_SevenSegment.ttf"); // adding custom fonts to the application
     QFontDatabase::addApplicationFont(":/I_mecheffects2bb_ital.ttf");
     QFontDatabase::addApplicationFont(":/I_mecheffects2bb_reg.ttf");
+
+
+
     setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern)); // setting the background to be solid black
     CompteurKm = new compteurKmInna();
         CompteurKm->setZValue(5.0);

@@ -12,6 +12,16 @@
 #include "QPainter"
 
 
+///
+///\file tachometre.cpp
+/// \brief Cet classe est faire pour la affichage de compteur tours per minute d'engine.
+///
+
+
+///
+/// \brief tachometre::tachometre
+///\details Ici le variable "value" est initialisé dans le constructeur. La valueMax est aussi initailisée.
+///
 tachometre::tachometre()
 {
     value =0;
@@ -24,11 +34,11 @@ QRectF tachometre::boundingRect() const
 
 }
 
-void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i < 30; i+=1)
+    for (int i= 0; i < 40; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
         int startAngle = -45* 16;
@@ -36,7 +46,7 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,220-20*i);
+        QColor mCol(17,225,230,220-5*i);
         mPen.setCapStyle(Qt::RoundCap);
         mPen.setWidth(1);
         mPen.setColor(mCol);
@@ -58,11 +68,11 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         QPoint startLinePos;
         QPoint endLinePos;
 
-        startLinePos.setX(198 * cos(theta*pi/180));
-        startLinePos.setY(-198*sin(theta*pi/180));
+        startLinePos.setX(qRound(198 * cos(theta*pi/180)));
+        startLinePos.setY(qRound(-198*sin(theta*pi/180)));
 
-        endLinePos.setX(180* cos(theta*pi/180));
-        endLinePos.setY(-180*sin(theta*pi/180));
+        endLinePos.setX(qRound(180* cos(theta*pi/180)));
+        endLinePos.setY(qRound(-180*sin(theta*pi/180)));
 
 
 
@@ -71,45 +81,29 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         painter->setRenderHint(QPainter::Antialiasing);
 
         painter->drawLine(Ticks);
-
-//        QLine graduations;
-//        startLinePos.setX(98 * cos((theta+40)*pi/180));
-//        startLinePos.setY(-98*sin((theta+40)*pi/180));
-
-//        endLinePos.setX(90 * cos((theta+40)*pi/180));
-//        endLinePos.setY(-90 *sin((theta+40)*pi/180));
-
-//        graduations.setPoints(startLinePos,endLinePos);
-//        painter->setRenderHint(QPainter::Antialiasing);
-
-//        painter->setPen(QPen(QBrush("white") ,3, Qt::SolidLine,Qt::SquareCap));
-//        //painter->drawLine(graduations);
-
         QFont displayFont("Courier");
         displayFont.setPointSize(25);
         displayFont.setWeight(75);
         painter->setFont(displayFont);
+        painter->setRenderHint(QPainter::Antialiasing);
+
 
         int j = (-(theta-235))/20;
 
         if (theta < 90)
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((210*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));}
+            painter->drawText(qRound(210*cos((theta)*pi/180)),qRound(-210 *sin((theta)*pi/180)),QString("%1").arg(j));
+        }
 
         else
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((230*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));
-        };
+            painter->drawText(qRound(230*cos(theta*pi/180)),qRound(-210 *sin(theta*pi/180)),QString("%1").arg(j));
+        }
 
-
-
-    }
 
     /* function to get the speed Value and put needle at the right position*/
-
-
 
     QLine needle;
 
@@ -119,45 +113,50 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     needlestartPos.setY(0);
 
     float needleAngle;
-    rpmValue = getValue();
+    rpmValue = float(getValue());
     needleAngle = getRpmValue(rpmValue);
-    needleAngle= -(needleAngle) - 125.0;
-    qDebug()<<"needleAngle"<< needleAngle;
-    qDebug()<<rpmValue;
+    needleAngle= -(needleAngle) - 125.0f;
 
 
-    needlestopPos.setX(196 * cos((needleAngle)*pi/180));
-    needlestopPos.setY(-196*sin((needleAngle)*pi/180));
+    needlestopPos.setX(qRound(196.0f* (cos((needleAngle)*pi/180.0f))));
+    needlestopPos.setY(qRound(-196.0f*(sin((needleAngle)*pi/180.0f))));
 
     needle.setPoints(needlestartPos,needlestopPos);
 
     painter->setRenderHint(QPainter::HighQualityAntialiasing);
 
-    painter->setPen(QPen(QBrush("red"),3,Qt::SolidLine, Qt::SquareCap));
+    painter->setPen(QPen(QBrush("red"),6,Qt::SolidLine, Qt::SquareCap));
     painter->drawLine(needle);
 
-    painter->setPen(QPen(QBrush("white"),3,Qt::SolidLine, Qt::SquareCap));
+    painter->setPen(QPen(QBrush("white"),6,Qt::SolidLine, Qt::SquareCap));
     painter->drawEllipse(-10,-10,20,20);
 
     //draw text to write rpm
 
     painter->setPen(QPen(QBrush("gray"),8,Qt::SolidLine, Qt::SquareCap));
-    QFont displayFont("Courier");
     displayFont.setPointSize(30);
     displayFont.setWeight(75);
     painter->setFont(displayFont);
-    painter->drawText(-60,-30,"X 1000rpm");
+    painter->drawText(-60,-30,"x 1000rpm");
+
+}
 
 
 
+
+    ///
+    /// \brief tachometre::getRpmValue
+    /// \param rpmValue
+    /// \details Ici, la function tachometre::getRpmValue prendre la valeur de rpm et puis faire le calcule de position d'aiguille.
+    ///
 
 
 }
+
 float tachometre::getRpmValue(float rpmValue)
 {
     float rpmAngle;
-    rpmAngle = rpmValue * (280.00/14000.0);
-    qDebug()<<rpmAngle;
+    rpmAngle = float(rpmValue * (280.0f/14000.0f));
     return rpmAngle;
 }
 

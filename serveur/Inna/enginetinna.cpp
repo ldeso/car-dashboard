@@ -88,5 +88,7 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
 
       painter->drawConvexPolygon(points, 3);
 
-     
+
+
+
 }

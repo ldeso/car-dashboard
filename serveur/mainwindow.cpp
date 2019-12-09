@@ -6,7 +6,10 @@
 #include <QTimer>
 #include <QCoreApplication>
 
-
+/**
+ * @brief MainWindow::MainWindow
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -18,8 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
     dashboard=new henri_scene();
-
-
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -84,7 +85,7 @@ MainWindow::~MainWindow()
 void MainWindow::connexion()
 {
     socket = this->server->nextPendingConnection();
-    qDebug() << "connexion etabli";
+    qDebug() << "connexion etablie";
     connect(socket, SIGNAL(readyRead()),this, SLOT(reception()));
 }
 
@@ -173,7 +174,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA"<<"KODJO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -196,11 +197,11 @@ void MainWindow::reception()
                 dashboard =new Lea_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-            if (prenom=="LEO"){
-                delete dashboard;
-                dashboard = new Leo_scene;
-                ui->graphicsView->setScene(dashboard);
-            }
+//            if (prenom=="LEO"){
+//                delete dashboard;
+//                dashboard = new Leo_scene;
+//                ui->graphicsView->setScene(dashboard);
+//            }
             if (prenom=="FLORIAN"){
                 delete dashboard;
                 dashboard = new SceneFlorian;
@@ -237,6 +238,12 @@ void MainWindow::reception()
                 dashboard = new maroua_scene;
                 ui->graphicsView->setScene(dashboard);
             }
+            if (prenom=="KODJO"){
+                delete dashboard;
+                dashboard = new kodjo_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             QString text = "OK";

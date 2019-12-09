@@ -28,6 +28,7 @@ FuelGauge_lea::FuelGauge_lea(double param_x, double param_y, double param_width,
     width=param_width;
     height=param_height;
     value = 30;
+    valueMax =100;
 }
 
 QRectF FuelGauge_lea::boundingRect() const

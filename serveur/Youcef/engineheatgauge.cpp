@@ -4,9 +4,10 @@
 #include <QStringList>
 
 
-EngineHeatGauge::EngineHeatGauge(QGraphicsItem *parent)
+EngineHeatGauge::EngineHeatGauge(objet_virtuel *)
 {
-
+value=0;
+valueMax=100;
 }
 
 QRectF EngineHeatGauge::boundingRect() const
@@ -14,7 +15,7 @@ QRectF EngineHeatGauge::boundingRect() const
        return QRectF(-600, -400, 1200, 800);
 }
 
-void EngineHeatGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void EngineHeatGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing);
 
@@ -51,7 +52,14 @@ void EngineHeatGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
         painter->setBrush(NeedleColor);
 
         for (int i=0;i<=9;i++)
-        {
+           {
+            if((i+1)>getValue()/10)
+            {
+                QBrush NeedleColor("white",Qt::SolidPattern);
+                painter->setBrush(NeedleColor);
+
+            }
+
          float x1,y1;int r=15;
          x1=-275+190*(cos((56-(i*5.1))*pi/180));
          y1=-90+190*(sin((56-(i*5.1))*pi/180));

@@ -56,9 +56,9 @@ void voyant_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidg
     QPen pen (Qt::transparent);
     painter->setBrush(brush);
     painter->setPen(pen);
-    painter->setOpacity(0.7);
+    painter->setOpacity(0.7);                   //règle l'opacité pour que le halo soit moins intense au centre
     painter->drawEllipse(x,y,width,height);
-    painter->setOpacity(1);
+    painter->setOpacity(1);                     //règle l'opacité à la valeur par défaut pour que l'icone soit plus nette
     painter->drawPixmap(x,y,voyant2);
 
   }
