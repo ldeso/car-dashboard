@@ -22,7 +22,7 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
         speedometerInna->setZValue(1.0); // setting the position in the scene item's order
         addItem(speedometerInna); // adding item to the scene
     tachometerInna = new TachometerInna();
-        tachometerInna->setZValue(2.0);
+        tachometerInna->setZValue(4.9);
         addItem(tachometerInna);
     oilgaugeInna = new OilGaugeInna();
         oilgaugeInna->setZValue(0.5);
@@ -47,13 +47,13 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     jaugeTemperature = new EngineTInna ();
         jaugeTemperature->setZValue(8.0);
         addItem(jaugeTemperature);
-    VoyantBatterie = new iconOnOffInna(QPoint(540,420),QSize(40,40),":/I_battery.gif",5.0);
+    VoyantBatterie = new iconOnOffInna(QPoint(610,405),QSize(40,40),":/I_battery.gif",5.0);
         addItem(VoyantBatterie);
-    position = new iconOnOffInna(QPoint(480,320),QSize(50,50),":/I_dayLight.gif",5.0);
+    position = new iconOnOffInna(QPoint(460,320),QSize(50,50),":/I_dayLight.gif",5.0);
         addItem(position);
-    croisement = new iconOnOffInna(QPoint(480,320),QSize(50,50), ":/I_lowBeam.gif",5.0);
+    croisement = new iconOnOffInna(QPoint(460,320),QSize(50,50), ":/I_lowBeam.gif",5.0);
         addItem(croisement);
-    route = new iconOnOffInna(QPoint(480,320),QSize(50,50), ":/I_highBeam.gif",5.0);
+    route = new iconOnOffInna(QPoint(460,320),QSize(50,50), ":/I_highBeam.gif",5.0);
         addItem(route);
     warning = new iconOnOffInna(QPoint(680,230),QSize(40,40), ":/I_warning.gif", 5.0);
         addItem(warning);
@@ -62,15 +62,15 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     AutomaticTransmissionMode = new PRND_Inna();
         AutomaticTransmissionMode->setZValue(5.0);
         addItem(AutomaticTransmissionMode);
-    RearAntifog = new iconOnOffInna(QPoint(460,360),QSize(50,50),":/I_rearFogLight.gif",5.0);
+    RearAntifog = new iconOnOffInna(QPoint(440,360),QSize(50,50),":/I_rearFogLight.gif",5.0);
         addItem(RearAntifog);
-    FrontAntifog = new iconOnOffInna(QPoint(495,360),QSize(50,50),":/I_frontFogLight.gif",5.0);
+    FrontAntifog = new iconOnOffInna(QPoint(475,360),QSize(50,50),":/I_frontFogLight.gif",5.0);
         addItem(FrontAntifog);
     SeatBelt = new iconOnOffInna(QPoint(950,200),QSize(40,40),":/I_seatBeltSign_red.gif",5.0);
         addItem(SeatBelt);
-    RearWindowHeating = new iconOnOffInna(QPoint(470,400),QSize(50,50),":/I_rearWindowHeating_yellow.gif",5.0);
+    RearWindowHeating = new iconOnOffInna(QPoint(405,365),QSize(40,40),":/I_rearWindowHeating_yellow.gif",5.0);
         addItem(RearWindowHeating);
-    CheckEngine = new iconOnOffInna(QPoint(810,420),QSize(50,50),":/I_checkEngine.gif",5.0);
+    CheckEngine = new iconOnOffInna(QPoint(900,415),QSize(50,50),":/I_checkEngine.gif",5.0);
         addItem(CheckEngine);
     OpenDoorDriver= new iconOnOffInna(QPoint(1005,210),QSize(60,60),":/I_driverDoorOpen.gif", 5.0 );
         addItem(OpenDoorDriver);
@@ -84,9 +84,9 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
         addItem(AdaptiveCruiseControl);
     AirbagOn = new iconOnOffInna (QPoint(900,195),QSize(50,50),":/I_airBag.gif",5.0);
         addItem(AirbagOn);
-    BonnetOpen =  new iconOnOffInna(QPoint(875,230),QSize(60,60),":/I_bonnetOpen_red.gif", 5.0 );
+    BonnetOpen =  new iconOnOffInna(QPoint(950,230),QSize(60,60),":/I_bonnetOpen_red.gif", 4.0 );
         addItem(BonnetOpen);
-    BootOpen =  new iconOnOffInna(QPoint(940,230),QSize(60,60),":/I_bootOpen_red.gif", 5.0 );
+    BootOpen =  new iconOnOffInna(QPoint(885,230),QSize(60,60),":/I_bootOpen_red.gif", 4.0 );
         addItem(BootOpen);
     OilTemp = new ArrowOilTInna ();
         OilTemp->setZValue(8.0);
@@ -94,8 +94,12 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     oilLevel = new ArrowOilLInna();
         oilLevel->setZValue(10.0);
         addItem(oilLevel);
-    ABS = new iconOnOffInna (QPoint(995,415), QSize(50,50), ":/I_ABS_ON.gif",5.0);
+    ABS = new iconOnOffInna (QPoint(1005,415), QSize(50,50), ":/I_ABS_ON.gif",5.0);
         addItem(ABS);
+    CruiseControlOn = new iconOnOffInna (QPoint(390,270),QSize(40,40),":/I_CruiseControl_green.gif",5.0);
+    addItem(CruiseControlOn);
+    handbrake = new iconOnOffInna (QPoint(955,415), QSize(50,50), ":/I_hand_brake.gif",5.0);
+    addItem(handbrake);
 
 
 }

@@ -42,5 +42,12 @@
         <file>I_gearProblem.gif</file>
         <file>fond.gif</file>
         <file>distressed-texture-2.jpg</file>
+        <file>I_LL.gif</file>
+        <file>I_RR.gif</file>
+        <file>I_R.gif</file>
+        <file>I_L.gif</file>
+        <file>I_C.gif</file>
+        <file>I_CruiseControl_green.gif</file>
+        <file>I_hand_brake.gif</file>
     </qresource>
 </RCC>

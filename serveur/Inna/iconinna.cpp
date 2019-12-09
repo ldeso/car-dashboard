@@ -17,7 +17,7 @@ IconInna::IconInna(objet_virtuel *parent) :  objet_virtuel(parent)
 }
 
 IconInna::IconInna(QPoint p, QSize s, QString pth)
-{   value = 0;
+{   value = 1;
     position = p;
     size = s;
     imagePath = pth;

@@ -13,7 +13,7 @@
 ///\details Constructeur de la classe initialisant la variable _value_ de la classe mère, et la variable _cligno_ qui permet de gérer l'affichage alternatif des voyants.
 ///
 clignotantInna::clignotantInna(IconInna *parent) : IconInna (parent)
-{   value = 0;
+{   value = 2;
     cligno = 0;
     this->setZValue(5.0);
 }
@@ -36,18 +36,18 @@ void clignotantInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     if  (mode != 0)
     {if (mode == -1)
         {painter->setOpacity(cligno);
-        painter->drawPixmap(510,160,50,50, QPixmap(":/I_turnLeft.gif"));
+        painter->drawPixmap(630,160,50,50, QPixmap(":/I_turnLeft.gif"));
         }
 
      if (mode == 1)
         {painter->setOpacity(cligno);
-        painter->drawPixmap(840,160,50,50, QPixmap(":/I_turnRight.gif"));
+        painter->drawPixmap(730,230,50,50, QPixmap(":/I_turnRight.gif"));
         }
 
     if (mode == 2)
         {painter->setOpacity(cligno);
-         painter->drawPixmap(510,160,50,50, QPixmap(":/I_turnLeft.gif"));
-         painter->drawPixmap(840,160,50,50, QPixmap(":/I_turnRight.gif"));
+         painter->drawPixmap(630,230,50,50, QPixmap(":/I_turnLeft.gif"));
+         painter->drawPixmap(730,230,50,50, QPixmap(":/I_turnRight.gif"));
          }
     MAJ();
     }

@@ -9,7 +9,7 @@
 
 iconOnOffInna::iconOnOffInna(IconInna *parent) : IconInna (parent)
 {
-    value = 0;
+    value = 1;
 }
 /// \brief iconOnOffInna::iconOnOffInna(QPoint p, QSize s, QString pth, double Z) - le constructeur multiparametrique
 /// \details Le constructeur permet d'instancier un voyant a la position p, de la taille s,
@@ -17,7 +17,7 @@ iconOnOffInna::iconOnOffInna(IconInna *parent) : IconInna (parent)
 ///
 iconOnOffInna::iconOnOffInna(QPoint p, QSize s, QString pth, double Z)
 {
-    value = 0;
+    value = 1;
     position = p;
     size = s;
     imagePath = pth;

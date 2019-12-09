@@ -15,11 +15,11 @@
 /// \param k - le coefficient pour convertir la valeur en degrés
 ///
 ArrowOilTInna::ArrowOilTInna(objet_virtuel *parent) :  objet_virtuel(parent)
-{   value =60.0;
-    tmax = 160 ;
+{   value = 80.0;
+    tmax = 130 ;
     valueMax = tmax;
-    A0 = 180 ;
-    Amax = 110 ;
+    A0 = 190 ;
+    Amax = 90 ;
     r = 100;
     dx = 10;
     dy = 9;
@@ -66,8 +66,8 @@ void ArrowOilTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
     painter->setBrush(QBrush(radialGradot));
     painter->drawEllipse(qRound(xot-15),qRound(yot-15),30,30);
 
-    if (t > 120 ) {painter->drawPixmap(220,305,40,40, QPixmap(":/I_Oil_t_red.gif"));}
-    else {painter->drawPixmap(220,305,40,40, QPixmap(":/I_Oil_t_white.gif"));}
+    if (t > 120 ) {painter->drawPixmap(120,360,40,40, QPixmap(":/I_Oil_t_red.gif"));}
+    else {painter->drawPixmap(120,360,40,40, QPixmap(":/I_Oil_t_white.gif"));}
 
 
 

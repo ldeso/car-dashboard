@@ -18,10 +18,10 @@
 
 EngineTInna::EngineTInna(objet_virtuel *parent) :  objet_virtuel(parent)
 {
-    value=55;
-    tmax = 140 ;
-    A0 = 0 ;
-    Amax = 110 ;
+    value = 80;
+    tmax = 130 ;
+    A0 = -10 ;
+    Amax = 90 ;
     r = 100.0 ;
 
 }
@@ -61,8 +61,8 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
       painter->setBrush(QBrush(radialGradet));
       painter->drawEllipse(qRound(xet-15),qRound(yet-15),30,30);
 
-      if (t > 115 ) {painter->drawPixmap(1140,315,40,40, QPixmap(":/I_engineT_red.gif"));}
-      else {painter->drawPixmap(1140,315,40,40, QPixmap(":/I_engineT_blue.gif"));}
+      if (t > 115 ) {painter->drawPixmap(1180,300,40,40, QPixmap(":/I_engineT_red.gif"));}
+      else {painter->drawPixmap(1180,300,40,40, QPixmap(":/I_engineT_blue.gif"));}
 
       ///
       ///\brief Dessin de la flèche
@@ -72,7 +72,7 @@ void EngineTInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     if (t < 50 || t > (tmax + 5)) t = ( t < 50 ?  50 : (tmax+5));// condition to set the range and prevent arrow from pointing outside the scale
 
 
-      k = (Amax+30) * 1.0 / (tmax-60) ;
+      k = (Amax+20) * 1.0 / (tmax-60) ;
       QLinearGradient linearGradot(QPointF(xet-(5*cos((A0+5+k*(t-60)-90)*rad)),yet+(5*sin((A0+5+k*(t-60)-90)*rad))), QPointF(xet+(7*cos((A0+5+k*(t-60)-90)*rad)),yet-(7*sin((A0+5+k*(t-60)-90)*rad))));
       linearGradot.setColorAt(0, "#F93737");
       linearGradot.setColorAt(0.5, "#ff4d4d");
