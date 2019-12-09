@@ -105,8 +105,11 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
        QRadialGradient radgrad(700.0,300.0,600,350.0, 150.0);
        radgrad.setColorAt(0, "#333333");
        radgrad.setColorAt(1, "#0d0d0d");
+       QLinearGradient lingrad;
+      // QBrush brush;
+      // brush.setTexture(QPixmap(":/distressed-texture-2.jpg"));
       //brush.setStyle(Qt::Dense2Pattern);
-      painter->setPen(QPen(QBrush(radgrad),20,Qt::SolidLine,Qt::FlatCap,Qt::RoundJoin));
+  //    painter->setPen(QPen(QBrush(lingrad),20,Qt::SolidLine,Qt::FlatCap,Qt::RoundJoin));
      painter->setBrush(QBrush(Qt::transparent));
        QPainterPath path;
       path.moveTo(1330,470);

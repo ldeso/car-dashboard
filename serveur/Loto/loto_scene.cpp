@@ -24,7 +24,7 @@ loto_scene::loto_scene(scene_globale *parent):scene_globale(parent)
     Essence = new fuel_guage();
     CompteTours = new tachometre();
     jaugeTemperature = new tempGauge();
-    //CompteurKm =new kmCalculator();
+    CompteurKm =new kmCalculator();
 
 
     BootOpen= new LEDS(250,150,":/bootOpen_red.gif",235,0,0,130); //
