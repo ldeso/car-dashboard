@@ -124,7 +124,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    if(message=="CANN SPEEDTO"){
+    else if(message=="CANN SPEEDTO"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             float pas=(vitesse-dashboard->Vitesse->getValue())/100;
@@ -158,7 +158,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    if(message=="CANN RPMTO"){
+    else if(message=="CANN RPMTO"){
         int rpm = string.section(' ', 2,2).toInt();
         if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
             float pas=(rpm-dashboard->CompteTours->getValue())/100;
@@ -661,7 +661,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    if(message=="CANN ENGINE_TTO"){
+   else  if(message=="CANN ENGINE_TTO"){
         int engineT = string.section(' ', 2,2).toInt();
         if(engineT>=0 && engineT <= dashboard->jaugeTemperature->getValueMax()){
             float pas=(engineT-dashboard->jaugeTemperature->getValue())/100;
