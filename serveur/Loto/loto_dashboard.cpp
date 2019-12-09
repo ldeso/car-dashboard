@@ -164,7 +164,9 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         painter->setBrush(displayBrush);
 
         painter->setPen(QPen(QBrush("white"),10,Qt::SolidLine, Qt::SquareCap));
-        displayFont.setPointSize(14);
+
+        displayFont.setPointSize(16);
+
         displayFont.setWeight(75);
         painter->setFont(displayFont);
 
