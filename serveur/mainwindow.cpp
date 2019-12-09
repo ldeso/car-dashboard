@@ -22,7 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new henri_scene();
+
+    dashboard=new inna_scene();
+
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -124,13 +127,30 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    if(message=="CANN SPEEDTO"){
+    else if(message=="CANN SPEEDTO"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             float pas=(vitesse-dashboard->Vitesse->getValue())/100;
             for (int i=0;i<100;i++)
             {
                 dashboard->Vitesse->setValue(dashboard->Vitesse->getValue() + pas);
+                float val=dashboard->Vitesse->getValue();
+                if (val<55){
+                        dashboard->CompteTours->setValue(val*4500/55);
+                    }
+                    else if(val<75 && val >= 55){
+                        dashboard->CompteTours->setValue(val*4500/75);
+                    }
+                    else if(val<115 && val >= 75){
+                        dashboard->CompteTours->setValue(val*4500/115);
+                    }
+                    else if(val<140 && val >= 115){
+                        dashboard->CompteTours->setValue(val*4500/140);
+                    }
+                    else{
+                        dashboard->CompteTours->setValue(dashboard->Vitesse->getValue()*4500/185);
+                    }
+
                 ui->graphicsView->scene()->update();
                 QTest::qWait(20);
             }
@@ -158,7 +178,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    if(message=="CANN RPMTO"){
+    else if(message=="CANN RPMTO"){
         int rpm = string.section(' ', 2,2).toInt();
         if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
             float pas=(rpm-dashboard->CompteTours->getValue())/100;
@@ -483,14 +503,14 @@ void MainWindow::reception()
     }
     else if(message=="CANN ACCELERATION"){
         int time = string.section(' ', 2,2).toInt();
-        if(time>0){
+        if(time<30){
             acceleration(qRound(1.0*time));
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
-            text = QString("valeur incorrecte, doit être supérieur à 0");
+            text = QString("valeur incorrecte, doit être inférieure à 30");
             socket->write(text.toLocal8Bit());
         }
     }
@@ -661,7 +681,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    if(message=="CANN ENGINE_TTO"){
+   else  if(message=="CANN ENGINE_TTO"){
         int engineT = string.section(' ', 2,2).toInt();
         if(engineT>=0 && engineT <= dashboard->jaugeTemperature->getValueMax()){
             float pas=(engineT-dashboard->jaugeTemperature->getValue())/100;
@@ -779,9 +799,9 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-
-    if (dashboard->CompteurKm != nullptr)
+if (dashboard->CompteurKm != nullptr)
         dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+
     ui->graphicsView->scene()->update();
 
 }

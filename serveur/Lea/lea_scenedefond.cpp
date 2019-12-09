@@ -34,7 +34,7 @@ void lea_SceneDeFond::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
 
     pen.setColor(Qt::transparent);
     QPixmap texture (":/Effets/Icones_Voyants/index.jpeg");
-    QPixmap voyant= texture.scaled(1000,600);
+    QPixmap voyant= texture.scaled(1000,600,Qt::IgnoreAspectRatio);
     brush.setTexture(voyant);
     painter->setBrush(brush);
     painter->setPen(pen);
@@ -45,7 +45,7 @@ void lea_SceneDeFond::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     painter->drawChord(102,12,896,446,310*16,280*16);
 
     QPixmap texture_fond (":/Effets/effet_verre5.png");
-    QPixmap voyant2= texture_fond.scaled(1000,600);
+    QPixmap voyant2= texture_fond.scaled(900,450,Qt::IgnoreAspectRatio);
     brush.setTexture(voyant2);
     painter->setBrush(brush);
     painter->setPen(pen);
@@ -54,7 +54,7 @@ void lea_SceneDeFond::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
 
     pen.setColor(Qt::transparent);
     QPixmap texture_fond_rectangle (":/Effets/Icones_Voyants/index.jpeg");
-    QPixmap voyant3= texture_fond_rectangle.scaled(1000,600);
+    QPixmap voyant3= texture_fond_rectangle.scaled(1000,600,Qt::IgnoreAspectRatio);
     brush.setTexture(voyant3);
     painter->setBrush(brush);
     painter->setPen(pen);
@@ -67,7 +67,7 @@ void lea_SceneDeFond::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     painter->drawRoundedRect(252,402,586,76,20,20);
 
     QPixmap texture_fond_rectangle2 (":/Effets/effet_verre5.png");
-    QPixmap voyant4= texture_fond_rectangle2.scaled(1000,100);
+    QPixmap voyant4= texture_fond_rectangle2.scaled(1000,100,Qt::IgnoreAspectRatio);
     brush.setTexture(voyant4);
     painter->setBrush(brush);
     painter->drawRoundedRect(252,402,586,76,20,20);

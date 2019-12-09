@@ -86,8 +86,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 {
     /// Definition des constantes
     const float spanAngle = beta - alpha;
-    const float diffAngle = (spanAngle)/(nGrad-1);
-    const QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
+    const float diffAngle = (spanAngle-1)/(nGrad-1);
 
     /// Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
@@ -125,7 +124,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     /// Dessine les nGrad du cadrant
     int k = 0;
-    float delta = beta;
+    float delta = beta-1;
     for (int i=0; i<nGrad; i++)
     {
         if (critical == valueMax || delta > qRadiansToDegrees(speedToAngle(critical))) {
