@@ -33,8 +33,8 @@ void jonas_compteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
     /// Ajoute un effet de dégradé sur l'écran LCD
     QLinearGradient linearGrad(boundingRect().topLeft(), boundingRect().bottomRight());
-    linearGrad.setColorAt(0, Qt::white);
-    linearGrad.setColorAt(0.18, QColor(58,3,21));
+    linearGrad.setColorAt(0, QColor(255,255,255,120));
+    linearGrad.setColorAt(0.20, QColor(58,3,21));
     linearGrad.setSpread(QGradient::ReflectSpread);
 
     /// Dessine l'écran LCD

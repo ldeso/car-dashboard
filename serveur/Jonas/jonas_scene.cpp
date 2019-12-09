@@ -114,7 +114,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     this->addItem(Vitesse);
     this->addItem(CompteurKm);
     for (int i=0; i<this->items().size(); i++) {
-        this->items().at(i)->moveBy(120,310);
+        this->items().at(i)->moveBy(120,306);
     }
     this->addItem(background);
 
