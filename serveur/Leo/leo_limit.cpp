@@ -40,7 +40,7 @@ namespace {
 
 }
 
-Leo_limit::Leo_limit(/*const QRectF boundingRect, */QGraphicsItem *parent)
+Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem *parent)
     : Leo_object(boundingRect, parent)
 {
     setData(LIMITS, QVariant::fromValue<QList<int>>(
