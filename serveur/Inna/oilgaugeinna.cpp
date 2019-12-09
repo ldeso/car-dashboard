@@ -50,7 +50,7 @@ void OilGaugeInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
     ///
     ///\brief Remplissage du fond et dessin de l'arche encadrante
     /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une arche  encadrante avec un gradient de couleur.
-
+ painter->drawPixmap(0,0,1400,600,QPixmap(":/I_fond.gif"));
   painter->drawPixmap(-90,110, 485, 520, QPixmap(":/I_LL.gif"));
 
   painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));

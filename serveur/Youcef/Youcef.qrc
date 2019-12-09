@@ -49,4 +49,7 @@
         <file>Icones/tyrePressure_yellow.gif</file>
         <file>Icones/Warning.png</file>
     </qresource>
+    <qresource prefix="/new/font">
+        <file>Seven_Segment.ttf</file>
+    </qresource>
 </RCC>

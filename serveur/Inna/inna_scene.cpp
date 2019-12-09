@@ -13,8 +13,8 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     QFontDatabase::addApplicationFont(":/I_mecheffects2bb_reg.ttf");
 
 
-
     setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern)); // setting the background to be solid black
+
     CompteurKm = new compteurKmInna();
         CompteurKm->setZValue(5.0);
         addItem(CompteurKm);
@@ -100,6 +100,7 @@ inna_scene::inna_scene(scene_globale *parent):scene_globale(parent)
     addItem(CruiseControlOn);
     handbrake = new iconOnOffInna (QPoint(955,415), QSize(50,50), ":/I_hand_brake.gif",5.0);
     addItem(handbrake);
+    SpeedLimit = new iconOnOffInna();
 
 
 }

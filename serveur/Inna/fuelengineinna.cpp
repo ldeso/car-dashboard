@@ -50,6 +50,7 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     ///\brief Remplissage du fond et dessin de l'arche encadrante
     /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une arche  encadrante avec un gradient de couleur.
 
+
     painter->drawPixmap(1000,120, 485, 520, QPixmap(":/I_RR.gif"));
     painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));
     painter->drawEllipse(QRectF(xc-r-20,yc-r-20,(r+20)*2,(r+20)*2));

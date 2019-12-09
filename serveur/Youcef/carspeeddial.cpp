@@ -20,8 +20,9 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 
        {
        QRadialGradient gradient(305, -95, 200);
-       gradient.setColorAt(0, QColor(0,0,0,0));
-       gradient.setColorAt(0.5, QColor("dark blue"));
+
+       gradient.setColorAt(0, QColor(0,204,255));
+       gradient.setColorAt(0.2, QColor("dark blue"));
        gradient.setColorAt(1, QColor("dark"));
        QBrush brush(gradient);
        painter->setBrush(brush);
@@ -83,7 +84,7 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
         int j=0;
         for (float i=222*pi/180;i> -52* pi/180;i-=20*pi/180)
         {
-        painter->setFont(QFont("arial", 13, QFont::Bold, true));
+        painter->setFont(QFont("Seven Segment", 13, QFont::Bold, true));
         painter->setPen(QPen(QBrush("white") , 13, Qt::SolidLine));
         painter->drawText(qCos(i)*152+295,-qSin(i)*152-90,QString("%1").arg(j));
         j+=20;
@@ -171,23 +172,32 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
                                   /*end of the line draw*/
 
                {
-               QLinearGradient gradient(QPoint(X,Y),QPoint(X,Y+60));/* coordinates gradient ((x,y),(x1,y1)) are cooresponding to line where starting the color variation*/
-               gradient.setColorAt(1, QColor("#dark blue"));
-               gradient.setColorAt(0.5, QColor("#D4CAC7"));
-               gradient.setColorAt(0, QColor("#white"));
-               QBrush brush(gradient);
-               painter->setBrush(brush);
+//               QLinearGradient gradient(QPoint(X,Y),QPoint(X,Y+60));/* coordinates gradient ((x,y),(x1,y1)) are cooresponding to line where starting the color variation*/
+//               gradient.setColorAt(1, QColor("#dark blue"));
+//               gradient.setColorAt(0.5, QColor("#D4CAC7"));
+//               gradient.setColorAt(0, QColor("#white"));
+//               QBrush brush(gradient);
+//               painter->setBrush(brush);
 
-               painter->setPen(QPen(QBrush("dark") ,5, Qt::SolidLine,Qt::FlatCap));
-               painter->drawRoundedRect(X,Y, dX*2,Y+60,15,15);
-       //            painter->setPen(QPen(QBrush("white") ,5, Qt::SolidLine,Qt::FlatCap));
-       //            painter->drawRoundedRect(X+3,Y+3, (dX*2)-6,Y+54,15,15);
+//               painter->setPen(QPen(QBrush("dark") ,5, Qt::SolidLine,Qt::FlatCap));
+//               painter->drawRoundedRect(X,Y, dX*2,Y+60,15,15);
+//       //            painter->setPen(QPen(QBrush("white") ,5, Qt::SolidLine,Qt::FlatCap));
+//       //            painter->drawRoundedRect(X+3,Y+3, (dX*2)-6,Y+54,15,15);
+
+               painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
+                           painter->setBrush(QColor(0,128,255,15));
+                           painter->drawRect(X,Y, dX*2,Y+60);
+                           QRadialGradient radialGrad(QPointF(0, 45), 50);
+                           radialGrad.setColorAt(0, QColor(0,204,255));
+                           radialGrad.setColorAt(0.5, QColor("#D4CAC7"));
+                           radialGrad.setColorAt(1, QColor(0, 128, 255));
+                           painter->setPen(QPen(QColor(0,204,255) , 1, Qt::SolidLine,Qt::FlatCap));
                }
 
-
-               painter->setFont(QFont("ariel", 18,  QFont::Bold, true));
+               QFont font("Seven Segment", 25,  QFont::Bold, true);
+               painter->setFont(font);
                painter->setPen(QPen(QBrush("white") ,10, Qt::SolidLine,Qt::FlatCap));
-               painter->drawText(x1,y1, QString("%1").arg(value)); /*replace after 20 by value*/
+               painter->drawText(x1,y1, QString("%1").arg(value));
 
 
                painter->setFont(QFont("ariel", 15, QFont::Bold, true));
