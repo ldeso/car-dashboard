@@ -26,7 +26,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     Essence->setValue(100);
     Essence->setPos(240,-90);
     CompteTours->setPos(-190,0);
-    jaugeTemperature = new Jonas_compteur(100, 215, 145, 100, "", 3, 0, 0, 1, 80, listTemp, 0);
+    jaugeTemperature = new Jonas_compteur(100, 215, 145, 75, "", 3, 0, 0, 1, 80, listTemp, 0);
     jaugeTemperature->setValue(0);
     jaugeTemperature->setPos(240, 65);
     VoyantBatterie = new jonas_voyant_simple(":/icons/icon-battery.jpg", 25, 25, 25);
@@ -41,6 +41,14 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     warning = new jonas_voyant_warning();
     CompteurKm = new jonas_compteurKm();
     CompteurKm->setPos(-40,65);
+    OilTemp = new jonas_voyant_simple(":/icons/icon-temperature-white.png", 17, 17, 17);
+    OilTemp->setPos(160, 38);
+    OilTemp->setValue(1);
+    jonas_voyant_simple *voyantEssence = new jonas_voyant_simple(":/icons/icon-fuel-white.jpg", 17, 17, 17);
+    voyantEssence->setPos(160, -120);
+    voyantEssence->setValue(1);
+    this->addItem(OilTemp);
+    this->addItem(voyantEssence);
     this->addItem(jaugeTemperature);
     this->addItem(CompteTours);
     this->addItem(Vitesse);

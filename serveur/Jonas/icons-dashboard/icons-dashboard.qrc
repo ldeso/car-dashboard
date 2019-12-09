@@ -12,5 +12,7 @@
         <file>icon-turn-right.jpg</file>
         <file>icon-temperature.jpg</file>
         <file>icon-warning.jpg</file>
+        <file>icon-fuel-white.jpg</file>
+        <file>icon-temperature-white.png</file>
     </qresource>
 </RCC>
