@@ -132,7 +132,6 @@ void MainWindow::reception()
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             float pas=(vitesse-dashboard->Vitesse->getValue())/100;
-            dashboard->CruiseControlOn->setValue(0);
             for (int i=0;i<100;i++)
             {
                 dashboard->Vitesse->setValue(dashboard->Vitesse->getValue() + pas);
@@ -167,7 +166,6 @@ void MainWindow::reception()
         int rpm = string.section(' ', 2,2).toInt();
         if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
             float pas=(rpm-dashboard->CompteTours->getValue())/100;
-            dashboard->CruiseControlOn->setValue(0);
             for (int i=0;i<100;i++)
             {
                 dashboard->CompteTours->setValue(dashboard->CompteTours->getValue() + pas);
@@ -671,7 +669,6 @@ void MainWindow::reception()
         int engineT = string.section(' ', 2,2).toInt();
         if(engineT>=0 && engineT <= dashboard->jaugeTemperature->getValueMax()){
             float pas=(engineT-dashboard->jaugeTemperature->getValue())/100;
-            dashboard->CruiseControlOn->setValue(0);
             for (int i=0;i<100;i++)
             {
                 dashboard->jaugeTemperature->setValue(dashboard->jaugeTemperature->getValue() + pas);
