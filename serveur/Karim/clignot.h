@@ -1,6 +1,5 @@
 #ifndef CLIGNOT_H
 #define CLIGNOT_H
-//#include <QGraphicsItem>
 #include "objet_virtuel.h"
 
 class clignot : public objet_virtuel

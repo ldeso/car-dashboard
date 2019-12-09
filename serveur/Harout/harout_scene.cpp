@@ -26,13 +26,13 @@ harout_scene::harout_scene()
     CompteTours->setPos(271,0);
 
     //int spanAngle0Essence = 0 *16;
-    Essence =new Harc(0 ,100);
+    Essence =new Harc(0 ,120,"essence");
     this->addItem(Essence);
     //Essence->setPos(100,0);
 
     //int spanAngleTemp ;
     //int spanAngle0Temp = 0 *16;
-    jaugeTemperature =new Harc(0,120);
+    jaugeTemperature =new Harc(0,120,"temperature");
     this->addItem(jaugeTemperature);
     jaugeTemperature->setPos(271,0);
 

@@ -21,7 +21,6 @@ maroua_scene::maroua_scene(scene_globale *parent) :
 
 
 //    addItem(contour);
-
 //    addItem(essence);
 //    addItem(tour);
 

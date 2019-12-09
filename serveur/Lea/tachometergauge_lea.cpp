@@ -67,12 +67,12 @@ void TachometerGauge_Lea::paint(QPainter *painter, const QStyleOptionGraphicsIte
 ///
     // ******************** Dessine le gradient au dessus
 
-       QRadialGradient radial(QPointF(x,y),r+10);
+       QRadialGradient radial(QPointF(x,y),r+15);
        radial.setColorAt(0,Qt::transparent);
        radial.setColorAt(0.98,Qt::blue);
        radial.setColorAt(1,Qt::transparent);
        painter->setPen(QPen(QBrush(radial),20,Qt::SolidLine,Qt::FlatCap));
-       painter->drawArc(qRound(x-r-15),qRound(y-r-15),qRound(r*2)+35,qRound(r*2)+35,angle_debut*16, -span_angle*16);
+       painter->drawArc(qRound(x-r-20),qRound(y-r-15),qRound(r*2)+35,qRound(r*2)+35,angle_debut*16, -span_angle*16);
      //met le span angle en negatif pour que l'arc soit déssiné dans le sens des aiguilles d'une montre
 
 ///

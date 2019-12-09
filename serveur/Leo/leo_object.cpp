@@ -5,6 +5,7 @@ Leo_object::Leo_object(const QRectF boundingRect, QGraphicsItem* parent)
     , mBoundingRect(boundingRect)
 {
     value = 0;
+    valueMax = 10000;
 }
 
 QRectF Leo_object::boundingRect() const

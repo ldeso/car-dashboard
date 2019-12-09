@@ -1,8 +1,7 @@
 #ifndef CadranVitesse_H
 #define CadranVitesse_H
-#include <QGraphicsItem>
 #include <objet_virtuel.h>
-#include <QPainter>
+
 
 class CadranVitesse : public objet_virtuel
 {

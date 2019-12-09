@@ -34,6 +34,7 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
     this->addItem(CompteTours);
 
     jaugeTemperature = new jauge_temperature_lea(800.0,200.0,90.0,120,120,130);
+    jaugeTemperature->setZValue(1.0);
     this->addItem(jaugeTemperature);
 
     CompteurKm = new Compteur_kilometre_lea(530,300);
@@ -104,6 +105,21 @@ Lea_scene::Lea_scene(scene_globale *parent):scene_globale(parent)
 
     warning = new warning_lea (590,120,":/Lea/Icones_Voyants/hazardLights.gif",30,30);
     this->addItem(warning);
+
+    AdaptiveSuspensionDampers = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    AutomaticTransmissionMode = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    AdaptiveCruiseControl = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    OilTemp = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    SpeedLimit = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+    oilLevel = new voyant_Lea(0,0,"",30,30,Qt::transparent);
+
+
+
 
 
 }

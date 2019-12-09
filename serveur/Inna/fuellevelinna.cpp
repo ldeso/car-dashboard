@@ -20,7 +20,7 @@ FuelLevelInna::FuelLevelInna(objet_virtuel *parent) :  objet_virtuel(parent)
 
 {   value = 0;
     A0 = 0 ;
-    Amax = 110 ;
+    Amax = 90 ;
     r = 100.0 ;
     valueMax = 100;
 
@@ -28,7 +28,7 @@ FuelLevelInna::FuelLevelInna(objet_virtuel *parent) :  objet_virtuel(parent)
 
 FuelLevelInna::FuelLevelInna(int ALPHA0, int ALPHAMAX)
 {
-    value = 0;
+    value = 100;
     A0 = ALPHA0 ;
     Amax = ALPHAMAX ;
     r = 100.0 ;
@@ -69,7 +69,7 @@ void FuelLevelInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
 
         k = (Amax+20)*0.01; // angle correction because the radius of a scale is not the same as the radius of the arrow trajectory
 
-        QLinearGradient linearGradol  (QPointF(xf-(5*cos((A0+210+k*l-90)*rad)),yf+(5*sin((A0+210+k*l-90)*rad))), QPointF(xf+(7*cos((A0+210+k*l-90)*rad)),yf-(7*sin((A0+210+k*l-90)*rad))));
+        QLinearGradient linearGradol  (QPointF(xf-(5*cos((A0+230+k*l-90)*rad)),yf+(5*sin((A0+230+k*l-90)*rad))), QPointF(xf+(7*cos((A0+230+k*l-90)*rad)),yf-(7*sin((A0+230+k*l-90)*rad))));
             linearGradol.setColorAt(0, "#F93737");
             linearGradol.setColorAt(0.5, "#ff4d4d");
             linearGradol.setColorAt(1, "#F93737");
@@ -78,9 +78,9 @@ void FuelLevelInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
         //painter->drawLine(xc,yc, xc+160*cos((225-shift)*rad),yc-160*sin((225-shift)*rad));
         painter->setBrush(QBrush(linearGradol));
         QPointF pointsF[3] = {
-            QPointF(xf-(5*cos((A0+210+k*l-90)*rad)),yf+(5*sin((A0+210+k*l-90)*rad))),
-            QPointF(xf+(r-15)*cos((A0+210+k*l)*rad),yf-5-(r-15)*sin((A0+210+k*l)*rad)),
-            QPointF(xf+(5*cos((A0+210+k*l-90)*rad)),yf-(5*sin((A0+210+k*l-90)*rad))),
+            QPointF(xf-(5*cos((A0+230+k*l-90)*rad)),yf+(5*sin((A0+230+k*l-90)*rad))),
+            QPointF(xf+(r-15)*cos((A0+230+k*l)*rad),yf-5-(r-15)*sin((A0+230+k*l)*rad)),
+            QPointF(xf+(5*cos((A0+230+k*l-90)*rad)),yf-(5*sin((A0+230+k*l-90)*rad))),
            };
 
         painter->drawConvexPolygon(pointsF, 3);
@@ -90,9 +90,9 @@ void FuelLevelInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
         ///
 
         if (l >= 0 && l <=20.0)
-                painter->drawPixmap(1270,370,50,50, QPixmap(":/I_fuelL_red.gif"));
+                painter->drawPixmap(1270,380,50,50, QPixmap(":/I_fuelL_red.gif"));
         else
-                painter->drawPixmap(1270,370,50,50, QPixmap(":/I_fuelL_white.gif"));
+                painter->drawPixmap(1270,380,50,50, QPixmap(":/I_fuelL_white.gif"));
 
 
 

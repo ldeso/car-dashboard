@@ -40,16 +40,16 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     Clignotant = new jonas_voyant_clignotant();
     warning = new jonas_voyant_warning();
     CompteurKm = new jonas_compteurKm();
-    CompteurKm->setPos(-35,50);
-    this->addItem(VoyantBatterie);
-    this->addItem(croisement);
-    this->addItem(route);
-    this->addItem(position);
+    CompteurKm->setPos(-40,65);
     this->addItem(jaugeTemperature);
     this->addItem(CompteTours);
     this->addItem(Vitesse);
     this->addItem(CompteurKm);
     this->addItem(Essence);
+    this->addItem(VoyantBatterie);
+    this->addItem(croisement);
+    this->addItem(route);
+    this->addItem(position);
     this->addItem(Clignotant);
     this->addItem(warning);
 }

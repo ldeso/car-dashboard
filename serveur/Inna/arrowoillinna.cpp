@@ -17,11 +17,11 @@
 ///
 ArrowOilLInna::ArrowOilLInna(objet_virtuel *parent) :  objet_virtuel(parent)
 {
-    value =0.0;
-    lmax = 5;
+    value =4;
+    lmax = 4;
     valueMax = lmax;
     A0 = 180 ;
-    Amax = 110 ;
+    Amax = 90 ;
     r = 100 ;
     dx = 10;
     dy = 9;

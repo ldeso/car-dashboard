@@ -1,6 +1,5 @@
 #ifndef VOYANTS_WARNING_H
 #define VOYANTS_WARNING_H
-
 #include "objet_virtuel.h"
 
 class voyants_warning : public objet_virtuel

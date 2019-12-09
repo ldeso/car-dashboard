@@ -15,14 +15,10 @@ class fuel_guage : public objet_virtuel
 public:
     fuel_guage();
     QRectF boundingRect()const;
-    double tankLevelLitres=getValue();
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
-    const double pi=3.142;
-    double getrotationAngle(double tankLevelLitres);
-
-private:
-    bool blink=false;
-    void blinker();
+    float tankLevelLitres= float(getValue());
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
+    const float pi=3.142f;
+    float getrotationAngle(float tankLevelLitres);
 
 
 };

@@ -29,7 +29,7 @@ voyant_Lea::voyant_Lea(int param_x, int param_y, QString param_chemin, int param
     chemin=param_chemin;
     width= param_width;
     height=param_height;
-    value = 1;
+    value = 0;
     color = param_color;
 
 }
