@@ -1,7 +1,6 @@
 #ifndef CADRANTOURPARMIN_H
 #define CADRANTOURPARMIN_H
 #include <objet_virtuel.h>
-#include <QPainter>
 
 class CadranTourParMin : public objet_virtuel
 {

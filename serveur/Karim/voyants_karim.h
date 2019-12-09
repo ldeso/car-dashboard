@@ -1,8 +1,6 @@
 #ifndef VOYANTS_KARIM_H
 #define VOYANTS_KARIM_H
 #include <objet_virtuel.h>
-#include <QGraphicsItem>
-#include <QPainter>
 
 class Voyants_karim : public objet_virtuel
 {

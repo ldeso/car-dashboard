@@ -1,3 +1,8 @@
+///
+///\file CadranVitesse.cpp
+/// \brief Classe dérivant de objet_virtuel permettant l'affichage du cadran vitesse.
+///
+
 #include "Karim/CadranVitesse.h"
 #include "qmath.h"
 #include <QFont>
@@ -6,19 +11,31 @@
 #include <qdebug.h>
 #define pi 3.1415
 
-
+/**
+ * @brief CadranVitesse::CadranVitesse
+ * @details constructeur par défaut
+ */
 CadranVitesse::CadranVitesse()
 {
     valueMax=270; //Vitesse max
     value=0;
 }
 
+/**
+ * @brief CadranVitesse::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF CadranVitesse::boundingRect() const
 {
     qreal penWidth = 5;
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
+/**
+ * @brief CadranVitesse::paint
+ * @param painter
+ * @details dessine les différents élements du compteur
+ */
 void CadranVitesse::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
     /* static const QPointF points[6] = {
@@ -59,13 +76,10 @@ QRect carre[13];
     painter->setPen(Qt::NoPen);
     painter->drawEllipse(QPoint(0,0), carre[4].height()/2, carre[4].height()/2);
 
-
-
   // Design du cercle aiguille
    painter->setBrush(Qt::darkRed);
    painter->setPen(QPen(QBrush("darkRed"),8,Qt::SolidLine));
    painter->drawEllipse(-20,-20,40,40);
-
 
    //Design du cadran vitesse
    painter->setPen(QPen(QBrush("gray") , 5, Qt::SolidLine,Qt::FlatCap));
@@ -110,7 +124,6 @@ QRect carre[13];
            radialGrad2.setColorAt(0, QColor(0, 128, 255));
            radialGrad2.setColorAt(1, Qt::cyan);
      painter->setBrush(radialGrad2);
-
      painter->translate(405,45);
      painter->drawRect(-200,-70,190,190);
      painter->drawLine(-200,25,0,25);
