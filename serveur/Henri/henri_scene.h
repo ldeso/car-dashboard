@@ -14,6 +14,7 @@
 #include "onoff.h"
 #include "porteshenri.h"
 #include "onoffpainthenri.h"
+#include "stophenri.h"
 
 
 class henri_scene : public scene_globale
@@ -23,6 +24,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
     sceneDeFondHenri *fond;
+    stopHenri *stop;
 };
 
 

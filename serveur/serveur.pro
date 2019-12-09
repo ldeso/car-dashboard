@@ -50,6 +50,8 @@ SOURCES += \
     Youcef/engineheatgauge.cpp \
     Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
+    Youcef/indicator_youss.cpp \
+    Youcef/maindisplay_youcef.cpp \
     Youcef/tachometer.cpp \
     Youcef/warning_youss.cpp \
     Youcef/youcef_scene.cpp \
@@ -127,16 +129,21 @@ SOURCES += \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp \
+    Henri/stophenri.cpp \
     Leo/leo_gauge.cpp \
     Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Loto/blinkingleds.cpp \
+<<<<<<< HEAD
     Loto/kmcalculator.cpp \
     Harout/hvoyant.cpp \
     Harout/hvoyantwarning.cpp \
     Harout/hclignotant.cpp
 
+=======
+    Loto/kmcalculator.cpp
+>>>>>>> 999c2a8a3a415badc4daf7948cec495d5ab7bad1
    
 
 HEADERS += \
@@ -148,6 +155,7 @@ HEADERS += \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
     Henri/scenedefondhenri.h \
+    Henri/stophenri.h \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
@@ -164,6 +172,8 @@ HEADERS += \
     Youcef/engineheatgauge.h \
     Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
+    Youcef/indicator_youss.h \
+    Youcef/maindisplay_youcef.h \
     Youcef/tachometer.h \
     Youcef/warning_youss.h \
     Youcef/youcef_scene.h \
@@ -244,6 +254,7 @@ HEADERS += \
     Harout/hvoyant.h \
     Harout/hvoyantwarning.h \
     Harout/hclignotant.h
+
 
 
 FORMS += \

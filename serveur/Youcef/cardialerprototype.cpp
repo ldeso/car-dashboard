@@ -46,12 +46,15 @@ painter->setRenderHint(QPainter::Antialiasing);
 
 
 
+/* contour principal*/
       {
-          QPolygonF polygon;
-          QRect rec1(47,-355,507,507);
-          QRect rec2(-554,-355,507,507);
 
-          painter->setPen(QPen(QBrush("dark blue"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+          QPolygonF polygon;
+
+         QRect rec1(47,-355,507,507);
+         QRect rec2(-554,-355,507,507);
+
+         painter->setPen(QPen(QBrush("dark blue"),3,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
 
           QPainterPath rectPath;
           rectPath.moveTo(-290,-320);
@@ -63,25 +66,28 @@ painter->setRenderHint(QPainter::Antialiasing);
           rectPath.closeSubpath();
           rectPath.addPolygon(polygon);
 
-          QRadialGradient gradient(119, -4.5, 1000);
-          gradient.setColorAt(0, QColor("white"));
-          gradient.setColorAt(0.2, QColor(0,0,0,0));
-          gradient.setColorAt(0.5, QColor("dark"));
-          gradient.setColorAt(0.8, QColor(0,0,0,0));
-          gradient.setColorAt(1, QColor("blue"));
+/*remplissage contour principal*/
+
+          QRadialGradient gradient(0, -70, 700);
+          gradient.setColorAt(0, QColor("0,204,255"));
+          gradient.setColorAt(0.2, QColor("dark blue"));
+          gradient.setColorAt(1, QColor("dark"));
+
           QBrush brush(gradient);
           painter->setBrush(brush);
-
           painter->drawPath(rectPath);
       }
+
+/*creation contour cadrant*/
 
       {
 
           QPolygonF polygon;
-          QRect rec1(97,-305,407,407);
-          QRect rec2(-504,-305,407,407);
 
-          painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+         QRect rec1(97,-305,407,407);
+         QRect rec2(-504,-305,407,407);
+
+         painter->setPen(QPen(QBrush("dark blue"),3,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
 
           QPainterPath rectPath;
           rectPath.moveTo(-300,-305);
@@ -93,16 +99,18 @@ painter->setRenderHint(QPainter::Antialiasing);
           rectPath.closeSubpath();
           rectPath.addPolygon(polygon);
 
-          painter->drawPath(rectPath);
       }
 
+/*creation second contour cadrant*/
+
+
       {
-
           QPolygonF polygon;
-          QRect rec1(103,-300,398,398);
-          QRect rec2(-499,-300,398,398);
 
-          painter->setPen(QPen(QBrush("red"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+         QRect rec1(103,-300,398,398);
+         QRect rec2(-499,-300,398,398);
+
+         painter->setPen(QPen(QBrush("red"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
 
           QPainterPath rectPath;
           rectPath.moveTo(-300,-300);
@@ -114,52 +122,66 @@ painter->setRenderHint(QPainter::Antialiasing);
           rectPath.closeSubpath();
           rectPath.addPolygon(polygon);
 
-          painter->drawPath(rectPath);
-      }
+/* remplissage second contour cadrant*/
 
-      {
-          QRect RectSpeed1 (100,-305, 415, 415);
-          QRect RectSpeed2 (-505,-305, 415, 415);
-          painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+          QLinearGradient gradient(-300, -300,-300,0 );
+          gradient.setColorAt(0, QColor(0,204,255));
+          gradient.setColorAt(0, QColor("gray"));
+           gradient.setColorAt(1, QColor("gray"));
 
-          QPolygonF polygon;
-          QPainterPath rectPath;
-          rectPath.moveTo(-250,-295);
-          rectPath.lineTo(250,-295);
-          rectPath.arcTo(RectSpeed1,90, 30);
-          rectPath.lineTo(145,-235);
-          rectPath.lineTo(-140,-235);
-          rectPath.arcTo(RectSpeed2,42, 31);
-          rectPath.closeSubpath();
-          rectPath.addPolygon(polygon);
 
-          QRadialGradient gradient(0, -270, 200);
-          gradient.setColorAt(0, QColor(0,0,0,0));
-          gradient.setColorAt(0.5, QColor("dark blue"));
-          gradient.setColorAt(1, QColor("dark"));
-          QBrush brush(gradient);
+           QBrush brush(gradient);
           painter->setBrush(brush);
-
           painter->drawPath(rectPath);
       }
+/*creation contour ecran supérieur */
 
-      {
-          QRect RectSpeed1 (100,-300, 405, 405);
-          QRect RectSpeed2 (-500,-300, 405, 405);
-          painter->setPen(QPen(QBrush("red"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
 
-          QPolygonF polygon;
-          QPainterPath rectPath;
-          rectPath.moveTo(-300,-300);
-          rectPath.lineTo(300,-300);
-          rectPath.arcTo(RectSpeed1,90, 49);
-          rectPath.lineTo(150,-230);
-          rectPath.lineTo(-145,-230);
-          rectPath.arcTo(RectSpeed2,42, 49);
-          rectPath.closeSubpath();
-          rectPath.addPolygon(polygon);
 
-          painter->drawPath(rectPath);
-   }
+{
+QRect RectSpeed3 (100,-300, 405, 405);
+QRect RectSpeed4 (-500,-300, 405, 405);
+painter->setPen(QPen(QBrush("red"),5,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+
+QPolygonF polygon2;
+ QPainterPath rectPath1;
+ rectPath1.moveTo(-300,-300);
+ rectPath1.lineTo(300,-300);
+ rectPath1.arcTo(RectSpeed3,90, 49);
+ rectPath1.lineTo(150,-230);
+ rectPath1.lineTo(-145,-230);
+ rectPath1.arcTo(RectSpeed4,42, 49);
+ rectPath1.closeSubpath();
+ rectPath1.addPolygon(polygon2);
+
+
+ painter->drawPath(rectPath1);
+}
+
+{
+QRect RectSpeed1 (93,-303, 411, 411);
+QRect RectSpeed2 (-505,-305, 415, 415);
+painter->setPen(QPen(QBrush("white"),4,Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+
+QPolygonF polygon;
+ QPainterPath rectPath;
+ rectPath.moveTo(-251,-298);
+ rectPath.lineTo(257,-298);
+ rectPath.arcTo(RectSpeed1,105, 30);
+ rectPath.lineTo(145,-235);
+ rectPath.lineTo(-140,-235);
+ rectPath.arcTo(RectSpeed2,45, 30);
+ rectPath.closeSubpath();
+ rectPath.addPolygon(polygon);
+
+ QRadialGradient gradient(0, -270, 200);
+ gradient.setColorAt(0.5, QColor("dark blue"));
+ gradient.setColorAt(1, QColor("dark"));
+ QBrush brush(gradient);
+ painter->setBrush(brush);
+
+  painter->drawPath(rectPath);
+}
+
 
 }

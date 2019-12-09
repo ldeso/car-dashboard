@@ -43,6 +43,7 @@
     {   painter->setRenderHint(QPainter::Antialiasing);
 
         //Loop to draw tiny concentric rectangles//
+
         for (int i= 0; i < 40; i+=1)
         {
             QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);

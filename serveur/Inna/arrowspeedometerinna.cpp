@@ -19,7 +19,7 @@ ArrowSpeedometerInna::ArrowSpeedometerInna(objet_virtuel *parent) :  objet_virtu
 {   value=0.0;
     vmax = 300 ;
     valueMax = vmax;
-    A0 = 225 ;
+    A0 = 240 ;
     Amax = 180 ;
     r = 150.0 ;
     dx = 7;
@@ -34,8 +34,8 @@ ArrowSpeedometerInna::ArrowSpeedometerInna(int VMAX, int ALPHA0, int ALPHAMAX)
     A0 = ALPHA0 ;
     Amax = ALPHAMAX ;
     r = 150.0 ;
-    dx = 7;
-    dy = 10;
+    dx = 12;
+    dy = 6;
     k = Amax * 1.0 / vmax ;
 }
 

@@ -1,11 +1,10 @@
 #include "leds.h"
 #include "objet_virtuel.h"
-#include "QDebug"
 #include "QPainter"
 #include "QPainterPath"
 #include "QGradient"
 #include "QtMath"
-#include "QDebug"
+#include <QDebug>
 #include "QTextItem"
 #include "QString"
 #include "QRadialGradient"
@@ -32,6 +31,7 @@ LEDS::LEDS(int x, int y, QString iconPathString, int red, int green, int blue, i
     ledColor=QColor(red,green,blue,160);
     size=icon_size;
 }
+
 
 QRectF LEDS::boundingRect() const
 {

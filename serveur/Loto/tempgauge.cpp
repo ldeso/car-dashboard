@@ -36,7 +36,10 @@ QRectF tempGauge::boundingRect() const
 
 void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
+    painter->setRenderHint(QPainter::Antialiasing);
+
     //Loop to draw tiny concentric rectangles//
+
     for (int i= 0; i < 40; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
@@ -54,7 +57,6 @@ void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
         painter->setBrush(mBrush);
         painter->setPen(mPen);
 
-        painter->setRenderHint(QPainter::Antialiasing);
         painter->drawArc(rectangle,startAngle,spanAngle);
     }
 
@@ -80,7 +82,6 @@ void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
         endLinePos.setX(qRound(180* cos(theta*pi/180)));
         endLinePos.setY(qRound(-180*sin(theta*pi/180)));
 
-        //line_j[theta].setPoints(startLinePos,endLinePos);
 
 
         QLine Ticks;

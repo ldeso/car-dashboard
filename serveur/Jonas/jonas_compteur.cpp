@@ -86,8 +86,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 {
     /// Definition des constantes
     const float spanAngle = beta - alpha;
-    const float diffAngle = (spanAngle)/(nGrad-1);
-    const QPen gaugePen(QColor(Qt::black), gaugeSize*15/150, Qt::SolidLine, Qt::FlatCap);
+    const float diffAngle = (spanAngle-1)/(nGrad-1);
 
     /// Active l'antialiasing pour les formes géométriques
     painter->setRenderHints(QPainter::Antialiasing);
@@ -108,10 +107,10 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     QLinearGradient linearGrad1(rect[0].topLeft(), rect[0].bottomRight());
     QLinearGradient linearGrad2(rect[2].topLeft(), rect[2].bottomRight());
     linearGrad1.setColorAt(0.0, Qt::white);
-    linearGrad1.setColorAt(0.3, QColor(169, 165, 166));
+    linearGrad1.setColorAt(0.35, QColor(169, 165, 166));
     linearGrad1.setColorAt(1.0, Qt::gray);
-    linearGrad2.setColorAt(0.0, Qt::white);
-    linearGrad2.setColorAt(0.35, Qt::black);
+    linearGrad2.setColorAt(0.0, QColor(255,255,255,160));
+    linearGrad2.setColorAt(0.35, QColor(0,0,0,0));
     linearGrad1.setSpread(QGradient::ReflectSpread);
     linearGrad2.setSpread((QGradient::ReflectSpread));
 
@@ -125,7 +124,7 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
 
     /// Dessine les nGrad du cadrant
     int k = 0;
-    float delta = beta;
+    float delta = beta-1;
     for (int i=0; i<nGrad; i++)
     {
         if (critical == valueMax || delta > qRadiansToDegrees(speedToAngle(critical))) {

@@ -4,8 +4,8 @@ namespace {
     struct Params {
         const QRectF rect;
         const QList<int> limits;
-        const int blinks;
         const int period;
+        const int reps;
     };
 
     QPainterPath Outline(const Params params)
@@ -20,9 +20,9 @@ namespace {
     bool ShowSign(float &value, int &current_limit, const Params params)
     {
 
+        static std::chrono::high_resolution_clock::time_point start;
         int new_limit = qRound(value);
         value = 0;
-        static std::chrono::high_resolution_clock::time_point start;
         if (params.limits.contains(new_limit) && (new_limit != current_limit)) {
             current_limit = new_limit;
             start = std::chrono::high_resolution_clock::now();
@@ -31,26 +31,24 @@ namespace {
         if (current_limit == 0)
             return false;
         auto elapsed = std::chrono::high_resolution_clock::now() - start;
-        if (elapsed > params.blinks*std::chrono::milliseconds(params.period)) {
+        if (elapsed > params.reps * std::chrono::milliseconds(params.period)) {
             current_limit = 0;
             return false;
         }
-        return !((2*elapsed/std::chrono::milliseconds(params.period)) % 2);
+        return !((elapsed*2/std::chrono::milliseconds(params.period)) % 2);
     }
-
 }
 
-Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem *parent)
+Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem* parent)
     : Leo_object(boundingRect, parent)
 {
     setData(LIMITS, QVariant::fromValue<QList<int>>(
-        { 30, 50, 70, 90, 110, 130 }
+        { 30, 50, 70, 80, 90, 110, 130 }
     ));
-    setData(FONT, 16);
+    setData(PERIOD, 1000);
+    setData(REPS, 3);
     setData(WIDTH, 6);
-    setData(BLINKS, 3);
-    setData(PERIOD, 3000);
-    value = 90;
+    setData(FONT, 16);
 }
 
 void Leo_limit::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)
@@ -64,8 +62,8 @@ void Leo_limit::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)
             -data(WIDTH).toReal()/2
         ),
         data(LIMITS).value<QList<int>>(),
-        data(BLINKS).toInt(),
-        data(PERIOD).toInt()
+        data(PERIOD).toInt(),
+        data(REPS).toInt()
     };
     if (ShowSign(value, current_limit, params)) {
         QFont font = p->font();
