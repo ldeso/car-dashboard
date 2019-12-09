@@ -126,7 +126,7 @@ SOURCES += \
     Maroua/cadrantvitesse.cpp \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
-    Harout/harc.cpp 
+    Harout/harc.cpp \
     Leo/leo_gauge.cpp \
     Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
