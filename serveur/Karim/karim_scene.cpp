@@ -1,3 +1,8 @@
+///
+///\file karim_scene.cpp
+/// \brief Classe dérivée de scene_globale auquelle est rajouté les items du dashboard
+///
+
 #include "Karim/karim_scene.h"
 #include "Karim/voyants_karim.h"
 #include "Karim/voyants_warning.h"
