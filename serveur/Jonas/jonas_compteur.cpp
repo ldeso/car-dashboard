@@ -109,8 +109,8 @@ void Jonas_compteur::paint(QPainter *painter, const QStyleOptionGraphicsItem*, Q
     linearGrad1.setColorAt(0.0, Qt::white);
     linearGrad1.setColorAt(0.3, QColor(169, 165, 166));
     linearGrad1.setColorAt(1.0, Qt::gray);
-    linearGrad2.setColorAt(0.0, Qt::white);
-    linearGrad2.setColorAt(0.35, Qt::black);
+    linearGrad2.setColorAt(0.0, QColor(255,255,255,0));
+    linearGrad2.setColorAt(0.35, QColor(0,0,0,0));
     linearGrad1.setSpread(QGradient::ReflectSpread);
     linearGrad2.setSpread((QGradient::ReflectSpread));
 

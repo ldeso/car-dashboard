@@ -18,5 +18,6 @@
         <file>icon-oil-red.png</file>
         <file>icon-doors-open.png</file>
         <file>icon-rear-window-heating.png</file>
+        <file>car-dashboard.png</file>
     </qresource>
 </RCC>
