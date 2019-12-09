@@ -556,6 +556,7 @@ void MainWindow::reception()
         int CruiseControlOn_on= string.section(' ', 2,2).toInt();
         if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
             dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+            dashboard->Vitesse->setValue(90);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
