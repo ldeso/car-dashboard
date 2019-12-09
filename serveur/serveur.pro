@@ -127,13 +127,13 @@ SOURCES += \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp \
+    Henri/stophenri.cpp \
     Leo/leo_gauge.cpp \
     Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Loto/blinkingleds.cpp \
     Loto/kmcalculator.cpp
-
    
 
 HEADERS += \
@@ -145,6 +145,7 @@ HEADERS += \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
     Henri/scenedefondhenri.h \
+    Henri/stophenri.h \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
@@ -238,6 +239,7 @@ HEADERS += \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
     Loto/kmcalculator.h
+
 
 
 FORMS += \
