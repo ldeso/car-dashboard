@@ -5,10 +5,12 @@
 #include "Kodjo/Cadran_Kodjo.h"
 #include <QDebug>
 
+///Dans ce projet, nous avons avons utilisé qu'une seule classe Cadran_Kodjo.
+/// Chaque objet est initialisé par le constructeur.
+/// "V" = Vitesse, "M" = Tour moteur, "E" = Essence, "B" = Batterie, "P" = Porte ouverte, "C" = Ceinture de sécurité
 
 kodjo_scene::kodjo_scene(scene_globale *parent):scene_globale(parent)
 {
-    //scene = new kodjo_scene;
 
     this->setBackgroundBrush(Qt::gray);
     Vitesse = new Cadran_Kodjo("V", "Km/h", -30,210,10,0);
@@ -21,13 +23,14 @@ kodjo_scene::kodjo_scene(scene_globale *parent):scene_globale(parent)
 
     OilTemp = new Cadran_Kodjo("H", "-", -30,210,10,1);
 
+    VoyantBatterie = new Cadran_Kodjo("B", "-", -30,210,10,1);
+
+    OpenDoorDriver = new Cadran_Kodjo("P", "-", -30,210,10,1);
+
+    SeatBelt = new Cadran_Kodjo("C", "-", -30,210,10,1);
+
     this->addItem(Vitesse);
     Vitesse->setPos(0,0);
-
-   // float vitesse = getValue();
-
-    //qDebug() << "vitesse = " << vitesse;
-    //float vitesse = Vitesse->getValueMax();
 
     this->addItem(CompteTours);
     CompteTours->setPos(500,0);
@@ -35,30 +38,19 @@ kodjo_scene::kodjo_scene(scene_globale *parent):scene_globale(parent)
     this->addItem(Essence);
     Essence->setPos(-300,200);
 
-    this->addItem(jaugeTemperature);
-    jaugeTemperature->setPos(900,200);
-    /*Vitesse->Choix_Type_Cadran("V");
-    Vitesse->setPos(0,0);
-    Vitesse->Affichage_Texte_Cadran_General("Km/h");
-    Vitesse->Setteur_Graduation_Moteur_Vitesse(-30,210,10,0);*/
-    //int vitesse = Vitesse->getValue();
+    this->addItem(OilTemp);
+    OilTemp->setPos(900,200);
 
-    //qDebug() << "vitesse = " << vitesse;
-    //qDebug() << "vitesse = " << Vitesse->getValue();
+    this->addItem(VoyantBatterie);
+    VoyantBatterie->setPos(-300, 200);
 
-//    this->addItem(Rotation_Moteur);
-//    Rotation_Moteur->Choix_Type_Cadran("M");
-//    Rotation_Moteur->setPos(500,0);
-//    Rotation_Moteur->Affichage_Texte_Cadran_General("t/min" );
-//    Rotation_Moteur->Setteur_Graduation_Moteur_Vitesse(-30,210,10,1);
+    this->addItem(OpenDoorDriver);
+    OpenDoorDriver->setPos(-275, 200);
 
-//    this->addItem(Niveau_Essence);
-//    Niveau_Essence->Choix_Type_Cadran("E");
-//    Niveau_Essence->Setteur_Graduation_Essence_Huile("E");
-//    Niveau_Essence->setPos(-300, 200);
+    this->addItem(SeatBelt);
+    SeatBelt->setPos(-200, 200);
 
-//    this->addItem(Niveau_Huile);
-//    Niveau_Huile->Choix_Type_Cadran("H");
-//    Niveau_Huile->Setteur_Graduation_Essence_Huile("H");
-//    Niveau_Huile->setPos(900, 200);
+    //this->addItem(jaugeTemperature);
+    //jaugeTemperature->setPos(900,200);
+
 }

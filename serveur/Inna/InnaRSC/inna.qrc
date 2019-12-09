@@ -40,5 +40,6 @@
         <file>I_highBeam.gif</file>
         <file>I_lowBeam.gif</file>
         <file>I_gearProblem.gif</file>
+        <file>fond.gif</file>
     </qresource>
 </RCC>

@@ -36,18 +36,18 @@ void clignotantInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     if  (mode != 0)
     {if (mode == -1)
         {painter->setOpacity(cligno);
-        painter->drawPixmap(500,120,50,50, QPixmap(":/I_turnLeft.gif"));
+        painter->drawPixmap(510,160,50,50, QPixmap(":/I_turnLeft.gif"));
         }
 
      if (mode == 1)
         {painter->setOpacity(cligno);
-        painter->drawPixmap(840,120,50,50, QPixmap(":/I_turnRight.gif"));
+        painter->drawPixmap(840,160,50,50, QPixmap(":/I_turnRight.gif"));
         }
 
     if (mode == 2)
         {painter->setOpacity(cligno);
-         painter->drawPixmap(500,120,50,50, QPixmap(":/I_turnLeft.gif"));
-         painter->drawPixmap(840,120,50,50, QPixmap(":/I_turnRight.gif"));
+         painter->drawPixmap(510,160,50,50, QPixmap(":/I_turnLeft.gif"));
+         painter->drawPixmap(840,160,50,50, QPixmap(":/I_turnRight.gif"));
          }
     MAJ();
     }
@@ -65,6 +65,6 @@ void clignotantInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 ///
 void clignotantInna::MAJ()
 {cligno = !cligno;
- QTest::qWait(500);//
+ QTest::qWait(300);//
  update();
 }

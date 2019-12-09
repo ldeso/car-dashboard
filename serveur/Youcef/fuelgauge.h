@@ -4,12 +4,13 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include "objet_virtuel.h"
 
 
-class FuelGauge : public QGraphicsItem
+class FuelGauge : public objet_virtuel
 {
 public:
-    FuelGauge(QGraphicsItem *parent=nullptr);
+    FuelGauge(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const ;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
 

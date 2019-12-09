@@ -4,11 +4,12 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include "objet_virtuel.h"
 
-class EngineHeatGauge : public QGraphicsItem
+class EngineHeatGauge : public objet_virtuel
 {
 public:
-    EngineHeatGauge(QGraphicsItem *parent=nullptr);
+    EngineHeatGauge(objet_virtuel *parent=nullptr);
 
     QRectF boundingRect() const ;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);

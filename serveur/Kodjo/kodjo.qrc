@@ -2,5 +2,8 @@
     <qresource prefix="/new/prefix1">
         <file>essence_2.png</file>
         <file>huile_moteur.png</file>
+        <file>voyant_batterie.png</file>
+        <file>voyant_porte_ouverte.png</file>
+        <file>voyant_ceinture_de_securite.png</file>
     </qresource>
 </RCC>
