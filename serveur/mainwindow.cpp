@@ -45,7 +45,11 @@ MainWindow::MainWindow(QWidget *parent) :
 /// \param time Durée de la simulation
 ///
 void MainWindow::acceleration(int time)
-{
+{   int deceleration=1;
+    if (time<0){
+        deceleration=-1;
+        time=-1*time;
+    }
     qDebug()<<"ok";
     float t=0;
     float vitesse=dashboard->Vitesse->getValue();
@@ -69,7 +73,7 @@ void MainWindow::acceleration(int time)
             }
         }
         ui->graphicsView->scene()->update();
-        vitesse+=0.8f;
+        vitesse+=deceleration*0.8f;
         t+=0.1f;
         QTest::qWait(100);
 
@@ -110,7 +114,8 @@ void MainWindow::reception()
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
-            dashboard->CruiseControlOn->setValue(0);
+            if (dashboard->CruiseControlOn!=nullptr)
+                dashboard->CruiseControlOn->setValue(0);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
