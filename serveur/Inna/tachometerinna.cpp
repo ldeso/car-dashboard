@@ -51,10 +51,12 @@ void TachometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
    ///\brief Dessin du circle encadrant.
    /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner un circle  encadrant avec un gradient de couleur.
    ///
+   painter->drawPixmap(460,10, 485, 520, QPixmap(":/I_C.gif"));
    QRadialGradient radialGradc(QPointF(xc, yc), r+20); //setting the gradient to draw the outer arc
    radialGradc.setColorAt(0, Qt::transparent);
    radialGradc.setColorAt(0.8, "#f2f2f2");
-   radialGradc.setColorAt(0.9, "#333333");
+
+    radialGradc.setColorAt(0.9, "#333333");
    radialGradc.setColorAt(1, "#f2f2f2");
    painter->setPen(QPen(QBrush(radialGradc),4,Qt::SolidLine,Qt::FlatCap)); // setting the brush with a gradient
    painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));

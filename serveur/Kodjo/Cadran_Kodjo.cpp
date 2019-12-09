@@ -411,7 +411,7 @@ void Cadran_Kodjo::Clignotant(QPainter *clignotants_painter)
 
     if(type_cadran == "V" )
     {
-        int i = 0;
+        //int i = 0;
 
         //qDebug() << " compteur_clignotant = " <<compteur_clignotant;
 
@@ -508,7 +508,7 @@ void Cadran_Kodjo::Variation_Vitesse_Fille()  // C'est un SLOT
 
 QRectF Cadran_Kodjo::boundingRect() const
 {
-    qreal penWidth = 1;
+    //qreal penWidth = 1;
 
     return QRectF(0,0,400,400);
 }
@@ -516,7 +516,7 @@ QRectF Cadran_Kodjo::boundingRect() const
 ///Dans la fonction paint, nous affichons : la vitesse, le tour moteur, le niveau d'essence, la température de l'huile
 /// et les voyants
 
-void Cadran_Kodjo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Cadran_Kodjo::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     rectangle_cercle = boundingRect();
