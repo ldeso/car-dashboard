@@ -134,6 +134,23 @@ void MainWindow::reception()
             for (int i=0;i<100;i++)
             {
                 dashboard->Vitesse->setValue(dashboard->Vitesse->getValue() + pas);
+                float val=dashboard->Vitesse->getValue();
+                if (val<55){
+                        dashboard->CompteTours->setValue(val*4500/55);
+                    }
+                    else if(val<75 && val >= 55){
+                        dashboard->CompteTours->setValue(val*4500/75);
+                    }
+                    else if(val<115 && val >= 75){
+                        dashboard->CompteTours->setValue(val*4500/115);
+                    }
+                    else if(val<140 && val >= 115){
+                        dashboard->CompteTours->setValue(val*4500/140);
+                    }
+                    else{
+                        dashboard->CompteTours->setValue(dashboard->Vitesse->getValue()*4500/185);
+                    }
+
                 ui->graphicsView->scene()->update();
                 QTest::qWait(20);
             }
