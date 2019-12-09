@@ -1,12 +1,12 @@
 #ifndef CADRANTESSENCE_H
 #define CADRANTESSENCE_H
 
-
+#include "objet_virtuel.h"
 #include<QGraphicsItem>
 #include<QGraphicsScene>
 #include<QGraphicsView>
 
-class cadrantessence : public QGraphicsItem
+class cadrantessence : public objet_virtuel
 {
 public:
     cadrantessence(QGraphicsItem *parent=nullptr);

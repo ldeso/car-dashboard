@@ -1,15 +1,15 @@
-#ifndef VOYANTSYOUCEF_H
-#define VOYANTSYOUCEF_H
+#ifndef FLASHINGLIGHT_YOUSS_H
+#define FLASHINGLIGHT_YOUSS_H
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include "objet_virtuel.h"
 #include <QTest>
 
-class voyantsYoucef : public objet_virtuel
+class FlashingLight_Youss: public objet_virtuel
 {
 public:
-  voyantsYoucef();
+  FlashingLight_Youss();
 
   QRectF boundingRect() const ;
   void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
@@ -18,6 +18,6 @@ public:
 int clignotant;
 };
 
-#endif // VOYANTSYOUCEF_H
+#endif // FLASHINGLIGHT_YOUSS_H
 
 

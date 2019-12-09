@@ -4,11 +4,12 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsItem>
+#include "objet_virtuel.h"
 
-class Tachometer : public QGraphicsItem
+class Tachometer : public objet_virtuel
 {
 public:
-    Tachometer(QGraphicsItem *parent=nullptr);
+    Tachometer(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const ;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
 

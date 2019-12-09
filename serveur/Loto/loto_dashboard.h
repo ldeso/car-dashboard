@@ -16,10 +16,10 @@ class loto_dashboard : public objet_virtuel
 public:
     loto_dashboard();
     QRectF boundingRect()const;
-    double speedValue;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
-    const double pi=3.142;
-    double getSpeedAngle(double speedValue);
+    float speedValue;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
+    const float pi=3.142f;
+    float getSpeedAngle(float speedValue);
 
 };
 

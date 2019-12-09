@@ -56,8 +56,8 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         painter->drawEllipse(0,0,height, width);
     }
     QPen pen2(QColor(10,10,200));
-    QPen pen1(QColor(Qt::gray));
-    QPen pen3(QColor(Qt::white));
+    QPen pen1((QColor(Qt::gray)));
+    QPen pen3((QColor(Qt::white)));
 
 
     pen1.setWidth(1);
@@ -72,7 +72,7 @@ void CadrantFlorian::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
     painter->setPen(pen2);
     painter->drawArc(0, 0, width-1, height-1, 16*(angleB+10),(-angleE-20)*16);
     pen2.setColor(QColor(10,10,200,120));
-    QBrush b(QColor(Qt::red));
+    QBrush b((QColor(Qt::red)));
     pen2.setWidth(5);
     painter->setPen(pen2);
     painter->drawArc(0, 0, width, height, 16*(angleB+10),(-angleE-20)*16);

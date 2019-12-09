@@ -1,38 +1,36 @@
 #include "Karim/karim_scene.h"
-#include "Karim/voyants.h"
+#include "Karim/voyants_karim.h"
 #include "Karim/voyants_warning.h"
 
 karim_scene::karim_scene()
 {
     this->setSceneRect(-600,-300,1000,600);
+
     Vitesse=new CadranVitesse;
     CompteTours= new CadranTourParMin();
     Essence= new CadranEss();
     jaugeTemperature = new CadranEss();
     Clignotant = new clignot();
-    VoyantBatterie = new Voyants(":/Lea/Icones_Voyants/battery.gif",-50,-20,50);
-    position= new Voyants(":/Lea/Icones_Voyants/dayLight.gif",-50,-100,50);
-    croisement= new Voyants(":/Lea/Icones_Voyants/lowBeam.gif",-50,-100,50);
-    route= new Voyants(":/Lea/Icones_Voyants/highBeam.gif",-50,-100,50);
-    AirbagOn=new Voyants(":/Lea/Icones_Voyants/airBag.gif",-200,-100,50);
-    CheckEngine=new Voyants(":/Images/check_engine.jpg",-120,-100,50);
-    SeatBelt= new Voyants(":/Lea/Icones_Voyants/seatBeltSign_red.gif",-120,-20,50);
-    OpenDoorDriver= new Voyants(":/Lea/PorteOuverteConducteur.png",-200,-20,50);
-    OpenDoorBackLeftPassenger= new Voyants(":/Lea/PorteOuvertePassagerG.png",-200,-20,50);
-    OpenDoorBackRightPassenger= new Voyants(":/Lea/PorteOuvertePassagerD.png",-200,-20,50);
-    OpenDoorFrontPassenger= new Voyants(":/Lea/PorteOuverte.png",-200,-20,50);
+    VoyantBatterie = new Voyants_karim(":/Lea/Icones_Voyants/battery.gif",-50,0,50);
+    position= new Voyants_karim(":/Lea/Icones_Voyants/dayLight.gif",-50,-80,50);
+    croisement= new Voyants_karim(":/Lea/Icones_Voyants/lowBeam.gif",-50,-80,50);
+    route= new Voyants_karim(":/Lea/Icones_Voyants/highBeam.gif",-50,-80,50);
+    AirbagOn=new Voyants_karim(":/Lea/Icones_Voyants/airBag.gif",-190,-80,50);
+    CheckEngine=new Voyants_karim(":/Images/check_engine.jpg",-115,-80,50);
+    SeatBelt= new Voyants_karim(":/Lea/Icones_Voyants/seatBeltSign_red.gif",-115,0,40);
+    OpenDoorDriver= new Voyants_karim(":/Lea/PorteOuverteConducteur.png",-190,0,50);
+    OpenDoorBackLeftPassenger= new Voyants_karim(":/Lea/PorteOuvertePassagerG.png",-190,0,50);
+    OpenDoorBackRightPassenger= new Voyants_karim(":/Lea/PorteOuvertePassagerD.png",-190,0,50);
+    OpenDoorFrontPassenger= new Voyants_karim(":/Lea/PorteOuverte.png",-190,0,50);
     warning=new voyants_warning;
-    warning->setValue(0);
+    warning->setValue(0); 
 
     Vitesse->setPos(-400,100);
     CompteTours->setPos(200,100);
-    Essence->setPos(20,-250);
-    jaugeTemperature->setPos(370,-250);
+    Essence->setPos(50,-230);
+    jaugeTemperature->setPos(340,-230);
     //Essence->setPos(-400,100);
     //jaugeTemperature->setPos(800,100);
-
-
-
     this->setBackgroundBrush(Qt::black);
     this->addItem(Vitesse);
     this->addItem(CompteTours);
@@ -51,5 +49,25 @@ karim_scene::karim_scene()
     this->addItem(OpenDoorBackRightPassenger);
     this->addItem(OpenDoorFrontPassenger);
     this->addItem(warning);
+
+    QFont font;
+    font.setBold(1);
+    font.setPixelSize(15);
+
+    QGraphicsSimpleTextItem * hot = this->addSimpleText("H",font);
+    hot->setBrush(Qt::white);
+    hot->setPos(95, -145);
+
+    QGraphicsSimpleTextItem * cold = this->addSimpleText("C",font);
+    cold->setBrush(Qt::white);
+    cold->setPos(-30, -145);
+
+    QGraphicsSimpleTextItem * empty = this->addSimpleText("E",font);
+    empty->setBrush(Qt::white);
+    empty->setPos(-320, -145);
+
+    QGraphicsSimpleTextItem * full = this->addSimpleText("F",font);
+    full->setBrush(Qt::white);
+    full->setPos(-190, -145);
 
 }

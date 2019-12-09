@@ -5,17 +5,19 @@ Youcef_Scene::Youcef_Scene(scene_globale* parent)
 {
     CarDialerPrototype *MainDial = new CarDialerPrototype();
     Vitesse = new CarSpeedDial();
-    Tachometer *tacho = new Tachometer();
-    FuelGauge *fuel = new FuelGauge();
-    EngineHeatGauge *heat = new EngineHeatGauge();
-    Clignotant = new voyantsYoucef();
+    CompteTours = new Tachometer();
+    Essence= new FuelGauge();
+    jaugeTemperature= new EngineHeatGauge();
+    Clignotant = new FlashingLight_Youss();
+    warning = new Warning_Youss();
 
 
     addItem(MainDial);
     addItem(Vitesse);
-    addItem(tacho);
-    addItem(fuel);
-    addItem(heat);
+    addItem(CompteTours);
+    addItem(Essence);
+    addItem(jaugeTemperature);
     addItem(Clignotant);
+    addItem(warning);
 
 }

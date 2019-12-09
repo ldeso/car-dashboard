@@ -1,4 +1,5 @@
 #include "jonas_compteurkm.h"
+#include <QLinearGradient>
 #include <QFontDatabase>
 
 /**
@@ -9,7 +10,6 @@ jonas_compteurKm::jonas_compteurKm()
 {
     this->value = 0;
     this->valueMax = 999999;
-    QFontDatabase::addApplicationFont(":/LCDfont.ttf");
 }
 
 /**
@@ -29,19 +29,29 @@ QRectF jonas_compteurKm::boundingRect() const
 void jonas_compteurKm::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
-    painter->setRenderHint(QPainter::Antialiasing);
-    QPen pen1(QColor(0,160,250));
-    QBrush brush(QColor(0,160,250));
-    painter->setPen(pen1);
-    painter->setBrush(brush);
-    painter->drawRect(boundingRect());
-    QPen pen2(QColor(0,0,0));
-    QFont font;
+    painter->setRenderHint(QPainter::Antialiasing); /// active l'antialiasing pour les figures géométriques
 
-    font.setFamily("digital-7");
-    font.setPixelSize(20);
+    /// Ajoute un effet de dégradé sur l'écran LCD
+    QLinearGradient linearGrad(boundingRect().topLeft(), boundingRect().bottomRight());
+    linearGrad.setColorAt(0, Qt::white);
+    linearGrad.setColorAt(0.35, QColor(0,160,250));
+    linearGrad.setSpread(QGradient::ReflectSpread);
+
+    /// Dessine l'écran LCD
+    QPen pen1(QColor(0,160,250));
+    painter->setPen(pen1);
+    painter->setBrush(QBrush(linearGrad));
+    painter->drawRect(boundingRect());
+
+    /// Dessine le texte sur l'écran
+    int id = QFontDatabase::addApplicationFont(":/LCDfont.ttf");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    QFont font(family);
+    font.setPixelSize(21);
     painter->setFont(font);
-    painter->setPen(pen2);
-    int temp = value;
-    painter->drawText(5,4,70,20,0, QString("%1").arg(temp));
+    painter->setPen(QPen(Qt::black));
+    double temp = value;
+    painter->drawText(boundingRect(), Qt::AlignRight, QString("%1").arg(temp, -4, 'f', 1));
+    painter->setFont(QFont("Ubuntu", 9));
+    painter->drawText(5,8,80,30,0, QString("TRIP"));
 }

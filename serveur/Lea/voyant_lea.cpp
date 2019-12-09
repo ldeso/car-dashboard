@@ -29,7 +29,7 @@ voyant_Lea::voyant_Lea(int param_x, int param_y, QString param_chemin, int param
     chemin=param_chemin;
     width= param_width;
     height=param_height;
-    value = 1;
+    value = 0;
     color = param_color;
 
 }
@@ -56,9 +56,9 @@ void voyant_Lea::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidg
     QPen pen (Qt::transparent);
     painter->setBrush(brush);
     painter->setPen(pen);
-    painter->setOpacity(0.7);
+    painter->setOpacity(0.7);                   //règle l'opacité pour que le halo soit moins intense au centre
     painter->drawEllipse(x,y,width,height);
-    painter->setOpacity(1);
+    painter->setOpacity(1);                     //règle l'opacité à la valeur par défaut pour que l'icone soit plus nette
     painter->drawPixmap(x,y,voyant2);
 
   }

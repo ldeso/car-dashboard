@@ -2,13 +2,13 @@
 
 namespace {
     struct Params {
-        QRectF rect;
-        qreal startAngle;
-        qreal arcLength;
-        int max;
-        int divs;
-        int subdivs;
-        int step;
+        const QRectF rect;
+        const qreal startAngle;
+        const qreal arcLength;
+        const int max;
+        const int divs;
+        const int subdivs;
+        const int step;
     };
 
     QPainterPath Outline(const Params params)
@@ -36,7 +36,7 @@ namespace {
         return path;
     }
 
-    void DrawScale(QPainter* painter, const Params params)
+    void DrawScale(QPainter* p, const Params params)
     {
         qreal distance = 0.47 * params.rect.width() - 15;
         for (int val = 0; val <= params.max; val += params.step) {
@@ -46,7 +46,7 @@ namespace {
             QPointF pos(distance*qCos(angle), -distance*qSin(angle));
             pos += params.rect.center();
             QRectF rect(pos - QPointF(30, 30), pos + QPointF(30, 30));
-            painter->drawText(
+            p->drawText(
                 rect, QString::number(val), Qt::AlignCenter | Qt::AlignVCenter
             );
         }
@@ -77,9 +77,9 @@ Leo_gauge::Leo_gauge(const QRectF boundingRect, QGraphicsItem *parent)
     setData(FONT, 10);
 }
 
-void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void Leo_gauge::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    Params params {
+    const Params params {
         mBoundingRect.adjusted(
             data(WIDTH).toReal()/2,
             data(WIDTH).toReal()/2,
@@ -93,15 +93,15 @@ void Leo_gauge::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
         data(SUBDIVS).toInt(),
         data(MAX).toInt() / data(DIVS).toInt()
     };
-    QFont font = painter->font();
+    QFont font = p->font();
     font.setPixelSize(data(FONT).toInt());
-    painter->setFont(font);
-    painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(QPen(Qt::white, data(WIDTH).toReal()));
-    painter->drawPath(Outline(params));
-    painter->drawPath(Ticks(params));
-    DrawScale(painter, params);
-    painter->setPen(QPen(Qt::red, data(WIDTH).toReal()));
-    painter->drawPath(Needle(params, static_cast<qreal>(value)));
+    p->setFont(font);
+    p->setRenderHint(QPainter::Antialiasing);
+    p->setPen(QPen(Qt::white, data(WIDTH).toReal()));
+    p->drawPath(Outline(params));
+    p->drawPath(Ticks(params));
+    DrawScale(p, params);
+    p->setPen(QPen(Qt::red, data(WIDTH).toReal()));
+    p->drawPath(Needle(params, static_cast<qreal>(value)));
     valueMax = data(MAX).toInt();
 }

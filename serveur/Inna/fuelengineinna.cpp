@@ -45,6 +45,7 @@ QRectF FuelEngineInna::boundingRect() const
 void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setRenderHint(QPainter::Antialiasing); // for better smooth rendering
+    // painter->drawPixmap(0,0,1400,600,QPixmap(":/fond.gif"));
     ///
     ///\brief Remplissage du fond et dessin de l'arche encadrante
     /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner une arche  encadrante avec un gradient de couleur.
@@ -101,8 +102,26 @@ void FuelEngineInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
 }
 }
-
-
+       QRadialGradient radgrad(700.0,300.0,600,350.0, 150.0);
+       radgrad.setColorAt(0, "#333333");
+       radgrad.setColorAt(1, "#0d0d0d");
+       QLinearGradient lingrad;
+      // QBrush brush;
+      // brush.setTexture(QPixmap(":/distressed-texture-2.jpg"));
+      //brush.setStyle(Qt::Dense2Pattern);
+  //    painter->setPen(QPen(QBrush(lingrad),20,Qt::SolidLine,Qt::FlatCap,Qt::RoundJoin));
+     painter->setBrush(QBrush(Qt::transparent));
+       QPainterPath path;
+      path.moveTo(1330,470);
+      path.arcTo(40,510,1320,220,30,120);
+      path.lineTo(70,470);
+      path.arcTo(40,210,320,320,207,-137);
+      path.arcTo(220,140,390,370,144,-83);
+      path.arcTo(420,80,560,600,130,-80);
+      path.arcTo(790,140,390,370,118,-83);
+      path.arcTo(1050,210,320,320,112,-125);
+      path.closeSubpath();
+      painter->drawPath(path);
 
 
 

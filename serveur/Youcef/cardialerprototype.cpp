@@ -4,7 +4,7 @@
 #include <QGraphicsTextItem>
 
 
-CarDialerPrototype::CarDialerPrototype(QGraphicsItem *parent)
+CarDialerPrototype::CarDialerPrototype(QGraphicsItem *)
 {
 
 }
@@ -14,7 +14,7 @@ QRectF CarDialerPrototype::boundingRect() const
  return QRectF(-600, -400, 1200, 800);
 }
 
-void CarDialerPrototype::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void CarDialerPrototype::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 painter->setRenderHint(QPainter::Antialiasing);
 

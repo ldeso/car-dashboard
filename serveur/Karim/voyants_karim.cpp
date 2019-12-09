@@ -1,6 +1,6 @@
-#include "Karim/voyants.h"
+#include "Karim/voyants_karim.h"
 
-Voyants::Voyants(QString pixpath,int xp , int yp, int ims)
+Voyants_karim::Voyants_karim(QString pixpath,int xp , int yp, int ims)
 {
     value=0;
     path=pixpath;
@@ -9,21 +9,19 @@ Voyants::Voyants(QString pixpath,int xp , int yp, int ims)
     size= ims;
 }
 
-QRectF Voyants::boundingRect() const
+QRectF Voyants_karim::boundingRect() const
 {
     qreal penWidth = 5;
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
-void Voyants::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
+void Voyants_karim::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
     painter->setRenderHints(QPainter::Antialiasing);
-    //QPixmap im_essence(":/Icones/essence.jpg");
-    //QPixmap im_tempmoteur(":/Icones/tempmoteur.jpg");
     QPixmap im_essence(":/Lea/Icones_Voyants/fuelL_red.gif");
     QPixmap im_tempmoteur(":/Lea/Icones_Voyants/engineT_red.gif");
-    painter->drawPixmap(-300,-150,50,50,im_essence);
-    painter->drawPixmap(45,-150,50,50,im_tempmoteur);
+    painter->drawPixmap(-275,-130,50,50,im_essence);
+    painter->drawPixmap(15,-130,50,50,im_tempmoteur);
 
     if  (getValue()==1) {
         QPixmap im(path);

@@ -2,9 +2,9 @@
 #include <QtMath>
 #include <QGraphicsItem>
 
-Tachometer::Tachometer(QGraphicsItem *parent)
+Tachometer::Tachometer(objet_virtuel *)
 {
-
+value=0;
 }
 
 QRectF Tachometer::boundingRect() const
@@ -12,7 +12,7 @@ QRectF Tachometer::boundingRect() const
  return QRectF(-600, -400, 1200, 800);
 }
 
-void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 
 {
  painter->setRenderHint(QPainter::Antialiasing);
@@ -189,8 +189,8 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
             double AngleStart_Alpha = 220;
             int Round;
 
-            double c = cos (AngleStart_Alpha* pi/180);
-            double s = sin(AngleStart_Alpha* pi/180);
+            double c = cos ((AngleStart_Alpha-value)* pi/180);
+            double s = sin((AngleStart_Alpha-value)* pi/180);
 
             double xpos=xArcCenter+150*c;
             double ypos=yArcCenter-150*s;
@@ -208,9 +208,9 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
 
             QPointF pts[3]= {
-                QPointF(xArcCenter-5*cos((AngleStart_Alpha-90)*pi/180),yArcCenter+5*sin((AngleStart_Alpha-90)*pi/180)),
+                QPointF(xArcCenter-5*cos((AngleStart_Alpha-value-90)*pi/180),yArcCenter+5*sin((AngleStart_Alpha-value-90)*pi/180)),
                 QPointF(xpos, ypos),
-                QPointF(xArcCenter+5*cos((AngleStart_Alpha-90)*pi/180),yArcCenter-9*sin((AngleStart_Alpha-90)*pi/180))
+                QPointF(xArcCenter+5*cos((AngleStart_Alpha-value-90)*pi/180),yArcCenter-9*sin((AngleStart_Alpha-value-90)*pi/180))
                              };
 
                 painter->drawConvexPolygon(pts,3);

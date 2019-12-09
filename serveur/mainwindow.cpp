@@ -6,7 +6,10 @@
 #include <QTimer>
 #include <QCoreApplication>
 
-
+/**
+ * @brief MainWindow::MainWindow
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -16,10 +19,10 @@ MainWindow::MainWindow(QWidget *parent) :
     server->listen(QHostAddress::Any, 2222);
     connect(server,SIGNAL(newConnection()),this, SLOT(connexion()));
 
-    ///La scène par défault est
-
+    ///La scène par défault es
 
     dashboard=new loto_scene();
+
 
     ui->graphicsView->setScene(dashboard);
     QResizeEvent* resizeEvent = new QResizeEvent(ui->graphicsView->size(), this->size());
@@ -84,7 +87,7 @@ MainWindow::~MainWindow()
 void MainWindow::connexion()
 {
     socket = this->server->nextPendingConnection();
-    qDebug() << "connexion etabli";
+    qDebug() << "connexion etablie";
     connect(socket, SIGNAL(readyRead()),this, SLOT(reception()));
 }
 
@@ -99,10 +102,13 @@ void MainWindow::reception()
     QString string(socket->readAll());
     QString message = string.section(' ',0,1);
     qDebug() << string;
+
+
     if(message=="CANN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
+            dashboard->CruiseControlOn->setValue(0);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -173,7 +179,7 @@ void MainWindow::reception()
     }
     else if(message=="CANN DASHBOARD"){
         QStringList PRENOMS;
-        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA";
+        PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA"<<"KODJO";
         QString prenom = string.section(' ', 2,2);
         if (PRENOMS.contains(prenom)==true){
             if (prenom=="HUGO"){
@@ -196,11 +202,11 @@ void MainWindow::reception()
                 dashboard =new Lea_scene;
                 ui->graphicsView->setScene(dashboard);
             }
-            if (prenom=="LEO"){
-                delete dashboard;
-                dashboard = new Leo_scene;
-                ui->graphicsView->setScene(dashboard);
-            }
+//            if (prenom=="LEO"){
+//                delete dashboard;
+//                dashboard = new Leo_scene;
+//                ui->graphicsView->setScene(dashboard);
+//            }
             if (prenom=="FLORIAN"){
                 delete dashboard;
                 dashboard = new SceneFlorian;
@@ -237,6 +243,13 @@ void MainWindow::reception()
                 dashboard = new maroua_scene;
                 ui->graphicsView->setScene(dashboard);
             }
+
+            if (prenom=="KODJO"){
+                delete dashboard;
+                dashboard = new kodjo_scene;
+                ui->graphicsView->setScene(dashboard);
+            }
+
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -546,11 +559,18 @@ void MainWindow::reception()
     else if(message=="CANN CRUISE_CONTROL_ON")
     {
         int CruiseControlOn_on= string.section(' ', 2,2).toInt();
-        if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
-            dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+        if(CruiseControlOn_on>0 && CruiseControlOn_on<=dashboard->Vitesse->getValueMax()){
+            dashboard->CruiseControlOn->setValue(1);
+            dashboard->Vitesse->setValue(CruiseControlOn_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
+        }
+        else if (CruiseControlOn_on==0){
+            dashboard->CruiseControlOn->setValue(0);
+            ui->graphicsView->scene()->update();
+            QString texte ="OK";
+            socket->write(texte.toLocal8Bit());
         }
         else{
             QString text;
@@ -558,6 +578,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
     else if(message=="CANN ENGINE_T"){
         int engineT = string.section(' ', 2,2).toInt();
 
@@ -669,7 +690,8 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-   // dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+    if (dashboard->CompteurKm != nullptr)
+        dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
     ui->graphicsView->scene()->update();
 }
 
