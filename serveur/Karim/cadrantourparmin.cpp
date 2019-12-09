@@ -1,21 +1,38 @@
+///
+///\file CadranTourParMin.cpp
+/// \brief Classe dérivant de objet_virtuel permettant l'affichage du cadran tour par minute.
+///
+
 #include "Karim/cadrantourparmin.h"
 #include "qmath.h"
 #include <QFont>
 #define pi 3.1415
 
-
+/**
+ * @brief CadranTourParMin::CadranTourParMin
+ * @details constructeur par défaut
+ */
 CadranTourParMin::CadranTourParMin(QGraphicsItem*)
 {
     value=0;
     valueMax=8000; //Nombre de tours max
 }
 
+/**
+ * @brief CadranTourParMin::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF CadranTourParMin::boundingRect() const
 {
     qreal penWidth = 5;
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
+/**
+ * @brief CadranTourParMin::paint
+ * @param painter
+ * @details dessine les différents élements du compteur tour par minute
+ */
 void CadranTourParMin::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
 
@@ -40,7 +57,6 @@ QRect carre[13];
     painter->setBrush(QBrush(linearGrad2));
     painter->setPen(Qt::NoPen);
     painter->drawEllipse(QPoint(0,0), carre[4].height()/2, carre[4].height()/2);
-
 
    //Design du cercle de l'aiguille
     painter->setBrush(Qt::darkRed);

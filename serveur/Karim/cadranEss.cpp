@@ -1,19 +1,37 @@
+///
+///\file CadranEss.cpp
+/// \brief Classe dérivant de objet_virtuel permettant l'affichage des jauges essence et température.
+///
+
 #include "Karim/cadranEss.h"
 #include "qmath.h"
 #include <QFont>
 
+/**
+ * @brief CadranEss::CadranEss
+ * @details constructeur par défaut
+ */
 CadranEss::CadranEss(QGraphicsItem * )
 {
     value=0;
     valueMax=180;
 }
 
+/**
+ * @brief CadranEss::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF CadranEss::boundingRect() const
 {
     qreal penWidth = 5;
     return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
 }
 
+/**
+ * @brief CadranEss::paint
+ * @param painter
+ * @details dessine les différents élements des jauges d'essence et température
+ */
 void CadranEss::paint(QPainter *painter, const QStyleOptionGraphicsItem* ,QWidget* )
 {
 
@@ -45,9 +63,9 @@ QRect carre[13];
     painter->translate(300,-85);
 
 // Design du cercle aiguille
- painter->setBrush(Qt::darkGray);
- painter->setPen(QPen(QBrush("darkRed"),7,Qt::SolidLine));
- painter->drawEllipse(-313,70,25,25);
+    painter->setBrush(Qt::darkGray);
+    painter->setPen(QPen(QBrush("darkRed"),7,Qt::SolidLine));
+    painter->drawEllipse(-313,70,25,25);
 
 //Design du cadran
     painter->setPen(QPen( Qt::darkGray, 5, Qt::SolidLine,Qt::FlatCap));
@@ -66,6 +84,4 @@ QRect carre[13];
    painter->rotate(getValue()-90);
    painter->drawLine(0,-15,0,-73);
    painter->rotate(-(getValue()-90));
-
-
 }
