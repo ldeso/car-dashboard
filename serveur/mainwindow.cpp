@@ -100,10 +100,13 @@ void MainWindow::reception()
     QString string(socket->readAll());
     QString message = string.section(' ',0,1);
     qDebug() << string;
+
+
     if(message=="CANN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
+            dashboard->CruiseControlOn->setValue(0);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
@@ -238,6 +241,7 @@ void MainWindow::reception()
                 dashboard = new maroua_scene;
                 ui->graphicsView->setScene(dashboard);
             }
+
             if (prenom=="KODJO"){
                 delete dashboard;
                 dashboard = new kodjo_scene;
@@ -553,11 +557,18 @@ void MainWindow::reception()
     else if(message=="CANN CRUISE_CONTROL_ON")
     {
         int CruiseControlOn_on= string.section(' ', 2,2).toInt();
-        if(CruiseControlOn_on==0 || CruiseControlOn_on==1){
-            dashboard->CruiseControlOn->setValue(CruiseControlOn_on);
+        if(CruiseControlOn_on>0 && CruiseControlOn_on<=dashboard->Vitesse->getValueMax()){
+            dashboard->CruiseControlOn->setValue(1);
+            dashboard->Vitesse->setValue(CruiseControlOn_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
             socket->write(text.toLocal8Bit());
+        }
+        else if (CruiseControlOn_on==0){
+            dashboard->CruiseControlOn->setValue(0);
+            ui->graphicsView->scene()->update();
+            QString texte ="OK";
+            socket->write(texte.toLocal8Bit());
         }
         else{
             QString text;
@@ -565,6 +576,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
+
     else if(message=="CANN ENGINE_T"){
         int engineT = string.section(' ', 2,2).toInt();
 
@@ -676,7 +688,8 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-   // dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+    if (dashboard->CompteurKm != nullptr)
+        dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
     ui->graphicsView->scene()->update();
 }
 

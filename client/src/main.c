@@ -97,7 +97,7 @@ void helpMessage(){
     puts("CANN AIRBAG_ON x = 0 éteint et 1 allumé" );
     puts("CANN BONNET_OPEN x = 0 éteint et 1 allumé" );
     puts("CANN BOOT_OPEN x = 0 éteint et 1 allumé" );
-    puts("CANN CRUISE_CONTROL_ON x avec 0 éteint et 1 allumé" );
+    puts("CANN CRUISE_CONTROL_ON x avec x compris entre 0 et 400" );
     puts("CANN ENGINE_T x avec x = température du moteur" );
     puts("CANN OIL_T x avec x = température de l'huile" );
     puts("CANN OIL_L x avec x = niveau de l'huile du moteur");
