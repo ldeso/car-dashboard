@@ -235,6 +235,7 @@ void MainWindow::reception()
                 dashboard = new maroua_scene;
                 ui->graphicsView->setScene(dashboard);
             }
+
             ui->graphicsView->fitInView(ui->graphicsView->scene()->sceneRect(), Qt::KeepAspectRatio);
             ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -667,7 +668,7 @@ void MainWindow::reception()
 //A laisser commenté, peut poser problème pour certains dashboards
 void MainWindow::update_km()
 {
-   // dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
+    dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0*(dashboard->Vitesse->getValue())/3600);
     ui->graphicsView->scene()->update();
 }
 
