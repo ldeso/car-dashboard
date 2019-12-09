@@ -19,8 +19,9 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
 
     {
     QRadialGradient gradient(-295, -95, 200);
-    gradient.setColorAt(0, QColor(0,0,0,0));
-    gradient.setColorAt(0.5, QColor("dark blue"));
+
+    gradient.setColorAt(0, QColor(0,204,255));
+    gradient.setColorAt(0.2, QColor("dark blue"));
     gradient.setColorAt(1, QColor("dark"));
     QBrush brush(gradient);
     painter->setBrush(brush);
