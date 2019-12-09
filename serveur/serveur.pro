@@ -130,7 +130,8 @@ SOURCES += \
     Leo/leo_gauge.cpp \
     Leo/leo_limit.cpp \
     Leo/leo_object.cpp \
-    Leo/leo_scene.cpp
+    Leo/leo_scene.cpp \
+    Loto/blinkingleds.cpp
 
    
 
