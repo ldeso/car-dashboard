@@ -1,11 +1,10 @@
 #include "leds.h"
 #include "objet_virtuel.h"
-#include "QDebug"
 #include "QPainter"
 #include "QPainterPath"
 #include "QGradient"
 #include "QtMath"
-#include "QDebug"
+#include <QDebug>
 #include "QTextItem"
 #include "QString"
 #include "QRadialGradient"
@@ -23,12 +22,12 @@ LEDS::LEDS(int x, int y, QString iconPathString, int red, int green, int blue, i
     size=icon_size;
 }
 
-void LEDS::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void LEDS::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
  // Here, we will take the value of 0 as default value for the LEDS and 1 if it is ON and 2 if the
  // system is in blinking state.
 
-    if (getValue()==0)
+    if (getValue()==1)
     {
         QPixmap icon(iconPath);
         QPixmap icon2=icon.scaled(size,size);

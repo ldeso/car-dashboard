@@ -24,11 +24,11 @@ QRectF tachometre::boundingRect() const
 
 }
 
-void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i < 30; i+=1)
+    for (int i= 0; i < 10; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
         int startAngle = -45* 16;
@@ -36,9 +36,9 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,220-20*i);
+        QColor mCol(17,225,230,220-20*i);//Out of range
         mPen.setCapStyle(Qt::RoundCap);
-        mPen.setWidth(1);
+        mPen.setWidth(2);
         mPen.setColor(mCol);
         QBrush mBrush;
         painter->setBrush(mBrush);
@@ -122,8 +122,8 @@ void tachometre::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     rpmValue = getValue();
     needleAngle = getRpmValue(rpmValue);
     needleAngle= -(needleAngle) - 125.0;
-    qDebug()<<"needleAngle"<< needleAngle;
-    qDebug()<<rpmValue;
+   // qDebug()<<"needleAngle"<< needleAngle;
+   // qDebug()<<rpmValue;
 
 
     needlestopPos.setX(196 * cos((needleAngle)*pi/180));
@@ -157,7 +157,7 @@ float tachometre::getRpmValue(float rpmValue)
 {
     float rpmAngle;
     rpmAngle = rpmValue * (280.00/14000.0);
-    qDebug()<<rpmAngle;
+    //qDebug()<<rpmAngle;
     return rpmAngle;
 }
 

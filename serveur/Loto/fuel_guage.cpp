@@ -23,12 +23,12 @@
 
     }
 
-    void fuel_guage::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+    void fuel_guage::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     {
 
 
         //Loop to draw tiny concentric rectangles//
-        for (int i= 0; i < 30; i+=1)
+        for (int i= 0; i < 10; i+=1)
         {
             QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
             int startAngle = 0 * 16;
@@ -37,9 +37,9 @@
             // set painter properties//
 
             QPen mPen;
-            QColor mCol(17,225,230,220-20*i);
+            QColor mCol(17,225,230,220-20*i);//Out of range
             mPen.setCapStyle(Qt::RoundCap);
-            mPen.setWidth(1);
+            mPen.setWidth(2);
             mPen.setColor(mCol);
             QBrush mBrush;
             painter->setBrush(mBrush);
@@ -175,6 +175,6 @@
     void fuel_guage::blinker()
     {
             blink = !blink;
-            QTest::qWait(500);
-            update();
+            //QTest::qWait(500);
+           // update();
     }

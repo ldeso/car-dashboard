@@ -24,10 +24,12 @@ QRectF tempGauge::boundingRect() const
 
 }
 
-void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
+    painter->setRenderHint(QPainter::Antialiasing);
+
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i < 30; i+=1)
+    for (int i= 0; i < 10; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i, 400.0-2*i);
         int startAngle = 135 * 16;
@@ -36,15 +38,14 @@ void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,220-20*i);
+        QColor mCol(17,225,230,220-20*i);//Out of range when i becomes to high
         mPen.setCapStyle(Qt::RoundCap);
-        mPen.setWidth(1);
+        mPen.setWidth(2);
         mPen.setColor(mCol);
         QBrush mBrush;
         painter->setBrush(mBrush);
         painter->setPen(mPen);
 
-        painter->setRenderHint(QPainter::Antialiasing);
         painter->drawArc(rectangle,startAngle,spanAngle);
     }
 

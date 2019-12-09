@@ -3,13 +3,12 @@
 #include "QPainterPath"
 #include "QGradient"
 #include "QtMath"
-#include "QDebug"
 #include "QTextItem"
 #include "QString"
 #include "QRadialGradient"
 #include "QPolygon"
 #include "objet_virtuel.h"
-#include <qdebug.h>
+#include <QDebug>
 
 loto_dashboard::loto_dashboard()
 {
@@ -22,13 +21,13 @@ QRectF loto_dashboard::boundingRect() const
     return QRect(-200,-200,400,400);
 }
 
-void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     /*re draw new method*/
 
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i <= 30; i+=1)
+    for (int i= 0; i <= 10; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i,400.0-2*i);
         int startAngle = -45* 16;
@@ -36,9 +35,9 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,220-20*i);
+        QColor mCol(17,225,230,220-20*i);//Out of range
         mPen.setCapStyle(Qt::RoundCap);
-        mPen.setWidth(1);
+        mPen.setWidth(2);
         mPen.setColor(mCol);
         QBrush mBrush;
         painter->setBrush(mBrush);
@@ -112,11 +111,11 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         double needleAngle;
 
         speedValue = getValue();
-        qDebug()<<speedValue;
+       // qDebug()<<speedValue;
 
         needleAngle = getSpeedAngle(speedValue);
         needleAngle= -(needleAngle) - 125.0;
-        qDebug()<<"needleAngle"<< needleAngle;
+       // qDebug()<<"needleAngle"<< needleAngle;
 
 
         needlestopPos.setX(196 * cos((needleAngle)*pi/180));
@@ -183,7 +182,7 @@ double loto_dashboard::getSpeedAngle(double speedValue)
     double givenSpeedValue = speedValue;
     double speedAngle;
     speedAngle = givenSpeedValue * (280.0/280.0);
-    qDebug()<<"speedAngle"<< speedAngle;
+    //qDebug()<<"speedAngle"<< speedAngle;
 
     return speedAngle;
 }
