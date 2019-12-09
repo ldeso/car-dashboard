@@ -20,7 +20,7 @@ loto_dashboard::loto_dashboard()
 {
  value =0;
  valueMax=280;
- QFontDatabase::addApplicationFont(":/digital-7.ttf");
+ QFontDatabase::addApplicationFont(":/fonts/SFDigitalReadout-Light.ttf");
 
 }
 
@@ -100,7 +100,7 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
         QFont displayFont("Courier");
         displayFont.setPointSize(25);
-        displayFont.setWeight(75);
+        displayFont.setWeight(20);
         painter->setFont(displayFont);
 
         int j = -(theta-235);
@@ -108,11 +108,19 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
             painter->drawText(qRound(210.0f*cos((theta)*pi/180.0f)),qRound(-210.0f*sin((theta)*pi/180.0f)),QString("%1").arg(j));}
-        else
+
+        else if (theta > 90 && theta < 140)
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText(qRound(250.0f*cos((theta)*pi/180.0f)),qRound(-210.0f *sin((theta)*pi/180.0f)),QString("%1").arg(j));}
+            painter->drawText(qRound(280.0f*cos((theta)*pi/180.0f)),qRound(-220.0f *sin((theta)*pi/180.0f)),QString("%1").arg(j));
         }
+
+        else
+        {
+        painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
+        painter->drawText(qRound(258.0f*cos((theta)*pi/180.0f)),qRound(-210.0f *sin((theta)*pi/180.0f)),QString("%1").arg(j));}
+
+
 
     /* function to get the speed Value and put needle at the right position*/
 
@@ -144,35 +152,23 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
 
         //draw text to write km/h
         painter->setPen(QPen(QBrush("gray"),8,Qt::SolidLine, Qt::SquareCap));
-        QFont displayFont("Courier");
         displayFont.setPointSize(30);
-        displayFont.setWeight(75);
+        displayFont.setWeight(20);
         painter->setFont(displayFont);
-        painter->drawText(-20,-30,"km/h");
+        painter->drawText(-40,-30,"km/h");
 
         QFont Font;
-        Font.setFamily("digital-7");
-        Font.setPointSize(40);
-        Font.setWeight(75);
+        Font.setFamily("SFDigitalReadout-Medium");
+
+
+
+        Font.setPointSize(25);
+        Font.setWeight(50);
         painter->setFont(Font);
-        QBrush displayBrush;
-        displayBrush.setStyle(Qt::Dense6Pattern);
-        QColor mCol(102,255,255,255);
-        displayBrush.setColor(mCol);
-        painter->setFont(Font);
-        painter->setPen(Qt::NoPen);
-        painter->setBrush(displayBrush);
-
-        painter->setPen(QPen(QBrush("white"),10,Qt::SolidLine, Qt::SquareCap));
-
-        displayFont.setPointSize(16);
-
-        displayFont.setWeight(75);
-        painter->setFont(displayFont);
 
         QTime time= QTime::currentTime();
         QString currentTime = time.toString("hh:mm:ss");
-        painter->drawText(-40,40,120,50, Qt::AlignCenter,currentTime);
+        painter->drawText(-70,110,160,50, Qt::AlignCenter,currentTime);
 
         /* to form the background arc in */
 
@@ -182,27 +178,26 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, 
             QRectF rectangle(-1900+i, -450+i, 3300.0-2*i, 3300.0-2*i);
             int startAngle = 60* 16;
             int spanAngle = 60* 16;
-            // set painter properties//
 
             QRectF rectangle2(-1900+i, 300+i, 3300.0-2*i, 3300.0-2*i);
-
-
             QPen mPen;
-            QColor mCol(128,128,128,220-5*i);
             mPen.setCapStyle(Qt::RoundCap);
             mPen.setWidth(1);
+
+            QColor mCol(128,128,128,220-5*i);
             mPen.setColor(mCol);
+
             QBrush mBrush;
             painter->setBrush(mBrush);
             painter->setPen(mPen);
-
             painter->setRenderHint(QPainter::Antialiasing);
-            painter->drawArc(rectangle,startAngle,spanAngle);            painter->drawArc(rectangle,startAngle,spanAngle);
+            painter->drawArc(rectangle,startAngle,spanAngle);
             painter->drawArc(rectangle2,startAngle,spanAngle);
 
 
         }
 
+}
 }
 
 ///

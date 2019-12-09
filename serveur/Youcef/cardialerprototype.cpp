@@ -126,8 +126,8 @@ painter->setRenderHint(QPainter::Antialiasing);
 
           QLinearGradient gradient(-300, -300,-300,0 );
           gradient.setColorAt(0, QColor(0,204,255));
-          gradient.setColorAt(0, QColor("white"));
-           gradient.setColorAt(1, QColor("white"));
+          gradient.setColorAt(0, QColor("gray"));
+           gradient.setColorAt(1, QColor("gray"));
 
 
            QBrush brush(gradient);

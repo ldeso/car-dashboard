@@ -82,7 +82,6 @@ void tempGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
         endLinePos.setX(qRound(180* cos(theta*pi/180)));
         endLinePos.setY(qRound(-180*sin(theta*pi/180)));
 
-        //line_j[theta].setPoints(startLinePos,endLinePos);
 
 
         QLine Ticks;
