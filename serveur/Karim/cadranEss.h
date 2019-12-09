@@ -1,7 +1,5 @@
 #ifndef Cadrans_H
 #define Cadrans_H
-#include <QGraphicsItem>
-#include <QPainter>
 #include <objet_virtuel.h>
 
 class CadranEss : public objet_virtuel

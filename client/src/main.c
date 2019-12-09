@@ -103,6 +103,7 @@ void helpMessage(){
     puts("CANN OIL_L x avec x = niveau de l'huile du moteur");
     puts("CANN SIM x avac x la vitesse de diminution");
     puts("CANN HANDBRAKE x avec x=0 éteint et x=1 allumé");
+    puts("pour les commandes speed, rpm, gaz et engine_t, ajouter to permet un décalage progressif ");
 }
 
 /**
