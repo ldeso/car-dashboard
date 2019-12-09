@@ -423,14 +423,14 @@ void MainWindow::reception()
     }
     else if(message=="CANN ACCELERATION"){
         int time = string.section(' ', 2,2).toInt();
-        if(time>0){
+        if(time<30){
             acceleration(qRound(1.0*time));
             QString text = "OK";
             socket->write(text.toLocal8Bit());
         }
         else{
             QString text;
-            text = QString("valeur incorrecte, doit être supérieur à 0");
+            text = QString("valeur incorrecte, doit être inférieure à 30");
             socket->write(text.toLocal8Bit());
         }
     }
