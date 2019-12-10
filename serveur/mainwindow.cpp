@@ -783,7 +783,7 @@ void MainWindow::reception()
 void MainWindow::update_km()
 {
 if (dashboard->CompteurKm != nullptr)
-        dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0f*(dashboard->Vitesse->getValue())/3600);
+        dashboard->CompteurKm->setValue(dashboard->CompteurKm->getValue()+1.0f*(dashboard->Vitesse->getValue())/3600/2);
 
     ui->graphicsView->scene()->update();
 

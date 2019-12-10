@@ -21,16 +21,16 @@ void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
     {
     QRect carre(-150,-150,300,300);
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(QPen(QBrush(QColor("red")) , 88, Qt::SolidLine,Qt::FlatCap));
+    painter->setPen(QPen(QBrush(QColor("red")) , 89, Qt::SolidLine,Qt::FlatCap));
     painter->setBrush(QBrush(QColor("red")));
     if (cligno==1)
     {
-        painter->setPen(QPen(QBrush(QColor("black")) , 88, Qt::SolidLine,Qt::FlatCap));
+        painter->setPen(QPen(QBrush(QColor("black")) , 89, Qt::SolidLine,Qt::FlatCap));
         painter->setBrush(QBrush(QColor("black")));
     }
     painter->drawArc(carre,231*16,80*16);
 
-    QRect carre2(-66,81,134,50);
+    QRect carre2(-66,80,134,50);
     painter->setPen(QPen(QBrush(QColor("red")) , 1, Qt::SolidLine,Qt::FlatCap));
     if (cligno==1)
         painter->setPen(QPen(QBrush(QColor("black")) , 1, Qt::SolidLine,Qt::FlatCap));
