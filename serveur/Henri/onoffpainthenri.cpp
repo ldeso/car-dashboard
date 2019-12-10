@@ -6,7 +6,6 @@ onoffpaintHenri::onoffpaintHenri()
     y=0;
     w=100;
     h=100;
-
 }
 
 onoffpaintHenri::onoffpaintHenri(int xx, int yy, int ww, int hh, QPixmap pixm)

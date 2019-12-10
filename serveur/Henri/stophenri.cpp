@@ -7,6 +7,8 @@ stopHenri::stopHenri()
     value=0;
     cligno=0;
     jt=new jaugeTemperatureHenri();
+    check=new onoffpaintHenri(100,0,70,55,QPixmap(":/new/prefix1/icones/checkengine.png"));
+    check->setValue(1);
 }
 
 QRectF stopHenri::boundingRect() const
@@ -16,7 +18,7 @@ QRectF stopHenri::boundingRect() const
 
 void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    if (jt->getValue() > 120)
+    if (jt->getValue() > 120 || check->getValue() ==1)
     {
     QRect carre(-150,-150,300,300);
     painter->setRenderHint(QPainter::Antialiasing);
@@ -42,21 +44,6 @@ void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
     painter->drawText(-86,160,"STOP");
     MAJ();
     }
-
-
-}
-
-void stopHenri::resizeEvent()
-{
-    setValue(0);
-    cligno=0;
-    update();
-}
-
-void stopHenri::activation()
-{
-//    if (jt->getValue()>120)
-//        this->setValue(1);
 }
 
 void stopHenri::MAJ()
