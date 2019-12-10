@@ -16,6 +16,8 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     addItem(CompteTours);
 
     stop=new stopHenri();
+    CheckEngine=stop->check;
+    addItem(CheckEngine);
     jaugeTemperature=stop->jt;
     addItem(jaugeTemperature);
     addItem(stop);
@@ -65,8 +67,6 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     addItem(SeatBelt);
     RearWindowHeating=new onoff();
     addItem(RearWindowHeating);
-    CheckEngine=new onoff();
-    addItem(CheckEngine);
     AdaptiveCruiseControl=new onoff();
     addItem(AdaptiveCruiseControl);
     AirbagOn=new onoff();

@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new Youcef_Scene();
+    dashboard=new henri_scene();
 
 
     ui->graphicsView->setScene(dashboard);
@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent) :
     kmTimer->start();
 
     ui->graphicsView->setScene(dashboard);
-
 }
 
 ///
@@ -895,6 +894,7 @@ void MainWindow::simulation(int vitesseDactualisation)
     dashboard->OpenDoorBackRightPassenger->setValue(0);
     dashboard->BonnetOpen->setValue(0);
     dashboard->BootOpen->setValue(0);
+    dashboard->Clignotant->setValue(0);
     QTest::qWait(1000);
 }
 
