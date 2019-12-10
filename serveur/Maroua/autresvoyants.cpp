@@ -2,7 +2,7 @@
 
 autresvoyants::autresvoyants(QString chemin, int posx, int posy, int size)
 {
-   value =0;
+   value =1;
    ch=chemin;
    x=posx;
    y=posy;
