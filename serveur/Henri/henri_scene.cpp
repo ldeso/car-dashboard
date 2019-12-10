@@ -15,9 +15,6 @@ henri_scene::henri_scene(scene_globale *parent):scene_globale(parent)
     CompteTours=new jaugeToursMinuteHenri();
     addItem(CompteTours);
 
-//    jaugeTemperature=new jaugeTemperatureHenri();
-//    addItem(jaugeTemperature);
-
     stop=new stopHenri();
     jaugeTemperature=stop->jt;
     addItem(jaugeTemperature);
