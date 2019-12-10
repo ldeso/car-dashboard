@@ -1,9 +1,12 @@
 #include "stophenri.h"
+#include <QDebug>
+
 
 stopHenri::stopHenri()
 {
     value=0;
     cligno=0;
+    jt=new jaugeTemperatureHenri();
 }
 
 QRectF stopHenri::boundingRect() const
@@ -13,7 +16,8 @@ QRectF stopHenri::boundingRect() const
 
 void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    if (getValue()==1)
+    qDebug()<<jt->getValue();
+    if (jt->getValue() > 120)
     {
     QRect carre(-150,-150,300,300);
     painter->setRenderHint(QPainter::Antialiasing);
@@ -41,6 +45,19 @@ void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidge
     }
 
 
+}
+
+void stopHenri::resizeEvent()
+{
+    setValue(0);
+    cligno=0;
+    update();
+}
+
+void stopHenri::activation()
+{
+//    if (jt->getValue()>120)
+//        this->setValue(1);
 }
 
 void stopHenri::MAJ()

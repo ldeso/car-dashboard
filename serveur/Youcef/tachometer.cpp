@@ -39,28 +39,6 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
 
 
 
-    /*design Tachometer display*/
-
-     {
-         {
-             int deltaX=60;int deltaY=80;
-             int X= -295-deltaX;
-             int Y= -95+deltaY;
-
-
-             QLinearGradient gradient(QPoint(X,Y),QPoint(X,Y+90));/* coordinates gradient ((x,y),(x1,y1)) are cooresponding to line where starting the color variation*/
-             gradient.setColorAt(1, QColor("#dark blue"));
-             gradient.setColorAt(0.5, QColor("#D4CAC7"));
-             gradient.setColorAt(0, QColor("#white"));
-             QBrush brush(gradient);
-             painter->setBrush(brush);
-
-             painter->drawRoundedRect(X,Y, deltaX*2,Y+95,15,15);
-             painter->setPen(QPen(QBrush("white") ,5, Qt::SolidLine,Qt::FlatCap));
-             painter->drawRoundedRect(X+3,Y+3, (deltaX*2)-6,Y+90,15,15);
-         }
-
-     }
 
 
     {
@@ -145,39 +123,7 @@ void Tachometer::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
     }
   }
 
-     {
-        int x=-295;int y=25;int Ax=30;int Ay=10;int r=10;
-        painter->setPen(QPen(QBrush("red") , 2, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
-        painter->drawLine(QPoint(x-Ax,y),QPoint(x+Ax,y));
-        painter->drawLine(QPoint(x-Ax,y),QPoint(x-Ax,y+Ay));
-        painter->drawLine(QPoint(x,y),QPoint(x,y+Ay));
-        painter->drawLine(QPoint(x,y),QPoint(x,y-Ay));
-        painter->drawLine(QPoint(x+Ax,y),QPoint(x+Ax,y-Ay));
-        painter->drawLine(QPoint(x+Ax,y),QPoint(x+Ax,y+Ay));
 
-
-        QRadialGradient gradient(x, y, 100);
-        gradient.setColorAt(1, QColor(0,0,0,0));
-
-        gradient.setColorAt(1, QColor("#FE2E2E"));
-        QBrush brush(gradient);
-        painter->setBrush(brush);
-
-        painter->drawEllipse(QRect(x-Ax-r,y+Ay,2*r,2*r));
-        painter->drawEllipse(QRect(x-r,y-Ay-(2*r),2*r,2*r));
-        painter->drawEllipse(QRect(x-r,y+Ay,2*r,2*r));
-        painter->drawEllipse(QRect(x+Ax-r,y-Ay-(2*r),2*r,2*r));
-        painter->drawEllipse(QRect(x+Ax-r,y+Ay,2*r,2*r));
-
-        painter->setFont(QFont("arial", 12, QFont::Bold, false));
-        painter->setPen(QPen(QBrush("white") , 5, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
-        painter->drawText(x-Ax-(0.5*r),y+Ay+(1.6*r),QString("%1").arg(2));
-        painter->drawText(x-(0.5*r),y-Ay-(0.4*r),QString("%1").arg(3));
-        painter->drawText(x-(0.5*r),y+Ay+(1.6*r),QString("%1").arg(4));
-        painter->drawText(x+Ax-(0.5*r),y-Ay-(0.4*r),QString("%1").arg(5));
-        painter->drawText(x+Ax-(0.5*r),y+Ay+(1.6*r),QString("%1").arg(6));
-
-     }
 
 
     /* Build needle tachometer*/

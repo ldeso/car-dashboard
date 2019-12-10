@@ -95,5 +95,28 @@ void EngineHeatGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
         painter->drawText(-80, 75, "C");
       }
 
+
+    {
+
+
+    if (getValue()>80)
+        {
+        painter->setPen(QPen(QColor("red") , 32, Qt::SolidLine,Qt::FlatCap));
+        QPixmap img1 ( ":/new/logos/Icones/iconeSurchaufe.png");
+        QPixmap img2=img1.scaled(40,40);
+        painter->drawPixmap(-55,-10,40,40,img2);
+        }
+
+    else
+    {
+         painter->setPen(QPen(QColor(Qt::transparent) , 32, Qt::SolidLine,Qt::FlatCap));
+ QPixmap img1 ( ":/new/logos/Icones/iconeSurchaufe.png");
+ QPixmap img2=img1.scaled(40,40);
+ painter->drawPixmap(-55,-10,40,40,img2);
+
+
+    }
 }
+}
+
 
