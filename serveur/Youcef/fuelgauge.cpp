@@ -22,8 +22,6 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidge
      QRect RectSpeed (100,-300, 405, 405);
 
 
-//     int startAngle= 244*16;
-//     int spanAngle= -63*16;
      painter->setPen(QPen(QBrush("red"), 4, Qt::SolidLine,Qt::RoundCap,Qt::BevelJoin));
 
       QPolygonF polygon;
@@ -99,7 +97,9 @@ void FuelGauge::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidge
 
       QPixmap img1(":/new/logos/Icones/fuelWhiteIcone.gif");
       QPixmap img2=img1.scaled(30,30);
+      painter->setOpacity(1);
       painter->drawPixmap(15,-10,50,50,img2);
+
      }
 
 

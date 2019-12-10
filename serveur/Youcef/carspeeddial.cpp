@@ -198,27 +198,26 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 
     {
         {
-            int deltaX=60;int deltaY=80;
-            int X= -295-deltaX;
-            int Y= -95+deltaY;
+            int dX=60;int dY=80;
+            int X= -290-dX;
+            int Y= -95+dY;
 
 
-            QLinearGradient gradient(QPoint(X,Y),QPoint(X,Y+90));/* coordinates gradient ((x,y),(x1,y1)) are cooresponding to line where starting the color variation*/
-            gradient.setColorAt(1, QColor("#dark blue"));
-            gradient.setColorAt(0.5, QColor("#D4CAC7"));
-            gradient.setColorAt(0, QColor("#white"));
-            QBrush brush(gradient);
-            painter->setBrush(brush);
 
-            painter->drawRoundedRect(X,Y, deltaX*2,Y+95,15,15);
-            painter->setPen(QPen(QBrush("white") ,5, Qt::SolidLine,Qt::FlatCap));
-            painter->drawRoundedRect(X+3,Y+3, (deltaX*2)-6,Y+90,15,15);
-        }
+            painter->setPen(QPen(QColor(0,0,0,2) , 1, Qt::SolidLine,Qt::FlatCap));
+            painter->setBrush(QColor(0,128,255,15));
+            painter->drawRect(X,Y, dX*2,Y+95);
+            QRadialGradient radialGrad(QPointF(X-dX, Y-dY), 50);
+            radialGrad.setColorAt(0, QColor(0,204,255));
+            radialGrad.setColorAt(0.5, QColor("red"));
+            radialGrad.setColorAt(1, QColor(0, 128, 255));
+            painter->setPen(QPen(QColor(0,204,255) , 1, Qt::SolidLine,Qt::FlatCap));
+
 
     }
 
     {
-        int x=-295;int y=25;int Ax=30;int Ay=10;int r=10;
+        int x=-290;int y=25;int Ax=30;int Ay=10;int r=10;
         painter->setPen(QPen(QBrush("red") , 2, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
         painter->drawLine(QPoint(x-Ax,y),QPoint(x+Ax,y));
         painter->drawLine(QPoint(x-Ax,y),QPoint(x-Ax,y+Ay));
@@ -229,13 +228,13 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 
 
         QRadialGradient gradient(x, y, 100);
-        gradient.setColorAt(1, QColor(0,0,0,0));
+//        gradient.setColorAt(0.2, QColor(0,0,0,0));
 
-        gradient.setColorAt(1, QColor("#FE2E2E"));
+        gradient.setColorAt(1, QColor("white"));
         QBrush brush(gradient);
         painter->setBrush(brush);
-        painter->setFont(QFont("arial", 12, QFont::Bold, false));
-        painter->setPen(QPen(QBrush("white") , 5, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
+        painter->setFont(QFont("Times", 13, QFont::Bold, false));
+        painter->setPen(QPen(QBrush("red") , 3, Qt::SolidLine,Qt::FlatCap,Qt::BevelJoin));
 
 
         if  (getValue()==0)
@@ -273,4 +272,4 @@ void CarSpeedDial::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 }
 
 
-
+}

@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ///La scène par défault est
 
-    dashboard=new harout_scene();
+    dashboard=new Youcef_Scene();
 
 
     ui->graphicsView->setScene(dashboard);

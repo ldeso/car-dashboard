@@ -135,7 +135,6 @@ SOURCES += \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Loto/blinkingleds.cpp \
-
     Loto/kmcalculator.cpp \
     Harout/hvoyant.cpp \
     Harout/hvoyantwarning.cpp \
