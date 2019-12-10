@@ -251,7 +251,9 @@ void MainWindow::reception()
         QStringList PRENOMS;
         PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA"<<"KODJO";
         QString prenom = string.section(' ', 2,2);
+        dashboard->Clignotant->setValue(0);
         if (PRENOMS.contains(prenom)==true){
+
             if (prenom=="HUGO"){
                 delete dashboard;
                 dashboard =new hugo_scene;
