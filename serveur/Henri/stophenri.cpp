@@ -8,7 +8,6 @@ stopHenri::stopHenri()
     cligno=0;
     jt=new jaugeTemperatureHenri();
     check=new onoffpaintHenri(100,0,70,55,QPixmap(":/new/prefix1/icones/checkengine.png"));
-    check->setValue(1);
 }
 
 QRectF stopHenri::boundingRect() const
