@@ -42,6 +42,7 @@ void Warning_Youss::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
             painter->setOpacity(clignotant);
             painter->drawPixmap(-30,-295,50,50,img2);
 //            painter->drawEllipse(-20,-295,60,60);
-    }
     Flashing();
+    }
+
 }
