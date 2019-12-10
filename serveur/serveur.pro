@@ -135,7 +135,12 @@ SOURCES += \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Loto/blinkingleds.cpp \
-    Loto/kmcalculator.cpp
+    Loto/kmcalculator.cpp \
+    Harout/hvoyant.cpp \
+    Harout/hvoyantwarning.cpp \
+    Harout/hclignotant.cpp
+
+
    
 
 HEADERS += \
@@ -242,7 +247,10 @@ HEADERS += \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
-    Loto/kmcalculator.h
+    Loto/kmcalculator.h \
+    Harout/hvoyant.h \
+    Harout/hvoyantwarning.h \
+    Harout/hclignotant.h
 
 
 
@@ -261,7 +269,8 @@ RESOURCES += \
     Lea/Lea.qrc \
     Florian/florian.qrc \
     Youcef/Youcef.qrc \
-    Kodjo/kodjo.qrc
+    Kodjo/kodjo.qrc \
+    Harout/Icones/hicones.qrc
 
 
 DISTFILES += \

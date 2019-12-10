@@ -16,7 +16,7 @@ Indicator_Youss::Indicator_Youss(int param_x, int param_y, QString param_path, i
 
 QRectF Indicator_Youss::boundingRect() const
 {
-
+return QRectF(-600, -400, 1200, 800);
 }
 
 void Indicator_Youss::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -32,9 +32,9 @@ void Indicator_Youss::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
     QPen pen (Qt::transparent);
     painter->setBrush(brush);
     painter->setPen(pen);
-    painter->setOpacity(0.7);                   //règle l'opacité pour que le halo soit moins intense au centre
+    painter->setOpacity(0.7);
     painter->drawEllipse(x,y,width,height);
-    painter->setOpacity(1);                     //règle l'opacité à la valeur par défaut pour que l'icone soit plus nette
+    painter->setOpacity(1);
     painter->drawPixmap(x,y,indic2);
 
   }

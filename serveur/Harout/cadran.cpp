@@ -87,17 +87,6 @@ void cadran::graduation(QPainter *painter, QRectF)
 }
 
 
-//petite graduation
-//        painter->setPen(QPen(QBrush("yellow") , 5 , Qt::SolidLine,Qt::FlatCap));
-//        painter->drawLine((r+20)*qCos(ir),(r+20)*qSin(ir),((r)*qCos(ir)),((r)*qSin(ir)));
-//        for (int j = 0; j < 60; j++)
-//    {
-//         if((j %5) != 0)
-//         painter->drawLine(A/2, 0, A/2-20, 0);
-//         painter->rotate(6.0);
-//              }
-
-
 //    QPen framepen(Qt::red);
 //    framepen.setWidth(6);
 //    painter->setPen(framepen);

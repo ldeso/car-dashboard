@@ -1,6 +1,8 @@
 #include "maindisplay_youcef.h"
 #include <QtMath>
 #include <QGraphicsTextItem>
+#include <QTime>
+
 
 
 MainDisplay_Youcef::MainDisplay_Youcef(QGraphicsItem *)
@@ -19,17 +21,6 @@ painter->setRenderHint(QPainter::Antialiasing);
 
 /* creation ecran principale*/
 
-//    QRect rectDisplay(-95,-220,195,145);
-//    painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
-//    painter->setBrush(QColor(0,128,255,15));
-//    painter->drawRect(rectDisplay);
-
-// QRadialGradient radialGrad(QPointF(0, -150), 50);
-// radialGrad.setColorAt(0, QColor(0,204,255));
-// radialGrad.setColorAt(1, QColor(0, 128, 255));
-// painter->setPen(QPen(QColor(0,204,255) , 1, Qt::SolidLine,Qt::FlatCap));
-
-//    painter->drawRect(-90,133,245,5);
 
 QRect rectDisplay(-95,-220,195,145);
 
@@ -42,5 +33,18 @@ QRadialGradient gradient(0, -140, 200);
        painter->setBrush(brush);
 
 painter->drawRect(rectDisplay);
+
+
+painter->setPen(QPen(Qt::white, 15, Qt::SolidLine,Qt::FlatCap));
+
+
+QTime time=QTime::currentTime();
+time.currentTime();
+QFont font("Seven Segment", 50,  QFont::Bold, true);
+painter->setFont(font);
+painter->drawText(-90,-130,time.toString("hh : mm"));
+
+
+
 
 }

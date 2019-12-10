@@ -110,5 +110,3 @@ void hugo_MyGraphicsitem::paint(QPainter *painter, const QStyleOptionGraphicsIte
     painter->drawPixmap(145,-90,20,20,image2);
     //painter->drawEllipse(144,-92,16,16);
 }
-
-

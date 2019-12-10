@@ -3,7 +3,7 @@
 SceneFlorian::SceneFlorian(QGraphicsScene *parent):scene_globale(parent)
 {
     // ajout icone feu de position
-    this->position = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/position.jpg")));
+    this->position = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/position.jpeg")));
     this->addItem(this->position);
     this->position->setPos(40, 70);
 
@@ -23,9 +23,9 @@ SceneFlorian::SceneFlorian(QGraphicsScene *parent):scene_globale(parent)
     this->brouillardAvant->setPos(130, 70);
 
     //ajout icone feu de brouillard arriere
-    this->brouillardArriere = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/brouillardArriere.jpg")));
-    this->addItem(this->brouillardArriere);
-    this->brouillardArriere->setPos(130, 100);
+    this->RearAntifog = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/brouillardArriere.jpg")));
+    this->addItem(this->RearAntifog);
+    this->RearAntifog->setPos(130, 100);
 
     //ajout icone no essence
     this->noEssence = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/noEssence.jpg")));
@@ -43,11 +43,6 @@ SceneFlorian::SceneFlorian(QGraphicsScene *parent):scene_globale(parent)
     this->Clignotant = new FlorianClignotant();
     this->addItem(this->Clignotant);
 
-    //ajout temp huile
-    this->tempHuile = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/temperature.png")));
-    this->addItem(tempHuile);
-    tempHuile->setValue(1);
-    this->tempHuile->setPos(-62,155);
 
     //ajout icone refroidissement
     this->refroidissement = new FlorianVoyant(QPixmap(QString(":/new/prefix1/voyant/refroidissement.jpg")));

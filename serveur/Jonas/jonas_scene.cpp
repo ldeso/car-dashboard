@@ -10,7 +10,7 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
 {
     /// Initialisation de l'arrière plan
     this->setBackgroundBrush(Qt::black); // dessine l'arrière plan
-    this->setSceneRect(-300,-200,580,400); // permet de bien cadrer la scène
+    this->setSceneRect(-300,-200,800,800); // permet de bien cadrer la scène
 
     /// Initialisation des jauges
     // Compteur de vitesse
@@ -85,15 +85,14 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     OpenDoorDriver->setPos(-125, -50);
     RearWindowHeating = new jonas_voyant_simple(":/icons/icon-rear-window-heating.png", 22, 22, 22);
     RearWindowHeating->setPos(-100, 10);
+    jonas_voyant_simple *background = new jonas_voyant_simple(":/icons/car-dashboard.png", -300,-200, 800);
+    background->setPos(0,0);
+    background->setValue(1);
+    background->setZValue(-1);
 
     /// Ajout des objets sur la scène
     this->addItem(engineTemp);
     this->addItem(voyantEssence);
-    this->addItem(Essence);
-    this->addItem(jaugeTemperature);
-    this->addItem(CompteTours);
-    this->addItem(Vitesse);
-    this->addItem(CompteurKm);
     this->addItem(VoyantBatterie);
     this->addItem(croisement);
     this->addItem(route);
@@ -109,4 +108,16 @@ Jonas_scene::Jonas_scene(scene_globale *parent) : scene_globale(parent)
     this->addItem(OilTemp);
     this->addItem(OpenDoorBackLeftPassenger);
     this->addItem(RearWindowHeating);
+    this->addItem(Essence);
+    this->addItem(jaugeTemperature);
+    this->addItem(CompteTours);
+    this->addItem(Vitesse);
+    this->addItem(CompteurKm);
+    for (int i=0; i<this->items().size(); i++) {
+        this->items().at(i)->moveBy(120,306);
+    }
+    this->addItem(background);
+
+
+
 }
