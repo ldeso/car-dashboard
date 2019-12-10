@@ -16,7 +16,6 @@ QRectF stopHenri::boundingRect() const
 
 void stopHenri::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    qDebug()<<jt->getValue();
     if (jt->getValue() > 120)
     {
     QRect carre(-150,-150,300,300);
