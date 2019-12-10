@@ -17,7 +17,7 @@
 SpeedometerInna::SpeedometerInna(QGraphicsItem *parent) :  QGraphicsItem(parent)
 {
     vmax = 300 ;
-    A0 = 225 ;
+    A0 = 240 ;
     Amax = 180 ;
     r = 150 ;
     dx = 7;
@@ -32,8 +32,8 @@ SpeedometerInna::SpeedometerInna(int VMAX, int ALPHA0, int ALPHAMAX)
     A0 = ALPHA0 ;
     Amax = ALPHAMAX ;
     r = 150 ;
-    dx = 7;
-    dy = 10;
+    dx = 12;
+    dy = 6;
     k = Amax * 1.0 / vmax ;
 
 
@@ -51,6 +51,9 @@ void SpeedometerInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     ///
     ///\brief Dessin du circle encadrant
    /// \details On crée le gradient radial pour en suite instancier la brosse du *painter et dessiner un circle  encadrant avec un gradient de couleur.
+    painter->drawPixmap(158,50, 485, 520, QPixmap(":/I_L.gif"));
+
+
 
     painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));
     painter->drawEllipse(QRectF(xc-r,yc-r,r*2,r*2));

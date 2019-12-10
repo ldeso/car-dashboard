@@ -34,7 +34,7 @@ public:
     objet_virtuel *AirbagOn;
     objet_virtuel *BonnetOpen;
     objet_virtuel *BootOpen;
-    objet_virtuel *CruiseControlOn;
+    objet_virtuel *CruiseControlOn = nullptr;
     objet_virtuel *OilTemp;
     objet_virtuel *SpeedLimit;
     objet_virtuel *oilLevel;

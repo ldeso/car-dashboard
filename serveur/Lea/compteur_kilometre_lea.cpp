@@ -11,7 +11,6 @@
 #include <QtDebug>
 #include <QPointF>
 
-
 ///
 /// \brief Compteur_kilometre_lea::Compteur_kilometre_lea Constructeur de la classe, permet d'initialiser tous les paramètres ainsi que la valeur value de la classe mère à 0
 /// \param param_x position horizontale du coin en haut à gauche du rectangle dans lequel apparaitra le compteur kilométrique.
@@ -52,7 +51,8 @@ void Compteur_kilometre_lea::paint(QPainter *painter, const QStyleOptionGraphics
     QRectF affiche_time (x+30, y+60, 100, 15);
     painter->drawRoundedRect(affiche_time,2,2);
     QTime time=QTime::currentTime();
-    time.currentTime();
+    QString sDate = QDateTime::currentDateTime().toString(" dd/MM/yy");
+
 
  // ******************** Dessine le texte de la valeur du compteur kilométrique, des kilomètres totaux parcourus et de l'heure.
     QFont font("Seven Segment",10,QFont::Bold);
@@ -61,11 +61,12 @@ void Compteur_kilometre_lea::paint(QPainter *painter, const QStyleOptionGraphics
     painter->drawText(affiche_km_trip_A_texte, Qt::AlignLeft ,QString::number(getValue(),'f',1));
  //donne un équivalent du numéro en String avec le format "f"(float) et une précision de un chiffre après la virgule.
     painter->drawText(affiche_time,Qt::AlignRight,time.toString("hh.mm "));
+    painter->drawText(affiche_time,Qt::AlignLeft,sDate);
 
     QFont font2("Arial",10,QFont::Bold);
     painter->setFont(font2);
     painter->drawText(affiche_km_trip_A, Qt::AlignLeft ,QString("   TRIP A"));
     painter->drawText(affiche_km_trip_A_texte, Qt::AlignRight ,QString("km "));
-    painter->drawText(affiche_time, Qt::AlignLeft ,QString("   Time"));
+ //   painter->drawText(affiche_time, Qt::AlignLeft ,QString("   Time"));
     painter->drawText(affiche_km_totaux, Qt::AlignLeft ,QString("   ODOMETRE"));
 }

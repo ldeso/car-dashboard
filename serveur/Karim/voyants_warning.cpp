@@ -1,12 +1,24 @@
+///
+///\file voyants_warning.cpp
+/// \brief Classe dérivant de objet_virtuel permettant l'affichage du voyants warning.
+///
 #include "Karim/voyants_warning.h"
 #include <QTest>
 
+/**
+ * @brief voyants_warning::voyants_warning
+ * @details constructeur par défaut
+ */
 voyants_warning::voyants_warning()
 {
     value = 0;
     enabled = 1;
 }
 
+/**
+ * @brief voyants_warning::updateWarning
+ * @details
+ */
 void voyants_warning::updateWarning()
 {
     if (this->enabled==1){
@@ -19,11 +31,20 @@ void voyants_warning::updateWarning()
     //    update();
 }
 
+/**
+ * @brief voyants_warning::boundingRect
+ * @return retourne un rectangle qui encadre l'objet
+ */
 QRectF voyants_warning::boundingRect() const
 {
     return QRect(-200,-200,400,400);
 }
 
+/**
+ * @brief voyants_warning::paint
+ * @param painter
+ * @details dessine le signe warning
+ */
 void voyants_warning::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     painter->setRenderHint(QPainter::Antialiasing);
