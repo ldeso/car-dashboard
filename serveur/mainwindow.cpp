@@ -896,5 +896,17 @@ void MainWindow::simulation(int vitesseDactualisation)
     dashboard->BootOpen->setValue(0);
     dashboard->Clignotant->setValue(0);
     QTest::qWait(1000);
+    for (float i=0;i<100;i++)
+    {
+        dashboard->Essence->setValue(dashboard->Essence->getValue()-1);
+        ui->graphicsView->scene()->update();
+        QTest::qWait(20);
+    }
+    for (float i=0;i<100;i++)
+    {
+        dashboard->Essence->setValue(dashboard->Essence->getValue()+1);
+        ui->graphicsView->scene()->update();
+        QTest::qWait(20);
+    }
 }
 
