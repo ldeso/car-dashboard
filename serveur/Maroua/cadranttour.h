@@ -1,9 +1,11 @@
 #ifndef CADRANTTOUR_H
 #define CADRANTTOUR_H
-#include "cadrantvitesse.h"
+
+#include "objet_virtuel.h"
 #include<QGraphicsItem>
 #include<QGraphicsScene>
 #include<QGraphicsView>
+
 
 class cadranttour : public objet_virtuel
 {

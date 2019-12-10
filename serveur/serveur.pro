@@ -129,6 +129,8 @@ SOURCES += \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp \
+    Maroua/warningmaroua.cpp \
+    Maroua/autresvoyants.cpp \
     Henri/stophenri.cpp \
     Leo/leo_gauge.cpp \
     Leo/leo_limit.cpp \
@@ -139,6 +141,7 @@ SOURCES += \
     Harout/hvoyant.cpp \
     Harout/hvoyantwarning.cpp \
     Harout/hclignotant.cpp
+
 
 
    
@@ -247,6 +250,8 @@ HEADERS += \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
+    Maroua/warningmaroua.h \
+    Maroua/autresvoyants.h \
     Loto/kmcalculator.h \
     Harout/hvoyant.h \
     Harout/hvoyantwarning.h \

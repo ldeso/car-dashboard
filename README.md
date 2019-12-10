@@ -25,7 +25,7 @@ mesure d'intégrer le serveur. On objet scene_globale *dashboard a déjà été
 intégré à "mainwindow.h". Il vous suffit donc de rajouter un #include
 "prénom_scene" dans le "mainwindow.h". Ensuite, dans la fonction
 MainWindow::reception() de "mainwindow.cpp", vous pouvez définir votre
-dashboard dans la partie correspondant au message "CANN DASHBOARD":
+dashboard dans la partie correspondant au message "CAN DASHBOARD":
     - delete dashboard; --> permet de supprimer le dashboard défini au
     préalable.
     - dashboard = new prénom_scene;--> définit l'objet dashboard avec votre
@@ -35,7 +35,7 @@ dashboard dans la partie correspondant au message "CANN DASHBOARD":
 
    Une fois votre scène intégrée au serveur, il est alors possible d'y intégrer
    de nouveaux objets et fonctionnalités. Vous pouvez tester la réussite de
-   l'intégration de votre dashboard en envoyant le message CANN DASHBOARD prénom
+   l'intégration de votre dashboard en envoyant le message CAN DASHBOARD prénom
    à partir du client.
 
 ## Intégration d'un nouvel objet au client et au serveur
@@ -44,49 +44,49 @@ L'ensemble des objets accessibles pour tous les dashboards sont définis en tant
 que objet_virtuel dans "scene_globale.h". Ceci implique qu'un dashboard ne doit
 pas obligatoirement posséder in situ l'ensemble des objets et fonctionnalités
 définis dans "scene_globale.h". Il est en revanche bien évidemment déconseillé
-de lancer à partir du client des messages CANN concernant des fonctionnalités
+de lancer à partir du client des messages CAN concernant des fonctionnalités
 non inclues dans votre dashboard. Suivez ces différentes étapes pour ajouter un
 objet au programme:
 
-* Dans un premier temps, il faut créer votre message CANN de la forme "CANN votre_message " dans le client. Dans le fichier clientio.c, ajouter "votre_message" à la liste des commandes déjà disponibles de la fonction validate_message.
-Puis dans le fichier main.c du client, ajoutez votre commande "CANN votre_message" ainsi qu'une brève description de votre message dans la commande "HELP" de la fonction main.
+* Dans un premier temps, il faut créer votre message CAN de la forme "CAN votre_message " dans le client. Dans le fichier clientio.c, ajouter "votre_message" à la liste des commandes déjà disponibles de la fonction validate_message.
+Puis dans le fichier main.c du client, ajoutez votre commande "CAN votre_message" ainsi qu'une brève description de votre message dans la commande "HELP" de la fonction main.
 * Puis, dans le fichier mainwindow.cpp du serveur, ajoutez votre message sous forme de condition dans la liste déjà présente de la fonction reception. N'hésitez pas à rajouter des conditions pour vérifier si les valeurs associées à votre message sont acceptables.
 
-## Liste des messages CANN
+## Liste des messages CAN
 
-| Objet                      | Description                                                                      | Message CANN                      | Valeurs                                                                 |
+| Objet                      | Description                                                                      | Message CAN                      | Valeurs                                                                 |
 |:-------------------------- |:--------------------------------------------------------------------------------:|:---------------------------------:| -----------------------------------------------------------------------:|
-| Vitesse                    | Compteur vitesse                                                                 | CANN SPEED X                      | X=vitesse                                                               |
-| CompteTours                | Compteur tour/min moteur                                                         | CANN RPM X                        | X=rpm                                                                   |
-| VoyantBatterie             | Voyant indiquant changement de batterie                                          | CANN BATTERY_LIGHT                | 0 éteint,1 allumé                                                       |
-| Essence                    | Jauge essence                                                                    | CANN GAZ X                        | X=%d'essence restant                                                    |
-| position                   | Feux de position                                                                 | CANN LIGHT X                      | 0=éteint, 1=allumé                                                      |
-| croisement                 | Feux de croisement                                                               | CANN LIGHT X                      | 0=éteint, 2=allumé                                                      |
-| route                      | Feux de route                                                                    | CANN LIGHT X                      | 0=éteint, 3=allumé                                                      |
-| Clignotant                 | Allume les clignotants gauche, droit ou les deux ensemble (feux d'avertissement) | CANN TURN X                       | 1=clignotant droit,-1=clignotant gauche, 2 clignotant les deux 0=éteint |
-| Warning                    | Allume le warning et met la valeur des clignotants à 2                           | CANN WARNING X                    | 0=éteint, 1=allumé                                                      |
-| AdaptiveSuspensionDampers  | Voyant indiquant que ASD est utilisé                                             | CANN ASD X                        | 0 éteint, 1 allumé                                                      |
-| AutomaticTransmissionMode  | Indique le mode de transmission actuellement utilisé                             | CANN MODE  X                      | 1=P, 2=R, 3=N, 4=D                                                      |
-| FrontAntifog               | feux de brouillard avants                                                        | CANN FRONT_FOG X                  | 0=éteint, 1=allumé                                                      |
-| RearAntifog                | feux de brouillard arrières                                                      | CANN REAR_FOG X                   | 0=éteint, 1=allumé                                                      |
-| SeatBelt                   | Ceinture de securité                                                             | CANN SEAT_BELT X                  | 0=éteint, 1=allumé                                                      |
-| RearWindowHeating          | Chauffage de la glace arrière                                                    | CANN RW_HEAT X                    | 0=éteint, 1=allumé                                                      |
-| CheckEngine                | Voyant d'anomalie du moteur                                                      | CANN CHECK_ENGINE X               | 0=éteint, 1=allumé                                                      |
-| OpenDoorDriver             | Porte avant conducteur ouverte                                                   | CANN OPEN_DOOR_DRIVER X           | 0=éteint, 1=allumé                                                      |
-| OpenDoorFrontPassenger     | Porte avant passager ouverte                                                     | CANN OPEN_DOOR_FRONT_PASSENGER X  | 0=éteint, 1=allumé                                                      |
-| OpenDoorBackRightPassenger | Porte arrière droite ouverte                                                     | CANN OPEN_DOOR_BACK_R_PASSENGER X | 0=éteint, 1=allumé                                                      |
-| OpenDoorBackLeftPassenger  | Porte arrière gauche ouverte                                                     | CANN OPEN_DOOR_BACK_L_PASSENGER X | 0=éteint, 1=allumé                                                      |
-| AdaptiveCruiseControl      | Voyant qui s'allume quand "AdaptiveCruiseControl" est activé                     | CANN CRUISE_CONTROL X             | 0=éteint, 1=allumé                                                      |
-| AirbagOn                   | Voyant qui s'allume quand "AirBag" est activé                                    | CANN AIRBAG_ON X                  | 0=éteint, 1=allumé                                                      |
-| BonnetOpen                 | Voyant qui s'allume quand le capot est ouvert                                    | CANN BONNET_OPEN X                | 0=éteint, 1=allumé                                                      |
-| BootOpen                   |  Voyant qui s'allume quand le coffre est ouvert                                  | CANN BOOT_OPEN X                  | 0=éteint, 1=allumé                                                      |
-| CruiseControlOn            | Voyant qui s'allume quand le limitateur de vitesse est activé et met la vitesse à la valeur choisie                   | CANN CRUISE_CONTROL_ON X          | X=vitesse de croisière choisie                                                      |
-| OitTemp                    | Temperature de l'huile dans le moteur                                            | CANN OIL_T X                      | x  entre 0 et  value_max                                                                     |
-| oilLevel                    | Niveau de l'huile dans le moteur                                            | CANN OIL_L X                      | x  entre 0 et  value_max                                                                     |
-| jaugeTemperature           | la température du moteur                                                         | CANN ENGINE_T X                   | x  jusqu'au  value_max                                                  | 
-| SpeedLimit                 | Affichage de la limite de vitesse                                                | CANN SPEED_LIMIT X                | X=Limite de vitesse        
-| ABS                        | ABS                                                                              | CANN ABS X                      | 0=éteint, 1=allumé                                                      |
-|handbrake		| Frein à main enclanché								|CANN HANDBRAKE X			|0=éteint, 1=allumé							|
+| Vitesse                    | Compteur vitesse                                                                 | CAN SPEED X                      | X=vitesse                                                               |
+| CompteTours                | Compteur tour/min moteur                                                         | CAN RPM X                        | X=rpm                                                                   |
+| VoyantBatterie             | Voyant indiquant changement de batterie                                          | CAN BATTERY_LIGHT                | 0 éteint,1 allumé                                                       |
+| Essence                    | Jauge essence                                                                    | CAN GAZ X                        | X=%d'essence restant                                                    |
+| position                   | Feux de position                                                                 | CAN LIGHT X                      | 0=éteint, 1=allumé                                                      |
+| croisement                 | Feux de croisement                                                               | CAN LIGHT X                      | 0=éteint, 2=allumé                                                      |
+| route                      | Feux de route                                                                    | CAN LIGHT X                      | 0=éteint, 3=allumé                                                      |
+| Clignotant                 | Allume les clignotants gauche, droit ou les deux ensemble (feux d'avertissement) | CAN TURN X                       | 1=clignotant droit,-1=clignotant gauche, 2 clignotant les deux 0=éteint |
+| Warning                    | Allume le warning et met la valeur des clignotants à 2                           | CAN WARNING X                    | 0=éteint, 1=allumé                                                      |
+| AdaptiveSuspensionDampers  | Voyant indiquant que ASD est utilisé                                             | CAN ASD X                        | 0 éteint, 1 allumé                                                      |
+| AutomaticTransmissionMode  | Indique le mode de transmission actuellement utilisé                             | CAN MODE  X                      | 1=P, 2=R, 3=N, 4=D                                                      |
+| FrontAntifog               | feux de brouillard avants                                                        | CAN FRONT_FOG X                  | 0=éteint, 1=allumé                                                      |
+| RearAntifog                | feux de brouillard arrières                                                      | CAN REAR_FOG X                   | 0=éteint, 1=allumé                                                      |
+| SeatBelt                   | Ceinture de securité                                                             | CAN SEAT_BELT X                  | 0=éteint, 1=allumé                                                      |
+| RearWindowHeating          | Chauffage de la glace arrière                                                    | CAN RW_HEAT X                    | 0=éteint, 1=allumé                                                      |
+| CheckEngine                | Voyant d'anomalie du moteur                                                      | CAN CHECK_ENGINE X               | 0=éteint, 1=allumé                                                      |
+| OpenDoorDriver             | Porte avant conducteur ouverte                                                   | CAN OPEN_DOOR_DRIVER X           | 0=éteint, 1=allumé                                                      |
+| OpenDoorFrontPassenger     | Porte avant passager ouverte                                                     | CAN OPEN_DOOR_FRONT_PASSENGER X  | 0=éteint, 1=allumé                                                      |
+| OpenDoorBackRightPassenger | Porte arrière droite ouverte                                                     | CAN OPEN_DOOR_BACK_R_PASSENGER X | 0=éteint, 1=allumé                                                      |
+| OpenDoorBackLeftPassenger  | Porte arrière gauche ouverte                                                     | CAN OPEN_DOOR_BACK_L_PASSENGER X | 0=éteint, 1=allumé                                                      |
+| AdaptiveCruiseControl      | Voyant qui s'allume quand "AdaptiveCruiseControl" est activé                     | CAN CRUISE_CONTROL X             | 0=éteint, 1=allumé                                                      |
+| AirbagOn                   | Voyant qui s'allume quand "AirBag" est activé                                    | CAN AIRBAG_ON X                  | 0=éteint, 1=allumé                                                      |
+| BonnetOpen                 | Voyant qui s'allume quand le capot est ouvert                                    | CAN BONNET_OPEN X                | 0=éteint, 1=allumé                                                      |
+| BootOpen                   |  Voyant qui s'allume quand le coffre est ouvert                                  | CAN BOOT_OPEN X                  | 0=éteint, 1=allumé                                                      |
+| CruiseControlOn            | Voyant qui s'allume quand le limitateur de vitesse est activé et met la vitesse à la valeur choisie                   | CAN CRUISE_CONTROL_ON X          | X=vitesse de croisière choisie                                                      |
+| OitTemp                    | Temperature de l'huile dans le moteur                                            | CAN OIL_T X                      | x  entre 0 et  value_max                                                                     |
+| oilLevel                    | Niveau de l'huile dans le moteur                                            | CAN OIL_L X                      | x  entre 0 et  value_max                                                                     |
+| jaugeTemperature           | la température du moteur                                                         | CAN ENGINE_T X                   | x  jusqu'au  value_max                                                  | 
+| SpeedLimit                 | Affichage de la limite de vitesse                                                | CAN SPEED_LIMIT X                | X=Limite de vitesse        
+| ABS                        | ABS                                                                              | CAN ABS X                      | 0=éteint, 1=allumé                                                      |
+|handbrake		| Frein à main enclanché								|CAN HANDBRAKE X			|0=éteint, 1=allumé							|
                                              |
 
 ## Bugs répertoriés

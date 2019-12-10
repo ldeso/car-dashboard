@@ -2,14 +2,12 @@
 #define CADRANTCONTOUR_H
 
 #include "objet_virtuel.h"
-#include<QGraphicsItem>
-#include<QGraphicsScene>
-#include<QGraphicsView>
+
 
 class cadrantcontour : public objet_virtuel
 {
 public:
-    cadrantcontour(QGraphicsItem *parent=nullptr);
+    cadrantcontour(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
