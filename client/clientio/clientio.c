@@ -72,7 +72,7 @@ int validate_message(const char* message)
     char *first, *second;
     if ((first = strtok(buf, " ")) != NULL)
         if ((second = strtok(NULL, " ")) != NULL)
-            if (strncmp(first, "CANN", len) == 0)
+            if (strncmp(first, "CAN", len) == 0)
                 for (size_t i = 0; i < ncommands; ++i)
                     if (strncmp(second, commands[i], len) == 0)
                         result = 0;

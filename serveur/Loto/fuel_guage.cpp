@@ -107,7 +107,7 @@
             // Here we set the text to add to our gauge.
             //For fuel gauge, we will label only E for empty and  F for full with Red and Green/blue respectively
 
-            // This cannot be done in a loop else we will skip the point to label. Else create a variable to take the position
+            // This CANot be done in a loop else we will skip the point to label. Else create a variable to take the position
 
             QFont displayFont("Courier");
             displayFont.setPointSize(25);

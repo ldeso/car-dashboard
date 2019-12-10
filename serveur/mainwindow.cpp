@@ -109,7 +109,7 @@ void MainWindow::reception()
     qDebug() << string;
 
 
-    if(message=="CANN SPEED"){
+    if(message=="CAN SPEED"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             dashboard->Vitesse->setValue(vitesse);
@@ -125,7 +125,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN SPEEDTO"){
+    else if(message=="CAN SPEEDTO"){
         int vitesse = string.section(' ', 2,2).toInt();
         if(vitesse>=0 && vitesse <= dashboard->Vitesse->getValueMax()){
             float pas=(vitesse-dashboard->Vitesse->getValue())/100;
@@ -162,7 +162,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN RPM"){
+    else if(message=="CAN RPM"){
         int rpm = string.section(' ', 2,2).toInt();
         if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
             dashboard->CompteTours->setValue(rpm);
@@ -176,7 +176,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN RPMTO"){
+    else if(message=="CAN RPMTO"){
         int rpm = string.section(' ', 2,2).toInt();
         if(rpm>=0 && rpm <= dashboard->CompteTours->getValueMax()){
             float pas=(rpm-dashboard->CompteTours->getValue())/100;
@@ -197,7 +197,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN BATTERY_LIGHT"){
+    else if(message=="CAN BATTERY_LIGHT"){
         int battery_on = string.section(' ', 2,2).toInt();
         if(battery_on==0 || battery_on==1){
             dashboard->VoyantBatterie->setValue(battery_on);
@@ -211,7 +211,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN GAZ"){
+    else if(message=="CAN GAZ"){
         int essence = string.section(' ', 2,2).toInt();
         if(essence>=0 && essence <= dashboard->Essence->getValueMax()){
             dashboard->Essence->setValue(essence);
@@ -226,7 +226,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN GAZTO"){
+    else if(message=="CAN GAZTO"){
         int essence = string.section(' ', 2,2).toInt();
         if(essence>=0 && essence <= dashboard->Essence->getValueMax()){
             float pas=(essence-dashboard->Essence->getValue())/100;
@@ -247,7 +247,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN TURN"){
+    else if(message=="CAN TURN"){
         int cligno = string.section(' ', 2,2).toInt();
         if(cligno>=-1 && cligno <= 1){
             dashboard->Clignotant->setValue(cligno);
@@ -262,7 +262,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN DASHBOARD"){
+    else if(message=="CAN DASHBOARD"){
         QStringList PRENOMS;
         PRENOMS << "HUGO" << "HENRI" << "JONAS" << "LEA" << "LEO" << "FLORIAN"<<"KARIM"<<"LOTO"<<"INNA" << "YOUCEF"<<"HAROUT"<<"MAROUA"<<"KODJO";
         QString prenom = string.section(' ', 2,2);
@@ -348,7 +348,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN LIGHT"){
+    else if(message=="CAN LIGHT"){
         int light = string.section(' ', 2,2).toInt();
 
         if(light>=0 && light <= 3){
@@ -387,7 +387,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN WARNING"){
+    else if(message=="CAN WARNING"){
         int warning = string.section(' ', 2,2).toInt();
         if(warning>=0 && warning <= 1){
             dashboard->warning->setValue(warning);
@@ -402,7 +402,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN ASD"){
+    else if(message=="CAN ASD"){
         int asd_on = string.section(' ', 2,2).toInt();
         if(asd_on==0 || asd_on==1){
             dashboard->AdaptiveSuspensionDampers->setValue(asd_on);
@@ -416,7 +416,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN MODE"){
+    else if(message=="CAN MODE"){
         int mode = string.section(' ', 2,2).toInt();
 
         if(mode >=1 && mode <= 4)
@@ -431,7 +431,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN FRONT_FOG"){
+    else if(message=="CAN FRONT_FOG"){
         int front_fog_on = string.section(' ', 2,2).toInt();
         if(front_fog_on==0 || front_fog_on==1){
             dashboard->FrontAntifog->setValue(front_fog_on);
@@ -445,7 +445,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN REAR_FOG"){
+    else if(message=="CAN REAR_FOG"){
         int rear_fog_on = string.section(' ', 2,2).toInt();
         if(rear_fog_on==0 || rear_fog_on==1){
             dashboard->RearAntifog->setValue(rear_fog_on);
@@ -459,7 +459,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN SEAT_BELT"){
+    else if(message=="CAN SEAT_BELT"){
         int seatBelt_on = string.section(' ', 2,2).toInt();
         if(seatBelt_on==0 || seatBelt_on==1){
             dashboard->SeatBelt->setValue(seatBelt_on);
@@ -473,7 +473,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN RW_HEAT"){
+    else if(message=="CAN RW_HEAT"){
         int rwHeat_on = string.section(' ', 2,2).toInt();
         if(rwHeat_on==0 || rwHeat_on==1){
             dashboard->RearWindowHeating->setValue(rwHeat_on);
@@ -487,7 +487,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN CHECK_ENGINE"){
+    else if(message=="CAN CHECK_ENGINE"){
         int checkEngine_on = string.section(' ', 2,2).toInt();
         if(checkEngine_on==0 || checkEngine_on==1){
             dashboard->CheckEngine->setValue(checkEngine_on);
@@ -501,7 +501,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN ACCELERATION"){
+    else if(message=="CAN ACCELERATION"){
         int time = string.section(' ', 2,2).toInt();
         if(time<30){
             acceleration(qRound(1.0*time));
@@ -516,7 +516,7 @@ void MainWindow::reception()
     }
 
 
-    else if(message=="CANN OPEN_DOOR_DRIVER")
+    else if(message=="CAN OPEN_DOOR_DRIVER")
     {
         int OpenDoorDriver_on= string.section(' ', 2,2).toInt();
         if(OpenDoorDriver_on==0 || OpenDoorDriver_on==1){
@@ -531,7 +531,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN OPEN_DOOR_FRONT_PASSENGER")
+    else if(message=="CAN OPEN_DOOR_FRONT_PASSENGER")
     {
         int OpenDoorFrontPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorFrontPassenger_on==0 || OpenDoorFrontPassenger_on==1){
@@ -547,7 +547,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN OPEN_DOOR_BACK_L_PASSENGER")
+    else if(message=="CAN OPEN_DOOR_BACK_L_PASSENGER")
     {
         int OpenDoorBackLeftPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorBackLeftPassenger_on==0 || OpenDoorBackLeftPassenger_on==1){
@@ -563,7 +563,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN OPEN_DOOR_BACK_R_PASSENGER")
+    else if(message=="CAN OPEN_DOOR_BACK_R_PASSENGER")
     {
         int OpenDoorBackRightPassenger_on= string.section(' ', 2,2).toInt();
         if(OpenDoorBackRightPassenger_on==0 || OpenDoorBackRightPassenger_on==1){
@@ -579,7 +579,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN CRUISE_CONTROL")
+    else if(message=="CAN CRUISE_CONTROL")
     {
         int cruiseControl_on= string.section(' ', 2,2).toInt();
         if(cruiseControl_on==0 || cruiseControl_on==1){
@@ -595,7 +595,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN AIRBAG_ON")
+    else if(message=="CAN AIRBAG_ON")
     {
         int airbag_on= string.section(' ', 2,2).toInt();
         if(airbag_on==0 || airbag_on==1){
@@ -611,7 +611,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN BONNET_OPEN")
+    else if(message=="CAN BONNET_OPEN")
     {
         int bonnetOpen_on= string.section(' ', 2,2).toInt();
         if(bonnetOpen_on==0 || bonnetOpen_on==1){
@@ -627,7 +627,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN BOOT_OPEN")
+    else if(message=="CAN BOOT_OPEN")
     {
         int bootOpen_on= string.section(' ', 2,2).toInt();
         if(bootOpen_on==0 || bootOpen_on==1){
@@ -643,7 +643,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN CRUISE_CONTROL_ON")
+    else if(message=="CAN CRUISE_CONTROL_ON")
     {
         int CruiseControlOn_on= string.section(' ', 2,2).toInt();
         if(CruiseControlOn_on>0 && CruiseControlOn_on<=dashboard->Vitesse->getValueMax()){
@@ -666,7 +666,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN ENGINE_T"){
+    else if(message=="CAN ENGINE_T"){
         int engineT = string.section(' ', 2,2).toInt();
 
         if(engineT <= dashboard->jaugeTemperature->getValueMax())
@@ -681,7 +681,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-   else  if(message=="CANN ENGINE_TTO"){
+   else  if(message=="CAN ENGINE_TTO"){
         int engineT = string.section(' ', 2,2).toInt();
         if(engineT>=0 && engineT <= dashboard->jaugeTemperature->getValueMax()){
             float pas=(engineT-dashboard->jaugeTemperature->getValue())/100;
@@ -702,7 +702,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN OIL_T"){
+    else if(message=="CAN OIL_T"){
         int oilT = string.section(' ', 2,2).toInt();
 
         if(oilT <= dashboard->OilTemp->getValueMax())
@@ -717,7 +717,7 @@ void MainWindow::reception()
             socket->write(text.toUtf8());
         }
     }
-    else if(message=="CANN OIL_L"){
+    else if(message=="CAN OIL_L"){
         int oil = string.section(' ', 2,2).toInt();
         if(oil>=0 && oil <= dashboard->oilLevel->getValueMax()){
             dashboard->oilLevel->setValue(oil);
@@ -732,7 +732,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN SIM"){
+    else if(message=="CAN SIM"){
         int vitesseActualisation= string.section(' ', 2,2).toInt();
         if(vitesseActualisation>0){
             simulation(vitesseActualisation);
@@ -745,7 +745,7 @@ void MainWindow::reception()
             socket->write(text.toLocal8Bit());
         }
     }
-    else if(message=="CANN SPEED_LIMIT"){
+    else if(message=="CAN SPEED_LIMIT"){
         int speed_limit = string.section(' ', 2, 2).toInt();
         if(speed_limit > 0 && speed_limit <= dashboard->SpeedLimit->getValueMax()){
             dashboard->SpeedLimit->setValue(speed_limit);
@@ -760,7 +760,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN ABS"){
+    else if(message=="CAN ABS"){
         int abs_on = string.section(' ', 2,2).toInt();
         if(abs_on==0 || abs_on==1){
             dashboard->ABS->setValue(abs_on);
@@ -775,7 +775,7 @@ void MainWindow::reception()
         }
     }
 
-    else if(message=="CANN HANDBRAKE"){
+    else if(message=="CAN HANDBRAKE"){
         int handbrake_on = string.section(' ', 2,2).toInt();
         if(handbrake_on==0 || handbrake_on==1){
             dashboard->handbrake->setValue(handbrake_on);
