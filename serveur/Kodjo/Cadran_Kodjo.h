@@ -154,7 +154,7 @@ public:
     float etat_porte_globale;
     float etat_ceinture_de_securite_globale;
 
-
+    int i;
 
 
 

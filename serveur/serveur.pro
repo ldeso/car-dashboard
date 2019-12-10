@@ -50,6 +50,7 @@ SOURCES += \
     Youcef/engineheatgauge.cpp \
     Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
+    Youcef/indicator_youss.cpp \
     Youcef/maindisplay_youcef.cpp \
     Youcef/tachometer.cpp \
     Youcef/warning_youss.cpp \
@@ -134,7 +135,12 @@ SOURCES += \
     Leo/leo_object.cpp \
     Leo/leo_scene.cpp \
     Loto/blinkingleds.cpp \
-    Loto/kmcalculator.cpp
+    Loto/kmcalculator.cpp \
+    Harout/hvoyant.cpp \
+    Harout/hvoyantwarning.cpp \
+    Harout/hclignotant.cpp
+
+
    
 
 HEADERS += \
@@ -163,6 +169,7 @@ HEADERS += \
     Youcef/engineheatgauge.h \
     Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
+    Youcef/indicator_youss.h \
     Youcef/maindisplay_youcef.h \
     Youcef/tachometer.h \
     Youcef/warning_youss.h \
@@ -240,7 +247,10 @@ HEADERS += \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
-    Loto/kmcalculator.h
+    Loto/kmcalculator.h \
+    Harout/hvoyant.h \
+    Harout/hvoyantwarning.h \
+    Harout/hclignotant.h
 
 
 
@@ -259,7 +269,8 @@ RESOURCES += \
     Lea/Lea.qrc \
     Florian/florian.qrc \
     Youcef/Youcef.qrc \
-    Kodjo/kodjo.qrc
+    Kodjo/kodjo.qrc \
+    Harout/Icones/hicones.qrc
 
 
 DISTFILES += \
