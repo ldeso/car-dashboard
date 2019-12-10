@@ -1,15 +1,15 @@
 #ifndef MAROUA_SCENE_H
 #define MAROUA_SCENE_H
 
-#include "maroua_scene.h"
-#include "scene_globale.h"
 #include "cadrantessence.h"
-#include "cadranttour.h"
 #include "cadrantvitesse.h"
 #include "cadranttempmoteur.h"
-
+#include "cadranttour.h"
 #include "cadrantcontour.h"
-
+#include "voyantsmaroua.h"
+#include "warningmaroua.h"
+#include "autresvoyants.h"
+#include "scene_globale.h"
 
 class maroua_scene : public scene_globale
 {

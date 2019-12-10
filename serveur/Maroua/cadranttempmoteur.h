@@ -1,17 +1,17 @@
-#ifndef CADRANTHUILE_H
-#define CADRANTHUILE_H
+#ifndef CADRANTTEMPMOTEUR_H
+#define CADRANTTEMPMOTEUR_H
 
 #include "objet_virtuel.h"
 #include<QGraphicsItem>
 #include<QGraphicsScene>
 #include<QGraphicsView>
 
-class cadranthuile : public objet_virtuel
+class cadranttempmoteur : public objet_virtuel
 {
 public:
-    cadranthuile(QGraphicsItem *parent=nullptr);
+    cadranttempmoteur(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 };
 
-#endif // CADRANTESSENCE_H
+#endif // CADRANTTEMPMOTEUR_H

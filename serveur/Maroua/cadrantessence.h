@@ -9,10 +9,10 @@
 class cadrantessence : public objet_virtuel
 {
 public:
-    cadrantessence(QGraphicsItem *parent=nullptr);
+    cadrantessence(objet_virtuel *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    int niveauessence;
+
 };
 
 #endif // CADRANTESSENCE_H

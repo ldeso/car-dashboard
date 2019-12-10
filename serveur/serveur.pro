@@ -130,7 +130,9 @@ SOURCES += \
     Maroua/cadrantvitesse.cpp \
     Maroua/maroua_scene.cpp \
     Maroua/voyantsmaroua.cpp \
-    Harout/harc.cpp
+    Harout/harc.cpp \
+    Maroua/warningmaroua.cpp \
+    Maroua/autresvoyants.cpp
 
    
 
@@ -234,7 +236,9 @@ HEADERS += \
     Maroua/cadranttour.h \
     Maroua/cadrantvitesse.h \
     Maroua/maroua_scene.h \
-    Maroua/voyantsmaroua.h
+    Maroua/voyantsmaroua.h \
+    Maroua/warningmaroua.h \
+    Maroua/autresvoyants.h
 
 
 FORMS += \

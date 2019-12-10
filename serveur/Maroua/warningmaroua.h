@@ -1,19 +1,18 @@
-#ifndef VOYANTSMAROUA_H
-#define VOYANTSMAROUA_H
+#ifndef WARNINGMAROUA_H
+#define WARNINGMAROUA_H
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include "objet_virtuel.h"
 #include <QTest>
-class VoyantsMaroua : public objet_virtuel
-{
 
+class warningmaroua : public objet_virtuel
+{
 public:
-    VoyantsMaroua();
+    warningmaroua();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void activate();
   int clignotant;
-
 };
 
-#endif // VOYANTSMAROUA_H
+#endif // WARNINGMAROUA_H
