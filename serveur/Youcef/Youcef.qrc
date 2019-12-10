@@ -22,8 +22,6 @@
         <file>Icones/frontFogLight.gif</file>
         <file>Icones/fuelRedIcon.gif</file>
         <file>Icones/fuelWhiteIcone.gif</file>
-        <file>Icones/gearProblem.png</file>
-        <file>Icones/hand_brake.png</file>
         <file>Icones/hazardLights.gif</file>
         <file>Icones/highBeam.gif</file>
         <file>Icones/lowBattery.gif</file>
@@ -48,5 +46,33 @@
         <file>Icones/tyrePressure_red.gif</file>
         <file>Icones/tyrePressure_yellow.gif</file>
         <file>Icones/Warning.png</file>
+        <file>Icones/turnRight.gif</file>
+        <file>Icones/turnLeft.gif</file>
+        <file>Icones/Seatbelt.png</file>
+        <file>Icones/scoda.gif</file>
+        <file>Icones/orig_484482.jpg</file>
+        <file>Icones/Oil_white.png</file>
+        <file>Icones/OFF.gif</file>
+        <file>Icones/fuelL_white.gif</file>
+        <file>Icones/fuelL_red.gif</file>
+        <file>Icones/fuel2.png</file>
+        <file>Icones/fuel.png</file>
+        <file>Icones/frontRightDoorOpen.gif</file>
+        <file>Icones/Cruise_Control2.gif</file>
+        <file>Icones/brake.png</file>
+        <file>Icones/bonnetOpen.png</file>
+        <file>Icones/battery.gif</file>
+        <file>Icones/ABS3.png</file>
+        <file>Icones/ABS2.png</file>
+        <file>Icones/BootOpenWhite.png</file>
+        <file>Icones/BonnetOpenWhite.png</file>
+        <file>Icones/PorteOuvertePassagerD.png</file>
+        <file>Icones/PorteOuverteConducteur.png</file>
+        <file>Icones/icon-oil-red.png</file>
+        <file>Icones/icon-oil-red.jpg</file>
+        <file>Icones/iconeSurchaufe.png</file>
+    </qresource>
+    <qresource prefix="/new/font">
+        <file>Seven_Segment.ttf</file>
     </qresource>
 </RCC>

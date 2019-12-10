@@ -33,9 +33,12 @@ int validate_message(const char* message)
         "BATTERY_LIGHT",
         "DASHBOARD",
         "GAZ",
+        "GAZTO",
         "LIGHT",
         "RPM",
+        "RPMTO",
         "SPEED",
+        "SPEEDTO",
         "SPEED_LIMIT",
         "TURN",
         "WARNING",
@@ -57,6 +60,7 @@ int validate_message(const char* message)
         "BOOT_OPEN",
         "CRUISE_CONTROL_ON",
         "ENGINE_T",
+        "ENGINE_TTO",
         "OIL_T",
         "OIL_L",
         "ABS",
@@ -68,7 +72,7 @@ int validate_message(const char* message)
     char *first, *second;
     if ((first = strtok(buf, " ")) != NULL)
         if ((second = strtok(NULL, " ")) != NULL)
-            if (strncmp(first, "CANN", len) == 0)
+            if (strncmp(first, "CAN", len) == 0)
                 for (size_t i = 0; i < ncommands; ++i)
                     if (strncmp(second, commands[i], len) == 0)
                         result = 0;

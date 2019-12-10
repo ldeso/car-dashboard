@@ -1,20 +1,27 @@
 ﻿#include "loto_dashboard.h"
 #include "QPainter"
-#include "QPainterPath"
 #include "QGradient"
 #include "QtMath"
-#include "QDebug"
 #include "QTextItem"
 #include "QString"
-#include "QRadialGradient"
 #include "QPolygon"
 #include "objet_virtuel.h"
-#include <qdebug.h>
+#include <QDebug>
+#include "QFontDatabase"
+#include "QDateTime"
+
+///
+///\file loto_dashboard.cpp
+/// \brief Cet classe est faire pour la affichage de compteur de vitesse
+///
+
 
 loto_dashboard::loto_dashboard()
 {
  value =0;
  valueMax=280;
+ QFontDatabase::addApplicationFont(":/fonts/SFDigitalReadout-Light.ttf");
+
 }
 
 QRectF loto_dashboard::boundingRect() const
@@ -22,13 +29,14 @@ QRectF loto_dashboard::boundingRect() const
     return QRect(-200,-200,400,400);
 }
 
-void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     /*re draw new method*/
 
     //Loop to draw tiny concentric rectangles//
-    for (int i= 0; i <= 30; i+=1)
+
+    for (int i= 0; i <= 40; i+=1)
     {
         QRectF rectangle(-200+i, -200+i, 400.0-2*i,400.0-2*i);
         int startAngle = -45* 16;
@@ -36,7 +44,7 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         // set painter properties//
 
         QPen mPen;
-        QColor mCol(17,225,230,220-20*i);
+        QColor mCol(17,225,230,220-5*i);
         mPen.setCapStyle(Qt::RoundCap);
         mPen.setWidth(1);
         mPen.setColor(mCol);
@@ -60,11 +68,11 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         QPoint startLinePos;
         QPoint endLinePos;
 
-        startLinePos.setX(198 * cos(theta*pi/180));
-        startLinePos.setY(-198*sin(theta*pi/180));
+        startLinePos.setX(qRound(198 * cos(theta*pi/180)));
+        startLinePos.setY(qRound(-198*sin(theta*pi/180)));
 
-        endLinePos.setX(180* cos(theta*pi/180));
-        endLinePos.setY(-180*sin(theta*pi/180));
+        endLinePos.setX(qRound(180* cos(theta*pi/180)));
+        endLinePos.setY(qRound(-180*sin(theta*pi/180)));
 
         QLine Ticks;
         Ticks.setPoints(startLinePos,endLinePos);
@@ -72,12 +80,15 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
         painter->drawLine(Ticks);
 
-        QLine graduations;
-        startLinePos.setX(198 * cos((theta+10)*pi/180));
-        startLinePos.setY(-198*sin((theta+10)*pi/180));
+        if (theta < 235)
 
-        endLinePos.setX(190 * cos((theta+10)*pi/180));
-        endLinePos.setY(-190 *sin((theta+10)*pi/180));
+        {
+        QLine graduations;
+        startLinePos.setX(qRound(198 * cos((theta+10)*pi/180)));
+        startLinePos.setY(qRound(-198*sin((theta+10)*pi/180)));
+
+        endLinePos.setX(qRound(190 * cos((theta+10)*pi/180)));
+        endLinePos.setY(qRound(-190 *sin((theta+10)*pi/180)));
 
         graduations.setPoints(startLinePos,endLinePos);
         painter->setRenderHint(QPainter::Antialiasing);
@@ -85,105 +96,122 @@ void loto_dashboard::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
         painter->setPen(QPen(QBrush("white") ,3, Qt::SolidLine,Qt::SquareCap));
         painter->drawLine(graduations);
 
+        }
+
         QFont displayFont("Courier");
         displayFont.setPointSize(25);
-        displayFont.setWeight(75);
+        displayFont.setWeight(20);
         painter->setFont(displayFont);
 
         int j = -(theta-235);
         if (theta < 90)
         {
             painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((210*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));}
+            painter->drawText(qRound(210.0f*cos((theta)*pi/180.0f)),qRound(-210.0f*sin((theta)*pi/180.0f)),QString("%1").arg(j));}
+
+        else if (theta > 90 && theta < 140)
+        {
+            painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
+            painter->drawText(qRound(280.0f*cos((theta)*pi/180.0f)),qRound(-220.0f *sin((theta)*pi/180.0f)),QString("%1").arg(j));
+        }
 
         else
         {
-            painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
-            painter->drawText((250*cos((theta)*pi/180)),(-210 *sin((theta)*pi/180)),QString("%1").arg(j));};
-        }
+        painter->setPen(QPen(QBrush("white"),5,Qt::SolidLine));
+        painter->drawText(qRound(258.0f*cos((theta)*pi/180.0f)),qRound(-210.0f *sin((theta)*pi/180.0f)),QString("%1").arg(j));}
+
+
 
     /* function to get the speed Value and put needle at the right position*/
+
         QLine needle;
         QPoint needlestartPos;
         QPoint needlestopPos;
         needlestartPos.setX(0);
         needlestartPos.setY(0);
 
-        double needleAngle;
 
         speedValue = getValue();
-        qDebug()<<speedValue;
 
-        needleAngle = getSpeedAngle(speedValue);
-        needleAngle= -(needleAngle) - 125.0;
-        qDebug()<<"needleAngle"<< needleAngle;
+        float needleAngle = getSpeedAngle(speedValue);
+        needleAngle= -(needleAngle) - 125.0f;
 
 
-        needlestopPos.setX(196 * cos((needleAngle)*pi/180));
-        needlestopPos.setY(-196*sin((needleAngle)*pi/180));
+        needlestopPos.setX(qRound(196.0 * cos((needleAngle)*pi/180.0)));
+        needlestopPos.setY(qRound(-196.0 *sin((needleAngle)*pi/180.0 )));
 
         needle.setPoints(needlestartPos,needlestopPos);
 
         painter->setRenderHint(QPainter::HighQualityAntialiasing);
 
-        painter->setPen(QPen(QBrush("red"),3,Qt::SolidLine, Qt::SquareCap));
+        painter->setPen(QPen(QBrush("red"),6,Qt::SolidLine, Qt::SquareCap));
         painter->drawLine(needle);
 
-        painter->setPen(QPen(QBrush("white"),3,Qt::SolidLine, Qt::SquareCap));
+        painter->setPen(QPen(QBrush("white"),6,Qt::SolidLine, Qt::SquareCap));
         painter->drawEllipse(-10,-10,20,20);
 
         //draw text to write km/h
-        painter->setPen(QPen(QBrush("gray"),5,Qt::SolidLine, Qt::SquareCap));
-        painter->drawText(-20,-30,"km/h");
-
-
-        //draw text of speedValue in the dashboard.
-        QString SpeedValueStr;
-        speedValue = getValue();
-        SpeedValueStr.setNum(speedValue);
-        QBrush displayBrush;
-        displayBrush.setStyle(Qt::Dense6Pattern);
-        QColor mCol(102,255,255,255);
-        displayBrush.setColor(mCol);
-        painter->setPen(Qt::NoPen);
-        painter->setBrush(displayBrush);
-        painter->drawRect(-30,30,70,30);
-
-        painter->setPen(QPen(QBrush("white"),10,Qt::SolidLine, Qt::SquareCap));
-        QFont displayFont("Courier");
-        displayFont.setPointSize(15);
-        displayFont.setWeight(75);
+        painter->setPen(QPen(QBrush("gray"),8,Qt::SolidLine, Qt::SquareCap));
+        displayFont.setPointSize(30);
+        displayFont.setWeight(20);
         painter->setFont(displayFont);
-        painter->drawText(-25,50,SpeedValueStr);
+        painter->drawText(-40,-30,"km/h");
+
+        QFont Font;
+        Font.setFamily("SFDigitalReadout-Medium");
 
 
 
+        Font.setPointSize(25);
+        Font.setWeight(50);
+        painter->setFont(Font);
 
-    // Cordinates to attach the necessary voyants
+        QTime time= QTime::currentTime();
+        QString currentTime = time.toString("hh:mm:ss");
+        painter->drawText(-70,110,160,50, Qt::AlignCenter,currentTime);
 
-//    for (int i = 1000;i >= -1000; i-=100)
-//    {
-//        for (int j = 1000;j >= -1000; j-=100)
-//        {
-//            painter->setPen(QPen(QBrush("white"),10,Qt::SolidLine, Qt::SquareCap));
-//            QFont displayFont("Helvetica");
-//            displayFont.setPointSize(8);
-//            painter->setFont(displayFont);
-//            painter->drawText(i,j,QString("*%1,%2").arg(i).arg(j));
+        /* to form the background arc in */
 
-//        }
-//    }
+
+        for (int i= 0; i < 40; i+=1)
+        {
+            QRectF rectangle(-1900+i, -450+i, 3300.0-2*i, 3300.0-2*i);
+            int startAngle = 60* 16;
+            int spanAngle = 60* 16;
+
+            QRectF rectangle2(-1900+i, 300+i, 3300.0-2*i, 3300.0-2*i);
+            QPen mPen;
+            mPen.setCapStyle(Qt::RoundCap);
+            mPen.setWidth(1);
+
+            QColor mCol(128,128,128,220-5*i);
+            mPen.setColor(mCol);
+
+            QBrush mBrush;
+            painter->setBrush(mBrush);
+            painter->setPen(mPen);
+            painter->setRenderHint(QPainter::Antialiasing);
+            painter->drawArc(rectangle,startAngle,spanAngle);
+            painter->drawArc(rectangle2,startAngle,spanAngle);
+
+
+        }
 
 }
+}
+
+///
+/// \brief loto_dashboard::getSpeedAngle
+/// \param speedValue
+/// \details Ici, la function loto_dashboard::getSpeedAngle prendre la valeur de vitesse et puis faire le calcule de position d'aiguille.
+///
 
 
-
-double loto_dashboard::getSpeedAngle(double speedValue)
+float loto_dashboard::getSpeedAngle(float speedValue)
 {
-    double givenSpeedValue = speedValue;
-    double speedAngle;
-    speedAngle = givenSpeedValue * (280.0/280.0);
-    qDebug()<<"speedAngle"<< speedAngle;
 
+    float givenSpeedValue = speedValue;
+    float speedAngle;
+    speedAngle = givenSpeedValue * (280.0f/280.0f);
     return speedAngle;
 }

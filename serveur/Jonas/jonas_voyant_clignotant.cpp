@@ -62,8 +62,8 @@ void jonas_voyant_clignotant::paint(QPainter *painter, const QStyleOptionGraphic
             QPixmap image(":/icons/icon-turn-left.jpg");
             QPixmap image1(":/icons/icon-turn-right.jpg");
             painter->setOpacity(enabled);
-            painter->drawPixmap(-145, -145, 25, 25, image);
-            painter->drawPixmap(138, -145, 25, 25, image1);
+            painter->drawPixmap(-155, -145, 25, 25, image);
+            painter->drawPixmap(128, -145, 25, 25, image1);
         }
         updateTurn();
     }

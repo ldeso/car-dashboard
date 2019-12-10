@@ -26,6 +26,8 @@ QRectF InfoWindowInna::boundingRect() const
 void InfoWindowInna::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
    painter->setRenderHint(QPainter::Antialiasing);
+
+   painter->drawPixmap(760,47, 485, 520, QPixmap(":/I_R.gif"));
    painter->setBrush(QBrush("#0a0f0f",Qt::SolidPattern));
    painter->drawEllipse(QRectF(xc-r,yc-r,r*2,r*2));
    QRadialGradient radialGradl(QPointF(xc, yc), r+20);

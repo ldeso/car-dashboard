@@ -1,16 +1,23 @@
 <RCC>
     <qresource prefix="/icons">
         <file>dipped-beam.jpg</file>
-        <file>icon-airbag.jpg</file>
         <file>icon-battery.jpg</file>
         <file>icon-fuel.jpg</file>
         <file>icon-rear-fog-lamp.jpg</file>
-        <file>icon-seatbelt.jpg</file>
         <file>main-beam.jpg</file>
         <file>position-lamp.jpg</file>
         <file>icon-turn-left.jpg</file>
         <file>icon-turn-right.jpg</file>
         <file>icon-temperature.jpg</file>
         <file>icon-warning.jpg</file>
+        <file>icon-fuel-white.jpg</file>
+        <file>icon-temperature-white.png</file>
+        <file>icon-seatbelt.png</file>
+        <file>icon-airbag.png</file>
+        <file>icon-oil-red.jpg</file>
+        <file>icon-oil-red.png</file>
+        <file>icon-doors-open.png</file>
+        <file>icon-rear-window-heating.png</file>
+        <file>car-dashboard.png</file>
     </qresource>
 </RCC>

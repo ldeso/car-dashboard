@@ -2,13 +2,13 @@
 
 namespace {
     struct Params {
-        QRectF rect;
-        qreal startAngle;
-        qreal arcLength;
-        int max;
-        int divs;
-        int subdivs;
-        int step;
+        const QRectF rect;
+        const qreal startAngle;
+        const qreal arcLength;
+        const int max;
+        const int divs;
+        const int subdivs;
+        const int step;
     };
 
     QPainterPath Outline(const Params params)
@@ -79,7 +79,7 @@ Leo_gauge::Leo_gauge(const QRectF boundingRect, QGraphicsItem *parent)
 
 void Leo_gauge::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    Params params {
+    const Params params {
         mBoundingRect.adjusted(
             data(WIDTH).toReal()/2,
             data(WIDTH).toReal()/2,

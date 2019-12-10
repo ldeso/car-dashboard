@@ -12,7 +12,7 @@ linux-buildroot-g++ {
     target.path     = root
     INSTALLS       += target
 }
-
+CONFIG += c++11
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = serveur
@@ -45,15 +45,13 @@ SOURCES += \
     Hugo/hugo_voyants_simples.cpp \
     Jonas/jonas_compteur.cpp \
     Jonas/jonas_scene.cpp \
-    Leo/leo_gauge.cpp \
-    Leo/leo_limit.cpp \
-    Leo/leo_object.cpp \
-    Leo/leo_scene.cpp \
     Youcef/cardialerprototype.cpp \
     Youcef/carspeeddial.cpp \
     Youcef/engineheatgauge.cpp \
     Youcef/flashinglight_youss.cpp \
     Youcef/fuelgauge.cpp \
+    Youcef/indicator_youss.cpp \
+    Youcef/maindisplay_youcef.cpp \
     Youcef/tachometer.cpp \
     Youcef/warning_youss.cpp \
     Youcef/youcef_scene.cpp \
@@ -132,7 +130,19 @@ SOURCES += \
     Maroua/voyantsmaroua.cpp \
     Harout/harc.cpp \
     Maroua/warningmaroua.cpp \
-    Maroua/autresvoyants.cpp
+    Maroua/autresvoyants.cpp \
+    Henri/stophenri.cpp \
+    Leo/leo_gauge.cpp \
+    Leo/leo_limit.cpp \
+    Leo/leo_object.cpp \
+    Leo/leo_scene.cpp \
+    Loto/blinkingleds.cpp \
+    Loto/kmcalculator.cpp \
+    Harout/hvoyant.cpp \
+    Harout/hvoyantwarning.cpp \
+    Harout/hclignotant.cpp
+
+
 
    
 
@@ -145,6 +155,7 @@ HEADERS += \
     Henri/jaugetemperaturehenri.h \
     Henri/jaugetoursminutehenri.h \
     Henri/scenedefondhenri.h \
+    Henri/stophenri.h \
     Hugo/hugo_compteur.h \
     Hugo/hugo_mygraphicsitem.h \
     Hugo/hugo_scene.h \
@@ -161,6 +172,8 @@ HEADERS += \
     Youcef/engineheatgauge.h \
     Youcef/flashinglight_youss.h \
     Youcef/fuelgauge.h \
+    Youcef/indicator_youss.h \
+    Youcef/maindisplay_youcef.h \
     Youcef/tachometer.h \
     Youcef/warning_youss.h \
     Youcef/youcef_scene.h \
@@ -238,7 +251,12 @@ HEADERS += \
     Maroua/maroua_scene.h \
     Maroua/voyantsmaroua.h \
     Maroua/warningmaroua.h \
-    Maroua/autresvoyants.h
+    Maroua/autresvoyants.h \
+    Loto/kmcalculator.h \
+    Harout/hvoyant.h \
+    Harout/hvoyantwarning.h \
+    Harout/hclignotant.h
+
 
 
 FORMS += \
@@ -256,7 +274,8 @@ RESOURCES += \
     Lea/Lea.qrc \
     Florian/florian.qrc \
     Youcef/Youcef.qrc \
-    Kodjo/kodjo.qrc
+    Kodjo/kodjo.qrc \
+    Harout/Icones/hicones.qrc
 
 
 DISTFILES += \

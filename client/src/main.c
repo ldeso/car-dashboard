@@ -72,37 +72,39 @@ parse_opt (int key, char *arg, struct argp_state *state)
  */
 void helpMessage(){
     puts("Liste des commandes valides :");
-    puts("CANN BATTERY_LIGHT x avec x = 0 ou 1");
-    puts("CANN DASHBOARD x où x est le prénom");
-    puts("CANN GAZ x avec x compris entre 0 et 100");
-    puts("CANN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
-    puts("CANN RPM x avec x compris entre 0 et 15000");
-    puts("CANN SPEED x avec x compris entre 0 et 400");
-    puts("CANN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
-    puts("CANN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
-    puts("CANN WARNING x avec x = 0 éteint et 1 allumé");
-    puts("CANN ASD x avec x = 0 éteint et 1 allumé");
-    puts("CANN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
-    puts("CANN FRONT_FOG x avec x = 0 éteint et 1 allumé");
-    puts("CANN REAR_FOG x avec x = 0 éteint et 1 allumé");
-    puts("CANN SEAT_BELT x avec x = 0 éteint et 1 allumé");
-    puts("CANN RW_HEAT x avec x = 0 éteint et 1 allumé");
-    puts("CANN CHECK_ENGINE x avec x = 0 éteint et 1 allumé");
-    puts("CANN ACCELERATION x, avec x durée de l'accélération en s");
-    puts("CANN OPEN_DOOR_DRIVER x = 0 éteint et 1 allumé" );
-    puts("CANN OPEN_DOOR_FRONT_PASSENGER x = 0 éteint et 1 allumé" );
-    puts("CANN OPEN_DOOR_BACK_L_PASSENGER x = 0 éteint et 1 allumé" );
-    puts("CANN OPEN_DOOR_BACK_R_PASSENGER x = 0 éteint et 1 allumé" );
-    puts("CANN ADAPT_CRUISE_CONTROL x = 0 éteint et 1 allumé" );
-    puts("CANN AIRBAG_ON x = 0 éteint et 1 allumé" );
-    puts("CANN BONNET_OPEN x = 0 éteint et 1 allumé" );
-    puts("CANN BOOT_OPEN x = 0 éteint et 1 allumé" );
-    puts("CANN CRUISE_CONTROL_ON x avec 0 éteint et 1 allumé" );
-    puts("CANN ENGINE_T x avec x = température du moteur" );
-    puts("CANN OIL_T x avec x = température de l'huile" );
-    puts("CANN OIL_L x avec x = niveau de l'huile du moteur");
-    puts("CANN SIM x avac x la vitesse de diminution");
-    puts("CANN HANDBRAKE x avec x=0 éteint et x=1 allumé");
+    puts("CAN ABS x = 0 éteint et 1 allumé" );
+    puts("CAN ACCELERATION x, avec x durée de l'accélération en s");
+    puts("CAN ADAPT_CRUISE_CONTROL x = 0 éteint et 1 allumé" );
+    puts("CAN AIRBAG_ON x = 0 éteint et 1 allumé" );
+    puts("CAN ASD x avec x = 0 éteint et 1 allumé");
+    puts("CAN BATTERY_LIGHT x avec x = 0 ou 1");
+    puts("CAN BONNET_OPEN x = 0 éteint et 1 allumé" );
+    puts("CAN BOOT_OPEN x = 0 éteint et 1 allumé" );
+    puts("CAN CHECK_ENGINE x avec x = 0 éteint et 1 allumé");
+    puts("CAN CRUISE_CONTROL_ON x avec x compris entre 0 et 400" );
+    puts("CAN DASHBOARD x où x est le prénom");
+    puts("CAN ENGINE_T x avec x = température du moteur" );
+    puts("CAN FRONT_FOG x avec x = 0 éteint et 1 allumé");
+    puts("CAN GAZ x avec x compris entre 0 et 100");
+    puts("CAN HANDBRAKE x avec x=0 éteint et x=1 allumé");
+    puts("CAN LIGHT x avec x = 0 éteint, 1 position, 2 croisement, 3 route");
+    puts("CAN MODE X avec x= 1 Park, 2 Reverse, 3 Neutral, 4 Drive");
+    puts("CAN OIL_L x avec x = niveau de l'huile du moteur");
+    puts("CAN OIL_T x avec x = température de l'huile" );
+    puts("CAN OPEN_DOOR_DRIVER x = 0 éteint et 1 allumé" );
+    puts("CAN OPEN_DOOR_FRONT_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CAN OPEN_DOOR_BACK_L_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CAN OPEN_DOOR_BACK_R_PASSENGER x = 0 éteint et 1 allumé" );
+    puts("CAN REAR_FOG x avec x = 0 éteint et 1 allumé");
+    puts("CAN RPM x avec x compris entre 0 et 15000");
+    puts("CAN RW_HEAT x avec x = 0 éteint et 1 allumé");
+    puts("CAN SEAT_BELT x avec x = 0 éteint et 1 allumé");
+    puts("CAN SIM x avac x la vitesse de diminution");
+    puts("CAN SPEED x avec x compris entre 0 et 400");
+    puts("CAN SPEED_LIMIT x où x est la limitation de vitesse en km/h");
+    puts("CAN TURN x avec x = -1 gauche, 0 rien, 1 droite 2 =les 2");
+    puts("CAN WARNING x avec x = 0 éteint et 1 allumé");
+    puts("pour les commandes speed, rpm, gaz et engine_t, ajouter to permet un décalage progressif ");
 }
 
 /**
@@ -222,13 +224,13 @@ static struct argp argp = { options, parse_opt, args_doc, doc, 0,0,0 };
  * sinon EXIT_FAILURE avec affichage d'une erreur dans le terminal
  * @details saisie des commandes en deux temps : d'abord le nom de la commande puis après la valeur
  * todo : ajouter les différents tests.
- * todo : ajouter les commandes CANN pour les differents elements du dashboard.
- * Les messages seront du format CANN TYPEDECANN VALUE
+ * todo : ajouter les commandes CAN pour les differents elements du dashboard.
+ * Les messages seront du format CAN TYPEDECAN VALUE
  */
 int main(int argc, char** argv)
 {
 
-    hist Commandes[100]={{"CANN SPEED 150"},{"CANN TURN 1"},{"CANN GAZ 56"},{"CANN RPM 2000"},{"CANN BATTERY_LIGHT 1"}};
+    hist Commandes[100]={{"CAN SPEED 150"},{"CAN TURN 1"},{"CAN GAZ 56"},{"CAN RPM 2000"},{"CAN BATTERY_LIGHT 1"}};
     int num_commande=4;
     int i=num_commande;
     struct arguments arg;
@@ -256,7 +258,7 @@ int main(int argc, char** argv)
             helpMessage();
         }
         else if (strncmp(sent, "\033A", len) == 0) {
-            puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
+            puts("CAN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
         } else {
             if (validate_message(arg.message) == -1) {
                 puts("Commande invalide.");
@@ -319,7 +321,7 @@ int main(int argc, char** argv)
             } else if (strncmp(sent, "END", len) == 0) {
                 end = 1;
             } else if (strncmp(sent, "\033A", len) == 0) {
-                puts("CANN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
+                puts("CAN CHECK_ENGINE x avec x = 0 eteint et 1 allumé");
             } else {
                 if (validate_message(sent) == -1) {
                     puts("Commande invalide.");

@@ -10,6 +10,7 @@
 #include <QDateTime>
 
 cadrantessence::cadrantessence(objet_virtuel *parent)
+
 {
 
 }
@@ -19,7 +20,7 @@ QRectF cadrantessence::boundingRect() const
     return rectf;
 }
 
-void cadrantessence::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void cadrantessence::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     QPen pen;

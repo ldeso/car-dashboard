@@ -2,16 +2,18 @@
 #define LOTO_SCENE_H
 
 #include "scene_globale.h"
+#include "objet_virtuel.h"
 #include <QGraphicsScene>
-#include "scene_globale.h"
 #include "QGraphicsItem"
 #include "loto_dashboard.h"
 #include "fuel_guage.h"
 #include "tachometre.h"
 #include "tempgauge.h"
 #include "leds.h"
-#include "objet_virtuel.h"
+#include "blinkingleds.h"
+#include "kmcalculator.h"
 #include "QString"
+
 
 class loto_scene : public scene_globale
 {

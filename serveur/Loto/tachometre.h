@@ -16,9 +16,9 @@ class tachometre : public objet_virtuel
 public:
     tachometre();
     QRectF boundingRect()const;
-    float rpmValue=getValue();
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
-    const double pi=3.142;
+    float rpmValue=float(getValue());
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
+    const float pi=3.142f;
     float getRpmValue(float rpmValue);
 
 };

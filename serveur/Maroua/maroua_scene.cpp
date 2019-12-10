@@ -11,6 +11,7 @@ maroua_scene::maroua_scene(scene_globale *parent) :
     Vitesse = new cadrantvitesse();
     cadrantcontour *MainDial = new cadrantcontour();
     Essence=new cadrantessence();
+
     CompteTours=new cadranttour();
     Clignotant = new VoyantsMaroua();
     warning = new warningmaroua;
@@ -23,6 +24,12 @@ maroua_scene::maroua_scene(scene_globale *parent) :
     route = new autresvoyants ("/home/sahli/Bureau/Icones/voyant_feux_route.jpg",320,-130,40);
 
     addItem(MainDial);
+
+    CompteurKm=new onoff();
+
+
+
+
     addItem(CompteTours);
     addItem(Essence);
     addItem(jaugeTemperature);

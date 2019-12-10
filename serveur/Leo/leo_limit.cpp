@@ -1,80 +1,83 @@
 #include "leo_limit.h"
 
 namespace {
-    QPainterPath Outline(const QRectF rect)
+    struct Params {
+        const QRectF rect;
+        const QList<int> limits;
+        const int period;
+        const int reps;
+    };
+
+    QPainterPath Outline(const Params params)
     {
         QPainterPath path;
-        path.addEllipse(rect.center(), rect.width()/2, rect.height()/2);
+        path.addEllipse(
+            params.rect.center(), params.rect.width()/2, params.rect.height()/2
+        );
         return path;
     }
 
-    bool ShowSign(int limit, QList<int> valid_limits, int blinks)
+    bool ShowSign(float &value, int &current_limit, const Params params)
     {
-        static int last_limit;
-        static int blink_cnt;
-        static std::chrono::time_point<std::chrono::high_resolution_clock> start;
-        static bool is_started;
-        static bool is_shown;
 
-        is_shown = false;
-        if (valid_limits.contains(limit) && (limit != last_limit)) {
-            is_shown = true;
-            if (!is_started) {
-                start = std::chrono::high_resolution_clock::now();
-                is_started = true;
-            }
-            auto now = std::chrono::high_resolution_clock::now();
-            if (now - start > std::chrono::milliseconds(500)) {
-                if (blink_cnt < blinks) {
-                    blink_cnt++;
-                    is_shown = !is_shown;
-                } else {
-                    blink_cnt = 0;
-                    is_shown = true;
-                    last_limit = limit;
-                }
-                is_started = false;
-            }
+        static std::chrono::high_resolution_clock::time_point start;
+        int new_limit = qRound(value);
+        value = 0;
+        if (params.limits.contains(new_limit) && (new_limit != current_limit)) {
+            current_limit = new_limit;
+            start = std::chrono::high_resolution_clock::now();
+            return true;
         }
-        return is_shown;
+        if (current_limit == 0)
+            return false;
+        auto elapsed = std::chrono::high_resolution_clock::now() - start;
+        if (elapsed > params.reps * std::chrono::milliseconds(params.period)) {
+            current_limit = 0;
+            return false;
+        }
+        return !((elapsed*2/std::chrono::milliseconds(params.period)) % 2);
     }
 }
 
-Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem *parent)
+Leo_limit::Leo_limit(const QRectF boundingRect, QGraphicsItem* parent)
     : Leo_object(boundingRect, parent)
 {
     setData(LIMITS, QVariant::fromValue<QList<int>>(
-        { 30, 50, 70, 90, 110, 130 }
+        { 30, 50, 70, 80, 90, 110, 130 }
     ));
-    setData(FONT, 16);
+    setData(PERIOD, 1000);
+    setData(REPS, 3);
     setData(WIDTH, 6);
-    setData(BLINKS, 3);
+    setData(FONT, 16);
 }
 
 void Leo_limit::paint(QPainter* p, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    QList<int> valid_limits = data(LIMITS).value<QList<int>>();
-    if (ShowSign(qRound(value), valid_limits, data(BLINKS).toInt())) {
-        int limit = qRound(value);
-
-        QRectF rect = mBoundingRect.adjusted(
+    static int current_limit;
+    const struct Params params {
+        mBoundingRect.adjusted(
             data(WIDTH).toReal()/2,
             data(WIDTH).toReal()/2,
             -data(WIDTH).toReal()/2,
             -data(WIDTH).toReal()/2
-        );
+        ),
+        data(LIMITS).value<QList<int>>(),
+        data(PERIOD).toInt(),
+        data(REPS).toInt()
+    };
+    if (ShowSign(value, current_limit, params)) {
         QFont font = p->font();
         font.setPixelSize(data(FONT).toInt());
         font.setBold(true);
         p->setFont(font);
         p->setRenderHint(QPainter::Antialiasing);
-        p->fillPath(Outline(rect), Qt::white);
+        p->fillPath(Outline(params), Qt::white);
         p->setPen(QPen(Qt::red, data(WIDTH).toReal()));
-        p->drawPath(Outline(rect));
+        p->drawPath(Outline(params));
         p->setPen(QPen(Qt::black, data(WIDTH).toReal()));
         p->drawText(
             mBoundingRect,
-            QString::number(limit),
+            QString::number(current_limit),
             Qt::AlignCenter | Qt::AlignVCenter
         );
     }

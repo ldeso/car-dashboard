@@ -48,12 +48,12 @@ Cadran_Kodjo::Cadran_Kodjo(QString type_cadre, QString texte_cadre, int val_vite
     valeur_vitesse_min_globale = val_vitesse_min;
     valeur_vitesse_max_globale = val_vitesse_max;
     increment_vitesse_globale = increment_viesse;
-    //compteur_vitesse_texte_globale = cpt_vitesse_texte;
+
     condition_moteur_ou_vitesse = cpt_vitesse_texte;
     condition_essence_ou_huile = type_cadre;
 
     setValue(0);  // Initialise la vitesse à 0
-    //vitesse_vehicule = 0;
+
 
 }
 
@@ -67,18 +67,11 @@ void Cadran_Kodjo::Dessiner_Cercle_Fille(QPainter *cercle_painter)
     cercle_painter->setPen(*pen);
 
     couleur_pinceau->setNamedColor("black");
-    //couleur_pinceau->setGreen(255);
-    //couleur_pinceau->setRgb(109,74,48,255);
-    //couleur_pinceau->setRgb(255,255,255,255);
     pinceau->setColor(*couleur_pinceau);
 
-    //cercle_painter->setBrush(Qt::cyan);
-    //cercle_painter->setPen(couleur_pinceau);
-    //cercle_painter->setBrush(*pinceau);
     cercle_painter->setBrush(*couleur_pinceau);
 
-    //cercle_painter->drawEllipse(0,0,400,400);
-    //cercle_painter->drawEllipse(rectangle_cercle);
+
     cercle_painter->drawEllipse(centre_cercle_x, centre_cercle_y, longueur_rectangle, largeur_rectangle);
 
 }
@@ -89,12 +82,6 @@ void Cadran_Kodjo::Dessiner_Aiguille_Fille(QPainter *aiguille_painter)
     couleur_aiguille.setNamedColor("orange");
     pen_aiguille->setWidth(3);
     pen_aiguille->setColor(couleur_aiguille);
-
-    /*point_origine.setX(200);
-    point_origine.setY(200);
-
-    point_mobile.setX(0);
-    point_mobile.setY(200);*/
 
     aiguille_painter->setPen(couleur_aiguille);
     aiguille_painter->setPen(*pen_aiguille);
@@ -108,9 +95,9 @@ void Cadran_Kodjo::Variation_Vitesse_aiguille_Fille(QPainter *aiguille_vitesse_p
     //for(int i = 0; i <= 360; i++ )
     if(type_cadran == "V")
     {
-    //couleur_aiguille.setNamedColor("blue");
+
     couleur_aiguille.setNamedColor("red");
-    //couleur_aiguille.setNamedColor("orange");
+
     pen_aiguille->setWidth(3);
     pen_aiguille->setColor(couleur_aiguille);
     aiguille_vitesse_painter->setPen(*pen_aiguille);
@@ -121,22 +108,21 @@ void Cadran_Kodjo::Variation_Vitesse_aiguille_Fille(QPainter *aiguille_vitesse_p
     aiguille_mobile_fille->setAngle(210-degres_aiguille);
 
     aiguille_vitesse_painter->drawLine(*aiguille_mobile_fille);
-    //aiguille_vitesse_painter->drawLine(250,degres_aiguille, 400, 200);
+
     }
 
     if(type_cadran == "M")
     {
-    //couleur_aiguille.setNamedColor("blue");
+
     couleur_aiguille.setNamedColor("red");
-    //couleur_aiguille.setNamedColor("orange");
+
     pen_aiguille->setWidth(3);
     pen_aiguille->setColor(couleur_aiguille);
     aiguille_vitesse_painter->setPen(*pen_aiguille);
 
     //aiguille_mobile_fille->setLine(200,200, 355, 200);
     aiguille_mobile_moteur->setLine(ligne_origine_x,ligne_origine_y, ligne_fin_x, ligne_fin_y);
-    //aiguille_mobile_fille->setAngle(180-Degres_Fille);
-    //aiguille_mobile_moteur->setAngle(210-Degres_aiguille_enssence_huile);
+
     aiguille_mobile_moteur->setAngle(210-degres_aiguille*2/100);
 
     aiguille_vitesse_painter->drawLine(*aiguille_mobile_moteur);
@@ -154,10 +140,6 @@ void Cadran_Kodjo::Affiche_Graduation_Vitesse_Fille(QPainter *graduation_painter
     for(int i = valeur_vitesse_min_globale; i <= valeur_vitesse_max_globale; i= i+increment_vitesse_globale)
     {
 
-    //int compteur_vitesse_texte = 0;
-    //compteur_vitesse_texte = compteur_vitesse_texte + 20;
-    //couleur_aiguille.setNamedColor("green");
-    //couleur_aiguille.setNamedColor("white");
     couleur_aiguille.setRgb(165, 136, 207);
     pen_aiguille->setWidth(3);
     pen_aiguille->setColor(couleur_aiguille);
@@ -166,20 +148,16 @@ void Cadran_Kodjo::Affiche_Graduation_Vitesse_Fille(QPainter *graduation_painter
     graduation_fille->setAngle(i);
     //graduation_fille->setLength(25);
     graduation_fille->setLength(15);
-    //graduation_fille->translate(200*cos(i *Pi/180),-200*sin(i*Pi/180));
-    //graduation_fille->translate(180*cos(i *Pi/180),-180*sin(i*Pi/180));
+
     graduation_fille->translate(180*cos(i *Pi/180),-180*sin(i*Pi/180));
 
     graduation_painter->setPen(couleur_aiguille);
     graduation_painter->setPen(*pen_aiguille);
-    //graduation_painter->drawLine();
-    //graduation_painter->drawLine(250,250, 400, 200);
     graduation_painter->drawLine(*graduation_fille);
 
     couleur_valeur_vitesse_texte.setNamedColor("white");
     graduation_painter->setPen(couleur_valeur_vitesse_texte);
-    //graduation_painter->drawPoint(200 + 100*cos(i *Pi/180), 200 -100*sin(i*Pi/180) );
-    //graduation_painter->drawText(190 + 175*cos(i *Pi/180), 200 -175*sin(i*Pi/180), valeur_vitesse_string.setNum(180-i, 10));
+
     //graduation_painter->drawText(190 + 160*cos(i *Pi/180), 200 -160*sin(i*Pi/180), valeur_vitesse_string.setNum(180-i, 10));
 
     if(compteur_vitesse_texte <= valeur_vitesse_max_globale && condition_moteur_ou_vitesse == 0)
@@ -204,7 +182,6 @@ void Cadran_Kodjo::Affiche_Graduation_Vitesse_Fille(QPainter *graduation_painter
     }
 
     compteur_vitesse_texte = -30;  //Angle initiale de la position de l'aiguille
-    //compteur_vitesse_texte = compteur_vitesse_texte_globale;
 
 }
 
@@ -218,10 +195,9 @@ void Cadran_Kodjo::Setteur_Vitesse_Aiguille(int val_vitesse)
 void Cadran_Kodjo::Affichage_Texte_Km_h(QPainter *kilometre_h_painter)
 {
     couleur_kilometre_h->setRgb(138, 244, 239);
-    //pen_kilometre_h->setColor(Qt::blue);
+
     pen_kilometre_h->setColor(*couleur_kilometre_h);
 
-    //kilometre_h_painter->setPen(Qt::blue);
     kilometre_h_painter->setPen(*pen_kilometre_h);
     //kilometre_h_painter->drawText(190, 225, "Km/h");
     kilometre_h_painter->drawText(190, 225, texte_cadran_global);
@@ -230,7 +206,6 @@ void Cadran_Kodjo::Affichage_Texte_Km_h(QPainter *kilometre_h_painter)
 
 void Cadran_Kodjo::Setteur_Graduation_Moteur_Vitesse(int valeur_vitesse_min, int valeur_vitesse_max, int increment_vitesse, int condition_m_v)
 {
-    //val_grad_moteur_global = val_graduation_moteur;
     valeur_vitesse_min_globale = valeur_vitesse_min;
     valeur_vitesse_max_globale = valeur_vitesse_max;
     increment_vitesse_globale  = increment_vitesse;
@@ -261,32 +236,17 @@ void Cadran_Kodjo::Choix_Type_Cadran(QString type)
 
 void Cadran_Kodjo::Arc_Cercle_Essence_Huile(QPainter *essence_huile_painter)
 {
-    //couleur_arc_enssence_huile.setNamedColor("blue");
     couleur_arc_enssence_huile.setRgb( 94, 20, 223 ,255);
     pen_arc_enssence_huile->setColor(couleur_arc_enssence_huile);
     pen_arc_enssence_huile->setWidth(3);
     essence_huile_painter->setPen(*pen_arc_enssence_huile);
 
-    //couleur_pinceau_enssence_huile->setNamedColor("black");
-    //pinceau_enssence_huile->setColor(*couleur_pinceau_enssence_huile);
-    //pen_arc_enssence_huile->setWidth(6);
-    //pen_enssence_huile->setBrush(*pinceau_enssence_huile);
-    //essence_huile_painter->setBrushOrigin(100,100);
-    //essence_huile_painter->setBrush(*couleur_pinceau_enssence_huile);
-    //essence_huile_painter->setPen(*couleur_pinceau_enssence_huile);
-    //essence_huile_painter->setPen(*pen_enssence_huile);
-
-    //essence_huile_painter->drawArc(0,0,200,200,-30*16 ,120*16 );
-    //ligne_inf_arc_cercle->setLine(0,0, 100, 100);
-    //essence_huile_painter->drawLine(100,100, 200,100);
     ligne_inf_arc_cercle->setAngle(-30);
     essence_huile_painter->drawLine(*ligne_inf_arc_cercle);
 
     ligne_sup_arc_cercle->setAngle(90);
     essence_huile_painter->drawLine(*ligne_sup_arc_cercle);
 
-
-    //essence_huile_painter->drawEllipse(0,0,200,200);
     //essence_huile_painter->setPen(QPen(QBrush(QColor("blue")),200,Qt::SolidLine,Qt::FlatCap)); //Henri
     couleur_pinceau_enssence_huile->setNamedColor("black");
     pinceau_enssence_huile->setColor(*couleur_pinceau_enssence_huile);
@@ -345,8 +305,6 @@ void Cadran_Kodjo::Affiche_Graduation_Essence_Huile(QPainter *graduation_essence
     }
 
     }
-    //image_essence->
-    //graduation_essence_huile_painter->drawPixmap(100,25,100,100, *image_essence);
 
     }
 
@@ -397,24 +355,22 @@ void Cadran_Kodjo::Affiche_Graduation_Essence_Huile(QPainter *graduation_essence
 
 }
 
-void Cadran_Kodjo::Variation_Aiguille_Essence_Huile(QPainter *aiguille_huile_essence_painter, int degres_aiguille_huile_essence)
+void Cadran_Kodjo::Variation_Aiguille_Essence_Huile(QPainter *aiguille_huile_essence_painter, int degres_aiguille_huile_essence =50)
 {
+    if(type_cadran == "H" && (degres_aiguille_huile_essence == 0 || degres_aiguille_huile_essence < 50))
+        degres_aiguille_huile_essence = 50;
+
+
     if(type_cadran == "E")
     {
     couleur_aiguille_enssence_huile.setNamedColor("red");
     pen_aiguille_enssence_huile->setWidth(3);
     pen_aiguille_enssence_huile->setColor(couleur_aiguille_enssence_huile);
-    //aiguille_enssence_huile->setLine(0,0, 150, 150);
-    //aiguille_enssence_huile->setAngle(-30);
 
-    //aiguille_enssence_huile->setLine(75,75, 225,75);
-    //aiguille_enssence_huile->setAngle(degres_aiguille_huile_essence);
-    //aiguille_enssence_huile->setAngle(Degres_aiguille_enssence_huile);
     aiguille_enssence_huile->setAngle((90 -(degres_aiguille_huile_essence*1.2)));
 
     //qDebug() << "Degres_Fille_Essence "<< Degres_Fille;
-    qDebug() << "Degres_Fille_Essence "<< Degres_aiguille_enssence_huile;
-
+    //qDebug() << "Degres_Fille_Essence "<< Degres_aiguille_enssence_huile;
 
     aiguille_huile_essence_painter->drawPixmap(100,25,100,100, *image_essence); //Affiche l'icone essence
     }
@@ -424,18 +380,13 @@ void Cadran_Kodjo::Variation_Aiguille_Essence_Huile(QPainter *aiguille_huile_ess
         couleur_aiguille_enssence_huile.setNamedColor("red");
         pen_aiguille_enssence_huile->setWidth(3);
         pen_aiguille_enssence_huile->setColor(couleur_aiguille_enssence_huile);
-        //aiguille_enssence_huile->setLine(0,0, 150, 150);
-        //aiguille_enssence_huile->setAngle(-30);
 
-        //aiguille_enssence_huile->setLine(75,75, 225,75);
-        //aiguille_enssence_huile->setAngle(degres_aiguille_huile_essence);
-        //aiguille_enssence_huile->setAngle(Degres_aiguille_enssence_huile);
         aiguille_enssence_huile->setAngle(150-degres_aiguille_huile_essence*1.2);
 
         //qDebug() << "Degres_Fille_Essence "<< Degres_Fille;
-        qDebug() << "Degres_Huile "<< Degres_aiguille_enssence_huile;
+        //qDebug() << "Degres_Huile "<< Degres_aiguille_enssence_huile;
 
-        aiguille_huile_essence_painter->drawPixmap(100,25,100,100, *image_huile); //Affiche l'icone essence
+        aiguille_huile_essence_painter->drawPixmap(100,25,100,100, *image_huile); //Affiche l'icone huile
     }
 
 
@@ -457,13 +408,10 @@ void Cadran_Kodjo::Setteur_Graduation_Essence_Huile(QString val_choix)
 
 void Cadran_Kodjo::Clignotant(QPainter *clignotants_painter)
 {
-    //QPixmap *image_clignotant_gauche = new QPixmap("/home/utilisateur/Bureau/Tableau_De_Bord_Kodjo/clignotants_gauche.png",Q_NULLPTR, Qt::AutoColor);
-    //QTimer *timer = new QTimer;
-    //QTest *timer = new QTest;
 
     if(type_cadran == "V" )
     {
-        int i = 0;
+        //int i = 0;
 
         //qDebug() << " compteur_clignotant = " <<compteur_clignotant;
 
@@ -516,6 +464,43 @@ void Cadran_Kodjo::Setteur_Clignotant(int cpt_clignotant)
     compteur_clignotant = cpt_clignotant;
 }
 
+void Cadran_Kodjo::Voyant_Batterie(QPainter *batterie_painter, float etat_batterie)
+{
+    if(etat_batterie == 1)
+    {
+        batterie_painter->drawPixmap(600, 250, 50, 50,*image_voyant_batterie);
+    }
+    else
+    {
+
+    }
+
+}
+
+void Cadran_Kodjo::Voyant_Porte_Ouverte(QPainter *porte_painter, float etat_porte)
+{
+    if(etat_porte == 1)
+    {
+        porte_painter->drawPixmap(650, 250, 50, 50,*image_voyant_porte_ouverte);
+    }
+    else
+    {
+
+    }
+}
+
+void Cadran_Kodjo::Voyant_Ceinture_De_Securite(QPainter *ceinture_painter, float etat_ceinture_de_securite)
+{
+    if(etat_ceinture_de_securite == 1)
+    {
+        ceinture_painter->drawPixmap(650, 250, 50, 50,*image_voyant_ceinture_de_securite);
+    }
+    else
+    {
+
+    }
+}
+
 void Cadran_Kodjo::Variation_Vitesse_Fille()  // C'est un SLOT
 {
 
@@ -523,25 +508,18 @@ void Cadran_Kodjo::Variation_Vitesse_Fille()  // C'est un SLOT
 
 QRectF Cadran_Kodjo::boundingRect() const
 {
-    qreal penWidth = 1;
+    //qreal penWidth = 1;
 
-    //return QRectF(-10 - penWidth / 2, -10 - penWidth / 2, 20 + penWidth, 20 + penWidth);
-    //return QRectF(0,0,200,200);
     return QRectF(0,0,400,400);
 }
 
-void Cadran_Kodjo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    //painter->drawRoundedRect(-10, -10, 20, 20, 5, 5);
-    //painter->drawLine(10,10,500,500);
-    //painter->drawText(50,50, "200");
-    //painter->drawEllipse(50,0,400,400);
-    //MainWindow *pointeur_main = new MainWindow();
-    //pointeur_main->Degres;
-    //pointeur_main->Valeur_Degres();
-    rectangle_cercle = boundingRect();
+///Dans la fonction paint, nous affichons : la vitesse, le tour moteur, le niveau d'essence, la température de l'huile
+/// et les voyants
 
-    //painter->drawRect(rectangle_cercle);
+void Cadran_Kodjo::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
+{
+
+    rectangle_cercle = boundingRect();
 
    //qDebug() << "Degres_Principale" << pointeur_main->Degres;
     //qDebug() << "Degres_Principale" << pointeur_main->Valeur_Degres();
@@ -550,27 +528,15 @@ void Cadran_Kodjo::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     {
     Dessiner_Cercle_Fille(painter);
 
-    //Dessiner_Aiguille_Fille(painter);
-
-    //painter->drawLine(250,250, 400, 200);
     Affiche_Graduation_Vitesse_Fille(painter);
 
-
-    //MainWindow::Degres;
-    //float vitesse = getValue();
     vitesse_vehicule = getValue();
     //qDebug()<<"youpi"<<getValue();
-    qDebug()<<"youpi"<<vitesse_vehicule;
+    //qDebug()<<"youpi"<<vitesse_vehicule;
 
-    //Variation_Vitesse_aiguille_Fille(painter,Degres_Fille);
     Variation_Vitesse_aiguille_Fille(painter,vitesse_vehicule);
 
-
-    //painter->drawText(150,150, "Km/h");
-
     Affichage_Texte_Km_h(painter);
-
-    //Arc_Cercle_Essence_Huile(painter);
 
     }
 
@@ -579,40 +545,45 @@ void Cadran_Kodjo::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
     {
         Arc_Cercle_Essence_Huile(painter);
 
-        vitesse_vehicule = getValue();
+        //vitesse_vehicule = getValue();
+        Degres_aiguille_enssence_huile = getValue();
 
-        //Variation_Aiguille_Essence_Huile(painter, Degres_aiguille_enssence_huile);
+        Variation_Aiguille_Essence_Huile(painter, Degres_aiguille_enssence_huile);
 
-        Variation_Aiguille_Essence_Huile(painter, vitesse_vehicule);
-
-        qDebug()<<"valeur_essence_huile ="<<vitesse_vehicule;
+        //qDebug()<<"valeur_essence_huile ="<<vitesse_vehicule;
+        //qDebug()<<"valeur_essence_huile ="<<Degres_aiguille_enssence_huile;
 
         Affiche_Graduation_Essence_Huile(painter);
 
     }
 
-    //Clignotant(painter);
-    //painter->drawPixmap(100,100,100,100, *image_essence);
 
-    //qDebug() << " compteur_clignotant = " <<compteur_clignotant;
-
-    //painter->drawPoint(*valeur_vitesse);
-    //qDebug() << "Degres_Fille" <<Degres_Fille;
-    //if()
+    if(type_cadran == "B")
     {
-        //Variation_Vitesse_aiguille_Fille(painter);
-        //scene->clear();
+
+        etat_batterie_globale = getValue();
+
+        Voyant_Batterie(painter, etat_batterie_globale);
+
+    }
+
+    if(type_cadran == "P")
+    {
+        etat_porte_globale = getValue();
+
+        Voyant_Porte_Ouverte(painter, etat_porte_globale);
 
     }
 
 
+    if(type_cadran == "C")
+    {
+        etat_ceinture_de_securite_globale = getValue();
 
-    //QRectF rectangle = boundingRect();
+        Voyant_Ceinture_De_Securite(painter, etat_ceinture_de_securite_globale);
 
-    //painter->drawRect(rectangle);
-    //painter->drawEllipse(rectangle);
-    //painter->setPen(couleur_cercle);
-    //painter->setPen(*pen);
-    //painter->drawEllipse(500,0,400,400);
+    }
+
+    //qDebug() << " compteur_clignotant = " <<compteur_clignotant;
 
 }
