@@ -100,4 +100,7 @@ void cadrantcontour::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     painter->drawEllipse(-300,-300,600,600);}
 
 
+
+
+
   }

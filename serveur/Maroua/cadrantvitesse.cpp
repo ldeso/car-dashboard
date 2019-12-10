@@ -108,6 +108,15 @@ void cadrantvitesse::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
        }
 
    ///création du cadrant contenant la date et l'heure
+       {painter->setPen(QPen(QColor(0,0,0,0) , 1, Qt::SolidLine,Qt::FlatCap));
+       painter->setBrush(QColor(0,128,255,15));
+       painter->drawRect(-80,205,160,80);
+       QRadialGradient radialGrad(QPointF(0, 240), 50);
+       radialGrad.setColorAt(0, QColor(0,204,255));
+       radialGrad.setColorAt(1, QColor(0, 128, 255));
+       painter->setPen(QPen(QColor(0,204,255) , 1, Qt::SolidLine,Qt::FlatCap));
+       painter->setBrush(radialGrad);}
+
    {QRect rectHeure(-35,220,200,100);
    painter->setPen(QPen(QBrush("white"), 5, Qt::SolidLine));
    painter->setFont(QFont("georgia ", 15,QFont::Bold, Qt::AlignVCenter));

@@ -44,8 +44,8 @@ void VoyantsMaroua::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
     QBrush brush(grad1);
     painter->setBrush(brush);
     painter->setOpacity(clignotant);
-    painter->drawPixmap(-160,200,70,38,img2);
-//         painter->drawEllipse(-160,-295,60,60);
+    painter->drawPixmap(-160,200,80,53,img2);
+
     }
 
      if(getValue()==1)
@@ -59,8 +59,8 @@ void VoyantsMaroua::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
           QBrush brush(grad1);
           painter->setBrush(brush);
           painter->setOpacity(clignotant);
-          painter->drawPixmap(100,200,60,35,img2);
-//          painter->drawEllipse(105,-295,60,60);
+          painter->drawPixmap(100,200,70,50,img2);
+
       }
 
     if(getValue()==2)
@@ -74,8 +74,8 @@ void VoyantsMaroua::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
         QBrush brush(grad1);
         painter->setBrush(brush);
         painter->setOpacity(clignotant);
-        painter->drawPixmap(100,200,60,35,img2);
-//        painter->drawEllipse(105,-295,60,60);
+        painter->drawPixmap(100,200,70,50,img2);
+
 
         QPixmap img3("/home/sahli/Bureau/Icones/clign-gauche.jpg");
         QPixmap img4=img3.scaled(50,50);
@@ -85,8 +85,8 @@ void VoyantsMaroua::paint(QPainter *painter, const QStyleOptionGraphicsItem *, Q
 
         painter->setBrush(brush);
         painter->setOpacity(clignotant);
-        painter->drawPixmap(-160,200,70,38,img4);
-//        painter->drawEllipse(-160,-295,60,60);
+        painter->drawPixmap(-160,200,80,53,img4);
+
     }
 activate();
 
