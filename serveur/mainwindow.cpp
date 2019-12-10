@@ -631,6 +631,13 @@ void MainWindow::reception()
         int CruiseControlOn_on= string.section(' ', 2,2).toInt();
         if(CruiseControlOn_on>0 && CruiseControlOn_on<=dashboard->Vitesse->getValueMax()){
             dashboard->CruiseControlOn->setValue(1);
+            float pas=(CruiseControlOn_on-dashboard->Vitesse->getValue())/100;
+            for (int i=0;i<100;i++)
+            {
+                dashboard->Vitesse->setValue(dashboard->Vitesse->getValue() + pas);
+                ui->graphicsView->scene()->update();
+                QTest::qWait(20);
+            }
             dashboard->Vitesse->setValue(CruiseControlOn_on);
             ui->graphicsView->scene()->update();
             QString text = "OK";
@@ -644,10 +651,11 @@ void MainWindow::reception()
         }
         else{
             QString text;
-            text = QString("valeur incorrecte, doit être égale à 0 ou 1");
+            text = QString("valeur incorrecte, doit être comprise entre 0 et %1").arg(dashboard->Vitesse->getValueMax());
             socket->write(text.toLocal8Bit());
         }
     }
+
 
     else if(message=="CAN ENGINE_T"){
         int engineT = string.section(' ', 2,2).toInt();
